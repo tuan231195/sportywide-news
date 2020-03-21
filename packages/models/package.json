@@ -1,0 +1,8 @@
+{
+    "name": "@vdtn359/news-models",
+    "version": "1.0.0",
+    "description": "news model",
+    "dependencies": {
+        "@vdtn359/news-utils": "workspace:*"
+    }
+}

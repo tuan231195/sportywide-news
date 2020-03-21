@@ -1,22 +1,60 @@
-devDependencies:
-  '@commitlint/cli': 8.3.5
-  '@commitlint/config-conventional': 8.3.4
-  '@types/jest': 25.1.4
-  '@typescript-eslint/eslint-plugin': 2.22.0_5fc37458f7af86d127d807b1f2a4d108
-  '@typescript-eslint/parser': 2.22.0_eslint@6.8.0+typescript@3.8.3
-  commitizen: 4.0.3
-  cz-conventional-changelog: 3.1.0
-  eslint: 6.8.0
-  eslint-config-prettier: 6.10.0_eslint@6.8.0
-  eslint-plugin-prettier: 3.1.2_eslint@6.8.0+prettier@1.19.1
-  husky: 4.2.3
-  jest: 25.1.0
-  lint-staged: 10.0.8
-  npm-run-all: 4.1.5
-  prettier: 1.19.1
-  ts-jest: 25.2.1_jest@25.1.0
-  typescript: 3.8.3
-  typescript-transform-paths: 1.1.14
+importers:
+  .:
+    devDependencies:
+      '@commitlint/cli': 8.3.5
+      '@commitlint/config-conventional': 8.3.4
+      '@types/jest': 25.1.4
+      '@typescript-eslint/eslint-plugin': 2.22.0_5fc37458f7af86d127d807b1f2a4d108
+      '@typescript-eslint/parser': 2.22.0_eslint@6.8.0+typescript@3.8.3
+      commitizen: 4.0.3
+      cz-conventional-changelog: 3.1.0
+      eslint: 6.8.0
+      eslint-config-prettier: 6.10.0_eslint@6.8.0
+      eslint-plugin-prettier: 3.1.2_eslint@6.8.0+prettier@1.19.1
+      husky: 4.2.3
+      jest: 25.1.0
+      lint-staged: 10.0.8
+      npm-run-all: 4.1.5
+      prettier: 1.19.1
+      ts-jest: 25.2.1_jest@25.1.0
+      typescript: 3.8.3
+      typescript-transform-paths: 1.1.14
+    specifiers:
+      '@commitlint/cli': 8.3.5
+      '@commitlint/config-conventional': 8.3.4
+      '@types/jest': 25.1.4
+      '@typescript-eslint/eslint-plugin': 2.22.0
+      '@typescript-eslint/parser': 2.22.0
+      commitizen: 4.0.3
+      cz-conventional-changelog: 3.1.0
+      eslint: 6.8.0
+      eslint-config-prettier: 6.10.0
+      eslint-plugin-prettier: 3.1.2
+      husky: 4.2.3
+      jest: 25.1.0
+      lint-staged: 10.0.8
+      npm-run-all: 4.1.5
+      prettier: 1.19.1
+      ts-jest: 25.2.1
+      typescript: 3.8.3
+      typescript-transform-paths: 1.1.14
+  app/web:
+    dependencies:
+      '@vdtn359/news-models': 'link:../../packages/models'
+      '@vdtn359/news-utils': 'link:../../packages/utils'
+    specifiers:
+      '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-utils': 'workspace:*'
+  packages/models:
+    dependencies:
+      '@vdtn359/news-utils': 'link:../utils'
+    specifiers:
+      '@vdtn359/news-utils': 'workspace:*'
+  packages/utils:
+    dependencies:
+      lodash: 4.17.15
+    specifiers:
+      lodash: 4.17.15
 lockfileVersion: 5.1
 packages:
   /@babel/code-frame/7.8.3:
@@ -3665,7 +3703,6 @@ packages:
     resolution:
       integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   /lodash/4.17.15:
-    dev: true
     resolution:
       integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
   /log-symbols/1.0.2:
@@ -5788,22 +5825,3 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-92O1HWEjw27sBfgmXiixJWT5hRBp2eobqXicLtPBIDBhYB+1HpwZlXmbW2luivBJHBzki+7VyCLRtAkScbTBQA==
-specifiers:
-  '@commitlint/cli': 8.3.5
-  '@commitlint/config-conventional': 8.3.4
-  '@types/jest': 25.1.4
-  '@typescript-eslint/eslint-plugin': 2.22.0
-  '@typescript-eslint/parser': 2.22.0
-  commitizen: 4.0.3
-  cz-conventional-changelog: 3.1.0
-  eslint: 6.8.0
-  eslint-config-prettier: 6.10.0
-  eslint-plugin-prettier: 3.1.2
-  husky: 4.2.3
-  jest: 25.1.0
-  lint-staged: 10.0.8
-  npm-run-all: 4.1.5
-  prettier: 1.19.1
-  ts-jest: 25.2.1
-  typescript: 3.8.3
-  typescript-transform-paths: 1.1.14

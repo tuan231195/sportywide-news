@@ -1,0 +1,8 @@
+{
+    "name": "@vdtn359/news-utils",
+    "version": "1.0.0",
+    "description": "news util",
+    "dependencies": {
+        "lodash": "4.17.15"
+    }
+}
