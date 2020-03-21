@@ -1,6 +1,8 @@
 {
     "name": "@vdtn359/news-utils",
     "version": "1.0.0",
+    "main": "dist/index.js",
+    "type": "dist/index.d.ts",
     "description": "news util",
     "dependencies": {
         "lodash": "4.17.15"

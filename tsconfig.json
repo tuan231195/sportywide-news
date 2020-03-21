@@ -14,9 +14,13 @@
         "skipLibCheck": true,
         "sourceMap": true,
         "plugins": [
-            { "transform": "typescript-transform-paths" },
             {
-                "transform": "typescript-transform-paths",
+                "transform": "@zerollup/ts-transform-paths",
+                "exclude": ["@vdtn359/*"]
+            },
+            {
+                "transform": "@zerollup/ts-transform-paths",
+                "exclude": ["@vdtn359/*"],
                 "afterDeclarations": true
             }
         ]
