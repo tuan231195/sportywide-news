@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "target": "es6",
+        "declaration": true,
+        "outDir": "dist",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "noImplicitAny": false,
+        "strict": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "plugins": [
+            { "transform": "typescript-transform-paths" },
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
+    }
+}

@@ -16,7 +16,9 @@ importers:
       lint-staged: 10.0.8
       npm-run-all: 4.1.5
       prettier: 1.19.1
+      scritch: 1.3.1
       ts-jest: 25.2.1_jest@25.1.0
+      ts-transpile: 1.2.1_typescript@3.8.3
       typescript: 3.8.3
       typescript-transform-paths: 1.1.14
     specifiers:
@@ -35,7 +37,9 @@ importers:
       lint-staged: 10.0.8
       npm-run-all: 4.1.5
       prettier: 1.19.1
+      scritch: ^1.3.1
       ts-jest: 25.2.1
+      ts-transpile: 1.2.1
       typescript: 3.8.3
       typescript-transform-paths: 1.1.14
   app/web:
@@ -1994,6 +1998,14 @@ packages:
       node: ^8.12.0 || >=9.7.0
     resolution:
       integrity: sha512-r9vdGQk4bmCuK1yKQu1KTwcT2zwfWdbdaXfCtAh+5nU/4fSX+JAb7vZGvI5naJrQlvONrEB20jeruESI69530g==
+  /executable/4.1.1:
+    dependencies:
+      pify: 2.3.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-8iA79xD3uAch729dUG8xaaBBFGaEa0wdD2VkYLFHwlqosEj/jT66AzcreRDSgV7ehnNLBW2WR5jIXwGKjVdTLg==
   /exit/0.1.2:
     dev: true
     engines:
@@ -2180,6 +2192,14 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
+  /find-up/3.0.0:
+    dependencies:
+      locate-path: 3.0.0
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   /find-up/4.1.0:
     dependencies:
       locate-path: 5.0.0
@@ -3665,6 +3685,15 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-K1aLJl7slExtnA3pw9u7ygNUzY4=
+  /locate-path/3.0.0:
+    dependencies:
+      p-locate: 3.0.0
+      path-exists: 3.0.0
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==
   /locate-path/5.0.0:
     dependencies:
       p-locate: 4.1.0
@@ -4203,6 +4232,14 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-IKAQOyIqcMj9OcwuWAaA893l7EM=
+  /p-locate/3.0.0:
+    dependencies:
+      p-limit: 2.2.2
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==
   /p-locate/4.1.0:
     dependencies:
       p-limit: 2.2.2
@@ -4338,6 +4375,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-9CT4NFlDcosssyg8KVFltgokyKZIFjoBxw8CTGy+5F38Y1eQWrt8tRayiUOXE+zVKQnYu5BR8JjCtvK3BcnBhg==
+  /pify/2.3.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
   /pify/3.0.0:
     dev: true
     engines:
@@ -4476,6 +4519,15 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-PtSWaF26D4/hGNBpHcUfSh/5bwc=
+  /read-pkg-up/4.0.0:
+    dependencies:
+      find-up: 3.0.0
+      read-pkg: 3.0.0
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-6etQSH7nJGsK0RbG/2TeDzZFa8shjQ1um+SwQQ5cwKy0dhSXdOncEhb1CPpvQG4h7FyOV6EB6YlV0yJvZQNAkA==
   /read-pkg/3.0.0:
     dependencies:
       load-json-file: 4.0.0
@@ -4508,6 +4560,12 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==
+  /readdir-withfiletypes/1.0.2:
+    dependencies:
+      util.promisify: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha512-aERxJxl5lKupnqBdqatmaWOCj8YhHAB+/EdcBQU+z/vyII6dYysmNHxR9OVjdJOnhgq+5eX6wbo53ysFvu5UIw==
   /realpath-native/1.1.0:
     dependencies:
       util.promisify: 1.0.1
@@ -4582,6 +4640,14 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=
+  /replacestream/4.0.3:
+    dependencies:
+      escape-string-regexp: 1.0.5
+      object-assign: 4.1.1
+      readable-stream: 2.3.7
+    dev: true
+    resolution:
+      integrity: sha512-AC0FiLS352pBBiZhd4VXB1Ab/lh0lEgpP+GGvZqbQh8a5cmXVoTe5EX/YeTFArnp4SRGTHh1qCHu9lGs1qG8sA==
   /request-promise-core/1.1.3_request@2.88.2:
     dependencies:
       lodash: 4.17.15
@@ -4817,6 +4883,19 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-Ydydq3zC+WYDJK1+gRxRapLIED9PWeSuuS41wqyoRmzvhhh9nc+QQrVMKJYzJFULazeGhzSV0QleN2wD3boh2g==
+  /scritch/1.3.1:
+    dependencies:
+      cross-spawn: 6.0.5
+      executable: 4.1.1
+      meow: 5.0.0
+      read-pkg-up: 4.0.0
+      readdir-withfiletypes: 1.0.2
+      strip-ansi-stream: 1.0.0
+      strip-indent: 2.0.0
+      supports-color: 7.1.0
+    dev: true
+    resolution:
+      integrity: sha512-NoaadIIyuxVyB8/Hq1UohVqEZbMrLHPPjiLAfVHegxC3V4KtZtJQPKWDNMBZ1fGd1A+4lCEIrZGpD/H/5dM5Kw==
   /semver-compare/1.0.0:
     dev: true
     resolution:
@@ -5190,6 +5269,15 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-rHqiFh1elqCQ9WPLIC8I0Q/g/wj5J1eMkyoiD6eoQApWHP0FtlK7rqnhmabL5VUY9JQCcqwwvlOaSuutekgyrw==
+  /strip-ansi-stream/1.0.0:
+    dependencies:
+      ansi-regex: 3.0.0
+      replacestream: 4.0.3
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-G8NIkSYbX2J0dvqGvznZSlXYy3CnHwfXRq+Y5zX6qDMfsVWBZINqthIjwdN3JO/gJ9ueKw4NAeY9xmSP4dxoRA==
   /strip-ansi/3.0.1:
     dependencies:
       ansi-regex: 2.1.1
@@ -5472,6 +5560,16 @@ packages:
       jest: '>=25 <26'
     resolution:
       integrity: sha512-TnntkEEjuXq/Gxpw7xToarmHbAafgCaAzOpnajnFC6jI7oo1trMzAHA04eWpc3MhV6+yvhE8uUBAmN+teRJh0A==
+  /ts-transpile/1.2.1_typescript@3.8.3:
+    dependencies:
+      ttypescript: 1.5.10_typescript@3.8.3
+      typescript: 3.8.3
+    dev: true
+    hasBin: true
+    peerDependencies:
+      typescript: '>= 3.6.0'
+    resolution:
+      integrity: sha512-yx1CGmiKyfWy7MzLowJ1aDhWWryWG8zUaQpEoRdS6EWe4LAusZ+NcMAzii8Kp3tc9A1Ady1T70i6za0Ar24agg==
   /tslib/1.11.1:
     dev: true
     resolution:
@@ -5487,6 +5585,17 @@ packages:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     resolution:
       integrity: sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
+  /ttypescript/1.5.10_typescript@3.8.3:
+    dependencies:
+      resolve: 1.15.1
+      typescript: 3.8.3
+    dev: true
+    hasBin: true
+    peerDependencies:
+      ts-node: ^8.0.2
+      typescript: ^3.2.2
+    resolution:
+      integrity: sha512-Hk7TRej1hM+p+Fo+Pyb/XK9pe9CAt3Sh5n5YRutxFS8hUgkh2u1Vd2K40kMcNP3WYhiVFBMqXwM/2E8O95Ep6g==
   /tunnel-agent/0.6.0:
     dependencies:
       safe-buffer: 5.2.0
