@@ -14,8 +14,15 @@ function buildPackages() {
 	sh('ttsc -b packages');
 }
 
+function dev() {
+	sh('pnpm recursive run dev', {
+		async: true,
+	});
+}
+
 cli({
 	buildPackagesDev,
 	buildPackages,
 	watchPackages,
+	dev,
 });

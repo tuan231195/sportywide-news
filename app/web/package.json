@@ -2,8 +2,15 @@
     "name": "@vdtn359/news-web",
     "version": "1.0.0",
     "description": "news web",
+    "scripts": {
+        "dev": "BUNDLE_AWS_SDK=1 next dev"
+    },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
-        "@vdtn359/news-models": "workspace:*"
+        "@vdtn359/news-models": "workspace:*",
+        "lodash": "4.17.15",
+        "next": "9.3.1",
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
     }
 }

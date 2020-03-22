@@ -1,1 +1,3 @@
-export * as string from 'src/string';
+import * as str from 'src/str';
+
+export { str };

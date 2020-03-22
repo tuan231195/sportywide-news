@@ -5,13 +5,11 @@
         "target": "es6",
         "declaration": true,
         "outDir": "dist",
-        "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "downlevelIteration": true,
         "noImplicitAny": false,
         "strict": true,
-        "skipLibCheck": true,
         "sourceMap": true,
         "plugins": [
             {
