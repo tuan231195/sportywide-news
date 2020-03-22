@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "news web",
     "scripts": {
-        "dev": "BUNDLE_AWS_SDK=1 next dev"
+        "dev": "LOCAL=1 next dev",
+        "build": "rm -rf .next && next build",
+        "deploy": "serverless"
     },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
@@ -12,5 +14,9 @@
         "next": "9.3.1",
         "react": "16.13.1",
         "react-dom": "16.13.1"
+    },
+    "devDependencies": {
+        "next-transpile-modules": "3.1.0",
+        "serverless": "1.67.0"
     }
 }

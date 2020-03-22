@@ -1,15 +1,50 @@
-module.exports = {
-	target: 'serverless',
-	webpack: (config) => {
-		if (!process.env.BUNDLE_AWS_SDK) {
-			config.externals = config.externals || [];
-			config.externals.push({ 'aws-sdk': 'aws-sdk' });
-		} else {
-			console.warn(
-				'Bundling aws-sdk. Only doing this in development mode'
-			);
-		}
+const withTM = require('next-transpile-modules')([
+	'@vdtn359/news-utils',
+	'@vdtn359/news-models',
+]);
+const withPlugins = require('next-compose-plugins');
 
-		return config;
-	},
-};
+const nextConfig = withPlugins(
+	[
+		[
+			(nextConfig) => {
+				return Object.assign({}, nextConfig, {
+					webpack: (config, options) => {
+						config.resolve.symlinks = true;
+						if (typeof nextConfig.webpack === 'function') {
+							return nextConfig.webpack(config, options);
+						}
+						if (!process.env.LOCAL) {
+							config.externals = config.externals || [];
+							config.externals.push({
+								'aws-sdk': 'aws-sdk',
+							});
+						} else {
+							console.warn(
+								'Bundling all node modules. Only doing this in development mode'
+							);
+						}
+
+						config.resolve.alias = {
+							...config.resolve.alias,
+							'@vdtn359/news-utils': require.resolve(
+								'@vdtn359/news-utils'
+							),
+							'@vdtn359/news-models': require.resolve(
+								'@vdtn359/news-models'
+							),
+						};
+
+						return config;
+					},
+				});
+			},
+		],
+		[withTM],
+	],
+	{
+		target: 'serverless',
+	}
+);
+
+module.exports = nextConfig;

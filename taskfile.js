@@ -1,23 +1,47 @@
 const { sh, cli } = require('tasksfile');
 
 function buildPackagesDev() {
-	sh('ts-transpile -b packages');
+	return sh('ts-transpile -b packages');
 }
 
 function watchPackages() {
-	sh('ts-transpile -b packages -w', {
+	return sh('ts-transpile -b packages -w', {
 		async: true,
 	});
 }
 
 function buildPackages() {
-	sh('ttsc -b packages');
+	return sh('ttsc -b packages');
+}
+
+function startAppDevs() {
+	return sh('pnpm recursive run dev', {
+		async: true,
+	});
+}
+
+function buildApp() {
+	return sh('pnpm recursive run build');
+}
+
+function deployApp() {
+	return sh('pnpm recursive run deploy', {
+		nopipe: true,
+	});
 }
 
 function dev() {
-	sh('pnpm recursive run dev', {
-		async: true,
-	});
+	return Promise.all([watchPackages(), startAppDevs()]);
+}
+
+function build() {
+	buildPackages();
+	buildApp();
+}
+
+function deploy() {
+	buildPackages();
+	deployApp();
 }
 
 cli({
@@ -25,4 +49,6 @@ cli({
 	buildPackages,
 	watchPackages,
 	dev,
+	build,
+	deploy,
 });
