@@ -1,6 +1,7 @@
 {
     "files": [],
     "compilerOptions": {
+        "preserveWatchOutput": true,
         "incremental": true
     },
     "references": [

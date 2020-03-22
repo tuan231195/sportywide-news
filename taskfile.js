@@ -5,9 +5,12 @@ function buildPackagesDev() {
 }
 
 function watchPackages() {
-	return sh('ts-transpile -b packages -w', {
-		async: true,
-	});
+	return sh(
+		'chokidar --silent "packages/*/src/**/*" --initial -c "time ts-transpile -b packages"',
+		{
+			async: true,
+		}
+	);
 }
 
 function buildPackages() {
@@ -15,9 +18,11 @@ function buildPackages() {
 }
 
 function startAppDevs() {
-	return sh('pnpm recursive run dev', {
-		async: true,
-	});
+	return Promise.all([
+		sh('pnpm recursive run dev --filter @vdtn359/news-web', {
+			async: true,
+		}),
+	]);
 }
 
 function buildApp() {

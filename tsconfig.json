@@ -1,15 +1,18 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
+        "preserveWatchOutput": true,
         "module": "CommonJS",
         "target": "es6",
         "declaration": true,
+        "resolveJsonModule": true,
         "outDir": "dist",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "downlevelIteration": true,
         "noImplicitAny": false,
         "strict": true,
+        "strictPropertyInitialization": false,
         "sourceMap": true,
         "plugins": [
             {

@@ -1,0 +1,19 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "src/*": ["./src/*"],
+            "@vdtn359/news-utils": ["../../packages/utils/src"],
+            "@vdtn359/news-models": ["../../packages/models/src"]
+        }
+    },
+    "references": [
+        {
+            "path": "../../packages/utils"
+        },
+        {
+            "path": "../../packages/models"
+        }
+    ]
+}

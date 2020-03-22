@@ -5,6 +5,7 @@
         "declaration": true,
         "outDir": "dist",
         "baseUrl": ".",
+        "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
         "rootDir": "src",
         "paths": {
             "src/*": ["./src/*"],
@@ -15,5 +16,6 @@
         {
             "path": "../utils"
         }
-    ]
+    ],
+    "include": ["src"]
 }
