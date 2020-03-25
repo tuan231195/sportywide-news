@@ -11,7 +11,7 @@ export enum CATEGORY {
 	TRAVEL = 'TRAVEL',
 	ENTERTAINMENT = 'ENTERTAINMENT',
 	TECHNOLOGY = 'TECHNOLOGY',
-	FINANCE = 'FINANCE',
+	BUSINESS = 'BUSINESS',
 }
 export class NewsDto {
 	guid: string;

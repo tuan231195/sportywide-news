@@ -24,7 +24,7 @@ importers:
       prettier: github.com/prettier/prettier/71b2d35d59a3573c7ad8cc9f2dee047e75824035
       tasksfile: 5.1.0
       ts-jest: 25.2.1_jest@25.1.0
-      ts-transpile: 1.2.3_typescript@3.8.3
+      ts-transpile: 1.2.4_typescript@3.8.3
       tsconfig-paths: 3.9.0
       ttypescript: 1.5.10_typescript@3.8.3
       typescript: 3.8.3
@@ -52,31 +52,33 @@ importers:
       prettier: 'github:prettier/prettier#next'
       tasksfile: ~5.1.0
       ts-jest: 25.2.1
-      ts-transpile: ~1.2.3
+      ts-transpile: ~1.2.4
       tsconfig-paths: 3.9.0
       ttypescript: 1.5.10
       typescript: 3.8.3
   app/crawler:
     dependencies:
-      '@vdtn359/news-models': 'link:../../packages/models'
+      '@vdtn359/news-schema': 'link:../../packages/schema'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       axios: 0.19.2
       bottleneck: 2.19.5
       cheerio: 1.0.0-rc.3
+      date-fns: 2.11.0
       lodash: 4.17.15
     devDependencies:
       ts-node: 8.8.1
     specifiers:
-      '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-schema': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
       axios: 0.19.2
       bottleneck: 2.19.5
       cheerio: 1.0.0-rc.3
+      date-fns: 2.11.0
       lodash: 4.17.15
       ts-node: 8.8.1
   app/web:
     dependencies:
-      '@vdtn359/news-models': 'link:../../packages/models'
+      '@vdtn359/news-schema': 'link:../../packages/schema'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       lodash: 4.17.15
       next: 9.3.1_react-dom@16.13.1+react@16.13.1
@@ -86,7 +88,7 @@ importers:
       next-transpile-modules: 3.1.0
       serverless: 1.67.0
     specifiers:
-      '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-schema': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
       lodash: 4.17.15
       next: 9.3.1
@@ -94,7 +96,7 @@ importers:
       react: 16.13.1
       react-dom: 16.13.1
       serverless: 1.67.0
-  packages/models:
+  packages/schema:
     dependencies:
       '@vdtn359/news-utils': 'link:../utils'
     specifiers:
@@ -4201,6 +4203,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+  /date-fns/2.11.0:
+    dev: false
+    resolution:
+      integrity: sha512-8P1cDi8ebZyDxUyUprBXwidoEtiQAawYPGvpfb+Dg0G6JrQ+VozwOmm91xYC0vAv1+0VmLehEPb+isg4BGUFfA==
   /dayjs/1.8.23:
     dev: true
     resolution:
@@ -11896,7 +11902,7 @@ packages:
         optional: true
     resolution:
       integrity: sha512-CrG5GqAAzMT7144Cl+UIFP7mz/iIhiy+xQ6GGcnjTezhALT02uPMRw7tgDSESgB5MsfKt55+GPWw4ir1kVtMIQ==
-  /ts-transpile/1.2.3_typescript@3.8.3:
+  /ts-transpile/1.2.4_typescript@3.8.3:
     dependencies:
       ttypescript: 1.5.10_typescript@3.8.3
       typescript: 3.8.3
@@ -11905,7 +11911,7 @@ packages:
     peerDependencies:
       typescript: '>= 3.6.0'
     resolution:
-      integrity: sha512-7DT1+83imP4lZjxJu6+gKaiAYSaYsvJ8+7kOXM+pl3T55QW/xlS+6T34uHEAZcv9e5jzIx/54mNX2sG+En7l2g==
+      integrity: sha512-U5D3ZsXuitPY72QA1XbjUjzLs1IbxGVOTyx8l1sW9v+Ztjtq72H5rXjqIWdZSzdbc9BDtJOv/nDsHynTfcV8Pw==
   /tsconfig-paths/3.9.0:
     dependencies:
       '@types/json5': 0.0.29
@@ -12904,5 +12910,6 @@ packages:
     dev: true
     name: ci-info
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/watson/ci-info/tar.gz/f43f6a1cefff47fb361c88cf4b943fdbcaafe540'
     version: 2.0.0

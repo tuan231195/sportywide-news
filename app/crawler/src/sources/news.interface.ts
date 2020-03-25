@@ -1,4 +1,4 @@
-import { NewsDto } from '@vdtn359/news-models';
+import { NewsDto } from '@vdtn359/news-schema';
 
 export interface News {
 	extractFeeds(): Promise<NewsDto[]>;

@@ -1,6 +1,6 @@
 const withTM = require('next-transpile-modules')([
 	'@vdtn359/news-utils',
-	'@vdtn359/news-models',
+	'@vdtn359/news-schema',
 ]);
 const withPlugins = require('next-compose-plugins');
 
@@ -30,8 +30,8 @@ const nextConfig = withPlugins(
 							'@vdtn359/news-utils': require.resolve(
 								'@vdtn359/news-utils'
 							),
-							'@vdtn359/news-models': require.resolve(
-								'@vdtn359/news-models'
+							'@vdtn359/news-schema': require.resolve(
+								'@vdtn359/news-schema'
 							),
 						};
 

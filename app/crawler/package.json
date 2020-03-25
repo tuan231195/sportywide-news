@@ -9,10 +9,11 @@
     },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
-        "@vdtn359/news-models": "workspace:*",
+        "@vdtn359/news-schema": "workspace:*",
         "axios": "0.19.2",
         "bottleneck": "2.19.5",
         "cheerio": "1.0.0-rc.3",
+        "date-fns": "2.11.0",
         "lodash": "4.17.15"
     },
     "devDependencies": {

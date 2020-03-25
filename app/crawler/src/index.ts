@@ -1,7 +1,8 @@
 import { AuNews } from 'src/sources/news';
-import { CATEGORY, NewsDto } from '@vdtn359/news-models';
+import { CATEGORY, NewsDto } from '@vdtn359/news-schema';
 import Bottleneck from 'bottleneck';
 import { promises } from '@vdtn359/news-utils';
+import { SmhNews } from 'src/sources/news/smh-news';
 
 const newsSources = [
 	new AuNews(
@@ -29,13 +30,14 @@ const newsSources = [
 		'https://www.news.com.au/content-feeds/latest-news-technology'
 	),
 	new AuNews(
-		CATEGORY.FINANCE,
+		CATEGORY.BUSINESS,
 		'https://www.news.com.au/content-feeds/latest-news-finance'
 	),
 	new AuNews(
 		CATEGORY.SPORT,
 		'https://www.news.com.au/content-feeds/latest-news-sport'
 	),
+	new SmhNews(CATEGORY.NATIONAL, 'https://www.smh.com.au/rss/national.xml'),
 ];
 
 const limiter = new Bottleneck({

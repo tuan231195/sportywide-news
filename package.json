@@ -32,7 +32,7 @@
         "prettier": "github:prettier/prettier#next",
         "tasksfile": "~5.1.0",
         "ts-jest": "25.2.1",
-        "ts-transpile": "~1.2.3",
+        "ts-transpile": "~1.2.4",
         "tsconfig-paths": "3.9.0",
         "ttypescript": "1.5.10",
         "typescript": "3.8.3"
