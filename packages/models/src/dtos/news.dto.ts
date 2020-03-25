@@ -21,6 +21,5 @@ export class NewsDto {
 	title: string;
 	pubDate: Date;
 	description: string;
-	website: string;
 	feed?: string;
 }

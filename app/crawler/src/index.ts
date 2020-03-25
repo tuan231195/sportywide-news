@@ -1,8 +1,10 @@
 import { AuNews } from 'src/sources/news';
-import { CATEGORY, NewsDto } from '@vdtn359/news-schema';
+import { CATEGORY, NewsDto } from '@vdtn359/news-models';
 import Bottleneck from 'bottleneck';
 import { promises } from '@vdtn359/news-utils';
 import { SmhNews } from 'src/sources/news/smh-news';
+import { CnetNews } from 'src/sources/news/cnet-news';
+import { TechRepublicNews } from 'src/sources/news/tech-republic-news';
 
 const newsSources = [
 	new AuNews(
@@ -38,6 +40,11 @@ const newsSources = [
 		'https://www.news.com.au/content-feeds/latest-news-sport'
 	),
 	new SmhNews(CATEGORY.NATIONAL, 'https://www.smh.com.au/rss/national.xml'),
+	new TechRepublicNews(
+		CATEGORY.TECHNOLOGY,
+		'https://www.techrepublic.com/rssfeeds/articles/'
+	),
+	new CnetNews(CATEGORY.TECHNOLOGY, 'https://www.cnet.com/rss/all/'),
 ];
 
 const limiter = new Bottleneck({

@@ -1,9 +1,9 @@
 {
-    "name": "@vdtn359/news-schema",
+    "name": "@vdtn359/news-models",
     "version": "1.0.0",
     "main": "dist/index.js",
     "type": "dist/index.d.ts",
-    "description": "news schema",
+    "description": "news model",
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*"
     }

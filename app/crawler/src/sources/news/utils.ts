@@ -6,7 +6,12 @@ export function getParsedXml(axios: AxiosInstance, url) {
 		const contentType = headers['content-type'];
 		if (
 			contentType &&
-			['application/xml', 'application/rss+xml'].includes(contentType)
+			[
+				'application/xml',
+				'application/rss+xml',
+				'text/xml; charset=UTF-8',
+				'text/xml',
+			].includes(contentType)
 		) {
 			return Cheerio.load(data, {
 				xmlMode: true,

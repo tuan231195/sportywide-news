@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
-        "@vdtn359/news-schema": "workspace:*",
+        "@vdtn359/news-models": "workspace:*",
         "axios": "0.19.2",
         "bottleneck": "2.19.5",
         "cheerio": "1.0.0-rc.3",
