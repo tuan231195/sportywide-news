@@ -1,0 +1,10 @@
+require("ts-node/register");
+require("tsconfig-paths/register");
+
+const path = require('path');
+
+module.exports = {
+    config: path.resolve('dist', 'config.js'),
+    'models-path': path.resolve('dist', 'models'),
+    'migrations-path': path.resolve('dist', 'migrations')
+};
