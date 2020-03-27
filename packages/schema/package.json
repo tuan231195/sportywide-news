@@ -7,6 +7,7 @@
     "dependencies": {
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-utils": "workspace:*",
+        "ioredis": "4.16.0",
         "reflect-metadata": "0.1.13",
         "pg": "7.18.2",
         "sequelize": "5.21.5",
@@ -14,6 +15,7 @@
     },
     "devDependencies": {
         "@types/bluebird": "3.5.30",
+        "@types/ioredis": "4.14.9",
         "@types/validator": "12.0.1",
         "sequelize-cli": "5.5.1",
         "ts-node": "8.8.1"
