@@ -4,6 +4,7 @@ import { CATEGORY } from '@vdtn359/news-models';
 
 @Table({
 	timestamps: true,
+	tableName: 'news',
 })
 export class News extends BaseModel<News> {
 	@Column(

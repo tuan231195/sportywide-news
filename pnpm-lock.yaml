@@ -59,22 +59,30 @@ importers:
   app/crawler:
     dependencies:
       '@vdtn359/news-models': 'link:../../packages/models'
+      '@vdtn359/news-schema': 'link:../../packages/schema'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       axios: 0.19.2
       bottleneck: 2.19.5
       cheerio: 1.0.0-rc.3
+      config: 3.3.1
       date-fns: 2.11.0
       lodash: 4.17.15
+      rxjs: 6.5.4
+      sequelize-typescript: 1.1.0
     devDependencies:
       ts-node: 8.8.1
     specifiers:
       '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-schema': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
       axios: 0.19.2
       bottleneck: 2.19.5
       cheerio: 1.0.0-rc.3
+      config: 3.3.1
       date-fns: 2.11.0
       lodash: 4.17.15
+      rxjs: 6.5.4
+      sequelize-typescript: 1.1.0
       ts-node: 8.8.1
   app/web:
     dependencies:
@@ -127,9 +135,11 @@ importers:
       ts-node: 8.8.1
   packages/utils:
     dependencies:
+      date-fns: 2.11.1
       lodash: 4.17.15
       uuid-by-string: 3.0.2
     specifiers:
+      date-fns: 2.11.1
       lodash: 4.17.15
       uuid-by-string: 3.0.2
 lockfileVersion: 5.1
@@ -3795,6 +3805,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-a1eOIcu8+7lUInge4Rpf/n4Krkf3Dd9lqhljRzII1/Zno/kRtUWnznPO3jOKBmTEktkt3fkxisUcivoj0ebzoA==
+  /config/3.3.1:
+    dependencies:
+      json5: 2.1.2
+    dev: false
+    engines:
+      node: '>= 6.0.0'
+    resolution:
+      integrity: sha512-+2/KaaaAzdwUBE3jgZON11L1ggLLhpf2FsGrfqYFHZW22ySGv/HqYIXrBwKKvn+XZh1UBUjHwAcrfsSkSygT+Q==
   /configstore/3.1.2:
     dependencies:
       dot-prop: 4.2.0
@@ -4269,6 +4287,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8P1cDi8ebZyDxUyUprBXwidoEtiQAawYPGvpfb+Dg0G6JrQ+VozwOmm91xYC0vAv1+0VmLehEPb+isg4BGUFfA==
+  /date-fns/2.11.1:
+    dev: false
+    resolution:
+      integrity: sha512-3RdUoinZ43URd2MJcquzBbDQo+J87cSzB8NkXdZiN5ia1UNyep0oCyitfiL88+R7clGTeq/RniXAc16gWyAu1w==
   /dayjs/1.8.23:
     dev: true
     resolution:
@@ -10838,7 +10860,6 @@ packages:
   /rxjs/6.5.4:
     dependencies:
       tslib: 1.11.1
-    dev: true
     engines:
       npm: '>=2.0.0'
     resolution:
@@ -11035,6 +11056,20 @@ packages:
       node: '>= 6.0.0'
     resolution:
       integrity: sha512-Ibz08vnXvkZ8LJTiUOxRcj1Ckdn7qafNZ2t59jYHMX1VIebTAOYefWdRYFt6z6+hy52WGthAHAoLc9hvk3onqA==
+  /sequelize-typescript/1.1.0:
+    dependencies:
+      glob: 7.1.2
+    dev: false
+    engines:
+      node: '>=0.8.15'
+    peerDependencies:
+      '@types/bluebird': '*'
+      '@types/node': '*'
+      '@types/validator': '*'
+      reflect-metadata: '*'
+      sequelize: ^5.1.0
+    resolution:
+      integrity: sha512-FAPEQPeAhIaFQNLAcf9Q2IWcqWhNcvn5OZZ7BzGB0CJMtImIsGg4E/EAb7huMmPaPwDArxJUWGqk1KurphTNRA==
   /sequelize-typescript/1.1.0_4ba9f457ed3e54ec1c75e9ba9728b94e:
     dependencies:
       '@types/bluebird': 3.5.30

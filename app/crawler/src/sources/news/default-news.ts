@@ -23,6 +23,8 @@ export abstract class DefaultNews implements News {
 			const url = element.find('link').text();
 			const title = element.find('title').text();
 			const description = element.find('description').text();
+			const pubDate =
+				element.find('pubDate').text() || $('pubDate').text();
 
 			return {
 				category: this.category,
@@ -31,7 +33,7 @@ export abstract class DefaultNews implements News {
 				description: description.trim(),
 				image: this.getImage(element),
 				pubDate: parse(
-					element.find('pubDate').text(),
+					pubDate,
 					'E, dd MMM yyyy HH:mm:ss XX',
 					new Date()
 				),

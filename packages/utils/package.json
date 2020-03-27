@@ -5,6 +5,7 @@
     "type": "dist/index.d.ts",
     "description": "news util",
     "dependencies": {
+        "date-fns": "2.11.1",
         "lodash": "4.17.15",
         "uuid-by-string": "3.0.2"
     }

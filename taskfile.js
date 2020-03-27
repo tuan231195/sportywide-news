@@ -49,11 +49,18 @@ function deploy() {
 	deployApp();
 }
 
+function migrate() {
+	sh('pnpx sequelize-cli db:migrate', {
+		cwd: 'packages/schema',
+	});
+}
+
 cli({
 	buildPackagesDev,
 	buildPackages,
 	watchPackages,
 	dev,
+	migrate,
 	build,
 	deploy,
 });

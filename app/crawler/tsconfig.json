@@ -5,7 +5,8 @@
         "paths": {
             "src/*": ["./src/*"],
             "@vdtn359/news-utils": ["../../packages/utils/src"],
-            "@vdtn359/news-models": ["../../packages/models/src"]
+            "@vdtn359/news-models": ["../../packages/models/src"],
+            "@vdtn359/news-schema": ["../../packages/schema/src"]
         }
     },
     "references": [
@@ -14,6 +15,9 @@
         },
         {
             "path": "../../packages/models"
+        },
+        {
+            "path": "../../packages/schema"
         }
     ]
 }

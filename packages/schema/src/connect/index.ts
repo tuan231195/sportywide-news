@@ -10,6 +10,7 @@ export function connect(connectOptions: ConnectOptions) {
 	return new Sequelize({
 		...connectOptions,
 		dialect: 'postgres',
+		logging: false,
 		repositoryMode: true,
 		models: [News],
 	});
