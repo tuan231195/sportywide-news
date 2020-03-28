@@ -1,9 +1,10 @@
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import Cheerio from 'cheerio';
 import { JSDOM } from 'jsdom';
 import createDOMPurify from 'dompurify';
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
+import adapter from 'axios/lib/adapters/http';
 
 export function getParsedXml(axios: AxiosInstance, url) {
 	return axios.get(url).then(({ data, headers }) => {
@@ -31,3 +32,6 @@ export function getCleanedHTML(source) {
 		FORBID_ATTR: ['style', 'class'],
 	});
 }
+
+axios.defaults.adapter = adapter;
+export { axios };

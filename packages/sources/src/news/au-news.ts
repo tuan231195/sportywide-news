@@ -1,6 +1,6 @@
 import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY } from '@vdtn359/news-models';
-import axios from 'axios';
+import { axios } from './utils';
 import Cheerio from 'cheerio';
 import { getCleanedHTML } from 'src/news/utils';
 

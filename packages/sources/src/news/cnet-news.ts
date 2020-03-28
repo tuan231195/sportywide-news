@@ -1,5 +1,8 @@
 import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY, NewsImageDto } from '@vdtn359/news-models';
+import Cheerio from 'cheerio';
+import { getCleanedHTML } from 'src/news/utils';
+import { axios } from './utils';
 
 export class CnetNews extends DefaultNews {
 	constructor(category: CATEGORY, rssFeed: string) {
@@ -13,5 +16,12 @@ export class CnetNews extends DefaultNews {
 					imageUrl: image.attr('url')!,
 			  }
 			: null;
+	}
+
+	static async extractUrl(url: string) {
+		const newsPage = await axios(url).then(({ data }) => data);
+		const $ = Cheerio.load(newsPage);
+		const storyContent = Cheerio.html($('#article-body'));
+		return getCleanedHTML(storyContent);
 	}
 }
