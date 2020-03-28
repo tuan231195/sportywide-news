@@ -5,6 +5,8 @@ import Cheerio from 'cheerio';
 import { getCleanedHTML } from 'src/news/utils';
 
 export class AuNews extends DefaultNews {
+	static url = 'www.news.com.au';
+
 	constructor(category: CATEGORY, rssFeed: string) {
 		super(category, rssFeed);
 	}

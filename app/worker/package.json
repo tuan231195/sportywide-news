@@ -8,7 +8,9 @@
     },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
+        "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-schema": "workspace:*",
+        "@vdtn359/news-search": "workspace:*",
         "config": "3.3.1",
         "ioredis": "4.16.0",
         "rxjs": "6.5.4"

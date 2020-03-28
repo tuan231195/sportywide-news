@@ -4,6 +4,8 @@ import { axios, getCleanedHTML } from 'src/news/utils';
 import Cheerio from 'cheerio';
 
 export class TechRepublicNews extends DefaultNews {
+	static url = 'www.techrepublic.com';
+
 	constructor(category: CATEGORY, rssFeed: string) {
 		super(category, rssFeed);
 	}

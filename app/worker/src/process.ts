@@ -1,9 +1,10 @@
 import { bufferTime, concatMap } from 'rxjs/operators';
-import { newsDao, redis, setupRedis } from 'src/setup';
+import { newsDao, redis, setupRedis, setupEs } from 'src/setup';
 import { NEWS_GROUP, NEWS_STREAM } from '@vdtn359/news-schema';
 
 export async function processStream(consumer) {
 	await setupRedis();
+	await setupEs();
 	const stream = redis
 		.readStream({
 			group: NEWS_GROUP,

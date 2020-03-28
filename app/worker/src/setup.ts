@@ -1,3 +1,5 @@
+import * as search from '@vdtn359/news-search';
+
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 import config from 'config';
 import {
@@ -11,6 +13,7 @@ import {
 
 export const sequelize: Sequelize = connectDBUsingConfig(config);
 export const redis = connectRedisUsingConfig(config);
+export const es = search.connectToEsUsingConfig(config);
 
 export const newsDao = new NewsDao(sequelize);
 
@@ -24,5 +27,9 @@ export async function setupRedis() {
 			throw e;
 		}
 	}
+}
+
+export async function setupEs() {
+	return search.setup(es);
 }
 export { config };

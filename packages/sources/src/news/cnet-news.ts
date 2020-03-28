@@ -5,6 +5,7 @@ import { getCleanedHTML } from 'src/news/utils';
 import { axios } from './utils';
 
 export class CnetNews extends DefaultNews {
+	static url = 'www.cnet.com';
 	constructor(category: CATEGORY, rssFeed: string) {
 		super(category, rssFeed);
 	}

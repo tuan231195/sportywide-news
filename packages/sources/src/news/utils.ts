@@ -33,5 +33,10 @@ export function getCleanedHTML(source) {
 	});
 }
 
+export function getThumbnailUrl(source) {
+	const $ = Cheerio.load(source);
+	return $('img').eq(0).attr('src');
+}
+
 axios.defaults.adapter = adapter;
 export { axios };

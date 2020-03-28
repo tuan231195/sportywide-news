@@ -8,4 +8,7 @@ module.exports = {
 		host: 'localhost',
 		password: '',
 	},
+	es: {
+		host: 'http://localhost:9200',
+	},
 };

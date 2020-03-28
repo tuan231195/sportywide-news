@@ -12,6 +12,7 @@
         "bottleneck": "2.19.5",
         "cheerio": "1.0.0-rc.3",
         "dompurify": "2.0.8",
-        "jsdom": "16.2.1"
+        "jsdom": "16.2.1",
+        "lodash": "4.17.15"
     }
 }

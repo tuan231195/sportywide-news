@@ -4,6 +4,8 @@ import { axios, getCleanedHTML } from 'src/news/utils';
 import Cheerio from 'cheerio';
 
 export class SmhNews extends DefaultNews {
+	static url = 'www.smh.com.au';
+
 	constructor(category: CATEGORY, rssFeed: string) {
 		super(category, rssFeed);
 	}
