@@ -52,8 +52,4 @@ export abstract class DefaultNews implements News {
 			  }
 			: null;
 	}
-
-	extractNews(url): Promise<string> {
-		return url;
-	}
 }

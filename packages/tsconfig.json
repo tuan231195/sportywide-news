@@ -6,16 +6,16 @@
     },
     "references": [
         {
-            "path": "./schema"
+            "path": "./schema/tsconfig.build.json"
         },
         {
-            "path": "./utils"
+            "path": "./utils/tsconfig.build.json"
         },
         {
-            "path": "./models"
+            "path": "./models/tsconfig.build.json"
         },
         {
-            "path": "./sources"
+            "path": "./sources/tsconfig.build.json"
         }
     ]
 }
