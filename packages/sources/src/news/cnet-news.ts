@@ -1,4 +1,4 @@
-import { DefaultNews } from 'src/sources/news/default-news';
+import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY, NewsImageDto } from '@vdtn359/news-models';
 
 export class CnetNews extends DefaultNews {

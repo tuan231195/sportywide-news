@@ -11,12 +11,9 @@
         "@vdtn359/news-utils": "workspace:*",
         "@vdtn359/news-schema": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
-        "axios": "0.19.2",
+        "@vdtn359/news-sources": "workspace:*",
         "bottleneck": "2.19.5",
-        "cheerio": "1.0.0-rc.3",
         "config": "3.3.1",
-        "date-fns": "2.11.0",
-        "lodash": "4.17.15",
         "rxjs": "6.5.4"
     },
     "devDependencies": {

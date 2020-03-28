@@ -25,4 +25,12 @@ export class NewsDao implements Dao<News> {
 			returning: true,
 		});
 	}
+
+	findByIds(itemIds: string[]): Promise<News[]> {
+		return this.newsRepository.findAll({
+			where: {
+				id: itemIds,
+			},
+		});
+	}
 }

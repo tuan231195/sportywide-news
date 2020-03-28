@@ -60,13 +60,10 @@ importers:
     dependencies:
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-schema': 'link:../../packages/schema'
+      '@vdtn359/news-sources': 'link:../../packages/sources'
       '@vdtn359/news-utils': 'link:../../packages/utils'
-      axios: 0.19.2
       bottleneck: 2.19.5
-      cheerio: 1.0.0-rc.3
       config: 3.3.1
-      date-fns: 2.11.0
-      lodash: 4.17.15
       rxjs: 6.5.4
     devDependencies:
       '@types/config': 0.0.36
@@ -75,13 +72,10 @@ importers:
       '@types/config': 0.0.36
       '@vdtn359/news-models': 'workspace:*'
       '@vdtn359/news-schema': 'workspace:*'
+      '@vdtn359/news-sources': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
-      axios: 0.19.2
       bottleneck: 2.19.5
-      cheerio: 1.0.0-rc.3
       config: 3.3.1
-      date-fns: 2.11.0
-      lodash: 4.17.15
       rxjs: 6.5.4
       ts-node: 8.8.1
   app/web:
@@ -159,6 +153,21 @@ importers:
       sequelize-cli: 5.5.1
       sequelize-typescript: 1.1.0
       ts-node: 8.8.1
+  packages/sources:
+    dependencies:
+      '@vdtn359/news-models': 'link:../models'
+      '@vdtn359/news-utils': 'link:../utils'
+      axios: 0.19.2
+      bottleneck: 2.19.5
+      cheerio: 1.0.0-rc.3
+      date-fns: 2.11.0
+    specifiers:
+      '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-utils': 'workspace:*'
+      axios: 0.19.2
+      bottleneck: 2.19.5
+      cheerio: 1.0.0-rc.3
+      date-fns: 2.11.0
   packages/utils:
     dependencies:
       date-fns: 2.11.1

@@ -1,10 +1,12 @@
-import { AuNews } from 'src/sources/news';
 import { CATEGORY, NewsDto } from '@vdtn359/news-models';
 import Bottleneck from 'bottleneck';
-import { SmhNews } from 'src/sources/news/smh-news';
-import { CnetNews } from 'src/sources/news/cnet-news';
-import { TechRepublicNews } from 'src/sources/news/tech-republic-news';
 import { Observable, Subject } from 'rxjs';
+import {
+	AuNews,
+	SmhNews,
+	TechRepublicNews,
+	CnetNews,
+} from '@vdtn359/news-sources';
 
 const newsSources = [
 	new AuNews(

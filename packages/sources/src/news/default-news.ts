@@ -1,6 +1,6 @@
-import { News } from 'src/sources/news.interface';
+import { News } from 'src/news.interface';
 import { CATEGORY, NewsDto, NewsImageDto } from '@vdtn359/news-models';
-import { getParsedXml } from 'src/sources/news/utils';
+import { getParsedXml } from 'src/news/utils';
 import axios, { AxiosInstance } from 'axios';
 import { str } from '@vdtn359/news-utils';
 import { parse } from 'date-fns';
@@ -20,17 +20,17 @@ export abstract class DefaultNews implements News {
 		const $: CheerioStatic = await getParsedXml(this.axios, this.rssFeed);
 		return Array.from($('item')).map((node) => {
 			const element = $(node);
-			const url = element.find('link').text();
-			const title = element.find('title').text();
-			const description = element.find('description').text();
+			const url = element.find('link').text().trim();
+			const title = element.find('title').text().trim();
+			const description = element.find('description').text().trim();
 			const pubDate =
 				element.find('pubDate').text() || $('pubDate').text();
 
 			return {
 				category: this.category,
 				guid: str.toGuid(url),
-				title,
-				description: description.trim(),
+				title: title,
+				description: description,
 				image: this.getImage(element),
 				pubDate: parse(
 					pubDate,
@@ -38,7 +38,7 @@ export abstract class DefaultNews implements News {
 					new Date()
 				),
 				url,
-				feed: this.rssFeed,
+				feed: this.rssFeed.trim(),
 			};
 		});
 	}
@@ -47,8 +47,8 @@ export abstract class DefaultNews implements News {
 		const image = element.find('image');
 		return image.length
 			? {
-					imageDesc: image.find('title').text(),
-					imageUrl: image.find('link').text(),
+					imageDesc: image.find('title').text().trim(),
+					imageUrl: image.find('link').text().trim(),
 			  }
 			: null;
 	}

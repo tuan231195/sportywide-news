@@ -13,6 +13,9 @@
         },
         {
             "path": "./models"
+        },
+        {
+            "path": "./sources"
         }
     ]
 }

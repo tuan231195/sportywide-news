@@ -5,11 +5,14 @@ import {
 	connectRedisUsingConfig,
 	NEWS_GROUP,
 	NEWS_STREAM,
+	NewsDao,
 	Sequelize,
 } from '@vdtn359/news-schema';
 
 export const sequelize: Sequelize = connectDBUsingConfig(config);
 export const redis = connectRedisUsingConfig(config);
+
+export const newsDao = new NewsDao(sequelize);
 
 export async function setupRedis() {
 	const streamExists = await redis.exists(NEWS_STREAM);
