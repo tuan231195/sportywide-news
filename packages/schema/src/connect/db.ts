@@ -16,3 +16,12 @@ export function connectDB(connectOptions: ConnectDBOptions) {
 		models: [News],
 	});
 }
+
+export function connectDBUsingConfig(config) {
+	return connectDB({
+		username: config.get('db.username'),
+		password: config.get('db.password'),
+		database: 'news',
+		host: config.get('db.host'),
+	});
+}

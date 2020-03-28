@@ -1,4 +1,4 @@
-export function wrap(wrapper, base) {
+export function wrap<W extends object, B>(wrapper: W, base: B): W & B {
 	const proxy = new Proxy(wrapper, {
 		get(target, property) {
 			if (property in target) {

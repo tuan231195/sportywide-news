@@ -9,6 +9,7 @@
         "@vdtn359/news-utils": "workspace:*",
         "ioredis": "4.16.0",
         "reflect-metadata": "0.1.13",
+        "rxjs": "6.5.4",
         "pg": "7.18.2",
         "sequelize": "5.21.5",
         "sequelize-typescript": "1.1.0"

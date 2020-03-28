@@ -1,4 +1,3 @@
-process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 import { fetchNews } from 'src/crawler';
 import { saveNews, cleanup } from 'src/persister';
 import { mergeMap } from 'rxjs/operators';

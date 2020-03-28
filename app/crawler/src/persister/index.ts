@@ -1,26 +1,9 @@
 import { NewsDto } from '@vdtn359/news-models';
-import {
-	connectDB,
-	connectRedis,
-	News,
-	NEWS_STREAM,
-} from '@vdtn359/news-schema';
-import config from 'config';
+import { NEWS_STREAM, NewsDao } from '@vdtn359/news-schema';
 import { process } from '@vdtn359/news-utils';
+import { redis, sequelize } from 'src/setup';
 
-const sequelize = connectDB({
-	username: config.get('db.username'),
-	password: config.get('db.password'),
-	database: 'news',
-	host: config.get('db.host'),
-});
-
-const redis = connectRedis({
-	password: config.get('redis.password'),
-	host: config.get('redis.host'),
-});
-
-const newsRepository = sequelize.getRepository(News);
+const newsDao = new NewsDao(sequelize);
 
 export async function saveNews(newsDtos: NewsDto[]) {
 	const batcher = process.batch(newsDtos, 10);
@@ -31,19 +14,7 @@ export async function saveNews(newsDtos: NewsDto[]) {
 }
 
 async function saveDb(dtos: NewsDto[]) {
-	const newsModels: Partial<News>[] = dtos.map((newsDto) => ({
-		category: newsDto.category,
-		id: newsDto.guid,
-		description: newsDto.description,
-		image: newsDto.image?.imageUrl,
-		title: newsDto.title,
-		feed: newsDto.feed,
-		pubDate: newsDto.pubDate,
-		url: newsDto.url,
-	}));
-	await newsRepository.bulkCreate(newsModels, {
-		updateOnDuplicate: ['description', 'image', 'title', 'pubDate'],
-	});
+	await newsDao.save(dtos);
 }
 
 async function saveRedis(dtos: NewsDto[]) {
@@ -53,6 +24,8 @@ async function saveRedis(dtos: NewsDto[]) {
 	}
 	await pipeline.exec();
 }
+
 export function cleanup(): Promise<void> {
+	redis.disconnect();
 	return sequelize.close();
 }
