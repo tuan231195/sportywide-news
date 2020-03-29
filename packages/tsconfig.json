@@ -19,6 +19,9 @@
         },
         {
             "path": "./search/tsconfig.build.json"
+        },
+        {
+            "path": "./core/tsconfig.build.json"
         }
     ]
 }

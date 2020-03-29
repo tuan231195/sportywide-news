@@ -5,13 +5,11 @@ export type Elasticsearch = ElasticsearchWrapper & Client;
 export class ElasticsearchWrapper {
 	constructor(private readonly client: Client) {}
 
-	async createIndex(index: string, mappings) {
+	async createIndex(index: string, body) {
 		try {
 			await this.client.indices.create({
 				index,
-				body: {
-					mappings,
-				},
+				body,
 			});
 		} catch (e) {
 			if (e.message !== 'resource_already_exists_exception') {

@@ -1,9 +1,9 @@
 import { NewsDto } from '@vdtn359/news-models';
 import { NEWS_STREAM, NewsDao } from '@vdtn359/news-schema';
 import { process } from '@vdtn359/news-utils';
-import { redis, sequelize } from 'src/setup';
+import { redis, db } from 'src/setup';
 
-const newsDao = new NewsDao(sequelize);
+const newsDao = new NewsDao(db);
 
 export async function saveNews(newsDtos: NewsDto[]) {
 	const batcher = process.batch(newsDtos, 10);
@@ -27,5 +27,5 @@ async function saveRedis(dtos: NewsDto[]) {
 
 export function cleanup(): Promise<void> {
 	redis.disconnect();
-	return sequelize.close();
+	return db.close();
 }

@@ -1,12 +1,13 @@
 import { NewsDto } from '@vdtn359/news-models';
-import { Sequelize, Repository } from 'sequelize-typescript';
+import { Repository } from 'sequelize-typescript';
 import { News } from 'src/models';
 import { Dao } from 'src/daos/dao.interface';
+import { DB } from 'src/db';
 
 export class NewsDao implements Dao<News> {
 	private newsRepository: Repository<News>;
-	constructor(sequelize: Sequelize) {
-		this.newsRepository = sequelize.getRepository(News);
+	constructor(db: DB) {
+		this.newsRepository = db.getRepository(News);
 	}
 
 	save(newsDtos: NewsDto[]) {

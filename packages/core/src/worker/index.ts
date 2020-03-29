@@ -5,7 +5,7 @@ import {
 	parentPort,
 } from 'worker_threads';
 
-export const spawnWorker = (file: string, wkOpts: WorkerOptions) => {
+export const spawn = (file: string, wkOpts: WorkerOptions) => {
 	wkOpts.eval = true;
 	if (!wkOpts.workerData) {
 		wkOpts.workerData = {};

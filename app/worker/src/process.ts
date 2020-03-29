@@ -5,7 +5,7 @@ import { NEWS_GROUP, NEWS_STREAM } from '@vdtn359/news-schema';
 import { extractUrl } from '@vdtn359/news-sources';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { getThumbnailUrl } from '@vdtn359/news-sources';
-import { error, info } from 'src/worker';
+import { worker as w } from '@vdtn359/news-core';
 
 export async function processStream(consumer) {
 	await setupRedis();
@@ -24,7 +24,7 @@ export async function processStream(consumer) {
 			}),
 			filter((news: any) => !!news?.length),
 			catchError((e) => {
-				error(e);
+				w.error(e);
 				return of([]);
 			})
 		)
@@ -45,7 +45,7 @@ async function getFullNews(itemIds: string[]) {
 			if (!hasDocument) {
 				body = await extractUrl(newsModel.url);
 				if (!body) {
-					error(`news ${newsModel.url} has no body`);
+					w.error(`news ${newsModel.url} has no body`);
 				}
 			}
 			if (!newsModel.image && body) {
@@ -61,10 +61,10 @@ async function getFullNews(itemIds: string[]) {
 }
 
 async function esSync(news: any[] = []) {
-	info(`Indexing ${news.length} documents`);
+	w.info(`Indexing ${news.length} documents`);
 	try {
 		await es.bulkUpsert(NEWS_INDEX, news);
 	} catch (e) {
-		error('Failed to index', e);
+		w.error('Failed to index', e);
 	}
 }

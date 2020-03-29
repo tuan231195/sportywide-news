@@ -11,7 +11,8 @@
             "@vdtn359/news-models": ["../../packages/models/src"],
             "@vdtn359/news-search": ["../../packages/search/src"],
             "@vdtn359/news-schema": ["../../packages/schema/src"],
-            "@vdtn359/news-sources": ["../../packages/sources/src"]
+            "@vdtn359/news-sources": ["../../packages/sources/src"],
+            "@vdtn359/news-core": ["../../packages/core/src"]
         }
     },
     "references": [
@@ -20,6 +21,9 @@
         },
         {
             "path": "../../packages/models/tsconfig.build.json"
+        },
+        {
+            "path": "../../packages/core/tsconfig.build.json"
         },
         {
             "path": "../../packages/schema/tsconfig.build.json"

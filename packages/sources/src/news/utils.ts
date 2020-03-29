@@ -5,6 +5,7 @@ import createDOMPurify from 'dompurify';
 const window = new JSDOM('').window;
 const DOMPurify = createDOMPurify(window);
 import adapter from 'axios/lib/adapters/http';
+import htmlToText from 'html-to-text';
 
 export function getParsedXml(axios: AxiosInstance, url) {
 	return axios.get(url).then(({ data, headers }) => {
@@ -36,6 +37,22 @@ export function getCleanedHTML(source) {
 export function getThumbnailUrl(source) {
 	const $ = Cheerio.load(source);
 	return $('img').eq(0).attr('src');
+}
+
+export function getRawText(source) {
+	return htmlToText.fromString(source, {
+		wordwrap: 130,
+		format: {
+			text: function (elem) {
+				if (elem.parent?.name === 'div') {
+					return `${elem.data}\n`;
+				} else if (elem.parent?.name === 'span') {
+					return `${elem.data} `;
+				}
+				return elem.data;
+			},
+		},
+	});
 }
 
 axios.defaults.adapter = adapter;
