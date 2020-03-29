@@ -20,7 +20,7 @@ async function saveDb(dtos: NewsDto[]) {
 async function saveRedis(dtos: NewsDto[]) {
 	const pipeline = redis.pipeline();
 	for (const newsDto of dtos) {
-		pipeline.xadd(NEWS_STREAM, '*', 'id', newsDto.guid);
+		pipeline.xadd(NEWS_STREAM, '*', 'id', newsDto.id);
 	}
 	await pipeline.exec();
 }

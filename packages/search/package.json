@@ -7,6 +7,7 @@
     "dependencies": {
         "@elastic/elasticsearch": "7.6.1",
         "@vdtn359/news-models": "workspace:*",
-        "@vdtn359/news-utils": "workspace:*"
+        "@vdtn359/news-utils": "workspace:*",
+        "lodash": "4.17.15"
     }
 }

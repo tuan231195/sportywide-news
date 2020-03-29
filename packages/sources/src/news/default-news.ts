@@ -1,5 +1,5 @@
 import { News } from 'src/news.interface';
-import { CATEGORY, NewsDto, NewsImageDto } from '@vdtn359/news-models';
+import { CATEGORY, NewsDto } from '@vdtn359/news-models';
 import { getParsedXml } from 'src/news/utils';
 import axios, { AxiosInstance } from 'axios';
 import { str } from '@vdtn359/news-utils';
@@ -28,7 +28,7 @@ export abstract class DefaultNews implements News {
 
 			return {
 				category: this.category,
-				guid: str.toGuid(url),
+				id: str.toGuid(url),
 				title: title,
 				description: description,
 				image: this.getImage(element),
@@ -43,13 +43,8 @@ export abstract class DefaultNews implements News {
 		});
 	}
 
-	getImage(element: Cheerio): NewsImageDto | null {
+	getImage(element: Cheerio): string | undefined {
 		const image = element.find('image');
-		return image.length
-			? {
-					imageDesc: image.find('title').text().trim(),
-					imageUrl: image.find('link').text().trim(),
-			  }
-			: null;
+		return image.length ? image.find('title').text().trim() : undefined;
 	}
 }

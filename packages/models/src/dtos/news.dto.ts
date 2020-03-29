@@ -1,8 +1,3 @@
-export class NewsImageDto {
-	imageUrl: string;
-	imageDesc?: string;
-}
-
 export enum CATEGORY {
 	SPORT = 'SPORT',
 	NATIONAL = 'NATIONAL',
@@ -14,12 +9,13 @@ export enum CATEGORY {
 	BUSINESS = 'BUSINESS',
 }
 export class NewsDto {
-	guid: string;
+	id: string;
 	category: CATEGORY;
 	url: string;
-	image: NewsImageDto | null;
+	image?: string;
 	title: string;
 	pubDate: Date;
 	description: string;
 	feed?: string;
+	body?: string;
 }

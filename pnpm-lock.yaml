@@ -103,6 +103,7 @@ importers:
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-schema': 'link:../../packages/schema'
       '@vdtn359/news-search': 'link:../../packages/search'
+      '@vdtn359/news-sources': 'link:../../packages/sources'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       config: 3.3.1
       ioredis: 4.16.0
@@ -111,17 +112,20 @@ importers:
       '@types/config': 0.0.36
       '@types/ioredis': 4.14.9
       ts-node: 8.8.1
+      ttypescript: 1.5.10_ts-node@8.8.1
     specifiers:
       '@types/config': 0.0.36
       '@types/ioredis': 4.14.9
       '@vdtn359/news-models': 'workspace:*'
       '@vdtn359/news-schema': 'workspace:*'
       '@vdtn359/news-search': 'workspace:*'
+      '@vdtn359/news-sources': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
       config: 3.3.1
       ioredis: 4.16.0
       rxjs: 6.5.4
       ts-node: 8.8.1
+      ttypescript: 1.5.10
   packages/models:
     dependencies:
       '@vdtn359/news-utils': 'link:../utils'
@@ -160,10 +164,12 @@ importers:
       '@elastic/elasticsearch': 7.6.1
       '@vdtn359/news-models': 'link:../models'
       '@vdtn359/news-utils': 'link:../utils'
+      lodash: 4.17.15
     specifiers:
       '@elastic/elasticsearch': 7.6.1
       '@vdtn359/news-models': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
+      lodash: 4.17.15
   packages/sources:
     dependencies:
       '@vdtn359/news-models': 'link:../models'
@@ -12110,6 +12116,17 @@ packages:
     dev: false
     resolution:
       integrity: sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
+  /ttypescript/1.5.10_ts-node@8.8.1:
+    dependencies:
+      resolve: 1.15.1
+      ts-node: 8.8.1
+    dev: true
+    hasBin: true
+    peerDependencies:
+      ts-node: ^8.0.2
+      typescript: ^3.2.2
+    resolution:
+      integrity: sha512-Hk7TRej1hM+p+Fo+Pyb/XK9pe9CAt3Sh5n5YRutxFS8hUgkh2u1Vd2K40kMcNP3WYhiVFBMqXwM/2E8O95Ep6g==
   /ttypescript/1.5.10_typescript@3.8.3:
     dependencies:
       resolve: 1.15.1

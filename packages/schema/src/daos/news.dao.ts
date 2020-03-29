@@ -10,17 +10,7 @@ export class NewsDao implements Dao<News> {
 	}
 
 	save(newsDtos: NewsDto[]) {
-		const newsModels: Partial<News>[] = newsDtos.map((newsDto) => ({
-			category: newsDto.category,
-			id: newsDto.guid,
-			description: newsDto.description,
-			image: newsDto.image?.imageUrl,
-			title: newsDto.title,
-			feed: newsDto.feed,
-			pubDate: newsDto.pubDate,
-			url: newsDto.url,
-		}));
-		return this.newsRepository.bulkCreate(newsModels, {
+		return this.newsRepository.bulkCreate(newsDtos, {
 			updateOnDuplicate: ['description', 'image', 'title', 'pubDate'],
 			returning: true,
 		});

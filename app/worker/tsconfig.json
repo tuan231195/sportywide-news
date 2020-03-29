@@ -2,12 +2,16 @@
     "extends": "../../tsconfig",
     "compilerOptions": {
         "baseUrl": ".",
+        "outDir": "dist",
+        "rootDir": "src",
+        "allowJs": true,
         "paths": {
             "src/*": ["./src/*"],
             "@vdtn359/news-utils": ["../../packages/utils/src"],
             "@vdtn359/news-models": ["../../packages/models/src"],
             "@vdtn359/news-search": ["../../packages/search/src"],
-            "@vdtn359/news-schema": ["../../packages/schema/src"]
+            "@vdtn359/news-schema": ["../../packages/schema/src"],
+            "@vdtn359/news-sources": ["../../packages/sources/src"]
         }
     },
     "references": [
@@ -22,6 +26,9 @@
         },
         {
             "path": "../../packages/search/tsconfig.build.json"
+        },
+        {
+            "path": "../../packages/sources/tsconfig.build.json"
         }
     ]
 }

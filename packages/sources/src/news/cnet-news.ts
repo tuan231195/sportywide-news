@@ -1,5 +1,5 @@
 import { DefaultNews } from 'src/news/default-news';
-import { CATEGORY, NewsImageDto } from '@vdtn359/news-models';
+import { CATEGORY } from '@vdtn359/news-models';
 import Cheerio from 'cheerio';
 import { getCleanedHTML } from 'src/news/utils';
 import { axios } from './utils';
@@ -10,13 +10,9 @@ export class CnetNews extends DefaultNews {
 		super(category, rssFeed);
 	}
 
-	getImage(element: Cheerio): NewsImageDto | null {
+	getImage(element: Cheerio): string | undefined {
 		const image = element.find('media\\:thumbnail');
-		return image.length
-			? {
-					imageUrl: image.attr('url')!,
-			  }
-			: null;
+		return image.length ? image.attr('url')! : undefined;
 	}
 
 	static async extractUrl(url: string) {

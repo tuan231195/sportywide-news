@@ -2,6 +2,7 @@ import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY } from '@vdtn359/news-models';
 import { axios, getCleanedHTML } from 'src/news/utils';
 import Cheerio from 'cheerio';
+import { arr } from '@vdtn359/news-utils';
 
 export class SmhNews extends DefaultNews {
 	static url = 'www.smh.com.au';
@@ -13,10 +14,19 @@ export class SmhNews extends DefaultNews {
 	static async extractUrl(url: string) {
 		const newsPage = await axios(url).then(({ data }) => data);
 		const $ = Cheerio.load(newsPage);
-		const articleBody = $(
-			'#content > div > div > article > div > div:nth-child(1) > div:nth-child(2)'
+		const contentSelectors = [
+			'#content > div > div > article > div > div:nth-child(1) > div:nth-child(2)',
+			'#content > div > article > section > div',
+			'#content > div > article',
+		];
+		const articleBody = arr.findMap(
+			contentSelectors,
+			(selector) => $(selector),
+			(element) => !!element?.length
 		);
-		articleBody.find('time').remove();
+		if (!articleBody?.length) {
+			return '';
+		}
 		const storyContent = Cheerio.html(articleBody);
 		return getCleanedHTML(storyContent);
 	}

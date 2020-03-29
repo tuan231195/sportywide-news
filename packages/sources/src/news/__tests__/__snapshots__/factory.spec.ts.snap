@@ -4,7 +4,7 @@ exports[`#extractUrl parse news urls correctly 1`] = `"<div><p>Prime Minister Sc
 
 exports[`#extractUrl parse news urls correctly 2`] = `
 "<article id=\\"article-body\\">
-                                            <img border=\\"0\\" height=\\"1\\" width=\\"1\\" src=\\"https://i-amlg-prod.appspot.com/display?id=b806a8e6-8a65-4b85-9349-14df1d5b1e3a\\">
+                                            <img border=\\"0\\" height=\\"1\\" width=\\"1\\" src=\\"https://i-amlg-prod.appspot.com/display?id=6bcc98a7-353a-4c25-9b73-ec618a00caf5\\">
             
     <div></div>
 
@@ -20,7 +20,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                     
                 
         
-        <p>A few years ago, the iPhone lost its headphone jack. Now <span><a href=\\"/news/samsung-galaxy-note-10-removes-the-headphone-jack-signaling-the-end-of-an-era/\\">Samsung's left the 3.5mm audio jack off</a></span> the new&nbsp;<span><a href=\\"/news/galaxy-note-10-plus-6-8-inch-phone-that-kills-the-headphone-jack/\\">Galaxy Note 10</a></span> and <span><a href=\\"/news/galaxy-note-10-plus-6-8-inch-phone-that-kills-the-headphone-jack/\\">Note 10 Plus</a></span> -- and didn't include a USB-C headphone adapter -- which means a dongle won't do any good and Note 10 owners will be looking to go the wireless route. Popular Apple-centric models like&nbsp;<span><a href=\\"/products/beats-powerbeats-pro/\\">Beats Powerbeats Pro</a></span>&nbsp;and&nbsp;<span><a href=\\"/reviews/apple-airpods-2019-review/\\">Apple AirPods</a></span> and work just fine with the Note 10. But everyone is familiar with those accessories, so in this roundup, we're highlighting models that are more platform-agnostic or even have a slight Android tilt -- making them perfect Note 10 <span><a href=\\"/news/best-sounding-true-wireless-earbuds-of-2020/\\">headphones</a></span>.</p><div id=\\"listicle-14e67098-37c0-4e83-914e-5f03f7fe6044\\">
+        <p>A few years ago, the iPhone lost its headphone jack. Now <span><a href=\\"/news/samsung-galaxy-note-10-removes-the-headphone-jack-signaling-the-end-of-an-era/\\">Samsung's left the 3.5mm audio jack off</a></span> the new&nbsp;<span><a href=\\"/news/galaxy-note-10-plus-6-8-inch-phone-that-kills-the-headphone-jack/\\">Galaxy Note 10</a></span> and <span><a href=\\"/news/galaxy-note-10-plus-6-8-inch-phone-that-kills-the-headphone-jack/\\">Note 10 Plus</a></span>. And it didn't include a USB-C headphone adapter -- which means a dongle won't do any good. So Note 10 owners will be looking to go the wireless route. Popular Apple-centric models such as the&nbsp;<span><a href=\\"/products/beats-powerbeats-pro/\\">Beats Powerbeats Pro</a></span>&nbsp;and&nbsp;<span><a href=\\"/reviews/apple-airpods-2019-review/\\">Apple AirPods</a></span>&nbsp;work just fine with the Note 10. But we all know about those accessories. So in this roundup, we're highlighting models that are more platform-agnostic or even have an&nbsp;Android tilt -- making them perfect Note 10 <span><a href=\\"/news/best-sounding-true-wireless-earbuds-of-2020/\\">headphones</a></span>.</p><div id=\\"listicle-14e67098-37c0-4e83-914e-5f03f7fe6044\\">
         
         
                     
@@ -73,14 +73,14 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F137578%2FSony-Silver-Noise-Canceling-Truly-Wireless-Earbuds-WF1000XM3S.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DWF-1000XM3%2FS&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=11168815738&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=dd054da5ae7b4672&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><div><span>$228 at Abt Electronics</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://api.bestbuy.com/click/-/6359821/pdp?IPID=159047\\"><div><span>$200 at Best Buy</span></div></a>
 
     
                 </span>
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.bhphotovideo.com%2Fc%2Fproduct%2F1495320-REG%2Fsony_wf1000xm3_s_wf1000xm3_wireless_noise_canceling_headphones.html%2F%3FBI%3D98%26kw%3DSOWF1000XM3S&amp;mid=25514&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10387593673&amp;pos=1&amp;b_id=18&amp;bid_type=8&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=0dc9bfdba33d0bd1&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680db0580d1db298c26ae85c46fa6633ec28b\\"><div><span>$198 at B&amp;H Photo-Video</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.crutchfield.com%2FI-rbizc17YC%2Fp_158WF1KX3S%2FSony-WF-1000XM3-Silver.html&amp;mid=58&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10317934955&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=fd093910640770ad&amp;cobrand=1&amp;ppr=dd054da5ae7b4672&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=c5e568c4cfc53e83641819dc8e3a3673c3d8c7b91155cbc4\\"><div><span>$228 at Crutchfield</span></div></a>
 
     
                 </span>
@@ -140,7 +140,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                     <div>
                                         
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F137664%2FSamsung-Galaxy-Black-True-Wireless-Earbuds-SMR170NZKAXAR.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DSM-R170NZKAXAR&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10400493029&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=fc1b9ad6712c13b7&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><h2>Best for wireless charging</h2></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://goto.walmart.com/c/159047/568844/9383?veh=aff&amp;sourceid=imp_000011112222333344&amp;prodsku=311884113&amp;u=https%3A%2F%2Fwww.walmart.com%2Fip%2F311884113&amp;subId1=cn-d4090fb523b04f8dbd52b124d45c38b3-dtp-us\\"><h2>Best for wireless charging</h2></a>
 
     
             </div>
@@ -149,7 +149,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                         <div>
                                         
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F137664%2FSamsung-Galaxy-Black-True-Wireless-Earbuds-SMR170NZKAXAR.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DSM-R170NZKAXAR&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10400493029&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=fc1b9ad6712c13b7&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><h3>Samsung Galaxy Buds</h3></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://goto.walmart.com/c/159047/568844/9383?veh=aff&amp;sourceid=imp_000011112222333344&amp;prodsku=311884113&amp;u=https%3A%2F%2Fwww.walmart.com%2Fip%2F311884113&amp;subId1=cn-d4090fb523b04f8dbd52b124d45c38b3-dtp-us\\"><h3>Samsung Galaxy Buds</h3></a>
 
     
             </div>
@@ -160,7 +160,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                             <div>
                                             
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F137664%2FSamsung-Galaxy-Black-True-Wireless-Earbuds-SMR170NZKAXAR.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DSM-R170NZKAXAR&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10400493029&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=fc1b9ad6712c13b7&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><figure><img width=\\"756\\" height=\\"425\\" alt=\\"\\" src=\\"https://cnet4.cbsistatic.com/img/5rj0mm2nBb_Wyt6C6oR16CTS8WU=/756x425/2019/04/04/e740f062-05b9-4e21-b26b-a7811e57a950/samsung-galaxy-buds.jpg\\"></figure></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://goto.walmart.com/c/159047/568844/9383?veh=aff&amp;sourceid=imp_000011112222333344&amp;prodsku=311884113&amp;u=https%3A%2F%2Fwww.walmart.com%2Fip%2F311884113&amp;subId1=cn-d4090fb523b04f8dbd52b124d45c38b3-dtp-us\\"><figure><img width=\\"756\\" height=\\"425\\" alt=\\"\\" src=\\"https://cnet4.cbsistatic.com/img/5rj0mm2nBb_Wyt6C6oR16CTS8WU=/756x425/2019/04/04/e740f062-05b9-4e21-b26b-a7811e57a950/samsung-galaxy-buds.jpg\\"></figure></a>
 
     
                 </div>
@@ -178,14 +178,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                     <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F137664%2FSamsung-Galaxy-Black-True-Wireless-Earbuds-SMR170NZKAXAR.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DSM-R170NZKAXAR&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10400493029&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=fc1b9ad6712c13b7&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><div><span>$115 at Abt Electronics</span></div></a>
-
-    
-                </span>
-                                <span>
-                                                                                    
-        
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.bhphotovideo.com%2Fc%2Fproduct%2F1457314-REG%2Fsamsung_sm_r170nzkaxar_galaxy_buds_true_wireless.html%2F%3FBI%3D98%26kw%3DSASMR170NZKA&amp;mid=25514&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=12107450142&amp;pos=1&amp;b_id=18&amp;bid_type=8&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=36e5c7a5e97fe464&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680db0580d1db298c26ae85c46fa6633ec28b\\"><div><span>$130 at B&amp;H Photo-Video</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://goto.walmart.com/c/159047/568844/9383?veh=aff&amp;sourceid=imp_000011112222333344&amp;prodsku=311884113&amp;u=https%3A%2F%2Fwww.walmart.com%2Fip%2F311884113&amp;subId1=cn-d4090fb523b04f8dbd52b124d45c38b3-dtp-us\\"><div><span>$108 at Walmart</span></div></a>
 
     
                 </span>
@@ -193,6 +186,13 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                                                                     
         
         <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://api.bestbuy.com/click/-/6347460/pdp?IPID=159047\\"><div><span>$130 at Best Buy</span></div></a>
+
+    
+                </span>
+                                <span>
+                                                                                    
+        
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://hsn.uqhv.net/c/159047/590734/9378?prodsku=708790&amp;u=https%3A%2F%2Fwww.hsn.com%2Fproducts%2Fseo%2F9441367%3Fsz%3D6%26sf%3DEC0442%26ac%3D\\"><div><span>$105 at HSN</span></div></a>
 
     
                 </span>
@@ -255,14 +255,14 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.bhphotovideo.com%2Fc%2Fproduct%2F1521388-REG%2Fjaybird_985_000865_vista_totally_wireless_sport.html%2F%3FBI%3D98%26kw%3DJAVISTABLK&amp;mid=25514&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=11425443604&amp;pos=1&amp;b_id=18&amp;bid_type=8&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=1d0a3af28ca86824&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680db0580d1db298c26ae85c46fa6633ec28b\\"><div><span>$160 at B&amp;H Photo-Video</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://api.bestbuy.com/click/-/6320598/pdp?IPID=159047\\"><div><span>$160 at Best Buy</span></div></a>
 
     
                 </span>
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://api.bestbuy.com/click/-/6320598/pdp?IPID=159047\\"><div><span>$160 at Best Buy</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.crutchfield.com%2FI-rbizc183F%2Fp_596VISTABK%2FJaybird-Vista-Black.html&amp;mid=58&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=10413187242&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=42cebdc0db812186&amp;cobrand=1&amp;ppr=1d0a3af28ca86824&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=c5e568c4cfc53e83a51c6cab9b893423a71baf1474cb1895\\"><div><span>$160 at Crutchfield</span></div></a>
 
     
                 </span>
@@ -430,14 +430,14 @@ exports[`#extractUrl parse news urls correctly 2`] = `
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.abt.com%2Fproduct%2F126490%2FSony-Silver-Wireless-Noise-Canceling-Overhead-Headphones-WH1000XM3S.html%3Futm_source%3Dconnexity%26utm_medium%3Dcse%26utm_campaign%3DWH1000XM3%2FS&amp;mid=19092&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=9182035394&amp;pos=1&amp;b_id=18&amp;bid_type=10&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=459fe395158dc26d&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680dba6f9a5b68ee7dc33ed1f017312195cc3\\"><div><span>$278 at Abt Electronics</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://api.bestbuy.com/click/-/6280545/pdp?IPID=159047\\"><div><span>$278 at Best Buy</span></div></a>
 
     
                 </span>
                                 <span>
                                                                                     
         
-        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://rd.bizrate.com/rd?t=https%3A%2F%2Fwww.bhphotovideo.com%2Fc%2Fproduct%2F1432360-REG%2Fsony_wh1000xm3_s_1000xm3_wireless_noise_canceling_headphones.html%2F%3FBI%3D98%26kw%3DSOWH1000XM3S&amp;mid=25514&amp;cat_id=9213&amp;atom=9227&amp;prod_id=&amp;oid=12033298423&amp;pos=1&amp;b_id=18&amp;bid_type=8&amp;bamt=48cd9202db195e9b&amp;cobrand=1&amp;ppr=459fe395158dc26d&amp;rf=af1&amp;af_assettype_id=12&amp;af_creative_id=2973&amp;af_id=614548&amp;af_placement_id=1&amp;dv=0bba5e0d621680db0580d1db298c26ae85c46fa6633ec28b\\"><div><span>$278 at B&amp;H Photo-Video</span></div></a>
+        <a rel=\\"noopener noreferrer nofollow\\" href=\\"https://adorama.rfvk.net/c/159047/29622/1036?prodsku=US%20%20%201208771&amp;u=https%3A%2F%2Fwww.adorama.com%2FUS%20%20%201208771.html\\"><div><span>$269 at Adorama</span></div></a>
 
     
                 </span>
@@ -459,7 +459,7 @@ exports[`#extractUrl parse news urls correctly 2`] = `
         
 
         
-                                                <div id=\\"taboola-best-wireless-earbuds-and-headphones-for-samsung-below-article-thumbnails-2\\"></div>
+                                                <div id=\\"taboola-best-wireless-earbuds-and-headphones-for-your-samsung-phone-below-article-thumbnails-2\\"></div>
         
         <footer>
             <div>
