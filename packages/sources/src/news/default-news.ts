@@ -20,17 +20,17 @@ export abstract class DefaultNews implements News {
 		const $: CheerioStatic = await getParsedXml(this.axios, this.rssFeed);
 		return Array.from($('item')).map((node) => {
 			const element = $(node);
-			const url = element.find('link').text().trim();
-			const title = element.find('title').text().trim();
-			const description = element.find('description').text().trim();
+			const url = element.find('> link').text().trim();
+			const title = element.find('> title').text().trim();
+			const description = element.find('> description').text().trim();
 			const pubDate =
 				element.find('pubDate').text() || $('pubDate').text();
 
 			return {
 				category: this.category,
 				id: str.toGuid(url),
-				title: title,
-				description: description,
+				title,
+				description,
 				image: this.getImage(element),
 				pubDate: parse(
 					pubDate,
@@ -45,6 +45,6 @@ export abstract class DefaultNews implements News {
 
 	getImage(element: Cheerio): string | undefined {
 		const image = element.find('image');
-		return image.length ? image.find('title').text().trim() : undefined;
+		return image.length ? image.find('url').text().trim() : undefined;
 	}
 }
