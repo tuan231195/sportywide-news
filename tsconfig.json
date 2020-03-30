@@ -4,6 +4,7 @@
         "preserveWatchOutput": true,
         "module": "CommonJS",
         "target": "es6",
+        "lib": ["dom", "esnext"],
         "declaration": true,
         "resolveJsonModule": true,
         "skipLibCheck": true,

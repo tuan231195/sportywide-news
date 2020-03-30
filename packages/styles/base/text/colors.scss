@@ -1,0 +1,35 @@
+$colors: (
+	'white': (
+		base: #fff,
+	),
+	'black': (
+		base: #000,
+	),
+	'primary': (
+		base: #0288d1,
+	),
+	'blue': (
+		base: #03a9f4,
+	),
+	'grey': (
+		base: #ccc,
+		dark: #777,
+	),
+	'green': (
+		base: green,
+	),
+	'yellow': (
+		base: yellow,
+	),
+	'accent': (
+		base: #ff5722,
+	),
+);
+
+.vn-bg {
+	@include map-modifiers($colors, 'background-color', '--');
+}
+
+.vn-text {
+	@include map-modifiers($colors, 'color', '--');
+}
