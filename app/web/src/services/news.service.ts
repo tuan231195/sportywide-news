@@ -1,5 +1,6 @@
 import { Inject, Service } from 'typedi';
 import { ApiService } from 'src/services/api.service';
+import { NewsDto } from '@vdtn359/news-models';
 
 @Service()
 export class NewsService {
@@ -7,10 +8,14 @@ export class NewsService {
 		@Inject(() => ApiService) private readonly apiService: ApiService
 	) {}
 
-	fetchNews() {
+	fetchNews(nextTimestamp?: number): Promise<NewsDto[]> {
 		return this.apiService
 			.api()
-			.get('/news')
+			.get('/news', {
+				params: {
+					searchAfter: nextTimestamp ? nextTimestamp : undefined,
+				},
+			})
 			.then(({ data }) => data);
 	}
 

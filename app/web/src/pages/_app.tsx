@@ -2,8 +2,7 @@ import React from 'react';
 import 'fomantic-ui-css/semantic.min.css';
 import 'src/styles.scss';
 import App from 'next/app';
-import { Container } from 'typedi';
-import { env, promises } from '@vdtn359/news-utils';
+import { promises } from '@vdtn359/news-utils';
 import styled, { ThemeProvider } from 'styled-components';
 import { SideBar } from 'src/components/common/Sidebar';
 import { Grid } from 'semantic-ui-react';
@@ -13,6 +12,8 @@ import { Context as ResponsiveContext } from 'react-responsive';
 import { device, getDeviceWidth } from 'src/utils/device/size';
 import { VnBigScreen } from 'src/components/common/Responsive';
 import { onResizeOne } from 'src/utils/events/listener';
+import { withContainer } from 'src/utils/hoc/with-container';
+import { init } from 'src/utils/container/init';
 
 const theme = {
     colors: {
@@ -32,26 +33,17 @@ const Content = styled.div`
 
 class NewsApp extends App<any, any, any> {
     static async getInitialProps({ Component, ctx }) {
-        const container = Container.of(ctx.req);
         let deviceWidth;
         if (ctx.req) {
-            container.set(
-                'baseUrl',
-                `${
-                    env.isDevelopment() ? ctx.req.protocol || 'http' : 'https'
-                }://${ctx.req.headers.host}`
-            );
             deviceWidth = getDeviceWidth(ctx.req.headers['user-agent']);
-        } else {
-            container.set('baseUrl', window.location.origin);
         }
-        ctx.container = container;
         const allPromises: any = {};
         if (Component.getInitialProps) {
             allPromises.pageProps = Component.getInitialProps(ctx);
         } else {
             allPromises.pageProps = Promise.resolve({});
         }
+        const container = ctx.container;
         const newsService = container.get(NewsService);
         allPromises.categories = newsService.fetchCategories();
         const result: any = await promises.all(allPromises);
@@ -79,7 +71,6 @@ class NewsApp extends App<any, any, any> {
 
     render() {
         const { Component, pageProps, query } = this.props;
-        console.log(this.state.deviceWidth);
         return (
             <ResponsiveContext.Provider
                 value={
@@ -110,7 +101,11 @@ class NewsApp extends App<any, any, any> {
                                 className={'vn-flex vn-flex-justify-center'}
                             >
                                 <Content>
-                                    <Component {...pageProps} query={query} />
+                                    <Component
+                                        {...pageProps}
+                                        query={query}
+                                        container={this.props.container}
+                                    />
                                 </Content>
                             </Grid.Column>
                         </Grid>
@@ -121,4 +116,4 @@ class NewsApp extends App<any, any, any> {
     }
 }
 
-export default NewsApp;
+export default withContainer(init)(NewsApp);

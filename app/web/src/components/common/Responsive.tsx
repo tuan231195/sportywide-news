@@ -12,7 +12,6 @@ export const VnTablet = ({ children }) => {
         minWidth: size.tablet,
         maxWidth: size.laptop - 1,
     });
-    console.log(isTablet, size);
     return isTablet ? children : null;
 };
 

@@ -15,6 +15,7 @@
         "downlevelIteration": true,
         "noImplicitAny": false,
         "strict": true,
+        "strictNullChecks": false,
         "strictPropertyInitialization": false,
         "sourceMap": true,
         "plugins": [
