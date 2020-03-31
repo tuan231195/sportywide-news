@@ -5,6 +5,13 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { NewsCard } from 'src/components/news/NewsCard';
 import { min } from 'lodash';
 import { Spinner } from 'src/components/common/loading/Spinner';
+import styled from 'styled-components';
+
+const CardGroup = styled(Card.Group)`
+    &&&& {
+        margin: 0;
+    }
+`;
 
 interface Props {
     newsList: NewsDto[];
@@ -18,7 +25,7 @@ export const NewsStream: React.FC<Props> = ({ newsList, loadFunc }) => {
         );
     }, [newsList]);
     return (
-        <Card.Group itemsPerRow={1} centered={true}>
+        <CardGroup itemsPerRow={1} centered={true}>
             <InfiniteScroll
                 pageStart={0}
                 loadMore={() => loadFunc(nextTimestamp).then(setHasMore)}
@@ -30,6 +37,6 @@ export const NewsStream: React.FC<Props> = ({ newsList, loadFunc }) => {
                     <NewsCard news={news} key={news.id} />
                 ))}
             </InfiniteScroll>
-        </Card.Group>
+        </CardGroup>
     );
 };

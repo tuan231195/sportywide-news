@@ -1,5 +1,5 @@
 import { getCleanedHTML, getRawText, getThumbnailUrl } from 'src/news/utils';
-import { AuNews } from 'src/news';
+import { AuNews, TechRepublicNews } from 'src/news';
 
 describe('#getCleanedHtml', () => {
 	it('should strip style and css', () => {
@@ -19,8 +19,13 @@ describe('#getCleanedHtml', () => {
 
 describe('#getThumbnailUrl', () => {
 	it('should return the first image', async () => {
-		const source = await AuNews.extractUrl(
-			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03?from=rss-basic'
+		let source = await AuNews.extractUrl(
+			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03'
+		);
+		expect(getThumbnailUrl(source)).toMatchSnapshot();
+
+		source = await TechRepublicNews.extractUrl(
+			'https://www.techrepublic.com/article/how-to-get-a-developer-job-the-best-programming-languages-to-learn'
 		);
 		expect(getThumbnailUrl(source)).toMatchSnapshot();
 	});
@@ -34,7 +39,7 @@ describe('#getRawText', () => {
 
 	it('should process long text', async () => {
 		const source = await AuNews.extractUrl(
-			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03?from=rss-basic'
+			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03'
 		);
 		expect(getRawText(source)).toMatchSnapshot();
 	});

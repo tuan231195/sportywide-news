@@ -31,6 +31,12 @@ const Content = styled.div`
     }
 `;
 
+const NewsGrid = styled(Grid)`
+    &&&& {
+        margin: 0;
+    }
+`;
+
 class NewsApp extends App<any, any, any> {
     static async getInitialProps({ Component, ctx }) {
         let deviceWidth;
@@ -81,7 +87,7 @@ class NewsApp extends App<any, any, any> {
             >
                 <ThemeProvider theme={theme}>
                     <NewsContainer>
-                        <Grid>
+                        <NewsGrid>
                             <VnBigScreen>
                                 <Grid.Column
                                     mobile={16}
@@ -98,7 +104,9 @@ class NewsApp extends App<any, any, any> {
                                 mobile={16}
                                 tablet={12}
                                 computer={12}
-                                className={'vn-flex vn-flex-justify-center'}
+                                className={
+                                    'vn-flex-important vn-flex-justify-center'
+                                }
                             >
                                 <Content>
                                     <Component
@@ -108,7 +116,7 @@ class NewsApp extends App<any, any, any> {
                                     />
                                 </Content>
                             </Grid.Column>
-                        </Grid>
+                        </NewsGrid>
                     </NewsContainer>
                 </ThemeProvider>
             </ResponsiveContext.Provider>

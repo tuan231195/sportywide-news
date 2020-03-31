@@ -30,7 +30,7 @@ export function getParsedXml(axios: AxiosInstance, url) {
 export function getCleanedHTML(source) {
 	return DOMPurify.sanitize(source, {
 		ALLOW_DATA_ATTR: false,
-		FORBID_ATTR: ['style', 'class'],
+		FORBID_ATTR: ['style', 'class', 'id'],
 	});
 }
 

@@ -2,6 +2,10 @@
 	display: flex;
 }
 
+.vn-flex-important {
+	display: flex !important;
+}
+
 .vn-flex-column {
 	flex-direction: column;
 }

@@ -1,6 +1,5 @@
 import util from 'util';
-import { getArguments } from 'src/functions';
-import { getProperty } from 'src/proxy';
+import { func, proxy as proxyHelper } from '@vdtn359/news-utils';
 
 const CALLBACKS = ['cb', 'callback', 'callback_', 'done'];
 
@@ -11,7 +10,7 @@ export function promisifyAll(module, test = defaultTest) {
 				!test({ module: target, property }) ||
 				typeof target[property] !== 'function'
 			) {
-				return getProperty(target, property, proxy);
+				return proxyHelper.getProperty(target, property, proxy);
 			}
 			return util.promisify(target[property].bind(target));
 		},
@@ -25,6 +24,6 @@ function defaultTest({ module, property }) {
 		return false;
 	}
 
-	const args = getArguments(method);
+	const args = func.getArguments(method);
 	return args && CALLBACKS.includes(args[args.length - 1]);
 }

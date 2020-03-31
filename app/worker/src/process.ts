@@ -49,6 +49,7 @@ async function getFullNews(itemIds: string[]) {
 				}
 			}
 			if (!newsModel.image && body) {
+				w.error(`adding image for news ${newsModel.url}`);
 				newsModel.image = getThumbnailUrl(body);
 				await newsModel.save();
 			}

@@ -5,6 +5,7 @@
     "type": "dist/index.d.ts",
     "description": "news core",
     "dependencies": {
+        "@vdtn359/news-utils": "workspace:*",
         "rxjs": "6.5.4"
     },
     "devDependencies": {

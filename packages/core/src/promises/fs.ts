@@ -1,7 +1,7 @@
 import { default as nodeFs } from 'fs';
 import { PromisifyAll } from 'src/promises/types';
 import { promisifyAll } from 'src/promises/promisify';
-import { wrap } from 'src/proxy';
+import { proxy } from '@vdtn359/news-utils';
 
 export class FsExtension {
 	constructor(private readonly fsPromise: PromisifyAll<typeof nodeFs>) {}
@@ -19,4 +19,4 @@ export class FsExtension {
 type FsExtensionType = PromisifyAll<typeof nodeFs> & FsExtension;
 const fsPromise = promisifyAll(nodeFs);
 const fsExtension = new FsExtension(fsPromise);
-export const fs: FsExtensionType = wrap(fsExtension, fsPromise);
+export const fs: FsExtensionType = proxy.wrap(fsExtension, fsPromise);
