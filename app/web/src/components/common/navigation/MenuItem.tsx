@@ -15,7 +15,7 @@ const Item = styled(Menu.Item)`
         background-color: ${(props) => props.theme.colors.accent} !important;
 
         &:hover {
-            color: white;
+            color: white !important;
             background-color: ${(props) =>
                 props.theme.colors.secondaryAccent} !important;
         }

@@ -12,6 +12,11 @@ import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
 import { categoryMap } from 'src/utils/categories';
+import {
+    VnBigScreen,
+    VnMobile,
+    VnTablet,
+} from 'src/components/common/responsive/Responsive';
 
 interface Props {
     categories: {
@@ -80,6 +85,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 </Menu.Menu>
             </Sidebar>
             <Sidebar.Pusher>
+                <VnMobile onChange={() => setSidebarVisible(false)} />
                 <NavBar
                     onSidebarClicked={() =>
                         setSidebarVisible(!getSideBarVisible())
