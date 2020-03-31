@@ -28,6 +28,7 @@ export const NewsStream: React.FC<Props> = ({ newsList, loadFunc }) => {
         <CardGroup itemsPerRow={1} centered={true}>
             <InfiniteScroll
                 pageStart={0}
+                threshold={500}
                 loadMore={() => loadFunc(nextTimestamp).then(setHasMore)}
                 hasMore={hasMore}
                 loader={<Spinner key={-1} />}

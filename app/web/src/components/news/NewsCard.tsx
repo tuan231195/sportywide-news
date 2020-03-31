@@ -28,7 +28,7 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
             <Card.Content>
                 <NewsImage
                     size={'huge'}
-                    src={news.image}
+                    src={news.image || '/static/images/placeholder.png'}
                     className={'vn-mb3'}
                 />
                 <Card.Header className={'vn-mb1'}>{news.title}</Card.Header>

@@ -93,6 +93,7 @@ importers:
       lodash: 4.17.15
       mobile-detect: 1.4.4
       next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
+      path-to-regexp: 6.1.0
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
       react-infinite-scroller: 1.2.4_react@16.13.1
@@ -128,6 +129,7 @@ importers:
       mobile-detect: 1.4.4
       next: 9.3.2
       next-transpile-modules: 3.1.0
+      path-to-regexp: 6.1.0
       react: 16.13.1
       react-dom: 16.13.1
       react-infinite-scroller: 1.2.4
