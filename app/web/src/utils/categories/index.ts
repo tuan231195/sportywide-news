@@ -23,3 +23,9 @@ export const categoryMap = new Map<
 		{ icon: 'handshake outline', url: '/categories/business' },
 	],
 ]);
+
+export function filterCategories(categories) {
+	return categories
+		.map((category) => category.toUpperCase())
+		.filter((category) => categoryMap.has(category));
+}

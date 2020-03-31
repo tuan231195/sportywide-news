@@ -8,12 +8,17 @@ export class NewsService {
 		@Inject(() => ApiService) private readonly apiService: ApiService
 	) {}
 
-	fetchNews(nextTimestamp?: number): Promise<NewsDto[]> {
+	fetchNews(
+		filter: { nextTimestamp?: number; categories?: string[] } = {}
+	): Promise<NewsDto[]> {
 		return this.apiService
 			.api()
 			.get('/news', {
 				params: {
-					searchAfter: nextTimestamp ? nextTimestamp : undefined,
+					categories: filter.categories,
+					searchAfter: filter.nextTimestamp
+						? filter.nextTimestamp
+						: undefined,
 				},
 			})
 			.then(({ data }) => data);

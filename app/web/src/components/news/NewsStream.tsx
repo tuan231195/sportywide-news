@@ -14,12 +14,16 @@ const CardGroup = styled(Card.Group)`
 `;
 
 interface Props {
-    newsList: NewsDto[];
-    loadFunc: (timestamp: number) => Promise<boolean>;
+    initialNewsList: NewsDto[];
+    loadFunc: (timestamp: number) => Promise<NewsDto[]>;
 }
-export const NewsStream: React.FC<Props> = ({ newsList, loadFunc }) => {
+export const NewsStream: React.FC<Props> = ({
+    initialNewsList = [],
+    loadFunc,
+}) => {
     const [hasMore, setHasMore] = useState(true);
-    const nextTimestamp = useMemo(() => {
+    const [newsList, setNewsList] = useState(initialNewsList);
+    const nextTimestamp: number = useMemo(() => {
         return (
             min(newsList.map((news) => new Date(news.pubDate).getTime())) || 0
         );
@@ -29,7 +33,14 @@ export const NewsStream: React.FC<Props> = ({ newsList, loadFunc }) => {
             <InfiniteScroll
                 pageStart={0}
                 threshold={500}
-                loadMore={() => loadFunc(nextTimestamp).then(setHasMore)}
+                loadMore={() =>
+                    loadFunc(nextTimestamp).then((nextNews) => {
+                        if (nextNews.length) {
+                            setNewsList(newsList.concat(nextNews));
+                        }
+                        setHasMore(!!nextNews.length);
+                    })
+                }
                 hasMore={hasMore}
                 loader={<Spinner key={-1} />}
                 useWindow={true}

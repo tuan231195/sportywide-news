@@ -37,7 +37,7 @@ const Content = styled.div`
     width: 100%;
     @media ${device.tablet} {
         width: 80%;
-        max-width: 800px;
+        max-width: 750px;
     }
 `;
 

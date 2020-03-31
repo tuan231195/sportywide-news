@@ -3,6 +3,7 @@ import { Icon, Input, Menu } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { VnMobile } from 'src/components/common/responsive/Responsive';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
+import { device } from 'src/utils/device/size';
 
 const NavbarMenu = styled(Menu)`
     &&&& {
@@ -11,12 +12,20 @@ const NavbarMenu = styled(Menu)`
         border-radius: 0;
         position: fixed;
         width: 100%;
+        display: flex;
         z-index: 1500;
         height: ${(props) => props.theme.dimen.navBar};
 
         .active.item {
             background-color: ${(props) => props.theme.colors.accent};
         }
+    }
+`;
+
+const SearchInput = styled(Input)`
+    width: 100%;
+    @media ${device.tablet} {
+        width: 500px !important;
     }
 `;
 
@@ -41,7 +50,7 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 Tuan&apos;s news
             </MenuItem>
             <Menu.Item>
-                <Input icon="search" placeholder="Search..." />
+                <SearchInput icon="search" placeholder="Search..." />
             </Menu.Item>
         </NavbarMenu>
     );

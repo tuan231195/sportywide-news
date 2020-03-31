@@ -2,6 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
+import { filterCategories } from 'src/utils/categories';
 
 export default async function request(
 	req: NextApiRequest,
@@ -14,9 +15,7 @@ export default async function request(
 	} = await es.search({
 		index: NEWS_INDEX,
 		body: {
-			query: {
-				match_all: {},
-			},
+			query: buildEsQuery(req.query),
 			stored_fields: [
 				'id',
 				'pubDate',
@@ -41,4 +40,27 @@ export default async function request(
 		return newsDto;
 	});
 	res.json(newsDtos);
+}
+
+function buildEsQuery(queryStr: any = {}) {
+	let esQuery = {};
+	if (queryStr.categories) {
+		if (!Array.isArray(queryStr.categories)) {
+			queryStr.categories = [queryStr.categories];
+		}
+		const categories = filterCategories(queryStr.categories);
+		esQuery = {
+			...esQuery,
+			terms: {
+				category: categories,
+			},
+		};
+	} else {
+		esQuery = {
+			...esQuery,
+			match_all: {},
+		};
+	}
+
+	return esQuery;
 }

@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Card, Image, Button } from 'semantic-ui-react';
-import { formatDistanceStrict } from 'date-fns';
 import { NewsDto } from '@vdtn359/news-models';
-import { str } from '@vdtn359/news-utils';
+import { str, date } from '@vdtn359/news-utils';
 
 interface Props {
     news: NewsDto;
@@ -36,11 +35,10 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                     <div className={'vn-flex vn-flex-justify'}>
                         <span>{str.ucfirst(news.category)}</span>
                         <span>
-                            {formatDistanceStrict(
+                            {date.formatDistance(
                                 new Date(news.pubDate),
                                 new Date()
-                            )}{' '}
-                            ago
+                            )}
                         </span>
                     </div>
                 </Card.Meta>

@@ -1,5 +1,6 @@
 import { Service, Inject } from 'typedi';
 import axios, { AxiosInstance } from 'axios';
+import querystring from 'querystring';
 
 @Service()
 export class ApiService {
@@ -7,6 +8,7 @@ export class ApiService {
 	constructor(@Inject('baseUrl') private readonly baseUrl: string) {
 		this.axios = axios.create({
 			baseURL: `${baseUrl}/api`,
+			paramsSerializer: (params) => querystring.stringify(params),
 		});
 	}
 
