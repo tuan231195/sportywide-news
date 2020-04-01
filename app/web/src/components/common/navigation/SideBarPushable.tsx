@@ -6,17 +6,13 @@ import {
     MenuSegment,
     Pushable,
 } from 'src/components/common/navigation/Sidebar.styled';
-import { Menu, Sidebar, Label } from 'semantic-ui-react';
+import { Label, Menu, Sidebar } from 'semantic-ui-react';
 import { NavBar } from './Navbar';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
 import { categoryMap } from 'src/utils/categories';
-import {
-    VnBigScreen,
-    VnMobile,
-    VnTablet,
-} from 'src/components/common/responsive/Responsive';
+import { VnMobile } from 'src/components/common/responsive/Responsive';
 
 interface Props {
     categories: {
