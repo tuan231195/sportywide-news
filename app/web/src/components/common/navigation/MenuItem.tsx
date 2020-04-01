@@ -26,7 +26,7 @@ interface Props {
     name?: string;
     as?: any;
     className?: string;
-    route?: string;
+    routeOptions?: any;
     router?: NextRouter;
     showActive?: boolean;
     onClick?: any;
@@ -39,7 +39,7 @@ const MenuItemComponent: React.FC<Props> = function ({
     className,
     router,
     onClick,
-    route,
+    routeOptions,
     showActive = true,
     children,
 }) {
@@ -50,27 +50,31 @@ const MenuItemComponent: React.FC<Props> = function ({
             as={as}
             name={name}
             className={className}
-            active={showActive && isActive(route)}
+            active={showActive && isActive(routeOptions)}
             onClick={() => (onClick || defaultClickHandler || func.noop)()}
         >
             {children}
         </Item>
     );
 
-    function isActive(route) {
-        if (!route) {
+    function isActive(routeOptions) {
+        if (!routeOptions?.route) {
             return false;
         }
         const currentPath = router.asPath;
-        return !!pathMatch(route)(currentPath);
+        return !!pathMatch(routeOptions.as || routeOptions.route)(currentPath);
     }
 
     function defaultClickHandler() {
-        if (!route) {
-            return;
+        if (!routeOptions?.route) {
+            return false;
         }
         eventDispatcher.trigger(SIDEBAR_CLOSED);
-        return router.push(route);
+        return router.push(
+            routeOptions.route,
+            routeOptions.as,
+            routeOptions.options
+        );
     }
 };
 

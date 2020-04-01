@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { NewsDto } from '@vdtn359/news-models';
 import { Card } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -23,6 +23,10 @@ export const NewsStream: React.FC<Props> = ({
 }) => {
     const [hasMore, setHasMore] = useState(true);
     const [newsList, setNewsList] = useState(initialNewsList);
+    useEffect(() => {
+        setNewsList(initialNewsList);
+        window.scrollTo(0, 0);
+    }, [initialNewsList]);
     const nextTimestamp: number = useMemo(() => {
         return (
             min(newsList.map((news) => new Date(news.pubDate).getTime())) || 0

@@ -45,7 +45,7 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 </Menu.Item>
             </VnMobile>
 
-            <MenuItem route={'/'} showActive={false}>
+            <MenuItem routeOptions={{ route: '/' }} showActive={false}>
                 <Icon name="newspaper" />
                 Tuan&apos;s news
             </MenuItem>

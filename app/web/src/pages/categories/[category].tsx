@@ -11,10 +11,7 @@ interface Props {
     category: string;
 }
 
-interface State {
-    news: NewsDto[];
-}
-export default class CategoryPage extends React.Component<Props, State> {
+export default class CategoryPage extends React.Component<Props> {
     static async getInitialProps(ctx) {
         const newsService = ctx.container.get(NewsService);
         const category = ctx.query.category || '';
@@ -30,16 +27,10 @@ export default class CategoryPage extends React.Component<Props, State> {
             category: ctx.query.category,
         };
     }
-    constructor(props) {
-        super(props);
-        this.state = {
-            news: props.news,
-        };
-    }
     render() {
         return (
             <NewsStream
-                initialNewsList={this.state.news}
+                initialNewsList={this.props.news}
                 loadFunc={(nextTimestamp) => {
                     const newsService = this.props.container.get(NewsService);
                     return newsService.fetchNews({

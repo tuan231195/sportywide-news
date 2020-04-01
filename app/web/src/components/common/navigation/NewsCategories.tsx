@@ -23,7 +23,7 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
     return (
         <MenuContainer>
             <Menu vertical>
-                <MenuItem key={'all'} name="all" route={'/'}>
+                <MenuItem key={'all'} name="all" routeOptions={{ route: '/' }}>
                     <MenuIcon name={'newspaper'} />
                     <Label color={'teal'}>{total}</Label>
                     All
@@ -32,7 +32,10 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     <MenuItem
                         key={category.category}
                         name={category.category}
-                        route={categoryMap.get(category.category).url}
+                        routeOptions={{
+                            as: categoryMap.get(category.category).url,
+                            route: '/categories/[category]',
+                        }}
                     >
                         <MenuIcon
                             name={categoryMap.get(category.category).icon}

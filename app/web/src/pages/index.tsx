@@ -1,6 +1,6 @@
 import React from 'react';
 import { NewsService } from 'src/services/news.service';
-import { CATEGORY, NewsDto } from '@vdtn359/news-models';
+import { NewsDto } from '@vdtn359/news-models';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { ContainerInstance } from 'typedi';
 
@@ -9,10 +9,7 @@ interface Props {
     container: ContainerInstance;
 }
 
-interface State {
-    news: NewsDto[];
-}
-export default class IndexPage extends React.Component<Props, State> {
+export default class IndexPage extends React.Component<Props> {
     static async getInitialProps(ctx) {
         const newsService = ctx.container.get(NewsService);
         const news = await newsService.fetchNews();
@@ -21,16 +18,11 @@ export default class IndexPage extends React.Component<Props, State> {
             news,
         };
     }
-    constructor(props) {
-        super(props);
-        this.state = {
-            news: props.news,
-        };
-    }
+
     render() {
         return (
             <NewsStream
-                initialNewsList={this.state.news}
+                initialNewsList={this.props.news}
                 loadFunc={(nextTimestamp) => {
                     const newsService = this.props.container.get(NewsService);
                     return newsService.fetchNews({ nextTimestamp });

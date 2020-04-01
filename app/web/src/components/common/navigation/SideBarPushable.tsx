@@ -63,7 +63,10 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                     {categories.map((category) => {
                         return (
                             <MenuItem
-                                route={categoryMap.get(category.category).url}
+                                routeOptions={{
+                                    as: categoryMap.get(category.category).url,
+                                    route: '/categories/[category]',
+                                }}
                                 key={category.category}
                             >
                                 <MenuIcon
