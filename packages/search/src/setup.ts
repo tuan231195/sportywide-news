@@ -42,6 +42,10 @@ export async function setup(elasticsearch: Elasticsearch) {
 						type: 'text',
 						analyzer: 'html',
 					},
+					slug: {
+						type: 'keyword',
+						store: true,
+					},
 					category: {
 						type: 'keyword',
 						store: true,

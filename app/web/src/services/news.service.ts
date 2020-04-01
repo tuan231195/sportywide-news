@@ -8,6 +8,19 @@ export class NewsService {
 		@Inject(() => ApiService) private readonly apiService: ApiService
 	) {}
 
+	get(slug: string) {
+		return this.apiService
+			.api()
+			.get(`/news/${slug}`)
+			.then(({ data }) => data)
+			.catch((e) => {
+				if (e.response.status === 404) {
+					return null;
+				}
+				throw e;
+			});
+	}
+
 	fetchNews(
 		filter: { nextTimestamp?: number; categories?: string[] } = {}
 	): Promise<NewsDto[]> {

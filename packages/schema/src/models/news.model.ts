@@ -24,6 +24,9 @@ export class News extends BaseModel<News> {
 	@Column
 	url: string;
 
+	@Column
+	slug: string;
+
 	@AllowNull
 	@Column
 	image?: string;

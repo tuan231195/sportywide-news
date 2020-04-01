@@ -1,5 +1,5 @@
 import { News } from 'src/news.interface';
-import { CATEGORY, NewsDto } from '@vdtn359/news-models';
+import { CATEGORY, getSlug, NewsDto } from '@vdtn359/news-models';
 import { getParsedXml } from 'src/news/utils';
 import axios, { AxiosInstance } from 'axios';
 import { str } from '@vdtn359/news-utils';
@@ -38,6 +38,7 @@ export abstract class DefaultNews implements News {
 					new Date()
 				),
 				url,
+				slug: getSlug(url),
 				feed: this.rssFeed.trim(),
 			};
 		});

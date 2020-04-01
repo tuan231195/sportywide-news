@@ -25,4 +25,11 @@ export class DBWrapper {
 		});
 		return stream.fromStream(rowStream);
 	}
+
+	async hasColumn(tableName, columnName) {
+		const columns = await this.sequelize
+			.getQueryInterface()
+			.describeTable(tableName);
+		return !!columns[columnName];
+	}
 }

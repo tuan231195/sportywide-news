@@ -1,8 +1,10 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Button, Card, Image } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
-import { str, date } from '@vdtn359/news-utils';
+import { date, str } from '@vdtn359/news-utils';
+import Router from 'next/router';
+import { useURL } from 'src/utils/hooks/basic';
 
 interface Props {
     news: NewsDto;
@@ -15,13 +17,7 @@ const NewsImage = styled(Image)`
     }
 `;
 export const NewsCard: React.FC<Props> = ({ news }) => {
-    const { host, protocol } = useMemo(() => {
-        const url = new URL(news.url);
-        return {
-            host: url.hostname,
-            protocol: url.protocol,
-        };
-    }, [news.url]);
+    const { root: rootUrl, hostname } = useURL(news.url);
     return (
         <Card raised={true} fluid={true} centered={true}>
             <Card.Content>
@@ -49,16 +45,27 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                         <a
                             target={'_blank'}
                             rel={'noreferrer noopener'}
-                            href={`${protocol}//${host}`}
+                            href={`${rootUrl}`}
                         >
-                            {host}
+                            {hostname}
                         </a>
                     </span>
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
                 <div className={'vn-flex vn-flex-justify vn-flex-center'}>
-                    <Button primary> View More </Button>
+                    <Button
+                        primary
+                        onClick={() => {
+                            return Router.push(
+                                '/news/[slug]',
+                                `/news/${news.slug}`
+                            );
+                        }}
+                    >
+                        {' '}
+                        View More{' '}
+                    </Button>
                 </div>
             </Card.Content>
         </Card>

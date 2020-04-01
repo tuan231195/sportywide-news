@@ -24,6 +24,7 @@ export default async function request(
 				'url',
 				'title',
 				'description',
+				'slug',
 			],
 			sort: [{ pubDate: 'desc' }],
 			search_after: req.query.searchAfter

@@ -12,10 +12,16 @@ export class NewsDto {
 	id: string;
 	category: CATEGORY;
 	url: string;
+	slug: string;
 	image?: string;
 	title: string;
 	pubDate: Date;
 	description: string;
 	feed?: string;
 	body?: string;
+}
+
+export function getSlug(url) {
+	const parsedUrl = new URL(url);
+	return parsedUrl.pathname.substr(1).replace(/\//g, '-');
 }

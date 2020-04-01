@@ -29,3 +29,12 @@ export function connectDBUsingConfig(config) {
 		host: config.get('db.host'),
 	});
 }
+
+export function fromSequelize(sequelize) {
+	return connectDB({
+		username: sequelize.config.username,
+		password: sequelize.config.password,
+		host: sequelize.config.host,
+		database: sequelize.config.database,
+	});
+}
