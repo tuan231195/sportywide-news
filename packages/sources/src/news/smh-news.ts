@@ -27,6 +27,10 @@ export class SmhNews extends DefaultNews {
 		if (!articleBody?.length) {
 			return '';
 		}
+		const toRemove = ['#endOfArticle', '.noPrint', '[preload=metadata]'];
+		toRemove.forEach((section) => {
+			articleBody.find(section).remove();
+		});
 		const storyContent = Cheerio.html(articleBody);
 		return getCleanedHTML(storyContent);
 	}

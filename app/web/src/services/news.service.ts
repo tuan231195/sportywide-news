@@ -1,6 +1,7 @@
 import { Inject, Service } from 'typedi';
 import { ApiService } from 'src/services/api.service';
 import { NewsDto } from '@vdtn359/news-models';
+import { PaginationDto } from '@vdtn359/news-models/dist/dtos/pagination.dto';
 
 @Service()
 export class NewsService {
@@ -32,6 +33,27 @@ export class NewsService {
 					searchAfter: filter.nextTimestamp
 						? filter.nextTimestamp
 						: undefined,
+				},
+			})
+			.then(({ data }) => data);
+	}
+
+	searchNews(
+		filter: {
+			search?: string;
+			categories?: string[];
+			from?: number;
+			size?: number;
+		} = {}
+	): Promise<{ items: NewsDto[]; pagination: PaginationDto }> {
+		return this.apiService
+			.api()
+			.get('/search', {
+				params: {
+					categories: filter.categories,
+					from: filter.from,
+					size: filter.size,
+					search: filter.search,
 				},
 			})
 			.then(({ data }) => data);

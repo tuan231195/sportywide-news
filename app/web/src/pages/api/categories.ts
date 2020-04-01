@@ -2,11 +2,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
+import { logger } from 'src/api/logger';
 
-export default async function request(
-	req: NextApiRequest,
-	res: NextApiResponse
-) {
+async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
 		body: {
 			aggregations: {
@@ -32,3 +30,5 @@ export default async function request(
 		}))
 	);
 }
+
+export default logger(request);

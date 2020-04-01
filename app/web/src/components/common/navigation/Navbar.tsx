@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon, Input, Menu } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { VnMobile } from 'src/components/common/responsive/Responsive';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { device } from 'src/utils/device/size';
+import Router from 'next/router';
+import { toQueryString } from 'src/utils/filter';
 
 const NavbarMenu = styled(Menu)`
     &&&& {
@@ -34,6 +36,7 @@ interface Props {
 }
 
 export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
+    const [searchQuery, setSearchQuery] = useState('');
     return (
         <NavbarMenu inverted>
             <VnMobile>
@@ -56,8 +59,33 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 </a>
             </MenuItem>
             <Menu.Item>
-                <SearchInput icon="search" placeholder="Search..." />
+                <SearchInput
+                    value={searchQuery}
+                    onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                    }}
+                    onKeyPress={(e) => {
+                        if (e.key === 'Enter') search();
+                    }}
+                    icon={
+                        <Icon
+                            name={'search'}
+                            className={'vn-cursor-pointer'}
+                            onClick={search}
+                        />
+                    }
+                    placeholder="Search..."
+                />
             </Menu.Item>
         </NavbarMenu>
     );
+
+    function search() {
+        setSearchQuery('');
+        return Router.push(
+            `/search?filter=${toQueryString({
+                search: searchQuery,
+            })}`
+        );
+    }
 };

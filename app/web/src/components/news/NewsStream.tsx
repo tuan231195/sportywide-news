@@ -1,9 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NewsDto } from '@vdtn359/news-models';
 import { Card } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { NewsCard } from 'src/components/news/NewsCard';
-import { min } from 'lodash';
 import { Spinner } from 'src/components/common/loading/Spinner';
 import styled from 'styled-components';
 
@@ -15,29 +14,24 @@ const CardGroup = styled(Card.Group)`
 
 interface Props {
     initialNewsList: NewsDto[];
-    loadFunc: (timestamp: number) => Promise<NewsDto[]>;
+    loadFunc: (newsList?: NewsDto[]) => Promise<NewsDto[]>;
 }
 export const NewsStream: React.FC<Props> = ({
     initialNewsList = [],
     loadFunc,
 }) => {
-    const [hasMore, setHasMore] = useState(true);
+    const [hasMore, setHasMore] = useState(!!initialNewsList.length);
     const [newsList, setNewsList] = useState(initialNewsList);
     useEffect(() => {
         setNewsList(initialNewsList);
     }, [initialNewsList]);
-    const nextTimestamp: number = useMemo(() => {
-        return (
-            min(newsList.map((news) => new Date(news.pubDate).getTime())) || 0
-        );
-    }, [newsList]);
     return (
         <CardGroup itemsPerRow={1} centered={true}>
             <InfiniteScroll
                 pageStart={0}
                 threshold={500}
                 loadMore={() =>
-                    loadFunc(nextTimestamp).then((nextNews) => {
+                    loadFunc(newsList).then((nextNews) => {
                         if (nextNews.length) {
                             setNewsList(newsList.concat(nextNews));
                         }

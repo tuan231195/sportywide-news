@@ -44,7 +44,6 @@ const NewsDescription = styled.i`
 `;
 export const NewsBody: React.FC<Props> = ({ news }) => {
     const { root: rootUrl, hostname } = useURL(news.url);
-    console.log(useURL(news.url));
     return (
         <NewsSegment raised={true}>
             <NewsHeader as={'h1'}>

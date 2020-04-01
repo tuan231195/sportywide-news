@@ -40,13 +40,9 @@ async function getFullNews(itemIds: string[]) {
 	const newsModels = await newsDao.findByIds(itemIds);
 	return Promise.all(
 		newsModels.map(async (newsModel) => {
-			let body = '';
-			const hasDocument = await es.hasDocument(NEWS_INDEX, newsModel.id);
-			if (!hasDocument) {
-				body = await extractUrl(newsModel.url);
-				if (!body) {
-					w.error(`news ${newsModel.url} has no body`);
-				}
+			const body = await extractUrl(newsModel.url);
+			if (!body) {
+				w.error(`news ${newsModel.url} has no body`);
 			}
 			if (!newsModel.image && body) {
 				w.error(`adding image for news ${newsModel.url}`);
