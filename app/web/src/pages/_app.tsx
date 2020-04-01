@@ -17,6 +17,7 @@ import { ContainerContext } from 'src/utils/container/context';
 import { SideBarPushable } from 'src/components/common/navigation/SideBarPushable';
 import { EventDispatcher } from 'src/utils/events/event-dispatcher';
 import { WINDOW_CLICK } from 'src/utils/events/event.constants';
+import Router from 'next/router';
 
 const theme = {
     colors: {
@@ -84,6 +85,9 @@ class NewsApp extends App<any, any, any> {
     componentDidMount(): void {
         this.setState({
             deviceWidth: 0,
+        });
+        Router.events.on('routeChangeComplete', () => {
+            window.scrollTo(0, 0);
         });
         this.registerListeners();
     }

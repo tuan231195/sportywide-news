@@ -1,4 +1,4 @@
-import { Service, Inject } from 'typedi';
+import { Inject, Service } from 'typedi';
 import axios, { AxiosInstance } from 'axios';
 import querystring from 'querystring';
 

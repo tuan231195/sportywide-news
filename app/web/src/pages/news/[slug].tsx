@@ -1,6 +1,6 @@
 import React from 'react';
 import { NewsService } from 'src/services/news.service';
-import { CATEGORY, NewsDto } from '@vdtn359/news-models';
+import { NewsDto } from '@vdtn359/news-models';
 import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
 import { NewsBody } from 'src/components/news/NewsBody';

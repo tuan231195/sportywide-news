@@ -1,13 +1,10 @@
 import { NextRouter } from 'next/router';
-import React, { ReactNode, useContext } from 'react';
+import React, { ReactNode } from 'react';
 import { Menu } from 'semantic-ui-react';
-import { ContainerContext } from 'src/utils/container/context';
-import { EventDispatcher } from 'src/utils/events/event-dispatcher';
-import { func } from '@vdtn359/news-utils';
 import { match as pathMatch } from 'path-to-regexp';
-import { SIDEBAR_CLOSED } from 'src/utils/events/event.constants';
 import { withRouter } from 'src/utils/hoc/with-router';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const Item = styled(Menu.Item)`
     &&&&.active {
@@ -25,6 +22,7 @@ const Item = styled(Menu.Item)`
 interface Props {
     name?: string;
     as?: any;
+    showLink?: boolean;
     className?: string;
     routeOptions?: any;
     router?: NextRouter;
@@ -41,19 +39,21 @@ const MenuItemComponent: React.FC<Props> = function ({
     onClick,
     routeOptions,
     showActive = true,
+    showLink,
     children,
 }) {
-    const container = useContext(ContainerContext);
-    const eventDispatcher = container.get(EventDispatcher);
+    const Content = showLink ? Link : React.Fragment;
     return (
         <Item
             as={as}
             name={name}
             className={className}
             active={showActive && isActive(routeOptions)}
-            onClick={() => (onClick || defaultClickHandler || func.noop)()}
+            onClick={onClick}
         >
-            {children}
+            <Content as={routeOptions?.as} href={routeOptions?.route}>
+                {children}
+            </Content>
         </Item>
     );
 
@@ -63,18 +63,6 @@ const MenuItemComponent: React.FC<Props> = function ({
         }
         const currentPath = router.asPath;
         return !!pathMatch(routeOptions.as || routeOptions.route)(currentPath);
-    }
-
-    function defaultClickHandler() {
-        if (!routeOptions?.route) {
-            return false;
-        }
-        eventDispatcher.trigger(SIDEBAR_CLOSED);
-        return router.push(
-            routeOptions.route,
-            routeOptions.as,
-            routeOptions.options
-        );
     }
 };
 

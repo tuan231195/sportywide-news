@@ -3,12 +3,20 @@ import styled from 'styled-components';
 import { Button, Card, Image } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
 import { date, str } from '@vdtn359/news-utils';
-import Router from 'next/router';
+import Link from 'next/link';
 import { useURL } from 'src/utils/hooks/basic';
 
 interface Props {
     news: NewsDto;
 }
+
+const ButtonGroup = styled.div`
+    display: flex;
+    align-items: center;
+    button:not(:first-child) {
+        margin-left: 10px;
+    }
+`;
 
 const NewsImage = styled(Image)`
     &&&&& {
@@ -26,7 +34,11 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                     src={news.image || '/static/images/placeholder.png'}
                     className={'vn-mb3'}
                 />
-                <Card.Header className={'vn-mb1'}>{news.title}</Card.Header>
+                <Card.Header className={'vn-mb1'}>
+                    <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
+                        <a>{news.title}</a>
+                    </Link>
+                </Card.Header>
                 <Card.Meta>
                     <div className={'vn-flex vn-flex-justify'}>
                         <span>{str.ucfirst(news.category)}</span>
@@ -53,20 +65,27 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <div className={'vn-flex vn-flex-justify vn-flex-center'}>
-                    <Button
-                        primary
-                        onClick={() => {
-                            return Router.push(
-                                '/news/[slug]',
-                                `/news/${news.slug}`
-                            );
-                        }}
-                    >
-                        {' '}
-                        View More{' '}
+                <ButtonGroup>
+                    <Button primary>
+                        <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
+                            <a
+                                className={'vn-raw-link'}
+                                style={{ color: 'white' }}
+                            >
+                                View More
+                            </a>
+                        </Link>
                     </Button>
-                </div>
+                    <Button>
+                        <a
+                            href={news.url}
+                            target={'_blank'}
+                            rel={'noreferrer noopener'}
+                        >
+                            View External
+                        </a>
+                    </Button>
+                </ButtonGroup>
             </Card.Content>
         </Card>
     );

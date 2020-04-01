@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { sumBy } from 'lodash';
 import { CATEGORY } from '@vdtn359/news-models';
-import { Menu, Label } from 'semantic-ui-react';
+import { Label, Menu } from 'semantic-ui-react';
 import { str } from '@vdtn359/news-utils';
 import styled from 'styled-components';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
@@ -18,18 +18,38 @@ interface Props {
 const MenuContainer = styled.div`
     position: fixed;
 `;
+
+const CategoryBadge = styled(Label)`
+    min-width: 40px;
+    text-align: center;
+`;
+
+const CategoryItem = styled(MenuItem)`
+    &&&& {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+`;
 export const NewsCategories: React.FC<Props> = ({ categories }) => {
     const total = useMemo(() => sumBy(categories, 'count'), [categories]);
     return (
         <MenuContainer>
             <Menu vertical>
-                <MenuItem key={'all'} name="all" routeOptions={{ route: '/' }}>
-                    <MenuIcon name={'newspaper'} />
-                    <Label color={'teal'}>{total}</Label>
-                    All
-                </MenuItem>
+                <CategoryItem
+                    key={'all'}
+                    name="all"
+                    routeOptions={{ route: '/' }}
+                    showLink={true}
+                >
+                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <MenuIcon name={'newspaper'} />
+                        <span className={'vn-flex-grow vn-ml1'}>All</span>
+                        <CategoryBadge color={'teal'}>{total}</CategoryBadge>
+                    </a>
+                </CategoryItem>
                 {categories.map((category) => (
-                    <MenuItem
+                    <CategoryItem
+                        showLink={true}
                         key={category.category}
                         name={category.category}
                         routeOptions={{
@@ -37,12 +57,18 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                             route: '/categories/[category]',
                         }}
                     >
-                        <MenuIcon
-                            name={categoryMap.get(category.category).icon}
-                        />
-                        {str.ucfirst(category.category)}
-                        <Label color={'teal'}>{category.count}</Label>
-                    </MenuItem>
+                        <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                            <MenuIcon
+                                name={categoryMap.get(category.category).icon}
+                            />
+                            <span className={'vn-flex-grow vn-ml1'}>
+                                {str.ucfirst(category.category)}
+                            </span>
+                            <CategoryBadge color={'teal'}>
+                                {category.count}
+                            </CategoryBadge>
+                        </a>
+                    </CategoryItem>
                 ))}
             </Menu>
         </MenuContainer>

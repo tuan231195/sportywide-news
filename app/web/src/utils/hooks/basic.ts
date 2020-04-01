@@ -1,10 +1,10 @@
 import {
-	useEffect,
-	useCallback,
 	EffectCallback,
+	useCallback,
+	useEffect,
+	useMemo,
 	useRef,
 	useState,
-	useMemo,
 } from 'react';
 
 export function useEffectOnce(effect: EffectCallback) {

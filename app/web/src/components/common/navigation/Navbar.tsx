@@ -45,9 +45,15 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 </Menu.Item>
             </VnMobile>
 
-            <MenuItem routeOptions={{ route: '/' }} showActive={false}>
-                <Icon name="newspaper" />
-                Tuan&apos;s news
+            <MenuItem
+                routeOptions={{ route: '/' }}
+                showActive={false}
+                showLink={true}
+            >
+                <a className={'vn-raw-link'}>
+                    <Icon name="newspaper" />
+                    Tuan&apos;s news
+                </a>
             </MenuItem>
             <Menu.Item>
                 <SearchInput icon="search" placeholder="Search..." />

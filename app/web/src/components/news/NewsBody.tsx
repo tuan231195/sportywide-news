@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Header, Icon } from 'semantic-ui-react';
+import { Header, Icon, Segment } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
 import styled from 'styled-components';
 import { date, str } from '@vdtn359/news-utils';
@@ -32,8 +32,10 @@ const NewsSource = styled.div`
 
 const NewsLink = styled.a`
     text-decoration: none;
-    margin-left: 10px;
+    margin-left: 15px;
     color: black;
+    display: inline-block;
+    transform: translateY(-4px);
 `;
 
 const NewsDescription = styled.i`
@@ -51,8 +53,10 @@ export const NewsBody: React.FC<Props> = ({ news }) => {
                     href={news.url}
                     target={'_blank'}
                     rel={'noreferrer noopener'}
+                    data-tooltip={'View external'}
+                    data-position="bottom center"
                 >
-                    <Icon name={'external alternate'} />
+                    <Icon name={'external alternate'} size={'small'} />
                 </NewsLink>
             </NewsHeader>
             <NewsMeta className={'vn-flex vn-flex-justify'}>

@@ -13,6 +13,7 @@ import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
 import { categoryMap } from 'src/utils/categories';
 import { VnMobile } from 'src/components/common/responsive/Responsive';
+import styled from 'styled-components';
 
 interface Props {
     categories: {
@@ -20,6 +21,12 @@ interface Props {
         count: number;
     }[];
 }
+
+const CategoryBadge: any = styled(Label)`
+    min-width: 38px;
+    text-align: center;
+`;
+
 export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
     const [getSideBarVisible, setSidebarVisible] = useStateRef(false);
     const sideBarRef = useRef<any>();
@@ -63,21 +70,31 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                     {categories.map((category) => {
                         return (
                             <MenuItem
+                                showLink={true}
                                 routeOptions={{
                                     as: categoryMap.get(category.category).url,
                                     route: '/categories/[category]',
                                 }}
                                 key={category.category}
                             >
-                                <MenuIcon
-                                    name={
-                                        categoryMap.get(category.category).icon
+                                <a
+                                    className={
+                                        'vn-raw-link vn-flex vn-flex-center'
                                     }
-                                />
-                                {str.ucfirst(category.category)}
-                                <Label as="span" size={'tiny'} color={'teal'}>
-                                    {category.count}
-                                </Label>
+                                >
+                                    <MenuIcon
+                                        name={
+                                            categoryMap.get(category.category)
+                                                .icon
+                                        }
+                                    />
+                                    <span className={'vn-flex-grow vn-ml1'}>
+                                        {str.ucfirst(category.category)}
+                                    </span>
+                                    <CategoryBadge size={'tiny'} color={'teal'}>
+                                        {category.count}
+                                    </CategoryBadge>
+                                </a>
                             </MenuItem>
                         );
                     })}

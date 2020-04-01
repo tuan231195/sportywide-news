@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Segment, Sidebar, Icon } from 'semantic-ui-react';
+import { Icon, Segment, Sidebar } from 'semantic-ui-react';
 
 export const MenuSegment: any = styled(Segment)`
     &&&& {

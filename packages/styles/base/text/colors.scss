@@ -8,21 +8,9 @@ $colors: (
 	'primary': (
 		base: #0288d1,
 	),
-	'blue': (
-		base: #03a9f4,
-	),
 	'grey': (
 		base: #ccc,
 		dark: #777,
-	),
-	'green': (
-		base: green,
-	),
-	'yellow': (
-		base: yellow,
-	),
-	'accent': (
-		base: #ff5722,
 	),
 );
 
@@ -32,4 +20,13 @@ $colors: (
 
 .vn-text {
 	@include map-modifiers($colors, 'color', '--');
+}
+
+.vn-raw-link {
+	text-decoration: none;
+	color: inherit;
+	&:hover {
+		color: inherit;
+		text-decoration: none;
+	}
 }
