@@ -16,6 +16,9 @@ export function buildEsQuery(queryStr: any = {}) {
 	}
 
 	if (queryStr.search) {
+		const searchQuery = Array.isArray(queryStr.search)
+			? queryStr.search[0]
+			: queryStr.search;
 		mustQuery.push({
 			bool: {
 				should: [
@@ -23,7 +26,7 @@ export function buildEsQuery(queryStr: any = {}) {
 						match_phrase: {
 							title: {
 								boost: 2,
-								query: queryStr.search,
+								query: searchQuery,
 							},
 						},
 					},

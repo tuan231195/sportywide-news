@@ -8,8 +8,6 @@ import { getThumbnailUrl } from '@vdtn359/news-sources';
 import { worker as w } from '@vdtn359/news-core';
 
 export async function processStream(consumer) {
-	await setupRedis();
-	await setupEs();
 	redis
 		.readStream({
 			group: NEWS_GROUP,
@@ -57,10 +55,25 @@ async function getFullNews(itemIds: string[]) {
 	);
 }
 
-async function esSync(news: any[] = []) {
-	w.info(`Indexing ${news.length} documents`);
+async function esSync(newsList: any[] = []) {
+	w.info(`Indexing ${newsList.length} documents`);
 	try {
-		await es.bulkUpsert(NEWS_INDEX, news);
+		const updatedDocuments = await Promise.all(
+			newsList.map(async (news) => {
+				if (await es.existsDocument(NEWS_INDEX, news.id)) {
+					return {
+						...news,
+						indexType: 'upsert',
+					};
+				} else {
+					return {
+						...news,
+						indexType: 'index',
+					};
+				}
+			})
+		);
+		await es.bulkSync(NEWS_INDEX, updatedDocuments);
 	} catch (e) {
 		w.error('Failed to index', e);
 	}

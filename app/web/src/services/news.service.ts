@@ -45,7 +45,11 @@ export class NewsService {
 			from?: number;
 			size?: number;
 		} = {}
-	): Promise<{ items: NewsDto[]; pagination: PaginationDto }> {
+	): Promise<{
+		items: NewsDto[];
+		pagination: PaginationDto;
+		terms: string[];
+	}> {
 		return this.apiService
 			.api()
 			.get('/search', {

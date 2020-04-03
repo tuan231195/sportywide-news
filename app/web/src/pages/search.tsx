@@ -1,7 +1,7 @@
 import React from 'react';
 import { NewsService } from 'src/services/news.service';
 import { NewsDto } from '@vdtn359/news-models';
-import { Header } from 'semantic-ui-react';
+import { Header, Label } from 'semantic-ui-react';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { ContainerInstance } from 'typedi';
 import { PaginationDto } from '@vdtn359/news-models/dist/dtos/pagination.dto';
@@ -14,6 +14,7 @@ import Router from 'next/router';
 import styled from 'styled-components';
 import { withRouter } from 'src/utils/hoc/with-router';
 import { SearchFilterOptions } from 'src/components/search/SearchFilter';
+import { str } from '@vdtn359/news-utils';
 
 interface Props {
     news: NewsDto[];
@@ -26,6 +27,7 @@ interface Props {
 interface State {
     pagination: PaginationDto;
     news: NewsDto[];
+    terms: string[];
     filter: SearchFilter;
 }
 
@@ -36,13 +38,14 @@ const Root = styled.div`
 class SearchPage extends React.Component<Props, State> {
     static async getInitialProps(ctx) {
         const filter = getFilterFromUrl(ctx.query.filter);
-        const { news, pagination } = await SearchPage.newSearch(
+        const { news, pagination, terms } = await SearchPage.newSearch(
             ctx.container,
             filter
         );
 
         return {
             filter,
+            terms,
             news,
             pagination,
         };
@@ -53,6 +56,7 @@ class SearchPage extends React.Component<Props, State> {
         this.state = {
             pagination: props.pagination,
             news: props.news,
+            terms: props.terms,
             filter: props.filter,
         };
     }
@@ -62,12 +66,13 @@ class SearchPage extends React.Component<Props, State> {
         if (query.filter !== prevProps.router.query.filter) {
             const parsedFilter = getFilterFromUrl(query.filter);
 
-            const { news, pagination } = await SearchPage.newSearch(
+            const { news, pagination, terms } = await SearchPage.newSearch(
                 this.props.container,
                 parsedFilter
             );
             this.setState({
                 filter: parsedFilter,
+                terms,
                 news,
                 pagination,
             });
@@ -76,12 +81,13 @@ class SearchPage extends React.Component<Props, State> {
 
     static async newSearch(container: ContainerInstance, filter: SearchFilter) {
         const newsService = container.get(NewsService);
-        const { items: news, pagination } = await newsService.searchNews(
+        const { items: news, pagination, terms } = await newsService.searchNews(
             filter
         );
 
         return {
             news,
+            terms,
             pagination,
         };
     }
@@ -125,6 +131,18 @@ class SearchPage extends React.Component<Props, State> {
                         );
                     }}
                 />
+                {!!this.state.terms.length && (
+                    <div className={'vn-mt2 vn-mb2'}>
+                        <Header as={'h5'}>Similar keywords:</Header>
+                        <Label.Group>
+                            {this.state.terms.map((term) => (
+                                <Label as="a" color="teal" key={term}>
+                                    {str.ucfirst(term)}
+                                </Label>
+                            ))}
+                        </Label.Group>
+                    </div>
+                )}
                 <NewsStream
                     initialNewsList={this.state.news}
                     loadFunc={async () => {

@@ -33,17 +33,39 @@ export class ElasticsearchWrapper {
 		return exists;
 	}
 
-	async bulkUpsert(index: string, documents) {
+	async bulkSync(index: string, documents) {
 		return this.client.bulk({
 			body: flatMap(
-				documents.map((document) => [
-					{
-						update: { _index: index, _id: document.id },
-					},
-					// eslint-disable-next-line @typescript-eslint/camelcase
-					{ doc: document, doc_as_upsert: true },
-				])
+				documents.map((document) => {
+					const indexType = document.indexType;
+					delete document.indexType;
+					if (indexType === 'index') {
+						return [
+							{
+								create: { _index: index, _id: document.id },
+							},
+							document,
+						];
+					} else {
+						return [
+							{
+								update: { _index: index, _id: document.id },
+							},
+							// eslint-disable-next-line @typescript-eslint/camelcase
+							{ doc: document, doc_as_upsert: true },
+						];
+					}
+				})
 			),
 		});
+	}
+
+	async existsDocument(index: string, id: string) {
+		const { body } = await this.client.exists({
+			index,
+			id,
+		});
+
+		return body;
 	}
 }

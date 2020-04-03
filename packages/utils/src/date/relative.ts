@@ -21,7 +21,7 @@ export function weekStart(date) {
 
 export function formatDistance(date, relativeDate) {
 	if (relativeDate.getTime() - date.getTime() >= 86400 * 1000) {
-		return format(date, 'dd/MM/yyyy hh:mm');
+		return format(date, 'dd/MM/yyyy hh:mm a');
 	}
 	return `${formatDistanceStrict(date, relativeDate)} ago`;
 }
