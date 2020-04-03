@@ -18,7 +18,19 @@ export class CnetNews extends DefaultNews {
 	static async extractUrl(url: string) {
 		const newsPage = await axios(url).then(({ data }) => data);
 		const $ = Cheerio.load(newsPage);
-		const storyContent = Cheerio.html($('#article-body'));
+		const storyBody = $('#article-body');
+		storyBody.find('figure > a > svg').parent().remove();
+		const toRemove = [
+			'[data-video-playlist]',
+			'[section="shortcodeGallery"]',
+			'footer',
+			'.playerControls',
+			'[data-component="lazyloadElement"]',
+		];
+		toRemove.forEach((section) => {
+			storyBody.find(section).remove();
+		});
+		const storyContent = Cheerio.html(storyBody);
 		return getCleanedHTML(storyContent);
 	}
 }

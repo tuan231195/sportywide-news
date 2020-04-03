@@ -14,6 +14,10 @@ export class TechRepublicNews extends DefaultNews {
 		const newsPage = await axios(url).then(({ data }) => data);
 		const $ = Cheerio.load(newsPage);
 		const articleBody = $('article.article-single > div.content');
+		const toRemove = ['[data-component="newsletterSubscription"]'];
+		toRemove.forEach((section) => {
+			articleBody.find(section).remove();
+		});
 		const storyContent = Cheerio.html(articleBody);
 		return getCleanedHTML(storyContent);
 	}

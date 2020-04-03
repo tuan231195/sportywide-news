@@ -15,6 +15,7 @@ import styled from 'styled-components';
 import { withRouter } from 'src/utils/hoc/with-router';
 import { SearchFilterOptions } from 'src/components/search/SearchFilter';
 import { str } from '@vdtn359/news-utils';
+import Link from 'next/link';
 
 interface Props {
     news: NewsDto[];
@@ -136,8 +137,13 @@ class SearchPage extends React.Component<Props, State> {
                         <Header as={'h5'}>Similar keywords:</Header>
                         <Label.Group>
                             {this.state.terms.map((term) => (
-                                <Label as="a" color="teal" key={term}>
-                                    {str.ucfirst(term)}
+                                <Label color="teal" key={term}>
+                                    <Link
+                                        href={`/tags/[tag]`}
+                                        as={`/tags/${term}`}
+                                    >
+                                        <a>{str.ucfirst(term)}</a>
+                                    </Link>
                                 </Label>
                             ))}
                         </Label.Group>
