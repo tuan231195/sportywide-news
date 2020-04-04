@@ -4,6 +4,7 @@ import { NewsDto } from '@vdtn359/news-models';
 import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
 import { NewsBody } from 'src/components/news/NewsBody';
+import Head from 'next/head';
 
 interface Props {
     news: NewsDto;
@@ -31,10 +32,15 @@ export default class NewsPage extends React.Component<Props> {
     }
     render() {
         return (
-            <NewsBody
-                news={this.props.news}
-                similarNewsList={this.props.similarNewsList}
-            />
+            <>
+                <Head>
+                    <title>{this.props.news.title}</title>
+                </Head>
+                <NewsBody
+                    news={this.props.news}
+                    similarNewsList={this.props.similarNewsList}
+                />
+            </>
         );
     }
 }

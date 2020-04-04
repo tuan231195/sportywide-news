@@ -4,6 +4,8 @@ import { CATEGORY } from '@vdtn359/news-models';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
+import { str } from '@vdtn359/news-utils';
+import Head from 'next/head';
 
 interface Props {
     news: NewsSearchDto[];
@@ -29,19 +31,26 @@ export default class CategoryPage extends React.Component<Props> {
     }
     render() {
         return (
-            <NewsStream
-                initialNewsList={this.props.news}
-                loadFunc={(newsList) => {
-                    const searchAfter =
-                        newsList[newsList.length - 1] &&
-                        newsList[newsList.length - 1].sort;
-                    const newsService = this.props.container.get(NewsService);
-                    return newsService.fetchNews({
-                        searchAfter,
-                        categories: [this.props.category],
-                    });
-                }}
-            />
+            <>
+                <Head>
+                    <title>{str.ucfirst(this.props.category)}</title>
+                </Head>
+                <NewsStream
+                    initialNewsList={this.props.news}
+                    loadFunc={(newsList) => {
+                        const searchAfter =
+                            newsList[newsList.length - 1] &&
+                            newsList[newsList.length - 1].sort;
+                        const newsService = this.props.container.get(
+                            NewsService
+                        );
+                        return newsService.fetchNews({
+                            searchAfter,
+                            categories: [this.props.category],
+                        });
+                    }}
+                />
+            </>
         );
     }
 }

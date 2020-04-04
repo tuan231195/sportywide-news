@@ -14,6 +14,7 @@ import { withRouter } from 'src/utils/hoc/with-router';
 import { SearchFilterOptions } from 'src/components/search/SearchFilter';
 import { str } from '@vdtn359/news-utils';
 import Link from 'next/link';
+import Head from 'next/head';
 
 interface Props {
     news: NewsSearchDto[];
@@ -116,6 +117,13 @@ class SearchPage extends React.Component<Props, State> {
     render() {
         return (
             <Root>
+                <Head>
+                    <title>
+                        {this.state.filter.search
+                            ? `Search for ${this.state.filter.search}`
+                            : 'Search'}
+                    </title>
+                </Head>
                 <Header as={'h3'}>
                     {this.state.total} news(s)
                     {!!this.state.filter.search && (
