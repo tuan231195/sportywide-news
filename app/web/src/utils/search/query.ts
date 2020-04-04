@@ -1,13 +1,12 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { filterCategories } from 'src/utils/categories';
 import { flatMap } from 'lodash';
+import { arrayQuery, stringQuery } from 'src/api/parse';
 
 export function buildEsQuery(queryStr: any = {}) {
 	const mustQuery = [];
 	if (queryStr.categories) {
-		if (!Array.isArray(queryStr.categories)) {
-			queryStr.categories = [queryStr.categories];
-		}
+		queryStr.categories = arrayQuery(queryStr.categories);
 		const categories = filterCategories(queryStr.categories);
 		mustQuery.push({
 			terms: {
@@ -17,9 +16,7 @@ export function buildEsQuery(queryStr: any = {}) {
 	}
 
 	if (queryStr.search) {
-		const searchQuery = Array.isArray(queryStr.search)
-			? queryStr.search[0]
-			: queryStr.search;
+		const searchQuery = stringQuery(queryStr.search);
 		mustQuery.push(constructSearchQuery(searchQuery));
 	}
 

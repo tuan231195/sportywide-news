@@ -1,12 +1,14 @@
 import React from 'react';
-import { Header, Icon, Segment } from 'semantic-ui-react';
+import { Header, Icon, Segment, Image } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
 import styled from 'styled-components';
+import Slider from 'react-slick';
 import { date, str } from '@vdtn359/news-utils';
 import { useURL } from 'src/utils/hooks/basic';
 
 interface Props {
     news: NewsDto;
+    similarNewsList: NewsDto[];
 }
 
 const NewsSegment = styled(Segment)`
@@ -42,7 +44,7 @@ const NewsDescription = styled.i`
     margin-bottom: var(--space-3);
     display: block;
 `;
-export const NewsBody: React.FC<Props> = ({ news }) => {
+export const NewsBody: React.FC<Props> = ({ news, similarNewsList }) => {
     const { root: rootUrl, hostname } = useURL(news.url);
     return (
         <NewsSegment raised={true}>
@@ -75,6 +77,34 @@ export const NewsBody: React.FC<Props> = ({ news }) => {
                 </a>
             </NewsSource>
             <NewsDescription>{news.description}</NewsDescription>
+            {!!similarNewsList.length && (
+                <>
+                    <Header as={'h4'}>Similar News</Header>
+                    <Slider
+                        className={'vn-ml3 vn-mr3'}
+                        dots={true}
+                        infinite={true}
+                        autoplay={false}
+                        slidesToShow={2}
+                        centerMode={true}
+                        centerPadding={'60px'}
+                        slidesToScroll={1}
+                    >
+                        {similarNewsList.map((news) => (
+                            <Segment key={news.id}>
+                                <Image
+                                    size={'small'}
+                                    src={
+                                        news.image ||
+                                        '/static/images/placeholder.png'
+                                    }
+                                />
+                                <a>{news.title}</a>
+                            </Segment>
+                        ))}
+                    </Slider>
+                </>
+            )}
             <div dangerouslySetInnerHTML={{ __html: news.body }} />
         </NewsSegment>
     );

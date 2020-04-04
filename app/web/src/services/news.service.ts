@@ -1,7 +1,8 @@
 import { Inject, Service } from 'typedi';
 import { ApiService } from 'src/services/api.service';
 import { NewsDto } from '@vdtn359/news-models';
-import { PaginationDto } from '@vdtn359/news-models/dist/dtos/pagination.dto';
+
+export type NewsSearchDto = NewsDto & { score: number; sort: any[] };
 
 @Service()
 export class NewsService {
@@ -22,16 +23,24 @@ export class NewsService {
 			});
 	}
 
+	suggestSimilar(id: string): Promise<NewsDto[]> {
+		return this.apiService
+			.api()
+			.get(`/news/suggest/${id}`)
+			.then(({ data }) => data)
+			.catch(() => []);
+	}
+
 	fetchNews(
-		filter: { nextTimestamp?: number; categories?: string[] } = {}
-	): Promise<NewsDto[]> {
+		filter: { searchAfter?: any[]; categories?: string[] } = {}
+	): Promise<NewsSearchDto[]> {
 		return this.apiService
 			.api()
 			.get('/news', {
 				params: {
 					categories: filter.categories,
-					searchAfter: filter.nextTimestamp
-						? filter.nextTimestamp
+					searchAfter: filter.searchAfter
+						? JSON.stringify(filter.searchAfter)
 						: undefined,
 				},
 			})
@@ -42,21 +51,21 @@ export class NewsService {
 		filter: {
 			search?: string;
 			categories?: string[];
-			from?: number;
-			size?: number;
+			searchAfter?: any[];
 		} = {}
 	): Promise<{
-		items: NewsDto[];
-		pagination: PaginationDto;
+		items: NewsSearchDto[];
 		terms: string[];
+		total: number;
 	}> {
 		return this.apiService
 			.api()
 			.get('/search', {
 				params: {
 					categories: filter.categories,
-					from: filter.from,
-					size: filter.size,
+					searchAfter: filter.searchAfter
+						? JSON.stringify(filter.searchAfter)
+						: undefined,
 					search: filter.search,
 				},
 			})

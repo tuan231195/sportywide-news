@@ -16,7 +16,14 @@ interface Props {
 }
 
 const MenuContainer = styled.div`
-    position: fixed;
+    &&& {
+        position: fixed;
+        min-width: 250px;
+
+        > menu {
+            width: 100%;v
+        }
+    }
 `;
 
 const CategoryBadge = styled(Label)`

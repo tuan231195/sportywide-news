@@ -7,6 +7,7 @@ import { NewsBody } from 'src/components/news/NewsBody';
 
 interface Props {
     news: NewsDto;
+    similarNewsList: NewsDto[];
     container: ContainerInstance;
 }
 
@@ -21,11 +22,19 @@ export default class NewsPage extends React.Component<Props> {
             return redirect(ctx, '/404');
         }
 
+        const similarNewsList = await newsService.suggestSimilar(news.id);
+
         return {
             news,
+            similarNewsList,
         };
     }
     render() {
-        return <NewsBody news={this.props.news} />;
+        return (
+            <NewsBody
+                news={this.props.news}
+                similarNewsList={this.props.similarNewsList}
+            />
+        );
     }
 }

@@ -7,17 +7,22 @@ export function logger(request) {
 			if (err.name === 'ResponseError') {
 				return handleElasticSearchError(err, res);
 			}
-			throw err;
+			console.error(err);
+			res.status(500).json({
+				error: 'Internal server error',
+			});
 		}
 	};
 }
 
 function handleElasticSearchError(err, res) {
-	console.log(
+	console.error(
 		'Elastic search error',
 		util.inspect(err.meta, {
 			depth: null,
 		})
 	);
-	res.status(500).send('Internal server error');
+	res.status(500).json({
+		error: 'Internal server error',
+	});
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import { NewsService } from 'src/services/news.service';
-import { NewsDto } from '@vdtn359/news-models';
+import { NewsSearchDto, NewsService } from 'src/services/news.service';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { ContainerInstance } from 'typedi';
-import { min } from 'lodash';
 
 interface Props {
-    news: NewsDto[];
+    news: NewsSearchDto[];
     container: ContainerInstance;
 }
 
@@ -25,14 +23,11 @@ export default class IndexPage extends React.Component<Props> {
             <NewsStream
                 initialNewsList={this.props.news}
                 loadFunc={(newsList) => {
-                    const nextTimestamp =
-                        min(
-                            newsList.map((news) =>
-                                new Date(news.pubDate).getTime()
-                            )
-                        ) || 0;
+                    const searchAfter =
+                        newsList[newsList.length - 1] &&
+                        newsList[newsList.length - 1].sort;
                     const newsService = this.props.container.get(NewsService);
-                    return newsService.fetchNews({ nextTimestamp });
+                    return newsService.fetchNews({ searchAfter });
                 }}
             />
         );

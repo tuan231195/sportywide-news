@@ -4,7 +4,7 @@ import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { logger } from 'src/api/logger';
 import { buildEsQuery } from 'src/utils/search/query';
-import { FIELDS, parseFields } from 'src/utils/search/fields';
+import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
@@ -16,10 +16,19 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 		body: {
 			query: buildEsQuery(req.query),
 			stored_fields: FIELDS,
-			sort: [{ pubDate: 'desc' }],
-			search_after: req.query.searchAfter
-				? [parseInt(req.query.searchAfter as string, 10)]
-				: undefined,
+			sort: [
+				{
+					pubDate: {
+						order: 'desc',
+					},
+				},
+				{
+					id: {
+						order: 'desc',
+					},
+				},
+			],
+			search_after: parseJsonQuery(req.query, 'searchAfter'),
 		},
 	});
 

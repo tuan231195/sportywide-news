@@ -9,13 +9,11 @@ const mappings = {
 		title: {
 			type: 'text',
 			store: true,
-			term_vector: 'yes',
 			analyzer: 'fulltext',
 		},
 		description: {
 			type: 'text',
 			store: true,
-			term_vector: 'yes',
 			analyzer: 'fulltext',
 		},
 		body: {

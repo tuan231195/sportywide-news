@@ -23,4 +23,5 @@ export function toQueryString(filter) {
 export type SearchFilter = {
 	search: string;
 	categories?: CATEGORY[];
+	searchAfter?: any[];
 };

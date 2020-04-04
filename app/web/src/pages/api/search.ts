@@ -4,18 +4,50 @@ import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { logger } from 'src/api/logger';
 import { buildEsQuery } from 'src/utils/search/query';
-import { FIELDS, parseFields } from 'src/utils/search/fields';
+import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
+import { stringQuery } from 'src/api/parse';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
-	const searchQuery = Array.isArray(req.query.search)
-		? req.query.search[0]
-		: req.query.search;
-	const from = req.query.from ? parseInt(req.query.from as string, 10) : 0;
-	const size = req.query.size ? parseInt(req.query.size as string, 10) : 10;
 	const [searchResults, termsResult] = await Promise.all([
-		search(req.query, from, size),
+		search(req.query),
 		significantTerms(req.query),
 	]);
+
+	res.json({
+		...termsResult,
+		...searchResults,
+	});
+}
+
+export default logger(request);
+
+async function search(query) {
+	const results = await es.search({
+		index: NEWS_INDEX,
+		body: {
+			track_scores: true,
+			search_after: parseJsonQuery(query, 'searchAfter'),
+			sort: [
+				{
+					_score: {
+						order: 'desc',
+					},
+				},
+				{
+					pubDate: {
+						order: 'desc',
+					},
+				},
+				{
+					id: {
+						order: 'desc',
+					},
+				},
+			],
+			query: buildEsQuery(query),
+			stored_fields: FIELDS,
+		},
+	});
 	const {
 		body: {
 			hits: {
@@ -23,50 +55,22 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 				hits,
 			},
 		},
-	} = searchResults;
-	let terms = [];
-	if (termsResult) {
-		terms =
-			termsResult.body.aggregations?.search?.keywords?.buckets?.map(
-				(bucket) => bucket.key
-			) || [];
-		terms = terms.filter(
-			(term) => term.toLowerCase() !== searchQuery.toLowerCase()
-		);
-	}
+	} = results;
+
 	const newsDtos = parseFields(hits);
-	res.json({
+	return {
 		items: newsDtos,
-		terms,
-		pagination: {
-			from,
-			size,
-			total,
-		},
-	});
-}
-
-export default logger(request);
-
-async function search(query, from, size) {
-	return es.search({
-		index: NEWS_INDEX,
-		from,
-		size,
-		body: {
-			sort: query.search ? undefined : [{ pubDate: 'desc' }],
-			track_scores: true,
-			query: buildEsQuery(query),
-			stored_fields: FIELDS,
-		},
-	});
+		total,
+	};
 }
 
 async function significantTerms(query) {
 	if (!query.search) {
-		return null;
+		return {
+			terms: [],
+		};
 	}
-	return es.search({
+	const results = await es.search({
 		index: NEWS_INDEX,
 		body: {
 			query: buildEsQuery(query),
@@ -86,4 +90,18 @@ async function significantTerms(query) {
 			},
 		},
 	});
+	let terms = [];
+	if (results) {
+		const searchQuery = stringQuery(query.search);
+		terms =
+			results.body.aggregations?.search?.keywords?.buckets?.map(
+				(bucket) => bucket.key
+			) || [];
+		terms = terms.filter(
+			(term) => term.toLowerCase() !== searchQuery.toLowerCase()
+		);
+	}
+	return {
+		terms,
+	};
 }

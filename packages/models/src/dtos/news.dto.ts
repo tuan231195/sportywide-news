@@ -23,5 +23,5 @@ export class NewsDto {
 
 export function getSlug(url) {
 	const parsedUrl = new URL(url);
-	return parsedUrl.pathname.substr(1).replace(/\//g, '-');
+	return parsedUrl.pathname.substr(1).replace(/\/$/, '').replace(/\//g, '-');
 }

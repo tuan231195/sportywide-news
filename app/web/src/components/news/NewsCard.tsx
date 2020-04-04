@@ -13,7 +13,7 @@ interface Props {
 const ButtonGroup = styled.div`
     display: flex;
     align-items: center;
-    button:not(:first-child) {
+    > a:not(:first-child) {
         margin-left: 10px;
     }
 `;
@@ -66,24 +66,21 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
             </Card.Content>
             <Card.Content extra>
                 <ButtonGroup>
-                    <Button primary>
-                        <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
-                            <a
-                                className={'vn-raw-link'}
-                                style={{ color: 'white' }}
-                            >
-                                View More
-                            </a>
-                        </Link>
-                    </Button>
-                    <Button>
+                    <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
                         <a
-                            href={news.url}
-                            target={'_blank'}
-                            rel={'noreferrer noopener'}
+                            className={'vn-raw-link ui button primary'}
+                            style={{ color: 'white' }}
                         >
-                            View External
+                            View More
                         </a>
+                    </Link>
+                    <Button
+                        as={'a'}
+                        href={news.url}
+                        target={'_blank'}
+                        rel={'noreferrer noopener'}
+                    >
+                        View External
                     </Button>
                 </ButtonGroup>
             </Card.Content>
