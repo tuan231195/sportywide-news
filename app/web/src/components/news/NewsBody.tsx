@@ -1,10 +1,11 @@
 import React from 'react';
-import { Header, Icon, Segment, Image } from 'semantic-ui-react';
+import { Header, Icon, Segment } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
 import styled from 'styled-components';
-import Slider from 'react-slick';
+
 import { date, str } from '@vdtn359/news-utils';
 import { useURL } from 'src/utils/hooks/basic';
+import { NewsSlide } from 'src/components/news/NewsSlide';
 
 interface Props {
     news: NewsDto;
@@ -80,29 +81,7 @@ export const NewsBody: React.FC<Props> = ({ news, similarNewsList }) => {
             {!!similarNewsList.length && (
                 <>
                     <Header as={'h4'}>Similar News</Header>
-                    <Slider
-                        className={'vn-ml3 vn-mr3'}
-                        dots={true}
-                        infinite={true}
-                        autoplay={false}
-                        slidesToShow={2}
-                        centerMode={true}
-                        centerPadding={'60px'}
-                        slidesToScroll={1}
-                    >
-                        {similarNewsList.map((news) => (
-                            <Segment key={news.id}>
-                                <Image
-                                    size={'small'}
-                                    src={
-                                        news.image ||
-                                        '/static/images/placeholder.png'
-                                    }
-                                />
-                                <a>{news.title}</a>
-                            </Segment>
-                        ))}
-                    </Slider>
+                    <NewsSlide newsList={similarNewsList} />
                 </>
             )}
             <div dangerouslySetInnerHTML={{ __html: news.body }} />

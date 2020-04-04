@@ -20,8 +20,8 @@ const MenuContainer = styled.div`
         position: fixed;
         min-width: 250px;
 
-        > menu {
-            width: 100%;v
+        > .menu {
+            width: 100%;
         }
     }
 `;
