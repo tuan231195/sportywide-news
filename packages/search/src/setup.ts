@@ -10,6 +10,16 @@ const mappings = {
 			type: 'text',
 			store: true,
 			analyzer: 'fulltext',
+			fields: {
+				trigram: {
+					type: 'text',
+					analyzer: 'trigram',
+				},
+				reverse: {
+					type: 'text',
+					analyzer: 'reverse',
+				},
+			},
 		},
 		description: {
 			type: 'text',
@@ -62,6 +72,31 @@ export async function setup(elasticsearch: Elasticsearch) {
 							type: 'custom',
 							tokenizer: 'standard',
 							filter: ['lowercase', 'stop'],
+						},
+						trigram: {
+							type: 'custom',
+							tokenizer: 'standard',
+							filter: ['lowercase', 'shingle'],
+						},
+						reverse: {
+							type: 'custom',
+							tokenizer: 'standard',
+							filter: ['lowercase', 'reverse'],
+						},
+					},
+					filter: {
+						shingle: {
+							type: 'shingle',
+							min_shingle_size: 2,
+							max_shingle_size: 3,
+						},
+					},
+					tokenizer: {
+						trigram: {
+							type: 'ngram',
+							min_gram: 3,
+							max_gram: 3,
+							token_chars: ['letter', 'digit'],
 						},
 					},
 				},

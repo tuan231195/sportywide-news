@@ -167,7 +167,10 @@ class NewsApp extends App<any, any, any> {
                                             </Grid.Column>
                                         </NewsGrid>
                                     </NewsContainer>
-                                    <ScrollTopButton />
+                                    {!pageProps?.hideScrollTop && (
+                                        <ScrollTopButton />
+                                    )}
+
                                     {pageProps?.showFooter && <Footer />}
                                 </NewsRoot>
                             </SideBarPushable>

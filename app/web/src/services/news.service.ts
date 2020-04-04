@@ -55,6 +55,7 @@ export class NewsService {
 		} = {}
 	): Promise<{
 		items: NewsSearchDto[];
+		suggestions: string[];
 		terms: string[];
 		total: number;
 	}> {

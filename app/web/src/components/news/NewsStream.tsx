@@ -30,6 +30,7 @@ export const NewsStream: React.FC<Props> = ({
     return (
         <CardGroup itemsPerRow={1} centered={true}>
             <InfiniteScroll
+                className={'vn-no-overflow'}
                 pageStart={0}
                 threshold={500}
                 loadMore={() =>

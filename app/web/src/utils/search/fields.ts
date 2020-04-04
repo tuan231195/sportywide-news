@@ -24,6 +24,13 @@ export function parseFields(hits) {
 	});
 }
 
+export function parseSuggestions(suggestion) {
+	if (!suggestion?.length) {
+		return [];
+	}
+	return suggestion[0].options?.map((option) => option.text);
+}
+
 export function parseJsonQuery(query, field) {
 	if (!query[field]) {
 		return undefined;

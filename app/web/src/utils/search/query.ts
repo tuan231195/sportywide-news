@@ -33,6 +33,33 @@ export function buildEsQuery(queryStr: any = {}) {
 	};
 }
 
+export function buildSuggester(queryStr) {
+	if (!queryStr.search) {
+		return undefined;
+	}
+	return {
+		suggests: {
+			text: stringQuery(queryStr.search),
+			phrase: {
+				field: 'title.trigram',
+				max_errors: 2,
+				direct_generator: [
+					{
+						field: 'title.trigram',
+						suggest_mode: 'popular',
+					},
+					{
+						field: 'title.reverse',
+						suggest_mode: 'popular',
+						pre_filter: 'reverse',
+						post_filter: 'reverse',
+					},
+				],
+			},
+		},
+	};
+}
+
 function constructSearchQuery(searchQuery) {
 	const phrases = Array.from(searchQuery.matchAll(/"(.*?)"/g)).map(
 		(match) => match[1]

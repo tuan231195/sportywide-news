@@ -4,7 +4,7 @@
     "private": true,
     "description": "news worker",
     "scripts": {
-        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts",
+        "start:worker": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-worker.ts",
         "script": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register",
         "build": "ttsc -P tsconfig.build.json"
     },

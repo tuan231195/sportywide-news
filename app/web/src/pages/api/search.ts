@@ -3,8 +3,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { logger } from 'src/api/logger';
-import { buildEsQuery } from 'src/utils/search/query';
-import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
+import { buildEsQuery, buildSuggester } from 'src/utils/search/query';
+import {
+	FIELDS,
+	parseFields,
+	parseJsonQuery,
+	parseSuggestions,
+} from 'src/utils/search/fields';
 import { stringQuery } from 'src/api/parse';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
@@ -22,11 +27,13 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 export default logger(request);
 
 async function search(query) {
+	const searchAfter = parseJsonQuery(query, 'searchAfter');
 	const results = await es.search({
 		index: NEWS_INDEX,
 		body: {
 			track_scores: true,
-			search_after: parseJsonQuery(query, 'searchAfter'),
+			search_after: searchAfter,
+			suggest: buildSuggester(query),
 			sort: [
 				{
 					_score: {
@@ -57,8 +64,11 @@ async function search(query) {
 		},
 	} = results;
 
+	const suggestions = parseSuggestions(results.body.suggest?.suggests);
+
 	const newsDtos = parseFields(hits);
 	return {
+		suggestions,
 		items: newsDtos,
 		total,
 	};

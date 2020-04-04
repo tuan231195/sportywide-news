@@ -22,12 +22,14 @@ interface Props {
     total: number;
     filter: SearchFilter;
     container: ContainerInstance;
+    suggestions: string[];
 }
 
 interface State {
     initialNewsList: NewsSearchDto[];
     terms: string[];
     filter: SearchFilter;
+    suggestions: string[];
     total: number;
 }
 
@@ -40,7 +42,7 @@ class SearchPage extends React.Component<Props, State> {
 
     static async getInitialProps(ctx) {
         const filter = getFilterFromUrl(ctx.query.filter);
-        const { news, terms, total } = await SearchPage.newSearch(
+        const { news, terms, total, suggestions } = await SearchPage.newSearch(
             ctx.container,
             filter
         );
@@ -50,6 +52,7 @@ class SearchPage extends React.Component<Props, State> {
             terms,
             news,
             total,
+            suggestions,
         };
     }
 
@@ -60,6 +63,7 @@ class SearchPage extends React.Component<Props, State> {
             terms: props.terms,
             filter: props.filter,
             total: props.total,
+            suggestions: props.suggestions,
         };
         this.lastNewsList = props.news;
     }
@@ -67,30 +71,39 @@ class SearchPage extends React.Component<Props, State> {
     async componentDidUpdate(prevProps) {
         const { query } = this.props.router;
         if (query.filter !== prevProps.router.query.filter) {
-            const parsedFilter = getFilterFromUrl(query.filter);
-
-            const { news, terms, total } = await SearchPage.newSearch(
-                this.props.container,
-                parsedFilter
-            );
-            this.lastNewsList = news;
-            this.setState({
-                total,
-                filter: parsedFilter,
-                terms,
-                initialNewsList: news,
-            });
+            await this.updateSearchResults(query);
         }
+    }
+
+    async updateSearchResults(query) {
+        const parsedFilter = getFilterFromUrl(query.filter);
+
+        const { news, terms, total, suggestions } = await SearchPage.newSearch(
+            this.props.container,
+            parsedFilter
+        );
+        this.lastNewsList = news;
+        this.setState({
+            total,
+            suggestions,
+            filter: parsedFilter,
+            terms,
+            initialNewsList: news,
+        });
     }
 
     static async newSearch(container: ContainerInstance, filter: SearchFilter) {
         const newsService = container.get(NewsService);
-        const { items: news, terms, total } = await newsService.searchNews(
-            filter
-        );
+        const {
+            items: news,
+            terms,
+            total,
+            suggestions,
+        } = await newsService.searchNews(filter);
 
         return {
             news,
+            suggestions,
             terms,
             total,
         };
@@ -112,6 +125,19 @@ class SearchPage extends React.Component<Props, State> {
         return {
             news,
         };
+    }
+
+    async updateUrl(newFilter) {
+        await this.props.router.push(
+            `/search?filter=${toQueryString({
+                ...this.state.filter,
+                ...newFilter,
+            })}`,
+            undefined,
+            {
+                shallow: true,
+            }
+        );
     }
 
     render() {
@@ -136,16 +162,67 @@ class SearchPage extends React.Component<Props, State> {
                 </Header>
                 <SearchFilterOptions
                     filter={this.state.filter}
-                    onFilterUpdate={(filter) => {
-                        return this.props.router.push(
-                            `/search?filter=${toQueryString(filter)}`,
-                            undefined,
-                            {
-                                shallow: true,
-                            }
-                        );
+                    onFilterUpdate={async (filter) => {
+                        const filterString = toQueryString(filter);
+                        if (
+                            filterString ===
+                            encodeURIComponent(
+                                this.props.router.query.filter as string
+                            )
+                        ) {
+                            await this.updateSearchResults(
+                                this.props.router.query
+                            );
+                        } else {
+                            await this.updateUrl(filter);
+                        }
                     }}
                 />
+                {!this.state.initialNewsList.length && (
+                    <div className={'vn-flex vn-flex-justify-center vn-mb3'}>
+                        <span>
+                            No search results found.{' '}
+                            {this.state.suggestions?.length && (
+                                <span>
+                                    Did you mean{' '}
+                                    <a
+                                        className={'vn-cursor-pointer'}
+                                        onClick={async () => {
+                                            await this.updateUrl({
+                                                search: this.state
+                                                    .suggestions[0],
+                                            });
+                                        }}
+                                    >
+                                        {this.state.suggestions[0]}
+                                    </a>
+                                    ?
+                                </span>
+                            )}
+                        </span>
+                    </div>
+                )}
+                {!!this.state.suggestions.length &&
+                    !!this.state.initialNewsList.length && (
+                        <div
+                            className={'vn-flex vn-flex-justify-center vn-mb3'}
+                        >
+                            <span>
+                                You might want to look for{' '}
+                                <a
+                                    className={'vn-cursor-pointer'}
+                                    onClick={async () => {
+                                        await this.updateUrl({
+                                            search: this.state.suggestions[0],
+                                        });
+                                    }}
+                                >
+                                    {this.state.suggestions[0]}
+                                </a>
+                                ?
+                            </span>
+                        </div>
+                    )}
                 {!!this.state.terms?.length && (
                     <div className={'vn-mt2 vn-mb2'}>
                         <Header as={'h5'}>Similar keywords:</Header>
@@ -163,13 +240,15 @@ class SearchPage extends React.Component<Props, State> {
                         </Label.Group>
                     </div>
                 )}
-                <NewsStream
-                    initialNewsList={this.state.initialNewsList}
-                    loadFunc={async () => {
-                        const { news } = await this.nextPage();
-                        return news;
-                    }}
-                />
+                {!!this.state.initialNewsList.length && (
+                    <NewsStream
+                        initialNewsList={this.state.initialNewsList}
+                        loadFunc={async () => {
+                            const { news } = await this.nextPage();
+                            return news;
+                        }}
+                    />
+                )}
             </Root>
         );
     }
