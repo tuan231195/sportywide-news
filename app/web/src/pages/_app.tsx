@@ -24,6 +24,7 @@ import { EventDispatcher } from 'src/utils/events/event-dispatcher';
 import { WINDOW_CLICK } from 'src/utils/events/event.constants';
 import Router from 'next/router';
 import { Footer } from 'src/components/common/navigation/Footer';
+import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButton';
 
 const theme = {
     colors: {
@@ -166,6 +167,7 @@ class NewsApp extends App<any, any, any> {
                                             </Grid.Column>
                                         </NewsGrid>
                                     </NewsContainer>
+                                    <ScrollTopButton />
                                     {pageProps?.showFooter && <Footer />}
                                 </NewsRoot>
                             </SideBarPushable>

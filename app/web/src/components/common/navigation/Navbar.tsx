@@ -34,8 +34,14 @@ const NavbarMenu = styled(Menu)`
     }
 `;
 
+const SearchInputMenuItem = styled(Menu.Item)`
+    &&&& {
+        flex: 1 0 0 !important;
+    }
+`;
+
 const SearchInput = styled(Input)`
-    width: 100%;
+    width: 300px;
     @media ${device.tablet} {
         width: 500px !important;
     }
@@ -74,7 +80,7 @@ export const NavBar: React.FC<Props> = function ({
                 </MenuItem>
             </VnBigScreen>
 
-            <Menu.Item>
+            <SearchInputMenuItem>
                 <SearchInput
                     value={searchQuery}
                     onChange={(e) => {
@@ -92,7 +98,7 @@ export const NavBar: React.FC<Props> = function ({
                     }
                     placeholder="Search..."
                 />
-            </Menu.Item>
+            </SearchInputMenuItem>
             <VnBigScreen>
                 <Menu.Menu position="right">{children}</Menu.Menu>
             </VnBigScreen>

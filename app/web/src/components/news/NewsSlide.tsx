@@ -79,29 +79,23 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
             slidesToScroll={1}
         >
             {newsList.map((news) => (
-                <Link
-                    href={`/news/[slug]`}
-                    as={`/news/${news.slug}`}
-                    key={news.id}
-                >
-                    <a className={'vn-raw-link'}>
-                        <NewsCard>
-                            <Image
-                                src={
-                                    news.image ||
-                                    '/static/images/placeholder.png'
-                                }
-                            />
-                            <Card.Header>
-                                <Header as={'h5'}>
-                                    <a className={'vn-raw-link'}>
-                                        {news.title}
-                                    </a>
-                                </Header>
-                            </Card.Header>
-                        </NewsCard>
-                    </a>
-                </Link>
+                <div key={news.id}>
+                    <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
+                        <a className={'vn-raw-link'}>
+                            <NewsCard>
+                                <Image
+                                    src={
+                                        news.image ||
+                                        '/static/images/placeholder.png'
+                                    }
+                                />
+                                <Card.Header>
+                                    <Header as={'h5'}>{news.title}</Header>
+                                </Card.Header>
+                            </NewsCard>
+                        </a>
+                    </Link>
+                </div>
             ))}
         </NewsSlider>
     );

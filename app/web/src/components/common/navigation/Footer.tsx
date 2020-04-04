@@ -23,7 +23,7 @@ const FooterDivider = styled(Divider)`
 export const Footer = () => {
     return (
         <FooterSegment inverted>
-            <Grid divided inverted stackable centered columns={'equal'}>
+            <Grid divided inverted stackable columns={'equal'}>
                 <Grid.Column
                     className={'vn-flex vn-flex-column vn-flex-center'}
                 >
