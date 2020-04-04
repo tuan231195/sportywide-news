@@ -20,6 +20,15 @@ const NewsSegment = styled(Segment)`
     padding: var(--space-3);
 `;
 
+const NewsBody = styled.div`
+    span {
+        margin-left: 5px;
+    }
+    div:not(:empty) {
+        margin-bottom: 1em;
+    }
+`;
+
 const NewsHeader = styled(Header)`
     margin-bottom: var(--space-2);
 `;
@@ -45,7 +54,7 @@ const NewsDescription = styled.i`
     margin-bottom: var(--space-3);
     display: block;
 `;
-export const NewsBody: React.FC<Props> = ({ news, similarNewsList }) => {
+export const NewsDetails: React.FC<Props> = ({ news, similarNewsList }) => {
     const { root: rootUrl, hostname } = useURL(news.url);
     return (
         <NewsSegment raised={true}>
@@ -84,7 +93,7 @@ export const NewsBody: React.FC<Props> = ({ news, similarNewsList }) => {
                     <NewsSlide newsList={similarNewsList} />
                 </>
             )}
-            <div dangerouslySetInnerHTML={{ __html: news.body }} />
+            <NewsBody dangerouslySetInnerHTML={{ __html: news.body }} />
         </NewsSegment>
     );
 };

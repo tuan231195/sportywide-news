@@ -3,7 +3,7 @@ import { NewsService } from 'src/services/news.service';
 import { NewsDto } from '@vdtn359/news-models';
 import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
-import { NewsBody } from 'src/components/news/NewsBody';
+import { NewsDetails } from 'src/components/news/NewsDetails';
 import Head from 'next/head';
 
 interface Props {
@@ -36,7 +36,7 @@ export default class NewsPage extends React.Component<Props> {
                 <Head>
                     <title>{this.props.news.title}</title>
                 </Head>
-                <NewsBody
+                <NewsDetails
                     news={this.props.news}
                     similarNewsList={this.props.similarNewsList}
                 />

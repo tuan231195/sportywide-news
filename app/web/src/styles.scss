@@ -1,1 +1,8 @@
 @import '~@vdtn359/news-styles/styles.scss';
+* {
+  font-family: 'Vollkorn', serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Vollkorn', serif !important;
+}

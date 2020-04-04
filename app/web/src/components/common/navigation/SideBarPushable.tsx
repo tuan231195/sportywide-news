@@ -138,7 +138,7 @@ const navLinks = (
         >
             <a className={'vn-raw-link vn-flex vn-flex-center'}>
                 <MenuIcon name={'mail outline'} />
-                <span>Contact Us</span>
+                <span className={'vn-flex-grow vn-ml1'}>Contact Us</span>
             </a>
         </MenuItem>
         <MenuItem
@@ -149,7 +149,7 @@ const navLinks = (
         >
             <a className={'vn-raw-link vn-flex vn-flex-center'}>
                 <MenuIcon name={'like'} />
-                <span>Subscribe</span>
+                <span className={'vn-flex-grow vn-ml1'}>Subscribe</span>
             </a>
         </MenuItem>
     </>
