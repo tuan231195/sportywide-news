@@ -18,7 +18,7 @@ interface Props {
 const MenuContainer = styled.div`
     &&& {
         position: fixed;
-        min-width: 250px;
+        min-width: 245px;
 
         > .menu {
             width: 100%;

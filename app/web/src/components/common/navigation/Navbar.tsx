@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { Icon, Input, Menu } from 'semantic-ui-react';
+import { Icon, Input, Menu, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { VnMobile } from 'src/components/common/responsive/Responsive';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { device } from 'src/utils/device/size';
 import Router from 'next/router';
 import { toQueryString } from 'src/utils/filter';
+
+const AppLogo = styled(Image)`
+    &&&& {
+        max-width: 25px;
+        margin-right: 8px;
+    }
+`;
 
 const NavbarMenu = styled(Menu)`
     &&&& {
@@ -53,8 +60,8 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 showActive={false}
                 showLink={true}
             >
-                <a className={'vn-raw-link'}>
-                    <Icon name="newspaper" />
+                <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <AppLogo src={'/favicon.ico'} />
                     Tuan&apos;s news
                 </a>
             </MenuItem>
