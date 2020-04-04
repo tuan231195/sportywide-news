@@ -42,7 +42,9 @@ const MenuItemComponent: React.FC<Props> = function ({
     showLink,
     children,
 }) {
-    const Content = showLink ? Link : React.Fragment;
+    const Content = showLink
+        ? Link
+        : ({ children }) => <React.Fragment>{children}</React.Fragment>;
     return (
         <Item
             as={as}

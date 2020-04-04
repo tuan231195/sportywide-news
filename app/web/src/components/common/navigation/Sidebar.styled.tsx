@@ -10,10 +10,10 @@ export const MenuSegment: any = styled(Segment)`
         border: none;
 
         .sidebar {
-            width: 180px !important;
+            width: 200px !important;
             .item {
                 text-align: left;
-                padding: 10px;
+                padding: 10px 15px;
             }
         }
     }
@@ -29,6 +29,7 @@ export const Pushable = styled(Sidebar.Pushable)`
         .pushable:not(body) > .fixed,
         .pushable:not(body) > .pusher:after {
             position: fixed;
+            z-index: 2;
         }
 
         .sidebar {
@@ -44,5 +45,6 @@ export const MenuIcon = styled(Icon)`
         font-size: 1.1em !important;
         float: none;
         margin: 0em 0.35714286em 0em 0em;
+        transform: translateY(-3px);
     }
 `;

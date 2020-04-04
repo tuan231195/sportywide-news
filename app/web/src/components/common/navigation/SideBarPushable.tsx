@@ -66,39 +66,52 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 vertical
                 visible={getSideBarVisible()}
             >
-                <Menu.Menu>
-                    {categories.map((category) => {
-                        return (
-                            <MenuItem
-                                showLink={true}
-                                routeOptions={{
-                                    as: categoryMap.get(category.category).url,
-                                    route: '/categories/[category]',
-                                }}
-                                key={category.category}
-                            >
-                                <a
-                                    className={
-                                        'vn-raw-link vn-flex vn-flex-center'
-                                    }
+                <MenuItem>
+                    Categories
+                    <Menu.Menu>
+                        {categories.map((category) => {
+                            return (
+                                <MenuItem
+                                    showLink={true}
+                                    routeOptions={{
+                                        as: categoryMap.get(category.category)
+                                            .url,
+                                        route: '/categories/[category]',
+                                    }}
+                                    key={category.category}
                                 >
-                                    <MenuIcon
-                                        name={
-                                            categoryMap.get(category.category)
-                                                .icon
+                                    <a
+                                        className={
+                                            'vn-raw-link vn-flex vn-flex-center'
                                         }
-                                    />
-                                    <span className={'vn-flex-grow vn-ml1'}>
-                                        {str.ucfirst(category.category)}
-                                    </span>
-                                    <CategoryBadge size={'tiny'} color={'teal'}>
-                                        {category.count}
-                                    </CategoryBadge>
-                                </a>
-                            </MenuItem>
-                        );
-                    })}
-                </Menu.Menu>
+                                    >
+                                        <MenuIcon
+                                            className={'vn-ml1'}
+                                            name={
+                                                categoryMap.get(
+                                                    category.category
+                                                ).icon
+                                            }
+                                        />
+                                        <span className={'vn-flex-grow vn-ml1'}>
+                                            {str.ucfirst(category.category)}
+                                        </span>
+                                        <CategoryBadge
+                                            size={'tiny'}
+                                            color={'teal'}
+                                        >
+                                            {category.count}
+                                        </CategoryBadge>
+                                    </a>
+                                </MenuItem>
+                            );
+                        })}
+                    </Menu.Menu>
+                </MenuItem>
+                <MenuItem>
+                    Links
+                    <Menu.Menu>{navLinks}</Menu.Menu>
+                </MenuItem>
             </Sidebar>
             <Sidebar.Pusher>
                 <VnMobile onChange={() => setSidebarVisible(false)} />
@@ -106,9 +119,38 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                     onSidebarClicked={() =>
                         setSidebarVisible(!getSideBarVisible())
                     }
-                />
+                >
+                    {navLinks}
+                </NavBar>
                 {children}
             </Sidebar.Pusher>
         </Pushable>
     );
 };
+
+const navLinks = (
+    <>
+        <MenuItem
+            showLink={true}
+            routeOptions={{
+                route: '/contact',
+            }}
+        >
+            <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                <MenuIcon name={'mail outline'} />
+                <span>Contact Us</span>
+            </a>
+        </MenuItem>
+        <MenuItem
+            showLink={true}
+            routeOptions={{
+                route: '/subscribe',
+            }}
+        >
+            <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                <MenuIcon name={'like'} />
+                <span>Subscribe</span>
+            </a>
+        </MenuItem>
+    </>
+);

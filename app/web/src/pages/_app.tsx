@@ -8,7 +8,10 @@ import { promises } from '@vdtn359/news-utils';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
 import { Grid } from 'semantic-ui-react';
-import { NewsContainer } from 'src/components/common/container/Container.styled';
+import {
+    NewsContainer,
+    NewsRoot,
+} from 'src/components/common/container/Container.styled';
 import { NewsService } from 'src/services/news.service';
 import { Context as ResponsiveContext } from 'react-responsive';
 import { device, getDeviceWidth } from 'src/utils/device/size';
@@ -20,6 +23,7 @@ import { SideBarPushable } from 'src/components/common/navigation/SideBarPushabl
 import { EventDispatcher } from 'src/utils/events/event-dispatcher';
 import { WINDOW_CLICK } from 'src/utils/events/event.constants';
 import Router from 'next/router';
+import { Footer } from 'src/components/common/navigation/Footer';
 
 const theme = {
     colors: {
@@ -124,42 +128,46 @@ class NewsApp extends App<any, any, any> {
                     <ThemeProvider theme={theme}>
                         <Root>
                             <SideBarPushable categories={this.props.categories}>
-                                <NewsContainer>
-                                    <NewsGrid>
-                                        <VnBigScreen>
+                                <NewsRoot>
+                                    <NewsContainer>
+                                        <NewsGrid>
+                                            <VnBigScreen>
+                                                <Grid.Column
+                                                    mobile={16}
+                                                    tablet={4}
+                                                    computer={4}
+                                                >
+                                                    <NewsCategories
+                                                        categories={
+                                                            this.props
+                                                                .categories
+                                                        }
+                                                    />
+                                                </Grid.Column>
+                                            </VnBigScreen>
+
                                             <Grid.Column
                                                 mobile={16}
-                                                tablet={4}
-                                                computer={4}
+                                                tablet={12}
+                                                computer={12}
+                                                className={
+                                                    'vn-flex-important vn-flex-justify-center'
+                                                }
                                             >
-                                                <NewsCategories
-                                                    categories={
-                                                        this.props.categories
-                                                    }
-                                                />
+                                                <Content>
+                                                    <Component
+                                                        {...pageProps}
+                                                        query={query}
+                                                        container={
+                                                            this.props.container
+                                                        }
+                                                    />
+                                                </Content>
                                             </Grid.Column>
-                                        </VnBigScreen>
-
-                                        <Grid.Column
-                                            mobile={16}
-                                            tablet={12}
-                                            computer={12}
-                                            className={
-                                                'vn-flex-important vn-flex-justify-center'
-                                            }
-                                        >
-                                            <Content>
-                                                <Component
-                                                    {...pageProps}
-                                                    query={query}
-                                                    container={
-                                                        this.props.container
-                                                    }
-                                                />
-                                            </Content>
-                                        </Grid.Column>
-                                    </NewsGrid>
-                                </NewsContainer>
+                                        </NewsGrid>
+                                    </NewsContainer>
+                                    {pageProps?.showFooter && <Footer />}
+                                </NewsRoot>
                             </SideBarPushable>
                         </Root>
                     </ThemeProvider>

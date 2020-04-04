@@ -19,6 +19,7 @@ const MenuContainer = styled.div`
     &&& {
         position: fixed;
         min-width: 245px;
+        z-index: 2;
 
         > .menu {
             width: 100%;

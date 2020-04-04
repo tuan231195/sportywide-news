@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Icon, Input, Menu, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
-import { VnMobile } from 'src/components/common/responsive/Responsive';
+import {
+    VnBigScreen,
+    VnMobile,
+} from 'src/components/common/responsive/Responsive';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { device } from 'src/utils/device/size';
 import Router from 'next/router';
@@ -42,7 +45,10 @@ interface Props {
     onSidebarClicked: Function;
 }
 
-export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
+export const NavBar: React.FC<Props> = function ({
+    onSidebarClicked,
+    children,
+}) {
     const [searchQuery, setSearchQuery] = useState('');
     return (
         <NavbarMenu inverted>
@@ -55,16 +61,19 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                 </Menu.Item>
             </VnMobile>
 
-            <MenuItem
-                routeOptions={{ route: '/' }}
-                showActive={false}
-                showLink={true}
-            >
-                <a className={'vn-raw-link vn-flex vn-flex-center'}>
-                    <AppLogo src={'/favicon.ico'} />
-                    Tuan&apos;s news
-                </a>
-            </MenuItem>
+            <VnBigScreen>
+                <MenuItem
+                    routeOptions={{ route: '/' }}
+                    showActive={false}
+                    showLink={true}
+                >
+                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <AppLogo src={'/favicon.ico'} />
+                        Tuan&apos;s news
+                    </a>
+                </MenuItem>
+            </VnBigScreen>
+
             <Menu.Item>
                 <SearchInput
                     value={searchQuery}
@@ -84,6 +93,9 @@ export const NavBar: React.FC<Props> = function ({ onSidebarClicked }) {
                     placeholder="Search..."
                 />
             </Menu.Item>
+            <VnBigScreen>
+                <Menu.Menu position="right">{children}</Menu.Menu>
+            </VnBigScreen>
         </NavbarMenu>
     );
 
