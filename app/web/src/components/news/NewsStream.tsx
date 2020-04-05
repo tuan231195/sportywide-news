@@ -28,7 +28,7 @@ export const NewsStream: React.FC<Props> = ({
         setHasMore(!!initialNewsList.length);
     }, [initialNewsList]);
     return (
-        <CardGroup itemsPerRow={1} centered={true}>
+        <CardGroup>
             <InfiniteScroll
                 className={'vn-no-overflow'}
                 pageStart={0}

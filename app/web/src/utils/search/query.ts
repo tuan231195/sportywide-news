@@ -33,22 +33,7 @@ export function buildEsQuery(queryStr: any = {}) {
 					must: mustQuery,
 				},
 			},
-			functions: [
-				{
-					field_value_factor: {
-						field: 'numViews',
-						factor: 1.5,
-						modifier: 'ln1p',
-					},
-				},
-				{
-					field_value_factor: {
-						field: 'numSearches',
-						modifier: 'ln1p',
-						factor: 1.2,
-					},
-				},
-			],
+			functions: getFunctions(),
 			score_mode: 'sum',
 			boost_mode: 'sum',
 		},
@@ -132,6 +117,72 @@ function getContentQuery(searchQuery, isPhraseMatch) {
 				body: {
 					boost: 1,
 					query: searchQuery,
+				},
+			},
+		},
+	];
+}
+
+export function buildCommonQuery() {
+	return {
+		function_score: {
+			query: {
+				bool: {
+					should: [
+						{
+							range: {
+								numViews: {
+									gt: 0,
+								},
+							},
+						},
+						{
+							range: {
+								numSearches: {
+									gt: 0,
+								},
+							},
+						},
+					],
+					minimum_should_match: 1,
+				},
+			},
+			functions: getFunctions(),
+			score_mode: 'sum',
+			boost_mode: 'sum',
+		},
+	};
+}
+
+function getFunctions() {
+	return [
+		{
+			field_value_factor: {
+				field: 'numViews',
+				factor: 1.5,
+				modifier: 'ln1p',
+			},
+		},
+		{
+			field_value_factor: {
+				field: 'ratings',
+				modifier: 'sqrt',
+				factor: 0.5,
+			},
+		},
+		{
+			field_value_factor: {
+				field: 'numSearches',
+				modifier: 'ln1p',
+				factor: 1.2,
+			},
+		},
+		{
+			gauss: {
+				pubDate: {
+					origin: 'now',
+					scale: '10d',
+					decay: '0.5',
 				},
 			},
 		},

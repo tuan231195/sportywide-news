@@ -44,6 +44,19 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
         <MenuContainer>
             <Menu vertical>
                 <CategoryItem
+                    key={'hot'}
+                    name="hot"
+                    routeOptions={{ route: '/hot-news' }}
+                    showLink={true}
+                >
+                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <MenuIcon name={'favorite'} />
+                        <span className={'vn-flex-grow vn-ml1'}>Hot news</span>
+                    </a>
+                </CategoryItem>
+            </Menu>
+            <Menu vertical>
+                <CategoryItem
                     key={'all'}
                     name="all"
                     routeOptions={{ route: '/' }}

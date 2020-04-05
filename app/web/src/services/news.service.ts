@@ -83,4 +83,11 @@ export class NewsService {
 			.get('/categories')
 			.then(({ data }) => data);
 	}
+
+	fetchHotNews() {
+		return this.apiService
+			.api()
+			.get('/hot-news')
+			.then(({ data }) => data);
+	}
 }
