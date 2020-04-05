@@ -51,7 +51,10 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                     </div>
                 </Card.Meta>
                 <Card.Description>
-                    <div className={'vn-mb3'}>{news.description}</div>
+                    <div
+                        className={'vn-mb3'}
+                        dangerouslySetInnerHTML={{ __html: news.description }}
+                    />
                     <span>
                         From:{' '}
                         <a

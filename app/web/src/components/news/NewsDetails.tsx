@@ -86,7 +86,9 @@ export const NewsDetails: React.FC<Props> = ({ news, similarNewsList }) => {
                     {hostname}
                 </a>
             </NewsSource>
-            <NewsDescription>{news.description}</NewsDescription>
+            <NewsDescription
+                dangerouslySetInnerHTML={{ __html: news.description }}
+            />
             {!!similarNewsList.length && (
                 <>
                     <Header as={'h4'}>Similar News</Header>

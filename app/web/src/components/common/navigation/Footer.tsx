@@ -68,7 +68,7 @@ export const Footer = () => {
                     </span>
                 </Grid.Column>
             </Grid>
-            <FooterDivider centered inverted />
+            <FooterDivider inverted />
             <div className={'vn-center vn-mt3'}>@Made by Tuan Nguyen</div>
         </FooterSegment>
     );

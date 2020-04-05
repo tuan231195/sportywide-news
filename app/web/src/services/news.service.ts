@@ -50,6 +50,7 @@ export class NewsService {
 	searchNews(
 		filter: {
 			search?: string;
+			size?: number;
 			categories?: string[];
 			searchAfter?: any[];
 		} = {}
@@ -64,6 +65,7 @@ export class NewsService {
 			.get('/search', {
 				params: {
 					categories: filter.categories,
+					size: filter.size,
 					searchAfter: filter.searchAfter
 						? JSON.stringify(filter.searchAfter)
 						: undefined,

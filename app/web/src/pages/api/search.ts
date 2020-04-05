@@ -28,10 +28,12 @@ export default logger(request);
 
 async function search(query) {
 	const searchAfter = parseJsonQuery(query, 'searchAfter');
+	const size = stringQuery(query.size);
 	const results = await es.search({
 		index: NEWS_INDEX,
 		body: {
 			track_scores: true,
+			size: size ? parseInt(size, 10) : undefined,
 			search_after: searchAfter,
 			suggest: buildSuggester(query),
 			sort: [

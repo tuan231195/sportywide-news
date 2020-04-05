@@ -37,7 +37,6 @@ const NewsSlider = styled(Slider)`
             padding: 9px;
             overflow: hidden !important;
             text-overflow: ellipsis;
-            hyphens: manual;
             overflow-wrap: break-word;
             word-wrap: break-word;
             display: -webkit-box;

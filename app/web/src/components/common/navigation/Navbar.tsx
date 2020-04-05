@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Icon, Input, Menu, Image } from 'semantic-ui-react';
+import React, { useState, useEffect } from 'react';
+import { Icon, Input, Menu, Image, List, Segment } from 'semantic-ui-react';
 import styled from 'styled-components';
 import {
     VnBigScreen,
@@ -9,6 +9,10 @@ import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { device } from 'src/utils/device/size';
 import Router from 'next/router';
 import { toQueryString } from 'src/utils/filter';
+import { useSearch } from 'src/utils/hooks/search';
+import { SearchResults } from 'src/components/search/SearchResults';
+import { useContainer } from 'src/utils/container/context';
+import { NewsService } from 'src/services/news.service';
 
 const AppLogo = styled(Image)`
     &&&& {
@@ -56,6 +60,16 @@ export const NavBar: React.FC<Props> = function ({
     children,
 }) {
     const [searchQuery, setSearchQuery] = useState('');
+    const container = useContainer();
+    const newsService = container.get(NewsService);
+    const [{ results, loading }, setSearch] = useSearch(async (search) => {
+        const { items } = await newsService.searchNews({
+            search,
+            size: 5,
+        });
+        return items;
+    });
+    useEffect(() => setSearch(searchQuery), [searchQuery]);
     return (
         <NavbarMenu inverted>
             <VnMobile>
@@ -81,23 +95,35 @@ export const NavBar: React.FC<Props> = function ({
             </VnBigScreen>
 
             <SearchInputMenuItem>
-                <SearchInput
-                    value={searchQuery}
-                    onChange={(e) => {
-                        setSearchQuery(e.target.value);
-                    }}
-                    onKeyPress={(e) => {
-                        if (e.key === 'Enter') search();
-                    }}
-                    icon={
-                        <Icon
-                            name={'search'}
-                            className={'vn-cursor-pointer'}
-                            onClick={search}
+                <div className={'vn-relative'}>
+                    <SearchInput
+                        loading={loading}
+                        value={searchQuery}
+                        onChange={(e) => {
+                            setSearchQuery(e.target.value);
+                        }}
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') search();
+                        }}
+                        icon={
+                            <Icon
+                                name={'search'}
+                                className={'vn-cursor-pointer'}
+                                onClick={search}
+                            />
+                        }
+                        placeholder="Search..."
+                    />
+                    {!loading && (
+                        <SearchResults
+                            query={searchQuery}
+                            items={results}
+                            onClick={() => {
+                                setSearchQuery('');
+                            }}
                         />
-                    }
-                    placeholder="Search..."
-                />
+                    )}
+                </div>
             </SearchInputMenuItem>
             <VnBigScreen>
                 <Menu.Menu position="right">{children}</Menu.Menu>
