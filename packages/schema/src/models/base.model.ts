@@ -1,9 +1,9 @@
 import {
-	PrimaryKey,
-	CreatedAt,
-	UpdatedAt,
-	Model,
 	Column,
+	CreatedAt,
+	Model,
+	PrimaryKey,
+	UpdatedAt,
 } from 'sequelize-typescript';
 
 export class BaseModel<T> extends Model<T> {

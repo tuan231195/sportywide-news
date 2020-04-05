@@ -3,9 +3,9 @@ import Bottleneck from 'bottleneck';
 import { Observable, Subject } from 'rxjs';
 import {
 	AuNews,
+	CnetNews,
 	SmhNews,
 	TechRepublicNews,
-	CnetNews,
 } from '@vdtn359/news-sources';
 
 const newsSources = [

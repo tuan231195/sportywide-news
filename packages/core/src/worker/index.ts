@@ -1,8 +1,8 @@
 import {
-	Worker,
-	WorkerOptions,
 	isMainThread,
 	parentPort,
+	Worker,
+	WorkerOptions,
 } from 'worker_threads';
 
 export const spawn = (file: string, wkOpts: WorkerOptions) => {
@@ -33,23 +33,20 @@ export const spawn = (file: string, wkOpts: WorkerOptions) => {
 	);
 };
 
-export function error(...args) {
-	logging('error', ...args);
+export function error(logger, ...args) {
+	logging(logger, 'error', ...args);
 }
-export function warn(...args) {
-	logging('warn', ...args);
+export function warn(logger, ...args) {
+	logging(logger, 'warn', ...args);
 }
-export function info(...args) {
-	logging('info', ...args);
+export function info(logger, ...args) {
+	logging(logger, 'info', ...args);
 }
 
-export function logging(type, ...args) {
+export function logging(logger, type, ...args) {
 	if (isMainThread) {
-		console[type](...args);
+		logger[type](...args);
 	} else if (parentPort) {
-		parentPort.postMessage({
-			type,
-			args,
-		});
+		logger[type](`[${process.env.WORKER_ID}] - ${args[0]}`);
 	}
 }

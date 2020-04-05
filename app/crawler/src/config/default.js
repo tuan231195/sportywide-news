@@ -8,4 +8,7 @@ module.exports = {
 		host: 'localhost',
 		password: '',
 	},
+	logging: {
+		level: 'debug',
+	},
 };

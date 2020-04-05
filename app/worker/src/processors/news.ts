@@ -1,6 +1,6 @@
 import { bufferTime, catchError, concatMap, filter } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { es, newsDao, redis } from 'src/setup';
+import { es, logger, newsDao, redis } from 'src/setup';
 import { NEWS_GROUP, NEWS_STREAM } from '@vdtn359/news-schema';
 import { extractUrl, getThumbnailUrl } from '@vdtn359/news-sources';
 import { NEWS_INDEX } from '@vdtn359/news-search';
@@ -21,7 +21,7 @@ export async function processStream(consumer) {
 			}),
 			filter((news: any) => !!news?.length),
 			catchError((e) => {
-				w.error(e);
+				w.error(logger, e);
 				return of([]);
 			})
 		)
@@ -39,10 +39,10 @@ async function getFullNews(itemIds: string[]) {
 		newsModels.map(async (newsModel) => {
 			const body = await extractUrl(newsModel.url);
 			if (!body) {
-				w.error(`news ${newsModel.url} has no body`);
+				w.info(logger, `news ${newsModel.url} has no body`);
 			}
 			if (!newsModel.image && body) {
-				w.error(`adding image for news ${newsModel.url}`);
+				w.info(logger, `adding image for news ${newsModel.url}`);
 				newsModel.image = getThumbnailUrl(body);
 				await newsModel.save();
 			}
@@ -55,7 +55,7 @@ async function getFullNews(itemIds: string[]) {
 }
 
 async function esSync(newsList: any[] = []) {
-	w.info(`Indexing ${newsList.length} documents`);
+	w.info(logger, `Indexing ${newsList.length} documents`);
 	try {
 		const updatedDocuments = await Promise.all(
 			newsList.map(async (news) => {
@@ -78,6 +78,6 @@ async function esSync(newsList: any[] = []) {
 		);
 		await es.bulkSync(NEWS_INDEX, updatedDocuments);
 	} catch (e) {
-		w.error('Failed to index', e);
+		w.error(logger, 'Failed to index', e);
 	}
 }

@@ -1,4 +1,4 @@
-import { es, redis } from 'src/setup';
+import { es, logger, redis } from 'src/setup';
 import { bufferTime } from 'rxjs/operators';
 import { NEWS_STATS_GROUP, NEWS_STATS_STREAM } from '@vdtn359/news-schema';
 import { NEWS_INDEX, NEWS_STAT_INDEX } from '@vdtn359/news-search';
@@ -46,7 +46,7 @@ async function esSync(newsStats = []) {
 			body: bulk,
 		});
 	} catch (e) {
-		w.error('Failed to index', e);
+		w.error(logger, 'Failed to index', e);
 	}
 }
 

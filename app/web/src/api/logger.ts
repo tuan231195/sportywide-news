@@ -1,5 +1,7 @@
 import util from 'util';
-export function logger(request) {
+import { logger } from 'src/setup';
+
+export function errorLogger(request) {
 	return async (req: Request, res: Response) => {
 		try {
 			await request(req, res);
@@ -7,7 +9,7 @@ export function logger(request) {
 			if (err.name === 'ResponseError') {
 				return handleElasticSearchError(err, res);
 			}
-			console.error(err);
+			logger.error(err);
 			res.status(500).json({
 				error: 'Internal server error',
 			});
@@ -16,8 +18,7 @@ export function logger(request) {
 }
 
 function handleElasticSearchError(err, res) {
-	console.error(
-		'Elastic search error',
+	logger.error(
 		util.inspect(err.meta, {
 			depth: null,
 		})

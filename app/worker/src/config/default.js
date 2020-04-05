@@ -11,4 +11,7 @@ module.exports = {
 	es: {
 		host: 'http://localhost:9200',
 	},
+	logging: {
+		level: 'debug',
+	},
 };

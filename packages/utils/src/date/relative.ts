@@ -1,10 +1,10 @@
 import {
+	format,
+	formatDistanceStrict,
 	isAfter,
 	isBefore,
 	isEqual,
 	startOfWeek,
-	formatDistanceStrict,
-	format,
 } from 'date-fns';
 
 export function isBeforeOrSame(date1, date2) {

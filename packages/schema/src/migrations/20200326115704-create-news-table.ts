@@ -1,5 +1,5 @@
-import { QueryInterface } from 'sequelize';
 import * as SequelizeType from 'sequelize';
+import { QueryInterface } from 'sequelize';
 
 module.exports = {
 	up: (queryInterface: QueryInterface, Sequelize: typeof SequelizeType) => {

@@ -1,7 +1,7 @@
 import { NewsDto } from '@vdtn359/news-models';
 import { NEWS_STREAM, NewsDao } from '@vdtn359/news-schema';
 import { process } from '@vdtn359/news-utils';
-import { redis, db } from 'src/setup';
+import { db, redis } from 'src/setup';
 
 const newsDao = new NewsDao(db);
 

@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { logger } from 'src/api/logger';
+import { errorLogger } from 'src/api/logger';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
@@ -31,4 +31,4 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	);
 }
 
-export default logger(request);
+export default errorLogger(request);

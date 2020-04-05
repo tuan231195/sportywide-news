@@ -6,7 +6,8 @@
     "description": "news core",
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
-        "rxjs": "6.5.4"
+        "rxjs": "6.5.4",
+        "winston": "3.2.1"
     },
     "devDependencies": {
         "ts-node": "8.8.1"

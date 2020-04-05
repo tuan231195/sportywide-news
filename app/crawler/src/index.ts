@@ -1,15 +1,16 @@
 import { fetchNews } from 'src/crawler';
-import { saveNews, cleanup } from 'src/persister';
+import { cleanup, saveNews } from 'src/persister';
 import { mergeMap } from 'rxjs/operators';
+import { logger } from 'src/setup';
 
 fetchNews()
 	.pipe(mergeMap((newsDtos) => saveNews(newsDtos)))
 	.subscribe({
 		complete: async () => {
-			console.info('Completed');
+			logger.info('Completed');
 			await cleanup();
 		},
 		error: (e) => {
-			console.error('Failed to crawl news', e);
+			logger.error('Failed to crawl news', e);
 		},
 	});

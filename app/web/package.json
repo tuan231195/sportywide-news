@@ -13,6 +13,7 @@
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-search": "workspace:*",
         "@vdtn359/news-styles": "workspace:*",
+        "@vdtn359/news-core": "workspace:*",
         "axios": "0.19.2",
         "date-fns": "2.11.1",
         "fomantic-ui-css": "2.8.4",
@@ -32,7 +33,8 @@
         "semantic-ui-react": "0.88.2",
         "slick-carousel": "1.8.1",
         "styled-components": "5.0.1",
-        "typedi": "0.8.0"
+        "typedi": "0.8.0",
+        "winston": "3.2.1"
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "7.8.3",

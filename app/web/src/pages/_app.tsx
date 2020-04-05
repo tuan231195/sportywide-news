@@ -160,7 +160,9 @@ class NewsApp extends App<any, any, any> {
                                                 <Content>
                                                     {!!this.props.hotTerms
                                                         .length && (
-                                                        <div>
+                                                        <div
+                                                            className={'vn-mb2'}
+                                                        >
                                                             <Header as={'h4'}>
                                                                 Hot keywords
                                                             </Header>

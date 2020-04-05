@@ -1,5 +1,5 @@
 import { BaseModel } from 'src/models/base.model';
-import { Table, Column, AllowNull, DataType } from 'sequelize-typescript';
+import { AllowNull, Column, DataType, Table } from 'sequelize-typescript';
 import { CATEGORY } from '@vdtn359/news-models';
 
 @Table({

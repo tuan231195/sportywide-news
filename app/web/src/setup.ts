@@ -1,6 +1,8 @@
 import { merge } from 'lodash';
 import * as search from '@vdtn359/news-search';
 import IORedis from 'ioredis';
+import { logging } from '@vdtn359/news-core';
+import { Logger } from 'winston';
 
 const configMap = {
 	default: {
@@ -11,6 +13,9 @@ const configMap = {
 			host: 'localhost',
 			password: '',
 		},
+		logging: {
+			level: 'debug',
+		},
 	},
 };
 
@@ -18,6 +23,11 @@ export const config = merge(
 	{},
 	configMap.default,
 	configMap[process.env.NODE_ENV] || {}
+);
+
+export const logger: Logger = logging.createLogger(
+	'web',
+	config.logging?.level
 );
 
 export const es = search.connectToEs({

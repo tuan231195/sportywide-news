@@ -8,7 +8,8 @@
             "src/*": ["./src/*"],
             "@vdtn359/news-utils": ["../../packages/utils/src"],
             "@vdtn359/news-search": ["../../packages/search/src"],
-            "@vdtn359/news-models": ["../../packages/models/src"]
+            "@vdtn359/news-models": ["../../packages/models/src"],
+            "@vdtn359/news-core": ["../../packages/core/src"]
         },
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -22,6 +23,9 @@
     "references": [
         {
             "path": "../../packages/utils/tsconfig.build.json"
+        },
+        {
+            "path": "../../packages/core/tsconfig.build.json"
         },
         {
             "path": "../../packages/models/tsconfig.build.json"

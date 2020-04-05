@@ -1,3 +1,6 @@
+import { logging } from '@vdtn359/news-core';
+import { Logger } from 'winston';
+
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 
 import * as search from '@vdtn359/news-search';
@@ -16,7 +19,10 @@ import {
 export const db: DB = connectDBUsingConfig(config);
 export const redis = connectRedisUsingConfig(config);
 export const es = search.connectToEsUsingConfig(config);
-
+export const logger: Logger = logging.createLogger(
+	'worker',
+	config.get('logging.level')
+);
 export const newsDao = new NewsDao(db);
 
 export async function setupRedis() {

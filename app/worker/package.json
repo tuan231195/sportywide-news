@@ -19,7 +19,8 @@
         "@vdtn359/news-sources": "workspace:*",
         "config": "3.3.1",
         "ioredis": "4.16.0",
-        "rxjs": "6.5.4"
+        "rxjs": "6.5.4",
+        "winston": "3.2.1"
     },
     "devDependencies": {
         "@types/config": "0.0.36",
