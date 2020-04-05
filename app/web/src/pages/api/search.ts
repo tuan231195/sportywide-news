@@ -1,6 +1,6 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from 'next';
-import { es } from 'src/setup';
+import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { logger } from 'src/api/logger';
 import { buildEsQuery, buildSuggester } from 'src/utils/search/query';
@@ -11,6 +11,7 @@ import {
 	parseSuggestions,
 } from 'src/utils/search/fields';
 import { stringQuery } from 'src/api/parse';
+import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const [searchResults, termsResult] = await Promise.all([
@@ -28,6 +29,7 @@ export default logger(request);
 
 async function search(query) {
 	const searchAfter = parseJsonQuery(query, 'searchAfter');
+	const searchQuery = stringQuery(query.search);
 	const size = stringQuery(query.size);
 	const results = await es.search({
 		index: NEWS_INDEX,
@@ -68,7 +70,20 @@ async function search(query) {
 
 	const suggestions = parseSuggestions(results.body.suggest?.suggests);
 
-	const newsDtos = parseFields(hits);
+	const newsDtos = parseFields(hits) || [];
+	if (searchQuery?.trim() && !query.inline) {
+		const topSearch = newsDtos.slice(0, 3);
+		if (topSearch.length) {
+			const indexDoc: NewsStatDto = {
+				docIds: topSearch.map((search) => search.id),
+				time: new Date(),
+				term: searchQuery,
+				type: ACTION_TYPE.SEARCH,
+			};
+			redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
+		}
+	}
+
 	return {
 		suggestions,
 		items: newsDtos,

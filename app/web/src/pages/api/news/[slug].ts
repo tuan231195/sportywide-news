@@ -1,8 +1,9 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from 'next';
-import { es } from 'src/setup';
+import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import { logger } from 'src/api/logger';
+import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
@@ -25,6 +26,12 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	if (!document) {
 		return res.status(404).send('Not Found');
 	}
+	const indexDoc: NewsStatDto = {
+		docIds: [document.id],
+		time: new Date(),
+		type: ACTION_TYPE.VIEW,
+	};
+	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
 	return res.json(document);
 }
 

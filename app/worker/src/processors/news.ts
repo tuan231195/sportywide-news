@@ -1,10 +1,9 @@
-import { bufferTime, concatMap, filter, catchError } from 'rxjs/operators';
+import { bufferTime, catchError, concatMap, filter } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { newsDao, redis, setupRedis, setupEs, es } from 'src/setup';
+import { es, newsDao, redis } from 'src/setup';
 import { NEWS_GROUP, NEWS_STREAM } from '@vdtn359/news-schema';
-import { extractUrl } from '@vdtn359/news-sources';
+import { extractUrl, getThumbnailUrl } from '@vdtn359/news-sources';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { getThumbnailUrl } from '@vdtn359/news-sources';
 import { worker as w } from '@vdtn359/news-core';
 
 export async function processStream(consumer) {
@@ -68,6 +67,10 @@ async function esSync(newsList: any[] = []) {
 				} else {
 					return {
 						...news,
+						numViews: 0,
+						ratings: 0,
+						numRatings: 0,
+						numSearches: 0,
 						indexType: 'index',
 					};
 				}

@@ -51,6 +51,7 @@ export class NewsService {
 		filter: {
 			search?: string;
 			size?: number;
+			inline?: boolean;
 			categories?: string[];
 			searchAfter?: any[];
 		} = {}
@@ -66,6 +67,7 @@ export class NewsService {
 				params: {
 					categories: filter.categories,
 					size: filter.size,
+					inline: filter.inline,
 					searchAfter: filter.searchAfter
 						? JSON.stringify(filter.searchAfter)
 						: undefined,

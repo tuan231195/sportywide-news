@@ -66,6 +66,7 @@ export const NavBar: React.FC<Props> = function ({
         const { items } = await newsService.searchNews({
             search,
             size: 5,
+            inline: true,
         });
         return items;
     });

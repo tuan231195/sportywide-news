@@ -7,6 +7,8 @@ import {
 	connectRedisUsingConfig,
 	DB,
 	NEWS_GROUP,
+	NEWS_STATS_GROUP,
+	NEWS_STATS_STREAM,
 	NEWS_STREAM,
 	NewsDao,
 } from '@vdtn359/news-schema';
@@ -18,10 +20,17 @@ export const es = search.connectToEsUsingConfig(config);
 export const newsDao = new NewsDao(db);
 
 export async function setupRedis() {
-	const streamExists = await redis.exists(NEWS_STREAM);
+	await Promise.all([
+		setupRedisStream(NEWS_STREAM, NEWS_GROUP),
+		setupRedisStream(NEWS_STATS_STREAM, NEWS_STATS_GROUP),
+	]);
+}
+
+export async function setupRedisStream(stream, group) {
+	const streamExists = await redis.exists(stream);
 	const extraArgs = streamExists ? [] : ['MKSTREAM'];
 	try {
-		await redis.xgroup('CREATE', NEWS_STREAM, NEWS_GROUP, 0, ...extraArgs);
+		await redis.xgroup('CREATE', stream, group, 0, ...extraArgs);
 	} catch (e) {
 		if (e.message !== 'BUSYGROUP Consumer Group name already exists') {
 			throw e;

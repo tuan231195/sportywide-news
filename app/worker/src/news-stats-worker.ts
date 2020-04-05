@@ -1,5 +1,5 @@
-import { processStream } from 'src/processors/news';
-import { NEWS_CONSUMER_PREFIX } from '@vdtn359/news-schema';
+import { processStream } from 'src/processors/news-stats';
+import { NEWS_STATS_CONSUMER_PREFIX } from '@vdtn359/news-schema';
 import { isMainThread, workerData } from 'worker_threads';
 import { arr } from '@vdtn359/news-utils';
 import { worker as w } from '@vdtn359/news-core';
@@ -14,7 +14,7 @@ async function start() {
 	await setupEs();
 	if (isMainThread) {
 		for (const id of arr.range(WORKER)) {
-			const workerId = `${NEWS_CONSUMER_PREFIX}-${id}`;
+			const workerId = `${NEWS_STATS_CONSUMER_PREFIX}-${id}`;
 			const worker = w.spawn(__filename, { workerData: { id } });
 			worker.on('message', ({ type, args }) => {
 				console[type](`[${workerId}] - `, ...args);

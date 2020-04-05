@@ -1,8 +1,7 @@
 import './transformer';
 import IORedis from 'ioredis';
-import { interval, from } from 'rxjs';
-import { concatMap, flatMap, filter } from 'rxjs/operators';
-import { NEWS_GROUP, NEWS_STREAM } from 'src/redis/index';
+import { from, interval, Observable } from 'rxjs';
+import { concatMap, filter, flatMap } from 'rxjs/operators';
 
 export type Redis = RedisWrapper & IORedis.Redis;
 
@@ -17,7 +16,7 @@ export class RedisWrapper {
 		group: string;
 		consumer: string;
 		stream: string;
-	}) {
+	}): Observable<any> {
 		let lastId: any = 0;
 		return interval(500).pipe(
 			concatMap(async () => {
@@ -42,7 +41,7 @@ export class RedisWrapper {
 					return;
 				}
 				const itemIds = items.map((item) => item.id);
-				await this.redis.xack(NEWS_STREAM, NEWS_GROUP, ...itemIds);
+				await this.redis.xack(stream, group, ...itemIds);
 				return items;
 			}),
 			filter((item) => !!item),
