@@ -27,8 +27,30 @@ export function buildEsQuery(queryStr: any = {}) {
 	}
 
 	return {
-		bool: {
-			must: mustQuery,
+		function_score: {
+			query: {
+				bool: {
+					must: mustQuery,
+				},
+			},
+			functions: [
+				{
+					field_value_factor: {
+						field: 'numViews',
+						factor: 1.5,
+						modifier: 'ln1p',
+					},
+				},
+				{
+					field_value_factor: {
+						field: 'numSearches',
+						modifier: 'ln1p',
+						factor: 1.2,
+					},
+				},
+			],
+			score_mode: 'sum',
+			boost_mode: 'sum',
 		},
 	};
 }
