@@ -15,6 +15,7 @@ import { SearchFilterOptions } from 'src/components/search/SearchFilter';
 import { str } from '@vdtn359/news-utils';
 import Link from 'next/link';
 import Head from 'next/head';
+import { TagList } from 'src/components/tags/TagList';
 
 interface Props {
     news: NewsSearchDto[];
@@ -227,16 +228,7 @@ class SearchPage extends React.Component<Props, State> {
                     <div className={'vn-mt2 vn-mb2'}>
                         <Header as={'h5'}>Similar keywords:</Header>
                         <Label.Group>
-                            {this.state.terms.map((term) => (
-                                <Label color="teal" key={term}>
-                                    <Link
-                                        href={`/tags/[tag]`}
-                                        as={`/tags/${term}`}
-                                    >
-                                        <a>{str.ucfirst(term)}</a>
-                                    </Link>
-                                </Label>
-                            ))}
+                            <TagList tags={this.state.terms} />
                         </Label.Group>
                     </div>
                 )}

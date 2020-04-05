@@ -4,14 +4,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
 import App from 'next/app';
-import { promises } from '@vdtn359/news-utils';
+import { promises, str } from '@vdtn359/news-utils';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Label, Header } from 'semantic-ui-react';
 import {
     NewsContainer,
     NewsRoot,
 } from 'src/components/common/container/Container.styled';
+import Link from 'next/link';
 import { NewsService } from 'src/services/news.service';
 import { Context as ResponsiveContext } from 'react-responsive';
 import { device, getDeviceWidth } from 'src/utils/device/size';
@@ -25,6 +26,7 @@ import { WINDOW_CLICK } from 'src/utils/events/event.constants';
 import Router from 'next/router';
 import { Footer } from 'src/components/common/navigation/Footer';
 import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButton';
+import { TagList } from 'src/components/tags/TagList';
 
 const theme = {
     colors: {
@@ -74,6 +76,7 @@ class NewsApp extends App<any, any, any> {
         const container = ctx.container;
         const newsService = container.get(NewsService);
         allPromises.categories = newsService.fetchCategories();
+        allPromises.hotTerms = newsService.fetchHotTerms();
         const result: any = await promises.all(allPromises);
         return {
             ...result,
@@ -146,7 +149,6 @@ class NewsApp extends App<any, any, any> {
                                                     />
                                                 </Grid.Column>
                                             </VnBigScreen>
-
                                             <Grid.Column
                                                 mobile={16}
                                                 tablet={12}
@@ -156,6 +158,20 @@ class NewsApp extends App<any, any, any> {
                                                 }
                                             >
                                                 <Content>
+                                                    {!!this.props.hotTerms
+                                                        .length && (
+                                                        <div>
+                                                            <Header as={'h4'}>
+                                                                Hot keywords
+                                                            </Header>
+                                                            <TagList
+                                                                tags={
+                                                                    this.props
+                                                                        .hotTerms
+                                                                }
+                                                            />
+                                                        </div>
+                                                    )}
                                                     <Component
                                                         {...pageProps}
                                                         query={query}
