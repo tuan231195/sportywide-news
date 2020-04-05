@@ -21,6 +21,7 @@ interface Props {
 interface State {
     pagination: PaginationDto;
     news: NewsSearchDto[];
+    tag: string;
 }
 
 const Root = styled.div`
@@ -44,17 +45,8 @@ class SearchPage extends React.Component<Props, State> {
         };
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pagination: props.pagination,
-            news: props.news,
-        };
-        this.lastNewsList = props.news;
-    }
-
     async nextPage() {
-        if (!this.lastNewsList.length) {
+        if (!this.lastNewsList?.length) {
             return {
                 news: [],
             };
@@ -82,7 +74,7 @@ class SearchPage extends React.Component<Props, State> {
                     {str.ucfirst(this.props.tag)}&quot;
                 </Header>
                 <NewsStream
-                    initialNewsList={this.state.news}
+                    initialNewsList={this.props.news}
                     loadFunc={async () => {
                         const { news } = await this.nextPage();
                         return news;
