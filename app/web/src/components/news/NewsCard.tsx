@@ -5,6 +5,8 @@ import { NewsDto } from '@vdtn359/news-models';
 import { date, str } from '@vdtn359/news-utils';
 import Link from 'next/link';
 import { useURL } from 'src/utils/hooks/basic';
+import { NewsEditRating } from 'src/components/news/NewsRating';
+import { RatingTag } from 'src/components/tags/RatingTag';
 
 interface Props {
     news: NewsDto;
@@ -55,37 +57,49 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                         className={'vn-mb3'}
                         dangerouslySetInnerHTML={{ __html: news.description }}
                     />
-                    <span>
-                        From:{' '}
-                        <a
-                            target={'_blank'}
-                            rel={'noreferrer noopener'}
-                            href={`${rootUrl}`}
-                        >
-                            {hostname}
-                        </a>
-                    </span>
+                    <div className={'vn-flex vn-flex-justify vn-flex-center'}>
+                        <span>
+                            From:{' '}
+                            <a
+                                target={'_blank'}
+                                rel={'noreferrer noopener'}
+                                href={`${rootUrl}`}
+                            >
+                                {hostname}
+                            </a>
+                        </span>
+                        <span>
+                            <NewsEditRating id={news.id} />
+                        </span>
+                    </div>
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <ButtonGroup>
-                    <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
-                        <a
-                            className={'vn-raw-link ui button primary'}
-                            style={{ color: 'white' }}
+                <div className={'vn-flex vn-flex-center vn-flex-justify'}>
+                    <ButtonGroup>
+                        <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
+                            <a
+                                className={'vn-raw-link ui button primary'}
+                                style={{ color: 'white' }}
+                            >
+                                View More
+                            </a>
+                        </Link>
+                        <Button
+                            as={'a'}
+                            href={news.url}
+                            target={'_blank'}
+                            rel={'noreferrer noopener'}
                         >
-                            View More
-                        </a>
-                    </Link>
-                    <Button
-                        as={'a'}
-                        href={news.url}
-                        target={'_blank'}
-                        rel={'noreferrer noopener'}
-                    >
-                        View External
-                    </Button>
-                </ButtonGroup>
+                            View External
+                        </Button>
+                    </ButtonGroup>
+                    {news.ratings > 0 && (
+                        <div>
+                            <RatingTag rating={news.ratings} />
+                        </div>
+                    )}
+                </div>
             </Card.Content>
         </Card>
     );

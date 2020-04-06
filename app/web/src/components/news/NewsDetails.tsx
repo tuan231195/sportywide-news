@@ -7,7 +7,7 @@ import { date, str } from '@vdtn359/news-utils';
 import { useURL } from 'src/utils/hooks/basic';
 import { NewsSlide } from 'src/components/news/NewsSlide';
 import { NewsEditRating } from 'src/components/news/NewsRating';
-import { RatingTag } from 'src/components/tags/RatingTag';
+import { RatingRibbon } from 'src/components/tags/RatingTag';
 
 interface Props {
     news: NewsDto;
@@ -66,7 +66,7 @@ export const NewsDetails: React.FC<Props> = ({ news, similarNewsList }) => {
                 <NewsEditRating id={news.id} />
                 <NewsMeta>{news.numViews} view(s)</NewsMeta>
             </div>
-            <RatingTag rating={news.ratings} />
+            <RatingRibbon rating={news.ratings} />
 
             <NewsHeader as={'h1'} className={'vn-mt4'}>
                 {news.title}
