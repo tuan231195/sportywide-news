@@ -41,6 +41,7 @@ async function esSync(newsStats = []) {
 			}
 		}
 	}
+	logger.debug('Message: \n %s', JSON.stringify(newsStats, undefined, 4));
 	try {
 		await es.bulk({
 			body: bulk,
@@ -148,3 +149,7 @@ function indexRating(newsStat: NewsStatDto) {
 
 	return returnArr;
 }
+
+process.on('unhandledRejection', (e) => {
+	w.error(logger, e);
+});

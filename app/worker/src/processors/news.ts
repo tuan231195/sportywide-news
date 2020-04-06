@@ -81,3 +81,7 @@ async function esSync(newsList: any[] = []) {
 		w.error(logger, 'Failed to index', e);
 	}
 }
+
+process.on('unhandledRejection', (e) => {
+	w.error(logger, e);
+});

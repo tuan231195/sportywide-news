@@ -19,6 +19,14 @@ export function useStateRef<T>(initialValue: T): [() => T, Function] {
 	return [getValue, setState];
 }
 
+export function useMonitoring(props: { value: any }) {
+	const [current, setCurrent] = useState(props.value);
+	useEffect(() => {
+		setCurrent(props.value);
+	}, [props.value]);
+	return [current, setCurrent];
+}
+
 export function useURL(urlStr) {
 	const url = useMemo(() => {
 		return new URL(urlStr);

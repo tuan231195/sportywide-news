@@ -159,30 +159,31 @@ function getFunctions() {
 		{
 			field_value_factor: {
 				field: 'numViews',
-				factor: 1.5,
+				factor: 1.2,
 				modifier: 'ln1p',
-			},
-		},
-		{
-			field_value_factor: {
-				field: 'ratings',
-				modifier: 'sqrt',
-				factor: 0.5,
 			},
 		},
 		{
 			field_value_factor: {
 				field: 'numSearches',
 				modifier: 'ln1p',
-				factor: 1.2,
+				factor: 1,
+			},
+		},
+		{
+			gauss: {
+				ratings: {
+					offset: 0.5,
+					origin: 5,
+					scale: 0.5,
+				},
 			},
 		},
 		{
 			gauss: {
 				pubDate: {
 					origin: 'now',
-					scale: '10d',
-					decay: '0.5',
+					scale: '5d',
 				},
 			},
 		},

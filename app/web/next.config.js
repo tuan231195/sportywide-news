@@ -29,6 +29,13 @@ const nextConfig = withPlugins(
 							);
 						}
 
+						if (options.isServer) {
+							config.module.rules.push({
+								test: /^(idb)$/,
+								use: 'null-loader',
+							});
+						}
+
 						const originalEntry = config.entry;
 						config.entry = async () => {
 							let entries = await originalEntry();
@@ -100,4 +107,3 @@ function injectPolyfill(entry, polyfillFile) {
 	}
 	return entry;
 }
-

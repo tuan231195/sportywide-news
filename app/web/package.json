@@ -17,6 +17,7 @@
         "axios": "0.19.2",
         "date-fns": "2.11.1",
         "fomantic-ui-css": "2.8.4",
+        "idb": "5.0.2",
         "ioredis": "4.16.1",
         "lodash": "4.17.15",
         "mobile-detect": "1.4.4",
@@ -24,6 +25,7 @@
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-slick": "0.25.2",
+        "react-star-rating-component": "1.4.1",
         "rxjs": "6.5.5",
         "hoist-non-react-statics": "3.3.2",
         "path-to-regexp": "6.1.0",
@@ -44,6 +46,7 @@
         "babel-plugin-styled-components": "1.10.7",
         "babel-plugin-transform-typescript-metadata": "0.3.0",
         "next-transpile-modules": "3.1.0",
+        "null-loader": "3.0.0",
         "sass": "1.26.3",
         "serverless": "1.67.0"
     }

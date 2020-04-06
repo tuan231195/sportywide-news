@@ -95,6 +95,7 @@ importers:
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
       hoist-non-react-statics: 3.3.2
+      idb: 5.0.2
       ioredis: 4.16.1
       lodash: 4.17.15
       mobile-detect: 1.4.4
@@ -105,6 +106,7 @@ importers:
       react-infinite-scroller: 1.2.4_react@16.13.1
       react-responsive: 8.0.3_react@16.13.1
       react-slick: 0.25.2_react-dom@16.13.1+react@16.13.1
+      react-star-rating-component: 1.4.1_react@16.13.1
       reflect-metadata: 0.1.13
       rxjs: 6.5.5
       semantic-ui-react: 0.88.2_react-dom@16.13.1+react@16.13.1
@@ -120,6 +122,7 @@ importers:
       babel-plugin-styled-components: 1.10.7_styled-components@5.0.1
       babel-plugin-transform-typescript-metadata: 0.3.0
       next-transpile-modules: 3.1.0
+      null-loader: 3.0.0
       sass: 1.26.3
       serverless: 1.67.0
     specifiers:
@@ -138,17 +141,20 @@ importers:
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
       hoist-non-react-statics: 3.3.2
+      idb: 5.0.2
       ioredis: 4.16.1
       lodash: 4.17.15
       mobile-detect: 1.4.4
       next: 9.3.2
       next-transpile-modules: 3.1.0
+      null-loader: 3.0.0
       path-to-regexp: 6.1.0
       react: 16.13.1
       react-dom: 16.13.1
       react-infinite-scroller: 1.2.4
       react-responsive: 8.0.3
       react-slick: 0.25.2
+      react-star-rating-component: 1.4.1
       reflect-metadata: 0.1.13
       rxjs: 6.5.5
       sass: 1.26.3
@@ -6836,6 +6842,10 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-4aFq7wvWyMHKgxsH8QQtGpvbASCf+eM3wPRLI6R+MgAnTCZ6STYsRvttLvRWK0Nfif5piF394St3HeJDaljGPA==
+  /idb/5.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-53yU1RbSPkSkQxufmNgcBkxxnbsTMGaYCv2NwQDmBP75muYj4Z75DsvCqhCCivYcC1XaXDi9tZSUOfDQFxuABA==
   /ieee754/1.1.13:
     resolution:
       integrity: sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==
@@ -9409,6 +9419,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg==
+  /null-loader/3.0.0:
+    dependencies:
+      loader-utils: 1.2.3
+      schema-utils: 1.0.0
+    dev: true
+    engines:
+      node: '>= 8.9.0'
+    peerDependencies:
+      webpack: ^4.3.0
+    resolution:
+      integrity: sha512-hf5sNLl8xdRho4UPBOOeoIwT3WhjYcMUQm0zj44EhD6UscMAz72o2udpoDFBgykucdEDGIcd6SXbc/G6zssbzw==
   /num2fraction/1.2.2:
     dev: false
     resolution:
@@ -10879,6 +10900,19 @@ packages:
       react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0
     resolution:
       integrity: sha512-8MNH/NFX/R7zF6W/w+FS5VXNyDusF+XDW1OU0SzODEU7wqYB+ZTGAiNJ++zVNAVqCAHdyCybScaUB+FCZOmBBw==
+  /react-star-rating-component/1.4.1_react@16.13.1:
+    dependencies:
+      classnames: 2.2.6
+      prop-types: 15.7.2
+      react: 16.13.1
+    dev: false
+    engines:
+      node: '>=8.0.0'
+      npm: '>=5.5.0'
+    peerDependencies:
+      react: ^16.2.0
+    resolution:
+      integrity: sha512-i0YEvQzToS0s0GDkxn01Jy4EeLpVEyh023NXJTJ+/1+xkvhpACyD4d1YeBhYWZab53ppUnUxs5gmp75gJr3khA==
   /react/16.13.1:
     dependencies:
       loose-envify: 1.4.0

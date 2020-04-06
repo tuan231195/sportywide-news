@@ -1,7 +1,7 @@
 import { NewsDto } from '@vdtn359/news-models';
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { Card, Image, Header } from 'semantic-ui-react';
+import { Card, Header, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';

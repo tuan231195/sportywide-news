@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Icon, Input, Menu, Image, List, Segment } from 'semantic-ui-react';
+import React, { useEffect, useState } from 'react';
+import { Icon, Image, Input, Menu } from 'semantic-ui-react';
 import styled from 'styled-components';
 import {
     VnBigScreen,

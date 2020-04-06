@@ -97,4 +97,14 @@ export class NewsService {
 			.get('/hot-news')
 			.then(({ data }) => data);
 	}
+
+	rating({ id, rating }) {
+		return this.apiService
+			.api()
+			.post('/rating', {
+				id,
+				rating,
+			})
+			.then(({ data }) => data);
+	}
 }

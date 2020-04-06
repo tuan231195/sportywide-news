@@ -12,8 +12,6 @@ import Router from 'next/router';
 import styled from 'styled-components';
 import { withRouter } from 'src/utils/hoc/with-router';
 import { SearchFilterOptions } from 'src/components/search/SearchFilter';
-import { str } from '@vdtn359/news-utils';
-import Link from 'next/link';
 import Head from 'next/head';
 import { TagList } from 'src/components/tags/TagList';
 

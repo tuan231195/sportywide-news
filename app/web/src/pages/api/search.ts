@@ -56,7 +56,7 @@ async function search(query) {
 				},
 			],
 			query: buildEsQuery(query),
-			stored_fields: FIELDS,
+			_source: FIELDS,
 		},
 	});
 	const {

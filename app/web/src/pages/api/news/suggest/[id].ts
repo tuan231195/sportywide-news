@@ -38,7 +38,7 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 					],
 				},
 			},
-			stored_fields: FIELDS,
+			_source: FIELDS,
 		},
 	});
 

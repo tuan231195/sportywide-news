@@ -26,10 +26,14 @@ export const logger: Logger = logging.createLogger(
 export const newsDao = new NewsDao(db);
 
 export async function setupRedis() {
-	await Promise.all([
-		setupRedisStream(NEWS_STREAM, NEWS_GROUP),
-		setupRedisStream(NEWS_STATS_STREAM, NEWS_STATS_GROUP),
-	]);
+	try {
+		await Promise.all([
+			setupRedisStream(NEWS_STREAM, NEWS_GROUP),
+			setupRedisStream(NEWS_STATS_STREAM, NEWS_STATS_GROUP),
+		]);
+	} catch (e) {
+		logger.error('Failed to setup redis: ', e);
+	}
 }
 
 export async function setupRedisStream(stream, group) {
@@ -45,6 +49,10 @@ export async function setupRedisStream(stream, group) {
 }
 
 export async function setupEs() {
-	return search.setup(es);
+	try {
+		return await search.setup(es);
+	} catch (e) {
+		logger.error('Failed to setup elasticsearch: ', e);
+	}
 }
 export { config };

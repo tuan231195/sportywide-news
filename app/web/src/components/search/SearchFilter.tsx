@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Segment, Input, Form, Button, Dropdown } from 'semantic-ui-react';
+import React, { useMemo } from 'react';
+import { Button, Dropdown, Form, Input, Segment } from 'semantic-ui-react';
 import { SearchFilter } from 'src/utils/filter';
 import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
+import { useMonitoring } from 'src/utils/hooks/basic';
 
 interface Props {
     filter: SearchFilter;
@@ -13,10 +14,7 @@ export const SearchFilterOptions: React.FC<Props> = ({
     filter,
     onFilterUpdate,
 }) => {
-    const [currentFilter, setCurrentFilter] = useState(filter);
-    useEffect(() => {
-        setCurrentFilter(filter);
-    }, [filter]);
+    const [currentFilter, setCurrentFilter] = useMonitoring({ value: filter });
     const categoryOptions = useMemo(() => {
         return Object.keys(CATEGORY).map((category) => ({
             text: str.ucfirst(category),

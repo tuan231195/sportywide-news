@@ -32,7 +32,7 @@ async function search() {
 				},
 			],
 			query: buildCommonQuery(),
-			stored_fields: FIELDS,
+			_source: FIELDS,
 		},
 	});
 	const {

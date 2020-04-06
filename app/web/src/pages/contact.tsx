@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Segment, Header } from 'semantic-ui-react';
+import { Button, Form, Header, Segment } from 'semantic-ui-react';
 
 export default class ContactPage extends React.Component {
     static getInitialProps() {

@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { date, str } from '@vdtn359/news-utils';
 import { useURL } from 'src/utils/hooks/basic';
 import { NewsSlide } from 'src/components/news/NewsSlide';
+import { NewsEditRating } from 'src/components/news/NewsRating';
+import { RatingTag } from 'src/components/tags/RatingTag';
 
 interface Props {
     news: NewsDto;
@@ -17,7 +19,9 @@ const NewsSegment = styled(Segment)`
         max-width: 100%;
         object-fit: cover;
     }
-    padding: var(--space-3);
+    &&& {
+        padding: var(--space-2) var(--space-2);
+    }
 `;
 
 const NewsBody = styled.div`
@@ -58,7 +62,13 @@ export const NewsDetails: React.FC<Props> = ({ news, similarNewsList }) => {
     const { root: rootUrl, hostname } = useURL(news.url);
     return (
         <NewsSegment raised={true}>
-            <NewsHeader as={'h1'}>
+            <div className={'vn-absolute'}>
+                <NewsEditRating id={news.id} />
+                <NewsMeta>{news.numViews} view(s)</NewsMeta>
+            </div>
+            <RatingTag rating={news.ratings} />
+
+            <NewsHeader as={'h1'} className={'vn-mt4'}>
                 {news.title}
                 <NewsLink
                     href={news.url}

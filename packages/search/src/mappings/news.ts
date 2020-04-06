@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/camelcase */
 export const mappings = {
 	properties: {
-		id: { type: 'keyword', store: true },
+		id: { type: 'keyword' },
 		title: {
 			type: 'text',
-			store: true,
 			analyzer: 'fulltext',
 			fields: {
 				trigram: {
@@ -19,7 +18,6 @@ export const mappings = {
 		},
 		description: {
 			type: 'text',
-			store: true,
 			analyzer: 'fulltext',
 		},
 		body: {
@@ -28,18 +26,15 @@ export const mappings = {
 		},
 		slug: {
 			type: 'keyword',
-			store: true,
 		},
 		category: {
 			type: 'keyword',
-			store: true,
 		},
 		image: {
 			type: 'text',
-			store: true,
 			index: false,
 		},
-		pubDate: { type: 'date', store: true },
+		pubDate: { type: 'date' },
 		numViews: {
 			type: 'integer',
 		},
@@ -54,11 +49,9 @@ export const mappings = {
 		},
 		feed: {
 			type: 'keyword',
-			store: true,
 		},
 		url: {
 			type: 'text',
-			store: true,
 			index: false,
 		},
 	},

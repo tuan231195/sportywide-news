@@ -11,6 +11,8 @@ export enum CATEGORY {
 export class NewsDto {
 	id: string;
 	category: CATEGORY;
+	numViews?: number;
+	ratings?: number;
 	url: string;
 	slug: string;
 	image?: string;

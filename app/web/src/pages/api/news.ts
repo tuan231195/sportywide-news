@@ -15,7 +15,7 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 		index: NEWS_INDEX,
 		body: {
 			query: buildEsQuery(req.query),
-			stored_fields: FIELDS,
+			_source: FIELDS,
 			sort: [
 				{
 					pubDate: {

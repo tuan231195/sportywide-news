@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'semantic-ui-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useStateRef } from 'src/utils/hooks/basic';
 
 const ScrollTop = styled(Button)`

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NewsDto } from '@vdtn359/news-models';
 import { Card } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { NewsCard } from 'src/components/news/NewsCard';

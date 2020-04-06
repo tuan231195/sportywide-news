@@ -9,18 +9,17 @@ export const FIELDS = [
 	'title',
 	'description',
 	'slug',
+	'ratings',
+	'numViews',
 ];
 
 export function parseFields(hits) {
 	return hits.map((hit) => {
-		const document = {
+		return {
 			score: hit._score,
 			sort: hit.sort,
+			...hit._source,
 		};
-		for (const [key, values] of Object.entries(hit.fields)) {
-			document[key] = (values as any)[0];
-		}
-		return document;
 	});
 }
 

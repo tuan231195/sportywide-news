@@ -4,15 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
 import App from 'next/app';
-import { promises, str } from '@vdtn359/news-utils';
+import { promises } from '@vdtn359/news-utils';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
-import { Grid, Label, Header } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 import {
     NewsContainer,
     NewsRoot,
 } from 'src/components/common/container/Container.styled';
-import Link from 'next/link';
 import { NewsService } from 'src/services/news.service';
 import { Context as ResponsiveContext } from 'react-responsive';
 import { device, getDeviceWidth } from 'src/utils/device/size';
@@ -27,6 +26,7 @@ import Router from 'next/router';
 import { Footer } from 'src/components/common/navigation/Footer';
 import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButton';
 import { TagList } from 'src/components/tags/TagList';
+import { initDB } from 'src/utils/db/store';
 
 const theme = {
     colors: {
@@ -64,8 +64,11 @@ class NewsApp extends App<any, any, any> {
 
     static async getInitialProps({ Component, ctx }) {
         let deviceWidth;
+        const container = ctx.container;
         if (ctx.req) {
             deviceWidth = getDeviceWidth(ctx.req.headers['user-agent']);
+        } else {
+            container.set('db', initDB());
         }
         const allPromises: any = {};
         if (Component.getInitialProps) {
@@ -73,7 +76,6 @@ class NewsApp extends App<any, any, any> {
         } else {
             allPromises.pageProps = Promise.resolve({});
         }
-        const container = ctx.container;
         const newsService = container.get(NewsService);
         allPromises.categories = newsService.fetchCategories();
         allPromises.hotTerms = newsService.fetchHotTerms();
@@ -90,9 +92,12 @@ class NewsApp extends App<any, any, any> {
         this.state = {
             deviceWidth: props.deviceWidth,
         };
+        if (typeof window !== 'undefined') {
+            props.container.set('db', initDB());
+        }
     }
 
-    componentDidMount(): void {
+    componentDidMount() {
         this.setState({
             deviceWidth: 0,
         });
@@ -200,4 +205,11 @@ class NewsApp extends App<any, any, any> {
     }
 }
 
+if (typeof window === 'undefined') {
+    import('src/setup').then(({ logger }) => {
+        process.on('unhandledRejection', (e) => {
+            logger.error('Unhandled rejections: ', e);
+        });
+    });
+}
 export default withContainer(init)(NewsApp);

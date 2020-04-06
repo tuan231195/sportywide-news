@@ -1,6 +1,10 @@
 import util from 'util';
 import { logger } from 'src/setup';
 
+process.on('unhandledRejection', (e) => {
+	logger.error('Unhandled rejections: ', e);
+});
+
 export function errorLogger(request) {
 	return async (req: Request, res: Response) => {
 		try {
