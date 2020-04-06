@@ -54,6 +54,19 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                         <span className={'vn-flex-grow vn-ml1'}>Hot news</span>
                     </a>
                 </CategoryItem>
+                <CategoryItem
+                    key={'recommendation'}
+                    name="recommendation"
+                    routeOptions={{ route: '/recommendation' }}
+                    showLink={true}
+                >
+                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <MenuIcon name={'like'} />
+                        <span className={'vn-flex-grow vn-ml1'}>
+                            You may like
+                        </span>
+                    </a>
+                </CategoryItem>
             </Menu>
             <Menu vertical>
                 <CategoryItem

@@ -1,13 +1,19 @@
 import { Inject, Service } from 'typedi';
 import { ApiService } from 'src/services/api.service';
 import { NewsDto } from '@vdtn359/news-models';
+import {
+	TrackingService,
+	TrackingType,
+} from 'src/utils/tracking/tracking.service';
 
 export type NewsSearchDto = NewsDto & { score: number; sort: any[] };
 
 @Service()
 export class NewsService {
 	constructor(
-		@Inject(() => ApiService) private readonly apiService: ApiService
+		@Inject(() => ApiService) private readonly apiService: ApiService,
+		@Inject(() => TrackingService)
+		private readonly trackingService: TrackingService
 	) {}
 
 	get(slug: string) {
@@ -98,7 +104,26 @@ export class NewsService {
 			.then(({ data }) => data);
 	}
 
+	fetchRecommendation({ size = 5 } = {}) {
+		return this.apiService
+			.api()
+			.get('/recommendation', {
+				params: { size },
+			})
+			.then(({ data }) => data);
+	}
+
 	rating({ id, rating }) {
+		if (rating >= 3.5) {
+			this.trackingService.track({
+				id,
+			});
+		} else if (rating <= 2) {
+			this.trackingService.track({
+				id,
+				type: TrackingType.UNLIKEID,
+			});
+		}
 		return this.apiService
 			.api()
 			.post('/rating', {

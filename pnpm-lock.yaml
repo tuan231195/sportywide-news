@@ -97,6 +97,7 @@ importers:
       hoist-non-react-statics: 3.3.2
       idb: 5.0.2
       ioredis: 4.16.1
+      js-cookie: 2.2.1
       lodash: 4.17.15
       mobile-detect: 1.4.4
       next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
@@ -143,6 +144,7 @@ importers:
       hoist-non-react-statics: 3.3.2
       idb: 5.0.2
       ioredis: 4.16.1
+      js-cookie: 2.2.1
       lodash: 4.17.15
       mobile-detect: 1.4.4
       next: 9.3.2
@@ -7979,6 +7981,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-wfk/IAWobz1TfApSdivH5PJ0miIHgDoYb1ugSqHcODPmaYu46rYe5FVuIEkhjg8IQiv6rDNPyhsqbsohI/C2vQ==
+  /js-cookie/2.2.1:
+    dev: false
+    resolution:
+      integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
   /js-levenshtein/1.1.6:
     dev: false
     engines:

@@ -13,6 +13,10 @@ import { useSearch } from 'src/utils/hooks/search';
 import { SearchResults } from 'src/components/search/SearchResults';
 import { useContainer } from 'src/utils/container/context';
 import { NewsService } from 'src/services/news.service';
+import {
+    TrackingService,
+    TrackingType,
+} from 'src/utils/tracking/tracking.service';
 
 const AppLogo = styled(Image)`
     &&&& {
@@ -134,6 +138,13 @@ export const NavBar: React.FC<Props> = function ({
 
     function search() {
         setSearchQuery('');
+        if (searchQuery) {
+            const trackingService = container.get(TrackingService);
+            trackingService.track({
+                id: searchQuery,
+                type: TrackingType.TERM,
+            });
+        }
         return Router.push(
             `/search?filter=${toQueryString({
                 search: searchQuery,

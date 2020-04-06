@@ -5,6 +5,7 @@ import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
 import { NewsDetails } from 'src/components/news/NewsDetails';
 import Head from 'next/head';
+import { TrackingService } from 'src/utils/tracking/tracking.service';
 
 interface Props {
     news: NewsDto;
@@ -30,6 +31,14 @@ export default class NewsPage extends React.Component<Props> {
             similarNewsList,
         };
     }
+    componentDidMount(): void {
+        const container = this.props.container;
+        const trackingService = container.get(TrackingService);
+        trackingService.track({
+            id: this.props.news.id,
+        });
+    }
+
     render() {
         return (
             <>

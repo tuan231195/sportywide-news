@@ -1,12 +1,13 @@
 import util from 'util';
 import { logger } from 'src/setup';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 process.on('unhandledRejection', (e) => {
 	logger.error('Unhandled rejections: ', e);
 });
 
 export function errorLogger(request) {
-	return async (req: Request, res: Response) => {
+	return async (req: NextApiRequest, res: NextApiResponse) => {
 		try {
 			await request(req, res);
 		} catch (err) {

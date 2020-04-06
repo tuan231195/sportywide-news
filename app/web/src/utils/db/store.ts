@@ -9,12 +9,23 @@ export interface NewsDB extends DBSchema {
 		};
 		key: string;
 	};
+	likes: {
+		value: {
+			id: string;
+			time: Date;
+		};
+		key: string;
+	};
 }
 
 export async function initDB() {
 	return openDB<NewsDB>('new-db', 1, {
 		upgrade(db) {
 			db.createObjectStore('ratings', {
+				keyPath: 'id',
+			});
+
+			db.createObjectStore('likes', {
 				keyPath: 'id',
 			});
 		},

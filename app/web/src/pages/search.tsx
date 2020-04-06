@@ -14,6 +14,10 @@ import { withRouter } from 'src/utils/hoc/with-router';
 import { SearchFilterOptions } from 'src/components/search/SearchFilter';
 import Head from 'next/head';
 import { TagList } from 'src/components/tags/TagList';
+import {
+    TrackingService,
+    TrackingType,
+} from 'src/utils/tracking/tracking.service';
 
 interface Props {
     news: NewsSearchDto[];
@@ -127,6 +131,17 @@ class SearchPage extends React.Component<Props, State> {
     }
 
     async updateUrl(newFilter) {
+        newFilter = {
+            ...this.state.filter,
+            ...newFilter,
+        };
+        if (newFilter.search) {
+            const trackingService = this.props.container.get(TrackingService);
+            trackingService.track({
+                id: newFilter.search,
+                type: TrackingType.TERM,
+            });
+        }
         await this.props.router.push(
             `/search?filter=${toQueryString({
                 ...this.state.filter,

@@ -7,7 +7,7 @@ import { date, str } from '@vdtn359/news-utils';
 import { useURL } from 'src/utils/hooks/basic';
 import { NewsSlide } from 'src/components/news/NewsSlide';
 import { NewsEditRating } from 'src/components/news/NewsRating';
-import { RatingRibbon } from 'src/components/tags/RatingTag';
+import { RatingRibbon } from 'src/components/tags/RatingRibbon';
 
 interface Props {
     news: NewsDto;

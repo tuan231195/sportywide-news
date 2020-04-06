@@ -10,7 +10,7 @@ import {
 	parseJsonQuery,
 	parseSuggestions,
 } from 'src/utils/search/fields';
-import { stringQuery } from 'src/api/parse';
+import { intQuery, stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
@@ -30,12 +30,12 @@ export default errorLogger(request);
 async function search(query) {
 	const searchAfter = parseJsonQuery(query, 'searchAfter');
 	const searchQuery = stringQuery(query.search);
-	const size = stringQuery(query.size);
+	const size = intQuery(query.size);
 	const results = await es.search({
 		index: NEWS_INDEX,
 		body: {
 			track_scores: true,
-			size: size ? parseInt(size, 10) : undefined,
+			size,
 			search_after: searchAfter,
 			suggest: buildSuggester(query),
 			sort: [

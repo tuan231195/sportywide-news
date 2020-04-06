@@ -33,7 +33,7 @@ export function buildEsQuery(queryStr: any = {}) {
 					must: mustQuery,
 				},
 			},
-			functions: getFunctions(),
+			functions: getModifierFunctions(),
 			score_mode: 'sum',
 			boost_mode: 'sum',
 		},
@@ -138,6 +138,13 @@ export function buildCommonQuery() {
 						},
 						{
 							range: {
+								pubDate: {
+									gte: 'now-1d/d',
+								},
+							},
+						},
+						{
+							range: {
 								numSearches: {
 									gt: 0,
 								},
@@ -147,14 +154,14 @@ export function buildCommonQuery() {
 					minimum_should_match: 1,
 				},
 			},
-			functions: getFunctions(),
+			functions: getModifierFunctions(),
 			score_mode: 'sum',
 			boost_mode: 'sum',
 		},
 	};
 }
 
-function getFunctions() {
+export function getModifierFunctions() {
 	return [
 		{
 			field_value_factor: {

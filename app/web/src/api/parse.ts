@@ -6,6 +6,14 @@ export function stringQuery(queryParams: string | string[]): string {
 	}
 }
 
+export function intQuery(
+	queryParams: string | string[],
+	defaultValue?: any
+): number {
+	const str = stringQuery(queryParams);
+	return isNaN(str as any) ? defaultValue : parseInt(str, 10);
+}
+
 export function arrayQuery(queryParams: string | string[]): string[] {
 	if (Array.isArray(queryParams)) {
 		return queryParams;

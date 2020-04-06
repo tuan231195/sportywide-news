@@ -67,8 +67,6 @@ class NewsApp extends App<any, any, any> {
         const container = ctx.container;
         if (ctx.req) {
             deviceWidth = getDeviceWidth(ctx.req.headers['user-agent']);
-        } else {
-            container.set('db', initDB());
         }
         const allPromises: any = {};
         if (Component.getInitialProps) {
@@ -92,9 +90,6 @@ class NewsApp extends App<any, any, any> {
         this.state = {
             deviceWidth: props.deviceWidth,
         };
-        if (typeof window !== 'undefined') {
-            props.container.set('db', initDB());
-        }
     }
 
     componentDidMount() {
