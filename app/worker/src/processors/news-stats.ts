@@ -41,7 +41,7 @@ async function esSync(newsStats = []) {
 			}
 		}
 	}
-	logger.debug('Message: \n %s', JSON.stringify(newsStats, undefined, 4));
+	logger.debug('Messages: ', { messages: newsStats });
 	try {
 		await es.bulk({
 			body: bulk,

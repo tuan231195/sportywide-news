@@ -1,19 +1,41 @@
 import winston from 'winston';
 
-const { timestamp, errors, label, printf, splat } = winston.format;
+const { timestamp, errors, label, printf, splat, metadata } = winston.format;
 
 const print = printf((info) => {
 	const log = `[${info.label}] ${info.timestamp} (${info.level}): ${info.message}`;
-	return info.stack ? `${log}\n${info.stack}` : log;
+	const metadata = formatMetadata(info.metadata);
+
+	return metadata ? `${log}\n${metadata}` : log;
 });
 
+function formatMetadata(metadata) {
+	if (metadata == undefined) {
+		return '';
+	}
+	if (metadata.stack) {
+		return metadata.stack;
+	}
+	metadata =
+		metadata && typeof metadata === 'object'
+			? JSON.stringify(metadata, undefined, 4)
+			: metadata;
+
+	if (metadata === '{}') {
+		metadata = '';
+	}
+	return metadata;
+}
 export function createLogger(category: string, level: string) {
 	return winston.createLogger({
 		level,
 		format: winston.format.combine(
-			splat(),
+			errors({ stack: true }),
 			label({ label: category }),
-			errors({ stack: true }), // <-- use errors format
+			splat(),
+			metadata({
+				fillExcept: ['message', 'level', 'timestamp', 'label'],
+			}),
 			timestamp(),
 			print
 		),
