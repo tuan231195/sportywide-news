@@ -33,9 +33,13 @@ const CategoryBadge = styled(Label)`
 `;
 
 const CategoryItem = styled(MenuItem)`
-    &&&& {
+    &&&&&& {
         padding-top: 10px;
         padding-bottom: 10px;
+        margin-bottom: -1px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
     }
 `;
 export const NewsCategories: React.FC<Props> = ({ categories }) => {
@@ -49,7 +53,11 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/hot-news' }}
                     showLink={true}
                 >
-                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <a
+                        className={
+                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                        }
+                    >
                         <MenuIcon name={'favorite'} />
                         <span className={'vn-flex-grow vn-ml1'}>Hot news</span>
                     </a>
@@ -60,7 +68,11 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/recommendation' }}
                     showLink={true}
                 >
-                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <a
+                        className={
+                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                        }
+                    >
                         <MenuIcon name={'like'} />
                         <span className={'vn-flex-grow vn-ml1'}>
                             You may like
@@ -75,7 +87,11 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/' }}
                     showLink={true}
                 >
-                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <a
+                        className={
+                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                        }
+                    >
                         <MenuIcon name={'newspaper'} />
                         <span className={'vn-flex-grow vn-ml1'}>All</span>
                         <CategoryBadge color={'teal'}>{total}</CategoryBadge>
@@ -91,7 +107,11 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                             route: '/categories/[category]',
                         }}
                     >
-                        <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <a
+                            className={
+                                'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                            }
+                        >
                             <MenuIcon
                                 name={categoryMap.get(category.category).icon}
                             />

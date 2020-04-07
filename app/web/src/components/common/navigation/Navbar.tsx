@@ -49,7 +49,7 @@ const SearchInputMenuItem = styled(Menu.Item)`
 `;
 
 const SearchInput = styled(Input)`
-    width: 300px;
+    width: 100%;
     @media ${device.tablet} {
         width: 500px !important;
     }
@@ -100,7 +100,7 @@ export const NavBar: React.FC<Props> = function ({
             </VnBigScreen>
 
             <SearchInputMenuItem>
-                <div className={'vn-relative'}>
+                <div className={'vn-relative vn-full-width'}>
                     <SearchInput
                         loading={loading}
                         value={searchQuery}

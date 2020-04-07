@@ -7,6 +7,7 @@ export function init(ctx) {
 		return ctx.container;
 	}
 	const container = Container.of(ctx.req);
+	container.set('context', ctx);
 	if (ctx.req) {
 		container.set(
 			'baseUrl',

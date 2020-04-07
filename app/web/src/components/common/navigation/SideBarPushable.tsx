@@ -67,6 +67,45 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 visible={getSideBarVisible()}
             >
                 <MenuItem>
+                    Popular
+                    <Menu.Menu>
+                        <MenuItem
+                            key={'hot'}
+                            name="hot"
+                            showLink={true}
+                            routeOptions={{ route: '/hot-news' }}
+                        >
+                            <a
+                                className={
+                                    'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                                }
+                            >
+                                <MenuIcon name={'favorite'} />
+                                <span className={'vn-flex-grow vn-ml1'}>
+                                    Hot news
+                                </span>
+                            </a>
+                        </MenuItem>
+                        <MenuItem
+                            key={'recommendation'}
+                            name="recommendation"
+                            showLink={true}
+                            routeOptions={{ route: '/recommendation' }}
+                        >
+                            <a
+                                className={
+                                    'vn-raw-link vn-flex vn-flex-center vn-full-width'
+                                }
+                            >
+                                <MenuIcon name={'like'} />
+                                <span className={'vn-flex-grow vn-ml1'}>
+                                    Recommendation
+                                </span>
+                            </a>
+                        </MenuItem>
+                    </Menu.Menu>
+                </MenuItem>
+                <MenuItem>
                     Categories
                     <Menu.Menu>
                         {categories.map((category) => {
