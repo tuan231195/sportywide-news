@@ -1,21 +1,27 @@
 import React from 'react';
 import { NewsSearchDto, NewsService } from 'src/services/news.service';
 import { NewsStream } from 'src/components/news/NewsStream';
+import { NewsSlide } from 'src/components/news/NewsSlide';
 import { ContainerInstance } from 'typedi';
 import Head from 'next/head';
 
 interface Props {
     news: NewsSearchDto[];
+    recommendations: NewsSearchDto[];
     container: ContainerInstance;
 }
 
 export default class IndexPage extends React.Component<Props> {
     static async getInitialProps(ctx) {
         const newsService = ctx.container.get(NewsService);
-        const news = await newsService.fetchNews();
+        const [news, recommendations] = await Promise.all([
+            newsService.fetchNews(),
+            newsService.fetchRecommendation(),
+        ]);
 
         return {
             news,
+            recommendations,
         };
     }
 
@@ -25,6 +31,7 @@ export default class IndexPage extends React.Component<Props> {
                 <Head>
                     <title>Tuan&apos;s news</title>
                 </Head>
+                <NewsSlide newsList={this.props.recommendations} />
                 <NewsStream
                     initialNewsList={this.props.news}
                     loadFunc={(newsList) => {

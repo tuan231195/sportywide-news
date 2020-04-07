@@ -46,8 +46,8 @@ const theme = {
 const Content = styled.div`
     width: 100%;
     @media ${device.tablet} {
-        width: 80%;
-        max-width: 750px;
+        width: 90%;
+        max-width: 850px;
     }
 `;
 
@@ -134,7 +134,7 @@ class NewsApp extends App<any, any, any> {
                             <SideBarPushable categories={this.props.categories}>
                                 <NewsRoot>
                                     <NewsContainer>
-                                        <NewsGrid>
+                                        <NewsGrid centered={true}>
                                             <VnBigScreen>
                                                 <Grid.Column
                                                     mobile={16}

@@ -74,7 +74,7 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
             autoplay={false}
             slidesToShow={slidesToShow}
             centerMode={true}
-            centerPadding={'100px'}
+            centerPadding={'150px'}
             slidesToScroll={1}
         >
             {newsList.map((news) => (
