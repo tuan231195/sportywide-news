@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
 import App from 'next/app';
 import { promises } from '@vdtn359/news-utils';
+import 'react-toastify/dist/ReactToastify.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
 import { Grid, Header } from 'semantic-ui-react';
@@ -26,7 +27,7 @@ import Router from 'next/router';
 import { Footer } from 'src/components/common/navigation/Footer';
 import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButton';
 import { TagList } from 'src/components/tags/TagList';
-import { initDB } from 'src/utils/db/store';
+import { ToastContainer } from 'src/components/common/container/ToastContainer';
 
 const theme = {
     colors: {
@@ -192,6 +193,7 @@ class NewsApp extends App<any, any, any> {
                                     {pageProps?.showFooter && <Footer />}
                                 </NewsRoot>
                             </SideBarPushable>
+                            <ToastContainer />
                         </Root>
                     </ThemeProvider>
                 </ContainerContext.Provider>
