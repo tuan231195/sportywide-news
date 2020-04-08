@@ -97,6 +97,7 @@ importers:
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
       hoist-non-react-statics: 3.3.2
+      http-errors: 1.7.3
       idb: 5.0.2
       ioredis: 4.16.1
       js-cookie: 2.2.1
@@ -122,6 +123,7 @@ importers:
     devDependencies:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
+      '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/styled-components': 5.0.1
       babel-plugin-styled-components: 1.10.7_styled-components@5.0.1
@@ -133,6 +135,7 @@ importers:
     specifiers:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
+      '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/styled-components': 5.0.1
       '@vdtn359/news-core': 'workspace:*'
@@ -146,6 +149,7 @@ importers:
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
       hoist-non-react-statics: 3.3.2
+      http-errors: 1.7.3
       idb: 5.0.2
       ioredis: 4.16.1
       js-cookie: 2.2.1
@@ -2343,6 +2347,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
+  /@types/http-errors/1.6.3:
+    dev: true
+    resolution:
+      integrity: sha512-4KCE/agIcoQ9bIfa4sBxbZdnORzRjIw8JNQPLfqoNv7wQl/8f8mRbW68Q8wBsQFoJkPUHGlQYZ9sqi5WpfGSEQ==
   /@types/ioredis/4.14.9:
     dependencies:
       '@types/node': 13.9.2

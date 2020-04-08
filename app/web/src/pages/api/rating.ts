@@ -4,28 +4,23 @@ import { redis } from 'src/setup';
 import { errorLogger } from 'src/api/logger';
 import { stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
+import createError from 'http-errors';
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const rating = parseFloat(stringQuery(req.body.rating));
 	if (isNaN(rating) || rating < 0 || rating > 5) {
-		return res.status(400).json({
-			error: 'Invalid rating',
-		});
+		throw new createError.BadRequest('Invalid rating');
 	}
 	let oldRating = parseFloat(stringQuery(req.body.oldRating));
 	if (isNaN(oldRating)) {
 		oldRating = 0;
 	}
 	if (oldRating < 0 || oldRating > 5) {
-		return res.status(400).json({
-			error: 'Invalid rating',
-		});
+		throw new createError.BadRequest('Invalid rating');
 	}
 	const documentId = stringQuery(req.body.id);
 	if (!documentId) {
-		return res.status(400).json({
-			error: 'Document id is required',
-		});
+		throw new createError.BadRequest('Document id is required');
 	}
 	const indexDoc: NewsStatDto = {
 		docIds: [documentId],
