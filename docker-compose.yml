@@ -1,18 +1,5 @@
 version: '3.5'
 services:
-    postgres:
-        container_name: vdtn359_postgres
-        image: postgres:11-alpine
-        environment:
-            - POSTGRES_DB=news
-            - POSTGRES_USER=vdtn359
-            - POSTGRES_PASSWORD=password
-        volumes:
-            - postgres:/var/lib/postgres/data
-        ports:
-            - '5432:5432'
-        networks:
-            - vdtn359_net_backend
     redis:
         container_name: vdtn359_redis
         image: redis:5-alpine
@@ -50,8 +37,6 @@ services:
             - vdtn359_net_backend
 
 volumes:
-    postgres:
-        name: vdtn359_volume_postgres
     elasticsearch:
         name: vdtn359_volume_elasticsearch
     redis:

@@ -14,7 +14,7 @@ export async function processStream(consumer) {
 			consumer,
 		})
 		.pipe(
-			bufferTime(100, null, 20),
+			bufferTime(100, null, 10),
 			concatMap(async (items: any[]) => {
 				const itemIds = items.map(({ data }) => data.id);
 				return getFullNews(itemIds);
@@ -36,19 +36,19 @@ async function getFullNews(itemIds: string[]) {
 	}
 	const newsModels = await newsDao.findByIds(itemIds);
 	return Promise.all(
-		newsModels.map(async (newsModel) => {
-			const body = await extractUrl(newsModel.url);
+		newsModels.map(async (news) => {
+			const body = await extractUrl(news.url);
 			if (!body) {
-				w.info(logger, `news ${newsModel.url} has no body`);
+				w.info(logger, `news ${news.url} has no body`);
 			}
-			if (!newsModel.image && body) {
-				w.info(logger, `adding image for news ${newsModel.url}`);
-				newsModel.image = getThumbnailUrl(body);
-				await newsModel.save();
+			if (!news.image && body) {
+				w.info(logger, `adding image for news ${news.url}`);
+				news.image = getThumbnailUrl(body);
+				await newsDao.saveOne(news);
 			}
 			return {
 				...(body ? { body } : undefined),
-				...newsModel.toJSON(),
+				...news,
 			};
 		})
 	);

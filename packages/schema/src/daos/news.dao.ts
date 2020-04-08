@@ -1,27 +1,19 @@
 import { NewsDto } from '@vdtn359/news-models';
-import { Repository } from 'sequelize-typescript';
-import { News } from 'src/models';
 import { Dao } from 'src/daos/dao.interface';
-import { DB } from 'src/db';
+import { DB, NEWS_COLLECTION } from 'src/db';
 
-export class NewsDao implements Dao<News> {
-	private newsRepository: Repository<News>;
-	constructor(db: DB) {
-		this.newsRepository = db.getRepository(News);
-	}
+export class NewsDao implements Dao<NewsDto> {
+	constructor(private readonly db: DB) {}
 
 	save(newsDtos: NewsDto[]) {
-		return this.newsRepository.bulkCreate(newsDtos, {
-			updateOnDuplicate: ['description', 'image', 'title', 'pubDate'],
-			returning: true,
-		});
+		return this.db.save(NEWS_COLLECTION, newsDtos);
 	}
 
-	findByIds(itemIds: string[]): Promise<News[]> {
-		return this.newsRepository.findAll({
-			where: {
-				id: itemIds,
-			},
-		});
+	saveOne(newsDto) {
+		return this.db.saveOne(NEWS_COLLECTION, newsDto);
+	}
+
+	async findByIds(itemIds: string[]): Promise<NewsDto[]> {
+		return this.db.findByIds(NEWS_COLLECTION, itemIds);
 	}
 }

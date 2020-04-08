@@ -1,11 +1,11 @@
 import { db, redis } from 'src/setup';
-import { map, bufferTime, concatMap } from 'rxjs/operators';
-import { NEWS_STREAM } from '@vdtn359/news-schema';
+import { bufferTime, concatMap, map } from 'rxjs/operators';
+import { NEWS_COLLECTION, NEWS_STREAM } from '@vdtn359/news-schema';
 
 run().then(() => process.exit(0));
 
 async function run() {
-	const stream = await db.stream('SELECT id FROM news');
+	const stream = await db.stream(NEWS_COLLECTION);
 	return stream
 		.pipe(
 			map((row) => row.id),

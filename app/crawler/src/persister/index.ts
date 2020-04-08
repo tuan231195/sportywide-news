@@ -25,7 +25,6 @@ async function saveRedis(dtos: NewsDto[]) {
 	await pipeline.exec();
 }
 
-export function cleanup(): Promise<void> {
-	redis.disconnect();
-	return db.close();
+export async function cleanup(): Promise<void> {
+	await redis.disconnect();
 }

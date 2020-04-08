@@ -1,40 +1,35 @@
-import { Sequelize } from 'sequelize-typescript';
-import { News } from 'src/models';
-import { proxy } from '@vdtn359/news-utils';
 import { DB, DBWrapper } from 'src/db';
+import { proxy } from '@vdtn359/news-utils';
+import firebase from 'firebase-admin';
 
 export type ConnectDBOptions = {
-	database: string;
-	username: string;
-	password: string;
-	host: string;
+	clientEmail: string;
+	privateKey: string;
+	projectId: string;
 };
-export function connectDB(connectOptions: ConnectDBOptions): DB {
-	const sequelize = new Sequelize({
-		...connectOptions,
-		dialect: 'postgres',
-		logging: false,
-		repositoryMode: true,
-		models: [News],
+
+export function connectDB({
+	clientEmail,
+	privateKey,
+	projectId,
+}: ConnectDBOptions): DB {
+	const app = firebase.initializeApp({
+		projectId,
+		credential: firebase.credential.cert({
+			clientEmail,
+			projectId,
+			privateKey: Buffer.from(privateKey, 'base64').toString('utf-8'),
+		}),
 	});
-	const db = new DBWrapper(sequelize);
-	return proxy.wrap(db, sequelize);
+	const firestore = app.firestore();
+	const db = new DBWrapper(firestore);
+	return proxy.wrap(db, firestore);
 }
 
 export function connectDBUsingConfig(config) {
 	return connectDB({
-		username: config.get('db.username'),
-		password: config.get('db.password'),
-		database: 'news',
-		host: config.get('db.host'),
-	});
-}
-
-export function fromSequelize(sequelize) {
-	return connectDB({
-		username: sequelize.config.username,
-		password: sequelize.config.password,
-		host: sequelize.config.host,
-		database: sequelize.config.database,
+		clientEmail: config.get('db.clientEmail'),
+		projectId: config.get('db.projectId'),
+		privateKey: config.get('db.privateKey'),
 	});
 }

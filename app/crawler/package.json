@@ -15,6 +15,7 @@
         "@vdtn359/news-sources": "workspace:*",
         "bottleneck": "2.19.5",
         "config": "3.3.1",
+        "dotenv": "8.2.0",
         "rxjs": "6.5.4",
         "winston": "3.2.1"
     },

@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { logging } from '@vdtn359/news-core';
 import { Logger } from 'winston';
 

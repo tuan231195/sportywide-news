@@ -1,35 +1,74 @@
-import { Sequelize } from 'sequelize-typescript';
-import QueryStream from 'pg-query-stream';
-import { Observable } from 'rxjs';
-import { stream } from '@vdtn359/news-core';
+import { Observable, Subject } from 'rxjs';
+import firebase from 'firebase-admin';
+import { last, omitBy, isNil } from 'lodash';
 
-export type DB = DBWrapper & Sequelize;
+export type DB = DBWrapper & firebase.firestore.Firestore;
 
 export class DBWrapper {
-	private connectionManager: any;
-	constructor(private readonly sequelize: Sequelize) {
-		this.connectionManager = this.sequelize.connectionManager;
+	constructor(private readonly firestore: firebase.firestore.Firestore) {}
+
+	stream(collection, batchSize = 100): Observable<any> {
+		const subject = new Subject();
+
+		this.internalStream(subject, collection, batchSize);
+		return subject;
 	}
 
-	async stream(query, batchSize = 10000): Promise<Observable<any>> {
-		const connection: any = await this.connectionManager.getConnection({
-			type: 'read',
-		});
-		const rowStream = connection.query(
-			new QueryStream(query, undefined, {
-				batchSize,
-			})
-		);
-		rowStream.on('end', () => {
-			this.connectionManager.releaseConnection(connection);
-		});
-		return stream.fromStream(rowStream);
+	async saveOne(collection: string, item: any): Promise<void> {
+		await this.firestore
+			.collection(collection)
+			.doc(item.id)
+			.set(this.cleanItem(item));
 	}
 
-	async hasColumn(tableName, columnName) {
-		const columns = await this.sequelize
-			.getQueryInterface()
-			.describeTable(tableName);
-		return !!columns[columnName];
+	async save(collection: string, items: any[]): Promise<void> {
+		const batch = this.firestore.batch();
+
+		for (const item of items) {
+			const ref = this.firestore.collection(collection).doc(item.id);
+			batch.set(ref, this.cleanItem(item));
+		}
+		await batch.commit();
+	}
+
+	async findByIds(collection: string, ids: string[]): Promise<any[]> {
+		const snapshots = await this.firestore
+			.collection(collection)
+			.where('id', 'in', ids)
+			.get();
+		return snapshots.docs.map((doc) => doc.data());
+	}
+
+	private cleanItem(item) {
+		return omitBy(item, isNil);
+	}
+
+	private async internalStream(
+		subject: Subject<any>,
+		collection: string,
+		batchSize: number
+	) {
+		let current = this.firestore
+			.collection(collection)
+			.orderBy('id')
+			.limit(batchSize);
+
+		while (true) {
+			const snapshot = await current.get();
+			if (!snapshot.docs.length) {
+				subject.complete();
+				return;
+			}
+			for (const doc of snapshot.docs) {
+				subject.next(doc.data());
+			}
+			const lastDocument = last(snapshot.docs);
+
+			current = this.firestore
+				.collection(collection)
+				.orderBy('id')
+				.startAfter(lastDocument.data().id)
+				.limit(batchSize);
+		}
 	}
 }

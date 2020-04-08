@@ -11,6 +11,6 @@ fetchNews()
 			await cleanup();
 		},
 		error: (e) => {
-			logger.error('Failed to crawl news', e);
+			logger.error('Failed to crawl news: ', e);
 		},
 	});

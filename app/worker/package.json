@@ -18,6 +18,7 @@
         "@vdtn359/news-search": "workspace:*",
         "@vdtn359/news-sources": "workspace:*",
         "config": "3.3.1",
+        "dotenv": "8.2.0",
         "ioredis": "4.16.0",
         "rxjs": "6.5.4",
         "winston": "3.2.1"
