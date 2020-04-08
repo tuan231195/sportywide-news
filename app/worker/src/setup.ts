@@ -22,7 +22,10 @@ export const redis = connectRedisUsingConfig(config);
 export const es = search.connectToEsUsingConfig(config);
 export const logger: Logger = logging.createLogger(
 	'worker',
-	config.get('logging.level')
+	config.get('logging.level'),
+	{
+		logzToken: config.get('logging.logzToken'),
+	}
 );
 export const newsDao = new NewsDao(db);
 

@@ -13,7 +13,10 @@ export const db: DB = connectDBUsingConfig(config);
 export const redis = connectRedisUsingConfig(config);
 export const logger: Logger = logging.createLogger(
 	'crawler',
-	config.get('logging.level')
+	config.get('logging.level'),
+	{
+		logzToken: config.get('logging.logzToken'),
+	}
 );
 
 export { config };

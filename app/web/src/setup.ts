@@ -15,6 +15,7 @@ const configMap = {
 		},
 		logging: {
 			level: 'debug',
+			logzToken: process.env.LOGZ_TOKEN,
 		},
 	},
 };
@@ -27,7 +28,10 @@ export const config = merge(
 
 export const logger: Logger = logging.createLogger(
 	'web',
-	config.logging?.level
+	config.logging?.level,
+	{
+		logzToken: config.logging?.logzToken,
+	}
 );
 
 export const es = search.connectToEs({

@@ -4,6 +4,7 @@ const withTM = require('next-transpile-modules')([
 	'@vdtn359/news-utils',
 	'@vdtn359/news-models',
 	'@vdtn359/news-search',
+	'@vdtn359/news-core',
 ]);
 const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -23,10 +24,6 @@ const nextConfig = withPlugins(
 							config.externals.push({
 								'aws-sdk': 'aws-sdk',
 							});
-						} else {
-							console.warn(
-								'Bundling all node modules. Only doing this in development mode'
-							);
 						}
 
 						if (options.isServer) {

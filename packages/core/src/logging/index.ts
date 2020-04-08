@@ -1,4 +1,5 @@
 import winston from 'winston';
+import LogzioWinstonTransport from 'winston-logzio';
 
 const { timestamp, errors, label, printf, splat, metadata } = winston.format;
 
@@ -26,8 +27,12 @@ function formatMetadata(metadata) {
 	}
 	return metadata;
 }
-export function createLogger(category: string, level: string) {
-	return winston.createLogger({
+export function createLogger(
+	category: string,
+	level: string,
+	{ logzToken }: { logzToken?: string } = {}
+) {
+	const logger = winston.createLogger({
 		level,
 		format: winston.format.combine(
 			errors({ stack: true }),
@@ -41,4 +46,17 @@ export function createLogger(category: string, level: string) {
 		),
 		transports: [new winston.transports.Console()],
 	});
+
+	if (logzToken) {
+		logger.add(
+			new LogzioWinstonTransport({
+				token: logzToken,
+				level,
+				host: 'listener.logz.io',
+				name: 'winston_logzio',
+			})
+		);
+	}
+
+	return logger;
 }
