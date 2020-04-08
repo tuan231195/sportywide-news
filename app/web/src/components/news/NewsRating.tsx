@@ -19,10 +19,14 @@ export function NewsEditRating({ id }) {
         <RatingStars
             maxStars={5}
             value={rating}
-            readonly={!!rating}
             onChange={async (e, { value }) => {
+                const oldRating = rating;
                 setRating(value);
-                await newsService.rating({ id, rating: value });
+                await newsService.rating({
+                    id,
+                    rating: value,
+                    oldRating,
+                });
                 const db = await dbPromise;
                 await db.put('ratings', {
                     id,

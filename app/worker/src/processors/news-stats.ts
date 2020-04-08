@@ -137,12 +137,14 @@ function indexRating(newsStat: NewsStatDto) {
 	returnArr.push({
 		script: {
 			inline: `
-				ctx._source.ratings = (ctx._source.ratings * ctx._source.numRatings + params.rating) * 1.0 / (ctx._source.numRatings + 1); 
-				ctx._source.numRatings += 1;
+				def newNumRatings = params.oldRating > 0 && ctx._source.numRatings > 0 ? ctx._source.numRatings : ctx._source.numRatings + 1;
+				ctx._source.ratings = (ctx._source.ratings * ctx._source.numRatings - params.oldRating + params.rating) * 1.0 / newNumRatings; 
+				ctx._source.numRatings = newNumRatings;
 			`,
 			lang: 'painless',
 			params: {
-				rating: newsStat.num || 1,
+				rating: newsStat.rating || 1,
+				oldRating: newsStat.oldRating || 0,
 			},
 		},
 	});

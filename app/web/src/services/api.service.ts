@@ -12,7 +12,10 @@ export class ApiService {
 		this.axios = axios.create({
 			baseURL: `${baseUrl}/api`,
 			paramsSerializer: (params) => querystring.stringify(params),
-			headers: ctx.req ? { cookie: ctx.req.headers.cookie } : undefined,
+			headers:
+				ctx.req && ctx.req.headers?.cookie
+					? { cookie: ctx.req.headers.cookie }
+					: undefined,
 		});
 	}
 

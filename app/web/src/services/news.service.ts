@@ -113,7 +113,7 @@ export class NewsService {
 			.then(({ data }) => data);
 	}
 
-	rating({ id, rating }) {
+	rating({ id, rating, oldRating }) {
 		if (rating >= 3.5) {
 			this.trackingService.track({
 				id,
@@ -129,6 +129,7 @@ export class NewsService {
 			.post('/rating', {
 				id,
 				rating,
+				oldRating,
 			})
 			.then(({ data }) => data);
 	}

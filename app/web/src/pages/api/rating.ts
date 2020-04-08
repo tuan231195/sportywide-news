@@ -12,6 +12,15 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 			error: 'Invalid rating',
 		});
 	}
+	let oldRating = parseFloat(stringQuery(req.body.oldRating));
+	if (isNaN(oldRating)) {
+		oldRating = 0;
+	}
+	if (oldRating < 0 || oldRating > 5) {
+		return res.status(400).json({
+			error: 'Invalid rating',
+		});
+	}
 	const documentId = stringQuery(req.body.id);
 	if (!documentId) {
 		return res.status(400).json({
@@ -21,7 +30,8 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	const indexDoc: NewsStatDto = {
 		docIds: [documentId],
 		time: new Date(),
-		num: rating,
+		rating,
+		oldRating: oldRating || 0,
 		type: ACTION_TYPE.RATE,
 	};
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));

@@ -9,5 +9,6 @@ export class NewsStatDto {
 	docIds: string[];
 	term?: string;
 	time: Date;
-	num?: number;
+	rating?: number;
+	oldRating?: number;
 }
