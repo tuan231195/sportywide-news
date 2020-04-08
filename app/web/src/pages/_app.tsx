@@ -3,9 +3,9 @@ import 'fomantic-ui-css/semantic.min.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
+import 'react-toastify/dist/ReactToastify.css';
 import App from 'next/app';
 import { promises } from '@vdtn359/news-utils';
-import 'react-toastify/dist/ReactToastify.css';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
 import { Grid, Header } from 'semantic-ui-react';
@@ -19,15 +19,17 @@ import { device, getDeviceWidth } from 'src/utils/device/size';
 import { VnBigScreen } from 'src/components/common/responsive/Responsive';
 import { withContainer } from 'src/utils/hoc/with-container';
 import { init } from 'src/utils/container/init';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import { ContainerContext } from 'src/utils/container/context';
 import { SideBarPushable } from 'src/components/common/navigation/SideBarPushable';
 import { EventDispatcher } from 'src/utils/events/event-dispatcher';
 import { WINDOW_CLICK } from 'src/utils/events/event.constants';
-import Router from 'next/router';
 import { Footer } from 'src/components/common/navigation/Footer';
 import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButton';
 import { TagList } from 'src/components/tags/TagList';
 import { ToastContainer } from 'src/components/common/container/ToastContainer';
+import { ApiService } from 'src/services/api.service';
 
 const theme = {
     colors: {
@@ -105,6 +107,33 @@ class NewsApp extends App<any, any, any> {
 
     registerListeners() {
         this.registerClickListeners();
+        this.registerRouteListener();
+    }
+
+    registerRouteListener() {
+        Router.events.on('routeChangeStart', () => {
+            NProgress.start();
+        });
+
+        Router.events.on('routeChangeComplete', () => {
+            NProgress.done();
+        });
+
+        Router.events.on('routeChangeError', () => {
+            NProgress.done();
+        });
+
+        const apiService = this.props.container.get(ApiService);
+        let lastNumApiCalls = 0;
+        apiService.apiCallSubscription.subscribe((numApiCalls) => {
+            if (numApiCalls > 0 && !lastNumApiCalls) {
+                NProgress.start();
+            } else if (!numApiCalls) {
+                NProgress.done();
+            }
+
+            lastNumApiCalls = numApiCalls;
+        });
     }
 
     registerClickListeners() {

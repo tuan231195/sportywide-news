@@ -23,6 +23,7 @@
         "lodash": "4.17.15",
         "mobile-detect": "1.4.4",
         "next": "9.3.2",
+        "nprogress": "0.2.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-slick": "0.25.2",

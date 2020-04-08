@@ -103,6 +103,7 @@ importers:
       lodash: 4.17.15
       mobile-detect: 1.4.4
       next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
+      nprogress: 0.2.0
       path-to-regexp: 6.1.0
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
@@ -152,6 +153,7 @@ importers:
       mobile-detect: 1.4.4
       next: 9.3.2
       next-transpile-modules: 3.1.0
+      nprogress: 0.2.0
       null-loader: 3.0.0
       path-to-regexp: 6.1.0
       react: 16.13.1
@@ -10024,6 +10026,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
+  /nprogress/0.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-y480xTIT2JVyP8urkH6UIq28r7E=
   /nth-check/1.0.2:
     dependencies:
       boolbase: 1.0.0
