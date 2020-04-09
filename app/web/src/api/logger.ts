@@ -1,15 +1,17 @@
 import util from 'util';
 import { logger } from 'src/setup';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { logging } from '@vdtn359/news-core';
 
 process.on('unhandledRejection', (e) => {
 	logger.error('Unhandled rejections: ', e);
 });
 
-export function errorLogger(request) {
+export function apiLogger(request) {
 	return async (req: NextApiRequest, res: NextApiResponse) => {
 		try {
 			await request(req, res);
+			logger.debug('', new logging.HttpLog(req, res));
 		} catch (err) {
 			if (err.name === 'ResponseError') {
 				return handleElasticSearchError(err, res);

@@ -1,7 +1,7 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { redis } from 'src/setup';
-import { errorLogger } from 'src/api/logger';
+import { apiLogger } from 'src/api/logger';
 import { stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 import createError from 'http-errors';
@@ -33,4 +33,4 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	res.json({ message: 'ok' });
 }
 
-export default errorLogger(request);
+export default apiLogger(request);

@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { errorLogger } from 'src/api/logger';
+import { apiLogger } from 'src/api/logger';
 import { buildEsQuery, buildSuggester } from 'src/utils/search/query';
 import {
 	FIELDS,
@@ -25,7 +25,7 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	});
 }
 
-export default errorLogger(request);
+export default apiLogger(request);
 
 async function search(query) {
 	const searchAfter = parseJsonQuery(query, 'searchAfter');

@@ -17,6 +17,11 @@ const configMap = {
 			level: 'debug',
 			logzToken: process.env.LOGZ_TOKEN,
 		},
+		email: {
+			apiKey: process.env.SENDGRID_API_KEY,
+			supportEmail: 'help@vdtn359.com',
+			adminEmail: 'admin@vdtn359.com',
+		},
 	},
 };
 

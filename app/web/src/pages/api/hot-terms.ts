@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_STAT_INDEX } from '@vdtn359/news-search';
-import { errorLogger } from 'src/api/logger';
+import { apiLogger } from 'src/api/logger';
 
 const termsCacheKey = 'vn:hot-terms';
 
@@ -16,7 +16,7 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	res.json(cachedTerms);
 }
 
-export default errorLogger(request);
+export default apiLogger(request);
 
 async function search() {
 	const results = await es.search({

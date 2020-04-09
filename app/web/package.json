@@ -45,14 +45,17 @@
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "7.8.3",
         "@babel/plugin-proposal-decorators": "7.8.3",
+        "@sendgrid/mail": "7.0.0",
         "@types/styled-components": "5.0.1",
         "@types/http-errors": "1.6.3",
         "@types/ioredis": "4.14.9",
         "babel-plugin-styled-components": "1.10.7",
         "babel-plugin-transform-typescript-metadata": "0.3.0",
+        "dotenv": "8.2.0",
         "next-transpile-modules": "3.1.0",
         "null-loader": "3.0.0",
         "sass": "1.26.3",
-        "serverless": "1.67.0"
+        "serverless": "1.67.0",
+        "validator": "13.0.0"
     }
 }

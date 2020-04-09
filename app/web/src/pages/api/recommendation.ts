@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { errorLogger } from 'src/api/logger';
+import { apiLogger } from 'src/api/logger';
 import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
 import { intQuery } from 'src/api/parse';
 import { getModifierFunctions } from 'src/utils/search/query';
@@ -82,4 +82,4 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	return res.json(newsDtos);
 }
 
-export default errorLogger(request);
+export default apiLogger(request);
