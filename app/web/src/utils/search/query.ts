@@ -33,7 +33,7 @@ export function buildEsQuery(queryStr: any = {}) {
 					must: mustQuery,
 				},
 			},
-			functions: getModifierFunctions(),
+			functions: queryStr.inline ? getModifierFunctions() : [],
 			score_mode: 'sum',
 			boost_mode: 'sum',
 		},
@@ -190,6 +190,7 @@ export function getModifierFunctions() {
 			gauss: {
 				pubDate: {
 					origin: 'now',
+					offset: '30m',
 					scale: '5d',
 				},
 			},

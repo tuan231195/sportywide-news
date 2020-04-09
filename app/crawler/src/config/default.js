@@ -11,6 +11,6 @@ module.exports = {
 	},
 	logging: {
 		level: 'debug',
-		logzToken: process.env.LOGZ_TOKEN,
+		logzToken: process.env.LOGZ_TOKEN || '',
 	},
 };

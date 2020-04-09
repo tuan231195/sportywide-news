@@ -11,7 +11,7 @@ export function intQuery(
 	defaultValue?: any
 ): number {
 	const str = stringQuery(queryParams);
-	return isNaN(str as any) ? defaultValue : parseInt(str, 10);
+	return !str || isNaN(str as any) ? defaultValue : parseInt(str, 10);
 }
 
 export function arrayQuery(queryParams: string | string[]): string[] {

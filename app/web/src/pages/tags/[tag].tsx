@@ -45,6 +45,11 @@ class SearchPage extends React.Component<Props, State> {
         };
     }
 
+    constructor(props) {
+        super(props);
+        this.lastNewsList = props.news;
+    }
+
     async nextPage() {
         if (!this.lastNewsList?.length) {
             return {

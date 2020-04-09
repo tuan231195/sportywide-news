@@ -71,7 +71,7 @@ async function search(query) {
 	const suggestions = parseSuggestions(results.body.suggest?.suggests);
 
 	const newsDtos = parseFields(hits) || [];
-	if (searchQuery?.trim() && !query.inline) {
+	if (searchQuery?.trim() && !query.inline && !searchAfter) {
 		const topSearch = newsDtos.slice(0, 3);
 		if (topSearch.length) {
 			const indexDoc: NewsStatDto = {
