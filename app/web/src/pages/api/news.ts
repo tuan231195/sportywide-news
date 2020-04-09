@@ -2,9 +2,16 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { apiLogger } from 'src/api/logger';
 import { buildEsQuery } from 'src/utils/search/query';
 import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.get(request);
+
+export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
@@ -35,5 +42,3 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	const newsDtos = parseFields(hits);
 	res.json(newsDtos);
 }
-
-export default apiLogger(request);

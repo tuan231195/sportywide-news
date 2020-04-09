@@ -2,7 +2,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_STAT_INDEX } from '@vdtn359/news-search';
-import { apiLogger } from 'src/api/logger';
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.get(request);
+
+export default handler;
 
 const termsCacheKey = 'vn:hot-terms';
 
@@ -15,8 +22,6 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	await redis.set(termsCacheKey, JSON.stringify(cachedTerms), 'EX', 30);
 	res.json(cachedTerms);
 }
-
-export default apiLogger(request);
 
 async function search() {
 	const results = await es.search({

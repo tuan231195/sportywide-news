@@ -3,8 +3,16 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import createError from 'http-errors';
-import { apiLogger } from 'src/api/logger';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
+
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.get(request);
+
+export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const {
@@ -35,5 +43,3 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
 	return res.json(document);
 }
-
-export default apiLogger(request);

@@ -48,11 +48,16 @@ const SearchInputMenuItem = styled(Menu.Item)`
     }
 `;
 
-const SearchInput = styled(Input)`
+const SearchInputContainer = styled.div`
+    position: relative;
     width: 100%;
     @media ${device.tablet} {
         width: 500px !important;
     }
+`;
+
+const SearchInput = styled(Input)`
+    width: 100%;
 `;
 
 interface Props {
@@ -100,7 +105,7 @@ export const NavBar: React.FC<Props> = function ({
             </VnBigScreen>
 
             <SearchInputMenuItem>
-                <div className={'vn-relative vn-full-width'}>
+                <SearchInputContainer>
                     <SearchInput
                         loading={loading}
                         value={searchQuery}
@@ -128,7 +133,7 @@ export const NavBar: React.FC<Props> = function ({
                             }}
                         />
                     )}
-                </div>
+                </SearchInputContainer>
             </SearchInputMenuItem>
             <VnBigScreen>
                 <Menu.Menu position="right">{children}</Menu.Menu>

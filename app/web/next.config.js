@@ -15,6 +15,12 @@ const nextConfig = withPlugins(
 		[
 			(nextConfig) => {
 				return Object.assign({}, nextConfig, {
+					onDemandEntries: {
+						// period (in ms) where the server will keep pages in the buffer
+						maxInactiveAge: 250 * 1000,
+						// number of pages that should be kept simultaneously without being disposed
+						pagesBufferLength: 10,
+					},
 					webpack: (config, options) => {
 						config.resolve.symlinks = true;
 						if (typeof nextConfig.webpack === 'function') {
@@ -60,6 +66,9 @@ const nextConfig = withPlugins(
 							),
 							'@vdtn359/news-search': require.resolve(
 								'@vdtn359/news-search'
+							),
+							'@vdtn359/news-core': require.resolve(
+								'@vdtn359/news-core'
 							),
 							'@vdtn359/news-models': require.resolve(
 								'@vdtn359/news-models'

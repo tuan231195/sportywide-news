@@ -1,10 +1,17 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from 'next';
-import { apiLogger } from 'src/api/logger';
 import sgMail from '@sendgrid/mail';
 import { config } from 'src/setup';
 import isEmail from 'validator/es/lib/isEmail';
 import createError from 'http-errors';
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.post(request);
+
+export default handler;
 
 sgMail.setApiKey(config.email.apiKey);
 
@@ -45,5 +52,3 @@ function getSupportEmail(body) {
 Email: ${body.email}
 Message: ${body.text}`;
 }
-
-export default apiLogger(request);

@@ -88,11 +88,13 @@ importers:
       winston: 3.2.1
   app/web:
     dependencies:
+      '@sendgrid/mail': 7.0.0
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-search': 'link:../../packages/search'
       '@vdtn359/news-styles': 'link:../../packages/styles'
       '@vdtn359/news-utils': 'link:../../packages/utils'
+      '@vdtn359/next-connect': 1.0.0
       axios: 0.19.2
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
@@ -119,11 +121,11 @@ importers:
       slick-carousel: 1.8.1
       styled-components: 5.0.1_8f7d443d2407229b91fbc1ce8596fcc4
       typedi: 0.8.0
+      validator: 13.0.0
       winston: 3.2.1
     devDependencies:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
-      '@sendgrid/mail': 7.0.0
       '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/styled-components': 5.0.1
@@ -134,7 +136,6 @@ importers:
       null-loader: 3.0.0
       sass: 1.26.3
       serverless: 1.67.0
-      validator: 13.0.0
     specifiers:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
@@ -147,6 +148,7 @@ importers:
       '@vdtn359/news-search': 'workspace:*'
       '@vdtn359/news-styles': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
+      '@vdtn359/next-connect': 1.0.0
       axios: 0.19.2
       babel-plugin-styled-components: 1.10.7
       babel-plugin-transform-typescript-metadata: 0.3.0
@@ -2084,7 +2086,7 @@ packages:
     dependencies:
       '@sendgrid/helpers': 7.0.0
       axios: 0.19.2
-    dev: true
+    dev: false
     engines:
       node: '>=6.0.0'
     resolution:
@@ -2093,7 +2095,7 @@ packages:
     dependencies:
       chalk: 2.4.2
       deepmerge: 4.2.2
-    dev: true
+    dev: false
     engines:
       node: '>= 6.0.0'
     resolution:
@@ -2102,7 +2104,7 @@ packages:
     dependencies:
       '@sendgrid/client': 7.0.0
       '@sendgrid/helpers': 7.0.0
-    dev: true
+    dev: false
     engines:
       node: '>=6.0.0'
     resolution:
@@ -2566,6 +2568,12 @@ packages:
         optional: true
     resolution:
       integrity: sha512-RJ0yMe5owMSix55qX7Mi9V6z2FDuuDpN6eR5fzRJrp+8in9UF41IGNQHbg5aMK4/PjVaEQksLvz0IA8n+Mr/FA==
+  /@vdtn359/next-connect/1.0.0:
+    dependencies:
+      trouter: 3.1.0
+    dev: false
+    resolution:
+      integrity: sha512-DmMV/tnN0zEd82zdGZA287ooVR/GrifUnEPgZD49NA77nUcBrnLvVNBg6gvPAkmkt6gvjiq7QQ1lptMru0Uhdw==
   /@webassemblyjs/ast/1.8.5:
     dependencies:
       '@webassemblyjs/helper-module-context': 1.8.5
@@ -5162,7 +5170,7 @@ packages:
     resolution:
       integrity: sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
   /deepmerge/4.2.2:
-    dev: true
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -11710,6 +11718,12 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-2+Q0C5g951OlYlJz6yu5/M33IcsESLlLfsyIaLJaG4FA2r4yP8MvVMJUUP/fVBkSpbbbZlS5gynbEWLipiiXiQ==
+  /regexparam/1.3.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-6IQpFBv6e5vz1QAqI+V4k8P2e/3gRrqfCJ9FI+O1FLQTO+Uz6RXZEZOPmTJ6hlGj7gkERzY5BRCv09whKP96/g==
   /regexpp/2.0.1:
     dev: true
     engines:
@@ -13437,6 +13451,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==
+  /trouter/3.1.0:
+    dependencies:
+      regexparam: 1.3.0
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-3Swwu638QQWOefHLss9cdyLi5/9BKYmXZEXpH0KOFfB9YZwUAwHbDAcoYxaHfqAeFvbi/LqAK7rGkhCr1v1BJA==
   /ts-jest/25.2.1_jest@25.1.0:
     dependencies:
       bs-logger: 0.2.6
@@ -13880,7 +13902,7 @@ packages:
     resolution:
       integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
   /validator/13.0.0:
-    dev: true
+    dev: false
     engines:
       node: '>= 0.10'
     resolution:

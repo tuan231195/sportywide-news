@@ -12,6 +12,14 @@ import {
 } from 'src/utils/search/fields';
 import { intQuery, stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
+import { errorLogger } from 'src/api/logging';
+import nextConnect from '@vdtn359/next-connect';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.get(request);
+
+export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const [searchResults, termsResult] = await Promise.all([
@@ -24,8 +32,6 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 		...searchResults,
 	});
 }
-
-export default apiLogger(request);
 
 async function search(query) {
 	const searchAfter = parseJsonQuery(query, 'searchAfter');

@@ -1,10 +1,17 @@
 /*  eslint-disable @typescript-eslint/camelcase */
 import { NextApiRequest, NextApiResponse } from 'next';
 import { redis } from 'src/setup';
-import { apiLogger } from 'src/api/logger';
 import { stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 import createError from 'http-errors';
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.post(request);
+
+export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const rating = parseFloat(stringQuery(req.body.rating));
@@ -32,5 +39,3 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
 	res.json({ message: 'ok' });
 }
-
-export default apiLogger(request);

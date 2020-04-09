@@ -9,6 +9,7 @@
         "deploy": "serverless"
     },
     "dependencies": {
+        "@sendgrid/mail": "7.0.0",
         "@vdtn359/news-utils": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-search": "workspace:*",
@@ -24,6 +25,7 @@
         "lodash": "4.17.15",
         "mobile-detect": "1.4.4",
         "next": "9.3.2",
+        "@vdtn359/next-connect": "1.0.0",
         "nprogress": "0.2.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
@@ -40,12 +42,12 @@
         "slick-carousel": "1.8.1",
         "styled-components": "5.0.1",
         "typedi": "0.8.0",
+        "validator": "13.0.0",
         "winston": "3.2.1"
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "7.8.3",
         "@babel/plugin-proposal-decorators": "7.8.3",
-        "@sendgrid/mail": "7.0.0",
         "@types/styled-components": "5.0.1",
         "@types/http-errors": "1.6.3",
         "@types/ioredis": "4.14.9",
@@ -55,7 +57,6 @@
         "next-transpile-modules": "3.1.0",
         "null-loader": "3.0.0",
         "sass": "1.26.3",
-        "serverless": "1.67.0",
-        "validator": "13.0.0"
+        "serverless": "1.67.0"
     }
 }

@@ -2,16 +2,21 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { apiLogger } from 'src/api/logger';
 import { buildCommonQuery } from 'src/utils/search/query';
 import { FIELDS, parseFields } from 'src/utils/search/fields';
+import nextConnect from '@vdtn359/next-connect';
+import { errorLogger } from 'src/api/logging';
+
+const handler = nextConnect({ onError: errorLogger });
+
+handler.get(request);
+
+export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const commonNews = await search();
 	res.json(commonNews);
 }
-
-export default apiLogger(request);
 
 async function search() {
 	const results = await es.search({
