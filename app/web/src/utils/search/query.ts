@@ -33,7 +33,7 @@ export function buildEsQuery(queryStr: any = {}) {
 					must: mustQuery,
 				},
 			},
-			functions: queryStr.inline ? getModifierFunctions() : [],
+			functions: getModifierFunctions(),
 			score_mode: 'sum',
 			boost_mode: 'sum',
 		},

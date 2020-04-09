@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card } from 'semantic-ui-react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { NewsCard } from 'src/components/news/NewsCard';
@@ -22,9 +22,12 @@ export const NewsStream: React.FC<Props> = ({
 }) => {
     const [hasMore, setHasMore] = useState(!!initialNewsList.length);
     const [newsList, setNewsList] = useState(initialNewsList);
+    const newsMapRef = useRef({});
     useEffect(() => {
-        setNewsList(initialNewsList);
-        setHasMore(!!initialNewsList.length);
+        newsMapRef.current = {};
+        const filteredList = addToMap(initialNewsList);
+        setNewsList(filteredList);
+        setHasMore(!!filteredList.length);
     }, [initialNewsList]);
     return (
         <CardGroup>
@@ -34,10 +37,11 @@ export const NewsStream: React.FC<Props> = ({
                 threshold={500}
                 loadMore={() =>
                     loadFunc(newsList).then((nextNews) => {
-                        if (nextNews.length) {
-                            setNewsList(newsList.concat(nextNews));
+                        const filteredList = addToMap(nextNews);
+                        if (filteredList.length) {
+                            setNewsList(newsList.concat(filteredList));
                         }
-                        setHasMore(!!nextNews.length);
+                        setHasMore(!!filteredList.length);
                     })
                 }
                 hasMore={hasMore}
@@ -50,4 +54,16 @@ export const NewsStream: React.FC<Props> = ({
             </InfiniteScroll>
         </CardGroup>
     );
+
+    function addToMap(newsList = []) {
+        const newsMap: any = newsMapRef.current;
+        const filteredList = [];
+        for (const news of newsList) {
+            if (!newsMap[news.id]) {
+                newsMap[news.id] = true;
+                filteredList.push(news);
+            }
+        }
+        return filteredList;
+    }
 };
