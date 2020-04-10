@@ -2,7 +2,11 @@ import { merge } from 'lodash';
 import * as search from '@vdtn359/news-search';
 import IORedis from 'ioredis';
 import { logging } from '@vdtn359/news-core';
+import * as Sentry from '@sentry/node';
+process.env.NODE_CONFIG_ENV =
+	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
 import { Logger } from 'winston';
+import { env } from '@vdtn359/news-utils';
 
 const configMap = {
 	default: {
@@ -12,6 +16,9 @@ const configMap = {
 		redis: {
 			host: 'localhost',
 			password: '',
+		},
+		sentry: {
+			dsn: process.env.SENTRY_DSN,
 		},
 		logging: {
 			level: 'debug',
@@ -38,6 +45,20 @@ export const logger: Logger = logging.createLogger(
 		logzToken: config.logging?.logzToken,
 	}
 );
+
+Sentry.init({
+	dsn: config.sentry?.dsn,
+	environment: process.env.NODE_CONFIG_ENV,
+	release: process.env.SENTRY_RELEASE,
+	beforeSend(event) {
+		if (env.isDevelopment()) {
+			return null;
+		}
+		return event;
+	},
+});
+
+export { Sentry };
 
 export const es = search.connectToEs({
 	node: config.es?.host,

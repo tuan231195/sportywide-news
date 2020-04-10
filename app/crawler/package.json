@@ -8,6 +8,7 @@
         "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts"
     },
     "dependencies": {
+        "@sentry/node": "5.15.4",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-schema": "workspace:*",
@@ -16,6 +17,7 @@
         "bottleneck": "2.19.5",
         "config": "3.3.1",
         "dotenv": "8.2.0",
+        "find-up": "4.1.0",
         "rxjs": "6.5.4",
         "winston": "3.2.1"
     },

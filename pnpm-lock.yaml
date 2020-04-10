@@ -64,6 +64,7 @@ importers:
       typescript: 3.8.3
   app/crawler:
     dependencies:
+      '@sentry/node': 5.15.4
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-schema': 'link:../../packages/schema'
@@ -72,12 +73,14 @@ importers:
       bottleneck: 2.19.5
       config: 3.3.1
       dotenv: 8.2.0
+      find-up: 4.1.0
       rxjs: 6.5.4
       winston: 3.2.1
     devDependencies:
       '@types/config': 0.0.36
       ts-node: 8.8.1
     specifiers:
+      '@sentry/node': 5.15.4
       '@types/config': 0.0.36
       '@vdtn359/news-core': 'workspace:*'
       '@vdtn359/news-models': 'workspace:*'
@@ -87,12 +90,14 @@ importers:
       bottleneck: 2.19.5
       config: 3.3.1
       dotenv: 8.2.0
+      find-up: 4.1.0
       rxjs: 6.5.4
       ts-node: 8.8.1
       winston: 3.2.1
   app/web:
     dependencies:
       '@sendgrid/mail': 7.0.0
+      '@sentry/node': 5.15.4
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-search': 'link:../../packages/search'
@@ -129,6 +134,7 @@ importers:
       styled-components: 5.0.1_8f7d443d2407229b91fbc1ce8596fcc4
       typedi: 0.8.0
       validator: 13.0.0
+      verror: 1.10.0
       winston: 3.2.1
     devDependencies:
       '@babel/plugin-proposal-class-properties': 7.8.3
@@ -148,6 +154,7 @@ importers:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
       '@sendgrid/mail': 7.0.0
+      '@sentry/node': 5.15.4
       '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/morgan': 1.9.0
@@ -195,9 +202,11 @@ importers:
       styled-components: 5.0.1
       typedi: 0.8.0
       validator: 13.0.0
+      verror: 1.10.0
       winston: 3.2.1
   app/worker:
     dependencies:
+      '@sentry/node': 5.15.4
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-schema': 'link:../../packages/schema'
@@ -206,6 +215,7 @@ importers:
       '@vdtn359/news-utils': 'link:../../packages/utils'
       config: 3.3.1
       dotenv: 8.2.0
+      find-up: 4.1.0
       ioredis: 4.16.0
       rxjs: 6.5.4
       winston: 3.2.1
@@ -217,6 +227,7 @@ importers:
       ttypescript: 1.5.10_ts-node@8.8.1
       webpack: 4.42.1_webpack@4.42.1
     specifiers:
+      '@sentry/node': 5.15.4
       '@types/config': 0.0.36
       '@types/ioredis': 4.14.9
       '@vdtn359/news-core': 'workspace:*'
@@ -227,6 +238,7 @@ importers:
       '@vdtn359/news-utils': 'workspace:*'
       config: 3.3.1
       dotenv: 8.2.0
+      find-up: 4.1.0
       ioredis: 4.16.0
       npm-run-all: 4.1.5
       rxjs: 6.5.4
@@ -2121,6 +2133,93 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-HlRath7i1imzvB87HvIPJDsv81MuoF4H4OgVMvQO4MTclHe6oJaORJlHFr0+82sCEdQqEOH33rBrEb4j2FfxMA==
+  /@sentry/apm/5.15.4:
+    dependencies:
+      '@sentry/browser': 5.15.4
+      '@sentry/hub': 5.15.4
+      '@sentry/minimal': 5.15.4
+      '@sentry/types': 5.15.4
+      '@sentry/utils': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-gcW225Jls1ShyBXMWN6zZyuVJwBOIQ63sI+URI2NSFsdpBpdpZ8yennIm+oMlSfb25Nzt9SId7TRSjPhlSbTZQ==
+  /@sentry/browser/5.15.4:
+    dependencies:
+      '@sentry/core': 5.15.4
+      '@sentry/types': 5.15.4
+      '@sentry/utils': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-l/auT1HtZM3KxjCGQHYO/K51ygnlcuOrM+7Ga8gUUbU9ZXDYw6jRi0+Af9aqXKmdDw1naNxr7OCSy6NBrLWVZw==
+  /@sentry/core/5.15.4:
+    dependencies:
+      '@sentry/hub': 5.15.4
+      '@sentry/minimal': 5.15.4
+      '@sentry/types': 5.15.4
+      '@sentry/utils': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-9KP4NM4SqfV5NixpvAymC7Nvp36Zj4dU2fowmxiq7OIbzTxGXDhwuN/t0Uh8xiqlkpkQqSECZ1OjSFXrBldetQ==
+  /@sentry/hub/5.15.4:
+    dependencies:
+      '@sentry/types': 5.15.4
+      '@sentry/utils': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-1XJ1SVqadkbUT4zLS0TVIVl99si7oHizLmghR8LMFl5wOkGEgehHSoOydQkIAX2C7sJmaF5TZ47ORBHgkqclUg==
+  /@sentry/minimal/5.15.4:
+    dependencies:
+      '@sentry/hub': 5.15.4
+      '@sentry/types': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-GL4GZ3drS9ge+wmxkHBAMEwulaE7DMvAEfKQPDAjg2p3MfcCMhAYfuY4jJByAC9rg9OwBGGehz7UmhWMFjE0tw==
+  /@sentry/node/5.15.4:
+    dependencies:
+      '@sentry/apm': 5.15.4
+      '@sentry/core': 5.15.4
+      '@sentry/hub': 5.15.4
+      '@sentry/types': 5.15.4
+      '@sentry/utils': 5.15.4
+      cookie: 0.3.1
+      https-proxy-agent: 4.0.0
+      lru_map: 0.3.3
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-OfdhNEvOJZ55ZkCUcVgctjaZkOw7rmLzO5VyDTSgevA4uLsPaTNXSAeK2GSQBXc5J0KdRpNz4sSIyuxOS4Z7Vg==
+  /@sentry/types/5.15.4:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-quPHPpeAuwID48HLPmqBiyXE3xEiZLZ5D3CEbU3c3YuvvAg8qmfOOTI6z4Z3Eedi7flvYpnx3n7N3dXIEz30Eg==
+  /@sentry/utils/5.15.4:
+    dependencies:
+      '@sentry/types': 5.15.4
+      tslib: 1.11.1
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-lO8SLBjrUDGADl0LOkd55R5oL510d/1SaI08/IBHZCxCUwI4TiYo5EPECq8mrj3XGfgCyq9osw33bymRlIDuSQ==
   /@serverless/cli/1.4.0:
     dependencies:
       '@serverless/core': 1.1.2
@@ -3011,7 +3110,6 @@ packages:
     resolution:
       integrity: sha512-/9aQCnQHF+0IiCl0qhXoK7qs//SwYE7zX8lsr/DNk1BRAHYxeLZPL4pguwK29gUEqasYQjqPtEpDRSWEkdHn9g==
   /agent-base/5.1.1:
-    dev: true
     engines:
       node: '>= 6.0.0'
     resolution:
@@ -4668,7 +4766,6 @@ packages:
     resolution:
       integrity: sha512-4FJkXzKXEDB1snCFZlLP4gpC3JILicCpGbzG9f9G7tGqGCzETQ2hWPrcinA9oU4wtf2biUaEH5065UnMeR33oA==
   /cookie/0.3.1:
-    dev: true
     engines:
       node: '>= 0.6'
     resolution:
@@ -7563,7 +7660,6 @@ packages:
     dependencies:
       agent-base: 5.1.1
       debug: 4.1.1
-    dev: true
     engines:
       node: '>= 6.0.0'
     resolution:
@@ -9634,6 +9730,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Jzi9nw089PhEkMVzbEhpmsYyzaM=
+  /lru_map/0.3.3:
+    dev: false
+    resolution:
+      integrity: sha1-tcg1G5Rky9dQM1p5ZQoOwOVhGN0=
   /lsmod/1.0.0:
     dev: true
     resolution:

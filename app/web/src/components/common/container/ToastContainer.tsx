@@ -15,7 +15,7 @@ export function ToastContainer() {
             }
 
             if (e.response?.status >= 500) {
-                toast.error(e.response.data.error || e.response?.statusText, {
+                toast.error(e.response?.statusText, {
                     toastId: 'error',
                 });
             }

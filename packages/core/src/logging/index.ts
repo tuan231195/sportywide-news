@@ -1,21 +1,11 @@
 import winston from 'winston';
 import LogzioWinstonTransport from 'winston-logzio';
-import { HttpLog } from 'src/logging/http-log';
 
 const { timestamp, errors, label, printf, splat, metadata } = winston.format;
 
 const print = printf((info) => {
-	if (info.metadata?.req && info.metadata?.res) {
-		return httpLog(info, new HttpLog(info.metadata.req, info.metadata.res));
-	} else {
-		return normalLog(info);
-	}
+	return normalLog(info);
 });
-
-function httpLog(info, httpLog: HttpLog) {
-	const log = `[${info.label}] ${info.timestamp} (${info.level}): ${info.message}`;
-	return `${log}\nIP: ${httpLog.getIP()}\nMethod: ${httpLog.getMethod()}\nUrl: ${httpLog.getUrl()}\nHTTP/${httpLog.getHttpVersion()}\nStatus: ${httpLog.getStatus()}\nReferrer: ${httpLog.getReferrer()}\nUser-Agent: ${httpLog.getUserAgent()}\n`;
-}
 
 function normalLog(info) {
 	const log = `[${info.label}] ${info.timestamp} (${info.level}): ${info.message}`;
@@ -27,6 +17,9 @@ function normalLog(info) {
 function formatMetadata(metadata) {
 	if (metadata == undefined) {
 		return '';
+	}
+	if (metadata.jse_info) {
+		metadata = metadata.jse_info;
 	}
 	if (metadata.stack) {
 		return metadata.stack;

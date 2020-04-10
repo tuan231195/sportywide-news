@@ -5,6 +5,9 @@ module.exports = {
 		projectId: 'vdtn359-news-dev',
 		privateKey: process.env.FIREBASE_PRIVATE_KEY,
 	},
+	sentry: {
+		dsn: process.env.SENTRY_REPORTING_DSN,
+	},
 	redis: {
 		host: 'localhost',
 		password: '',

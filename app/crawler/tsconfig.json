@@ -2,6 +2,7 @@
     "extends": "../../tsconfig",
     "compilerOptions": {
         "baseUrl": ".",
+        "allowJs": true,
         "paths": {
             "src/*": ["./src/*"],
             "@vdtn359/news-utils": ["../../packages/utils/src"],

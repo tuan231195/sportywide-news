@@ -7,6 +7,8 @@ const withTM = require('next-transpile-modules')([
 	'@vdtn359/news-search',
 	'@vdtn359/news-core',
 ]);
+const packageJson = require('./package.json');
+process.env.SENTRY_RELEASE = packageJson.version;
 const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -80,6 +82,8 @@ const nextConfig = withPlugins(
 								'NODE_ENV',
 								'LOGZ_TOKEN',
 								'SENDGRID_API_KEY',
+								'SENTRY_RELEASE',
+								'SENTRY_DSN',
 							])
 						);
 

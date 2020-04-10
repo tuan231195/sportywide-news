@@ -10,6 +10,7 @@
     },
     "dependencies": {
         "@sendgrid/mail": "7.0.0",
+        "@sentry/node": "5.15.4",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-search": "workspace:*",
@@ -46,6 +47,7 @@
         "styled-components": "5.0.1",
         "typedi": "0.8.0",
         "validator": "13.0.0",
+        "verror": "1.10.0",
         "winston": "3.2.1"
     },
     "devDependencies": {

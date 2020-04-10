@@ -233,9 +233,10 @@ class NewsApp extends App<any, any, any> {
 }
 
 if (typeof window === 'undefined') {
-    import('src/setup').then(({ logger }) => {
+    import('src/setup').then(({ logger, Sentry }) => {
         process.once('unhandledRejection', (e) => {
             logger.error('Unhandled rejections: ', e);
+            Sentry.captureException(e);
         });
     });
 }

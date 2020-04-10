@@ -19,8 +19,9 @@ export default class extends Document<Props> {
             );
         } catch (e) {
             if (typeof window === 'undefined') {
-                import('src/setup').then(({ logger }) => {
+                import('src/setup').then(({ logger, Sentry }) => {
                     logger.error(`Page ${ctx.pathname} rendering error: `, e);
+                    Sentry.captureException(e);
                 });
             }
             throw e;

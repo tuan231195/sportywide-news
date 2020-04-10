@@ -1,34 +1,32 @@
-import util from 'util';
 import { logger } from 'src/setup';
-import { logging } from '@vdtn359/news-core';
+import * as Sentry from '@sentry/node';
+import VError from 'verror';
 
 process.once('unhandledRejection', (e) => {
 	logger.error('Unhandled rejections: ', e);
+	Sentry.captureException(e);
 });
 
 export function errorLogger(err, req, res) {
-	if (err.name === 'ResponseError') {
-		return handleElasticSearchError(err, res);
-	}
+	err = formatError(err);
 	const status = err.status || 500;
-	if (status >= 400) {
-		logger.info('', new logging.HttpLog(req, res));
-	}
 	if (status >= 500) {
+		Sentry.captureException(err);
 		logger.error(err);
 	}
+
 	res.status(status).json({
 		error: err.message || 'Internal Server Error',
 	});
 }
 
-function handleElasticSearchError(err, res) {
-	logger.error(
-		util.inspect(err.meta, {
-			depth: null,
-		})
-	);
-	res.status(500).json({
-		error: 'Internal server error',
-	});
+function formatError(error) {
+	if (error.name === 'ResponseError') {
+		return new VError({
+			name: 'Elasticsearch error',
+			cause: error,
+			info: error.meta,
+		});
+	}
+	return error;
 }
