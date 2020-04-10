@@ -6,7 +6,7 @@ interface Props {
     styleTags: string;
 }
 
-export default class extends Document<Props> {
+export default class NewsDocument extends Document<Props> {
     static async getInitialProps(ctx) {
         // Step 1: Create an instance of ServerStyleSheet
         const sheet = new ServerStyleSheet();

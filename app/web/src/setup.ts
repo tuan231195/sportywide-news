@@ -3,8 +3,6 @@ import * as search from '@vdtn359/news-search';
 import IORedis from 'ioredis';
 import { logging } from '@vdtn359/news-core';
 import * as Sentry from '@sentry/node';
-process.env.NODE_CONFIG_ENV =
-	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
 import { Logger } from 'winston';
 import { env } from '@vdtn359/news-utils';
 

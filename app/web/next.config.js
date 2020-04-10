@@ -11,6 +11,8 @@ const packageJson = require('./package.json');
 process.env.SENTRY_RELEASE = packageJson.version;
 const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_CONFIG_ENV =
+	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
 
 const nextConfig = withPlugins(
 	[
@@ -80,6 +82,7 @@ const nextConfig = withPlugins(
 						config.plugins.push(
 							new webpack.EnvironmentPlugin([
 								'NODE_ENV',
+								'NODE_CONFIG_ENV',
 								'LOGZ_TOKEN',
 								'SENDGRID_API_KEY',
 								'SENTRY_RELEASE',

@@ -1,6 +1,7 @@
 {
   "presets": ["next/babel"],
   "plugins": [
+    "add-react-displayname",
     "babel-plugin-transform-typescript-metadata",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
@@ -9,7 +10,7 @@
       {
         "ssr": true,
         "displayName": true,
-        "preprocess": false,
+        "preprocess": false
       }
     ]
   ]

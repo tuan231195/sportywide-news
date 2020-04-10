@@ -239,5 +239,7 @@ if (typeof window === 'undefined') {
             Sentry.captureException(e);
         });
     });
+} else {
+    import('src/browser');
 }
 export default withContainer(init)(NewsApp);
