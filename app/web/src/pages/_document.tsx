@@ -7,20 +7,32 @@ interface Props {
 }
 
 export default class extends Document<Props> {
-    static getInitialProps({ renderPage }) {
+    static async getInitialProps(ctx) {
         // Step 1: Create an instance of ServerStyleSheet
         const sheet = new ServerStyleSheet();
 
-        // Step 2: Retrieve styles from components in the page
-        const page = renderPage((App) => (props) =>
-            sheet.collectStyles(<App {...props} />)
-        );
+        let page = {};
+        try {
+            // Step 2: Retrieve styles from components in the page
+            page = ctx.renderPage((App) => (props) =>
+                sheet.collectStyles(<App {...props} />)
+            );
+        } catch (e) {
+            if (typeof window === 'undefined') {
+                import('src/setup').then(({ logger }) => {
+                    logger.error(`Page ${ctx.pathname} rendering error: `, e);
+                });
+            }
+            throw e;
+        }
 
         // Step 3: Extract the styles as <style> tags
         const styleTags = sheet.getStyleElement();
 
+        const initialProps = await Document.getInitialProps(ctx);
+
         // Step 4: Pass styleTags as a prop
-        return { ...page, styleTags };
+        return { ...initialProps, ...page, styleTags };
     }
 
     render() {

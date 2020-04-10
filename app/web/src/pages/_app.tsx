@@ -234,7 +234,7 @@ class NewsApp extends App<any, any, any> {
 
 if (typeof window === 'undefined') {
     import('src/setup').then(({ logger }) => {
-        process.on('unhandledRejection', (e) => {
+        process.once('unhandledRejection', (e) => {
             logger.error('Unhandled rejections: ', e);
         });
     });

@@ -2,7 +2,7 @@ import util from 'util';
 import { logger } from 'src/setup';
 import { logging } from '@vdtn359/news-core';
 
-process.on('unhandledRejection', (e) => {
+process.once('unhandledRejection', (e) => {
 	logger.error('Unhandled rejections: ', e);
 });
 

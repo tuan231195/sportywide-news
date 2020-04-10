@@ -82,6 +82,6 @@ async function esSync(newsList: any[] = []) {
 	}
 }
 
-process.on('unhandledRejection', (e) => {
+process.once('unhandledRejection', (e) => {
 	w.error(logger, e);
 });

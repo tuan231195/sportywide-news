@@ -152,6 +152,6 @@ function indexRating(newsStat: NewsStatDto) {
 	return returnArr;
 }
 
-process.on('unhandledRejection', (e) => {
+process.once('unhandledRejection', (e) => {
 	w.error(logger, e);
 });
