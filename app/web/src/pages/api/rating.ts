@@ -4,11 +4,9 @@ import { redis } from 'src/setup';
 import { stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 import createError from 'http-errors';
-import nextConnect from '@vdtn359/next-connect';
-import { errorLogger } from 'src/api/logging';
+import { getHandler } from 'src/api/handler';
 
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.post(request);
 
 export default handler;

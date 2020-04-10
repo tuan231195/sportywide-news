@@ -1,6 +1,6 @@
 import util from 'util';
 import { logger } from 'src/setup';
-import { HttpLog } from '@vdtn359/news-core/dist/logging';
+import { logging } from '@vdtn359/news-core';
 
 process.on('unhandledRejection', (e) => {
 	logger.error('Unhandled rejections: ', e);
@@ -12,7 +12,7 @@ export function errorLogger(err, req, res) {
 	}
 	const status = err.status || 500;
 	if (status >= 400) {
-		logger.info('', new HttpLog(req, res));
+		logger.info('', new logging.HttpLog(req, res));
 	}
 	if (status >= 500) {
 		logger.error(err);

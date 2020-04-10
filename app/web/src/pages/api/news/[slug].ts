@@ -4,12 +4,9 @@ import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
 import createError from 'http-errors';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
+import { getHandler } from 'src/api/handler';
 
-import nextConnect from '@vdtn359/next-connect';
-import { errorLogger } from 'src/api/logging';
-
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.get(request);
 
 export default handler;

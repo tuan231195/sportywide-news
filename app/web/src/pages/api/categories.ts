@@ -2,11 +2,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import nextConnect from '@vdtn359/next-connect';
-import { errorLogger } from 'src/api/logging';
-
-const handler = nextConnect({ onError: errorLogger });
-
+import { getHandler } from 'src/api/handler';
+const handler = getHandler();
 handler.get(request);
 
 export default handler;

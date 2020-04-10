@@ -2,7 +2,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_INDEX } from '@vdtn359/news-search';
-import { apiLogger } from 'src/api/logger';
 import { buildEsQuery, buildSuggester } from 'src/utils/search/query';
 import {
 	FIELDS,
@@ -12,11 +11,9 @@ import {
 } from 'src/utils/search/fields';
 import { intQuery, stringQuery } from 'src/api/parse';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
-import { errorLogger } from 'src/api/logging';
-import nextConnect from '@vdtn359/next-connect';
+import { getHandler } from 'src/api/handler';
 
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.get(request);
 
 export default handler;

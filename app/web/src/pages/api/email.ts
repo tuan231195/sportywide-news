@@ -4,11 +4,9 @@ import sgMail from '@sendgrid/mail';
 import { config } from 'src/setup';
 import isEmail from 'validator/es/lib/isEmail';
 import createError from 'http-errors';
-import nextConnect from '@vdtn359/next-connect';
-import { errorLogger } from 'src/api/logging';
+import { getHandler } from 'src/api/handler';
 
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.post(request);
 
 export default handler;

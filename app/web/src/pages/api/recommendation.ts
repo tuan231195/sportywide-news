@@ -6,11 +6,9 @@ import { FIELDS, parseFields, parseJsonQuery } from 'src/utils/search/fields';
 import { intQuery } from 'src/api/parse';
 import { getModifierFunctions } from 'src/utils/search/query';
 import getHotNews from './hot-news';
-import { errorLogger } from 'src/api/logging';
-import nextConnect from '@vdtn359/next-connect';
+import { getHandler } from 'src/api/handler';
 
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.get(request);
 
 export default handler;

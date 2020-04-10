@@ -2,11 +2,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { es, redis } from 'src/setup';
 import { NEWS_STAT_INDEX } from '@vdtn359/news-search';
-import nextConnect from '@vdtn359/next-connect';
-import { errorLogger } from 'src/api/logging';
+import { getHandler } from 'src/api/handler';
 
-const handler = nextConnect({ onError: errorLogger });
-
+const handler = getHandler();
 handler.get(request);
 
 export default handler;
