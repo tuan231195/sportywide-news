@@ -44,7 +44,17 @@ export class ApiService {
 				this.apiCallSubscription.next(
 					this.apiCallSubscription.getValue() - 1
 				);
-				throw error;
+				if (typeof window !== 'undefined') {
+					throw error;
+				} else {
+					import('src/setup').then(({ logger }) => {
+						logger.error(
+							`Request with url ${error.request.path} failed with error ${error.response.status}`,
+							error.response.data
+						);
+					});
+					throw new Error('API error');
+				}
 			}
 		);
 	}

@@ -25,7 +25,7 @@ export const loggingMiddleware: any = morgan(
 	},
 	{
 		skip: function (req, res) {
-			if (env.isDevelopment()) {
+			if (process.env.HTTP_DEBUG) {
 				return false;
 			}
 			return res.statusCode < 400;

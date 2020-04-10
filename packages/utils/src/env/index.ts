@@ -9,3 +9,7 @@ export function isDevelopment(env = process.env.NODE_ENV) {
 export function isTesting(env = process.env.NODE_ENV) {
 	return env === 'test';
 }
+
+export function isBrowser() {
+	return typeof window !== 'undefined';
+}
