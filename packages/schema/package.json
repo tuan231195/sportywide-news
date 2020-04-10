@@ -1,17 +1,17 @@
 {
     "name": "@vdtn359/news-schema",
     "version": "1.0.0",
-    "main": "dist/index.js",
-    "type": "dist/index.d.ts",
     "description": "news schema",
+    "type": "dist/index.d.ts",
+    "main": "dist/index.js",
     "dependencies": {
+        "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-utils": "workspace:*",
-        "@vdtn359/news-core": "workspace:*",
+        "firebase-admin": "8.10.0",
         "ioredis": "4.16.0",
         "reflect-metadata": "0.1.13",
-        "rxjs": "6.5.4",
-        "firebase-admin": "8.10.0"
+        "rxjs": "6.5.4"
     },
     "devDependencies": {
         "@types/bluebird": "3.5.30",

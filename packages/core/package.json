@@ -1,9 +1,9 @@
 {
     "name": "@vdtn359/news-core",
     "version": "1.0.0",
-    "main": "dist/index.js",
-    "type": "dist/index.d.ts",
     "description": "news core",
+    "type": "dist/index.d.ts",
+    "main": "dist/index.js",
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
         "rxjs": "6.5.4",

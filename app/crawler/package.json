@@ -1,18 +1,18 @@
 {
     "name": "@vdtn359/news-crawler",
-    "description": "news crawler",
     "version": "0.0.0",
     "private": true,
+    "description": "news crawler",
     "scripts": {
-        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts",
-        "build": "ttsc"
+        "build": "ttsc",
+        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts"
     },
     "dependencies": {
-        "@vdtn359/news-utils": "workspace:*",
-        "@vdtn359/news-schema": "workspace:*",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
+        "@vdtn359/news-schema": "workspace:*",
         "@vdtn359/news-sources": "workspace:*",
+        "@vdtn359/news-utils": "workspace:*",
         "bottleneck": "2.19.5",
         "config": "3.3.1",
         "dotenv": "8.2.0",

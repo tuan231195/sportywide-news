@@ -4,19 +4,19 @@
     "private": true,
     "description": "news worker",
     "scripts": {
-        "start:news": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-worker.ts",
-        "start:stats": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-stats-worker.ts",
-        "start": "run-p start:*",
+        "build": "ttsc -P tsconfig.build.json",
         "script": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register",
-        "build": "ttsc -P tsconfig.build.json"
+        "start": "run-p start:*",
+        "start:news": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-worker.ts",
+        "start:stats": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-stats-worker.ts"
     },
     "dependencies": {
-        "@vdtn359/news-utils": "workspace:*",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-schema": "workspace:*",
         "@vdtn359/news-search": "workspace:*",
         "@vdtn359/news-sources": "workspace:*",
+        "@vdtn359/news-utils": "workspace:*",
         "config": "3.3.1",
         "dotenv": "8.2.0",
         "ioredis": "4.16.0",

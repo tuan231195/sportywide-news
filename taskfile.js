@@ -49,6 +49,13 @@ function deploy() {
 	deployApp();
 }
 
+function postInstall() {
+	sh(
+		'link-parent-bin > /dev/null && link-parent-bin --child-directory-root app > /dev/null'
+	);
+	sh('pnpm recursive exec -- npx --no-install sort-package-json');
+}
+
 cli({
 	buildPackagesDev,
 	buildPackages,
@@ -56,4 +63,5 @@ cli({
 	dev,
 	build,
 	deploy,
+	postInstall,
 });
