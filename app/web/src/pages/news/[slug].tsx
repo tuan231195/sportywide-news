@@ -29,6 +29,7 @@ export default class NewsPage extends React.Component<Props> {
         return {
             news,
             similarNewsList,
+            showScrollTop: true,
         };
     }
     componentDidMount(): void {

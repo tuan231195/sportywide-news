@@ -21,6 +21,7 @@ export default class IndexPage extends React.Component<Props> {
 
         return {
             news,
+            showScrollTop: true,
             recommendations,
         };
     }

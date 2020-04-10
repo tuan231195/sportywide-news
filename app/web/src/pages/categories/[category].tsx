@@ -27,6 +27,7 @@ export default class CategoryPage extends React.Component<Props> {
         return {
             news,
             category: ctx.query.category,
+            showScrollTop: true,
         };
     }
     render() {

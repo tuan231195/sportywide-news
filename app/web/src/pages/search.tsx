@@ -56,6 +56,7 @@ class SearchPage extends React.Component<Props, State> {
             news,
             total,
             suggestions,
+            showScrollTop: true,
         };
     }
 

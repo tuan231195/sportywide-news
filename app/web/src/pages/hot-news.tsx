@@ -17,6 +17,7 @@ export default class HotNewsPage extends React.Component<Props> {
 
         return {
             news,
+            showScrollTop: true,
         };
     }
 

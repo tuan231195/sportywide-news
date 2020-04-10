@@ -19,6 +19,7 @@ export default class RecommendationPage extends React.Component<Props> {
 
         return {
             news,
+            showScrollTop: true,
         };
     }
 

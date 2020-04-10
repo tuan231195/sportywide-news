@@ -5,7 +5,6 @@ export default class ContactPage extends React.Component {
     static getInitialProps() {
         return {
             showFooter: true,
-            hideScrollTop: true,
         };
     }
 

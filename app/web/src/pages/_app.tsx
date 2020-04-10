@@ -48,6 +48,7 @@ const theme = {
 
 const Content = styled.div`
     width: 100%;
+    position: relative;
     @media ${device.tablet} {
         width: 90%;
         max-width: 850px;
@@ -215,7 +216,7 @@ class NewsApp extends App<any, any, any> {
                                             </Grid.Column>
                                         </NewsGrid>
                                     </NewsContainer>
-                                    {!pageProps?.hideScrollTop && (
+                                    {pageProps?.showScrollTop && (
                                         <ScrollTopButton />
                                     )}
 
