@@ -110,6 +110,7 @@ importers:
       date-fns: 2.11.1
       fomantic-ui-css: 2.8.4
       formik: 2.1.4_react@16.13.1
+      framer-motion: 1.10.3_react-dom@16.13.1+react@16.13.1
       helmet: 3.22.0
       hoist-non-react-statics: 3.3.2
       http-errors: 1.7.3
@@ -182,6 +183,7 @@ importers:
       dotenv: 8.2.0
       fomantic-ui-css: 2.8.4
       formik: 2.1.4
+      framer-motion: 1.10.3
       helmet: 3.22.0
       hoist-non-react-statics: 3.3.2
       http-errors: 1.7.3
@@ -2045,6 +2047,20 @@ packages:
       node: '>=8.6.0'
     resolution:
       integrity: sha512-MsNuS9M2vVbJNW3+YSiz9eF0/U2ZPlEEVC4ky8QJnxFlU4H7DZOH5A1hDQUfF5DV/pYwBD76dkF3+mrzZTJ3Tw==
+  /@popmotion/easing/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-IkdW0TNmRnWTeWI7aGQIVDbKXPWHVEYdGgd5ZR4SH/Ty/61p63jCjrPxX1XrR7IGkl08bjhJROStD7j+RKgoIw==
+  /@popmotion/popcorn/0.4.4:
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      framesync: 4.0.4
+      hey-listen: 1.0.8
+      style-value-types: 3.1.7
+      tslib: 1.11.1
+    dev: false
+    resolution:
+      integrity: sha512-jYO/8319fKoNLMlY4ZJPiPu8Ea8occYwRZhxpaNn/kZsK4QG2E7XFlXZMJBsTWDw7I1i0uaqyC4zn1nwEezLzg==
   /@protobufjs/aspromise/1.1.2:
     dev: false
     optional: true
@@ -6850,6 +6866,33 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-TxgSKM+7LTA6sidjOiSZK9wxY0ffMPY3Wta//MqwmX0nZuEHc8QrkV8Fh3ZhMJeiH+Uyh/tcaarImRy8u77O7g==
+  /framer-motion/1.10.3_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      '@popmotion/popcorn': 0.4.4
+      framesync: 4.0.4
+      hey-listen: 1.0.8
+      popmotion: 9.0.0-beta-8
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+      style-value-types: 3.1.7
+      stylefire: 7.0.3
+      tslib: 1.11.1
+    dev: false
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
+    peerDependencies:
+      react: ^16.8
+      react-dom: ^16.8
+    resolution:
+      integrity: sha512-VooCzGWg7brSO4Gc0YwpY5AadJe4OPS74ZyOlOHWll5rMXCoOc6Ia3uDQ6RfOJlwCP/D9TQuRGtboyJiVXjVcw==
+  /framesync/4.0.4:
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 1.11.1
+    dev: false
+    resolution:
+      integrity: sha512-mdP0WvVHe0/qA62KG2LFUAOiWLng5GLpscRlwzBxu2VXOp6B8hNs5C5XlFigsMgrfDrr2YbqTsgdWZTc4RXRMQ==
   /fresh/0.5.2:
     dev: false
     engines:
@@ -7537,6 +7580,10 @@ packages:
       node: '>=4.0.0'
     resolution:
       integrity: sha512-Xrqicn2nm1ZIUxP3YGuTBmbDL04neKsIT583Sjh0FkiwKDXYCMUqGqC88w3NUvVXtA75JyR2Jn6jw6ZEMOD+ZA==
+  /hey-listen/1.0.8:
+    dev: false
+    resolution:
+      integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
   /hide-powered-by/1.1.0:
     dev: false
     engines:
@@ -11161,6 +11208,17 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-jd9olUr9D7do+RN8Wspzhpxhgp1n6Vd0NtQ4SFkmIACZoEL1nkyAdW9Ygrinjec0vgDcWjscFQQ1gDW8rsfKTg==
+  /popmotion/9.0.0-beta-8:
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      '@popmotion/popcorn': 0.4.4
+      framesync: 4.0.4
+      hey-listen: 1.0.8
+      style-value-types: 3.1.7
+      tslib: 1.11.1
+    dev: false
+    resolution:
+      integrity: sha512-6eQzqursPvnP7ePvdfPeY4wFHmS3OLzNP8rJRvmfFfEIfpFqrQgLsM50Gd9AOvGKJtYJOFknNG+dsnzCpgIdAA==
   /popper.js/1.16.1:
     deprecated: 'You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1'
     dev: false
@@ -13494,6 +13552,13 @@ packages:
       webpack: ^4.0.0
     resolution:
       integrity: sha512-B0dOCFwv7/eY31a5PCieNwMgMhVGFe9w+rh7s/Bx8kfFkrth9zfTZquoYvdw8URgiqxObQKcpW51Ugz1HjfdZw==
+  /style-value-types/3.1.7:
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 1.11.1
+    dev: false
+    resolution:
+      integrity: sha512-jPaG5HcAPs3vetSwOJozrBXxuHo9tjZVnbRyBjxqb00c2saIoeuBJc1/2MtvB8eRZy41u/BBDH0CpfzWixftKg==
   /styled-components/5.0.1_8f7d443d2407229b91fbc1ce8596fcc4:
     dependencies:
       '@babel/helper-module-imports': 7.8.3
@@ -13531,6 +13596,16 @@ packages:
       react: 15.x.x || 16.x.x
     resolution:
       integrity: sha512-prEahkYwQHomUljJzXzrFnBmQrSMtWOBbXn8QeEkpfFkqMZQGshxzzp4H8ebBIsbVlHF/3+GSXMnmK/fp7qVYQ==
+  /stylefire/7.0.3:
+    dependencies:
+      '@popmotion/popcorn': 0.4.4
+      framesync: 4.0.4
+      hey-listen: 1.0.8
+      style-value-types: 3.1.7
+      tslib: 1.11.1
+    dev: false
+    resolution:
+      integrity: sha512-Q0l7NSeFz/OkX+o6/7Zg3VZxSAZeQzQpYomWmIpOehFM/rJNMSLVX5fgg6Q48ut2ETNKwdhm97mPNU643EBCoQ==
   /stylis-rule-sheet/0.0.10_stylis@3.5.4:
     dependencies:
       stylis: 3.5.4

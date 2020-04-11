@@ -23,6 +23,7 @@
         "date-fns": "2.11.1",
         "fomantic-ui-css": "2.8.4",
         "formik": "2.1.4",
+        "framer-motion": "1.10.3",
         "helmet": "3.22.0",
         "hoist-non-react-statics": "3.3.2",
         "http-errors": "1.7.3",

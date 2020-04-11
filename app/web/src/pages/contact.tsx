@@ -4,6 +4,8 @@ import { Formik } from 'formik';
 import { SemanticField } from 'src/components/form/SemanticField';
 import { contactSchema } from 'src/utils/validation/schema';
 import { EmailService } from 'src/services/email.service';
+import { ConfirmationMessage } from 'src/components/form/ConfirmationMessage';
+import { Trigger } from 'src/utils/events/trigger';
 
 export default class ContactPage extends React.Component<any> {
     static getInitialProps() {
@@ -11,6 +13,8 @@ export default class ContactPage extends React.Component<any> {
             showFooter: true,
         };
     }
+
+    confirmTrigger = new Trigger();
 
     render() {
         const emailService = this.props.container.get(EmailService);
@@ -31,6 +35,7 @@ export default class ContactPage extends React.Component<any> {
                         try {
                             setSubmitting(true);
                             await emailService.contact(values);
+                            this.confirmTrigger.trigger();
                         } finally {
                             setSubmitting(false);
                         }
@@ -71,15 +76,22 @@ export default class ContactPage extends React.Component<any> {
                                     rows: 10,
                                 }}
                             />
-                            <Button
-                                type="submit"
-                                primary
-                                disabled={
-                                    !formik.isValid || formik.isSubmitting
-                                }
-                            >
-                                Submit
-                            </Button>
+                            <div className={'vn-flex vn-flex-center'}>
+                                <Button
+                                    type="submit"
+                                    primary
+                                    disabled={
+                                        !formik.isValid || formik.isSubmitting
+                                    }
+                                >
+                                    Submit
+                                </Button>
+                                <ConfirmationMessage
+                                    trigger={this.confirmTrigger}
+                                    className={'vn-ml2'}
+                                    message={'Your enquiry has been submitted!'}
+                                />
+                            </div>
                         </Form>
                     )}
                 </Formik>
