@@ -1,0 +1,23 @@
+{
+    "name": "@vdtn359/news-crawler",
+    "version": "0.0.0",
+    "private": true,
+    "description": "news crawler",
+    "scripts": {
+        "build": "ttsc",
+        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/cleanup.ts"
+    },
+    "dependencies": {
+        "@vdtn359/news-core": "workspace:*",
+        "@vdtn359/news-schema": "workspace:*",
+        "@vdtn359/news-search": "workspace:*",
+        "@vdtn359/news-utils": "workspace:*",
+        "config": "3.3.1",
+        "dotenv": "8.2.0",
+        "winston": "3.2.1"
+    },
+    "devDependencies": {
+        "@types/config": "0.0.36",
+        "ts-node": "8.8.1"
+    }
+}

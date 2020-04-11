@@ -94,6 +94,28 @@ importers:
       rxjs: 6.5.4
       ts-node: 8.8.1
       winston: 3.2.1
+  app/scheduler:
+    dependencies:
+      '@vdtn359/news-core': 'link:../../packages/core'
+      '@vdtn359/news-schema': 'link:../../packages/schema'
+      '@vdtn359/news-search': 'link:../../packages/search'
+      '@vdtn359/news-utils': 'link:../../packages/utils'
+      config: 3.3.1
+      dotenv: 8.2.0
+      winston: 3.2.1
+    devDependencies:
+      '@types/config': 0.0.36
+      ts-node: 8.8.1
+    specifiers:
+      '@types/config': 0.0.36
+      '@vdtn359/news-core': 'workspace:*'
+      '@vdtn359/news-schema': 'workspace:*'
+      '@vdtn359/news-search': 'workspace:*'
+      '@vdtn359/news-utils': 'workspace:*'
+      config: 3.3.1
+      dotenv: 8.2.0
+      ts-node: 8.8.1
+      winston: 3.2.1
   app/web:
     dependencies:
       '@sendgrid/mail': 7.0.0
@@ -284,6 +306,7 @@ importers:
       '@vdtn359/news-core': 'link:../core'
       '@vdtn359/news-models': 'link:../models'
       '@vdtn359/news-utils': 'link:../utils'
+      date-fns: 2.12.0
       firebase-admin: 8.10.0
       ioredis: 4.16.0
       reflect-metadata: 0.1.13
@@ -297,6 +320,7 @@ importers:
       '@vdtn359/news-core': 'workspace:*'
       '@vdtn359/news-models': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
+      date-fns: 2.12.0
       firebase-admin: 8.10.0
       ioredis: 4.16.0
       reflect-metadata: 0.1.13
@@ -306,11 +330,13 @@ importers:
       '@elastic/elasticsearch': 7.6.1
       '@vdtn359/news-models': 'link:../models'
       '@vdtn359/news-utils': 'link:../utils'
+      date-fns: 2.12.0
       lodash: 4.17.15
     specifiers:
       '@elastic/elasticsearch': 7.6.1
       '@vdtn359/news-models': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
+      date-fns: 2.12.0
       lodash: 4.17.15
   packages/sources:
     dependencies:
@@ -5245,6 +5271,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-3RdUoinZ43URd2MJcquzBbDQo+J87cSzB8NkXdZiN5ia1UNyep0oCyitfiL88+R7clGTeq/RniXAc16gWyAu1w==
+  /date-fns/2.12.0:
+    dev: false
+    resolution:
+      integrity: sha512-qJgn99xxKnFgB1qL4jpxU7Q2t0LOn1p8KMIveef3UZD7kqjT3tpFNNdXJelEHhE+rUgffriXriw/sOSU+cS1Hw==
   /date-format/2.1.0:
     dev: true
     engines:

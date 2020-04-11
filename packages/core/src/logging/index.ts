@@ -67,5 +67,3 @@ export function createLogger(
 
 	return logger;
 }
-
-export { HttpLog };

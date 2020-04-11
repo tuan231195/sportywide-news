@@ -1,5 +1,7 @@
 import { Client } from '@elastic/elasticsearch';
 import { flatMap } from 'lodash';
+import { subDays } from 'date-fns';
+import { NEWS_INDEX } from 'src/setup';
 
 export type Elasticsearch = ElasticsearchWrapper & Client;
 export class ElasticsearchWrapper {
@@ -58,6 +60,21 @@ export class ElasticsearchWrapper {
 				})
 			),
 		});
+	}
+	async removeOldDocs(index: string, dateField: string) {
+		const result = await this.client.deleteByQuery({
+			index,
+			body: {
+				query: {
+					range: {
+						[dateField]: {
+							lt: subDays(new Date(), 7),
+						},
+					},
+				},
+			},
+		});
+		return result.body.deleted;
 	}
 
 	async existsDocument(index: string, id: string) {
