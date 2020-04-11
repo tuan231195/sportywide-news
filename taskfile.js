@@ -1,7 +1,9 @@
 const { sh, cli } = require('tasksfile');
 
 function buildPackagesDev() {
-	return sh('ts-transpile -b packages');
+	return sh('ts-transpile -b packages', {
+		async: true,
+	});
 }
 
 function watchPackages() {
@@ -14,7 +16,9 @@ function watchPackages() {
 }
 
 function buildPackages() {
-	return sh('ttsc -b packages');
+	return sh('ttsc -b packages', {
+		async: true,
+	});
 }
 
 function startAppDevs() {
@@ -26,7 +30,9 @@ function startAppDevs() {
 }
 
 function buildApp() {
-	return sh('pnpm recursive run build');
+	return sh('pnpm recursive run build', {
+		async: true,
+	});
 }
 
 function deployApp() {
@@ -53,7 +59,9 @@ function postInstall() {
 	sh(
 		'link-parent-bin > /dev/null && link-parent-bin --child-directory-root app > /dev/null'
 	);
-	sh('pnpm recursive exec -- npx --no-install sort-package-json');
+	sh('pnpm recursive exec -- npx --no-install sort-package-json', {
+		async: true,
+	});
 }
 
 cli({

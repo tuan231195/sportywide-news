@@ -6,13 +6,13 @@
     },
     "references": [
         {
-            "path": "./schema/tsconfig.build.json"
-        },
-        {
             "path": "./utils/tsconfig.build.json"
         },
         {
             "path": "./models/tsconfig.build.json"
+        },
+        {
+            "path": "./core/tsconfig.build.json"
         },
         {
             "path": "./sources/tsconfig.build.json"
@@ -21,7 +21,7 @@
             "path": "./search/tsconfig.build.json"
         },
         {
-            "path": "./core/tsconfig.build.json"
+            "path": "./schema/tsconfig.build.json"
         }
     ]
 }

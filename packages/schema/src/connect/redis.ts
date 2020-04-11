@@ -12,5 +12,6 @@ export function connectRedisUsingConfig(config) {
 	return connectRedis({
 		password: config.get('redis.password'),
 		host: config.get('redis.host'),
+		port: config.get('redis.port'),
 	});
 }

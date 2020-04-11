@@ -10,6 +10,8 @@ const configMap = {
 	default: {
 		es: {
 			host: 'http://localhost:9200',
+			username: process.env.ES_USERNAME || '',
+			password: process.env.ES_PASSWORD || '',
 		},
 		redis: {
 			host: 'localhost',
