@@ -2,7 +2,7 @@ FROM vdtn359/news-ci AS build
 
 RUN mkdir -p /opt
 COPY taskfile.js /opt/
-COPY package.json /opt/
+COPY ./package.json /opt/
 COPY *.yaml /opt/
 COPY ./packages/core/package.json /opt/packages/core/package.json
 COPY ./packages/search/package.json /opt/packages/search/package.json

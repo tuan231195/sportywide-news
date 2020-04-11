@@ -5,10 +5,10 @@
     "description": "news worker",
     "scripts": {
         "build": "ttsc -P tsconfig.build.json",
-        "script": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register",
         "dev": "run-p dev:*",
         "dev:news": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-worker.ts",
         "dev:stats": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-stats-worker.ts",
+        "script": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register",
         "start": "run-p start:*",
         "start:news": "node dist/news-worker",
         "start:stats": "node dist/news-stats-worker"
