@@ -69,6 +69,7 @@ export const NavBar: React.FC<Props> = function ({
     children,
 }) {
     const [searchQuery, setSearchQuery] = useState('');
+    const [isFocus, setFocus] = useState(false);
     const container = useContainer();
     const newsService = container.get(NewsService);
     const [{ results, loading }, setSearch] = useSearch(async (search) => {
@@ -109,6 +110,8 @@ export const NavBar: React.FC<Props> = function ({
                     <SearchInput
                         loading={loading}
                         value={searchQuery}
+                        onFocus={() => setFocus(true)}
+                        onBlur={() => setFocus(false)}
                         onChange={(e) => {
                             setSearchQuery(e.target.value);
                         }}
@@ -124,7 +127,7 @@ export const NavBar: React.FC<Props> = function ({
                         }
                         placeholder="Search..."
                     />
-                    {!loading && (
+                    {!loading && isFocus && (
                         <SearchResults
                             query={searchQuery}
                             items={results}
