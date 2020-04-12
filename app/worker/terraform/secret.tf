@@ -1,5 +1,3 @@
-
-
 locals {
   secrethub_dir = "vdtn359/start/vdtn359-news"
 }
@@ -18,10 +16,6 @@ data "secrethub_secret" "firebase_private_key" {
 
 data "secrethub_secret" "heroku_token" {
   path = "${local.secrethub_dir}/heroku-token"
-}
-
-data "secrethub_secret" "es_username" {
-  path = "${local.secrethub_dir}/es-username"
 }
 
 data "secrethub_secret" "es_password" {

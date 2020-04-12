@@ -18,7 +18,7 @@ export class DBWrapper {
 		await this.firestore
 			.collection(collection)
 			.doc(item.id)
-			.set(this.cleanItem(item));
+			.set(DBWrapper.cleanItem(item));
 	}
 
 	async save(collection: string, items: any[]): Promise<void> {
@@ -26,7 +26,7 @@ export class DBWrapper {
 
 		for (const item of items) {
 			const ref = this.firestore.collection(collection).doc(item.id);
-			batch.set(ref, this.cleanItem(item));
+			batch.set(ref, DBWrapper.cleanItem(item));
 		}
 		await batch.commit();
 	}
@@ -36,11 +36,20 @@ export class DBWrapper {
 			.collection(collection)
 			.where('id', 'in', ids)
 			.get();
-		return snapshots.docs.map((doc) => doc.data());
+		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
 	}
 
-	private cleanItem(item) {
+	private static cleanItem(item) {
 		return omitBy(item, isNil);
+	}
+
+	private static getObject(item) {
+		for (const key of Object.keys(item)) {
+			if (item[key] instanceof firebase.firestore.Timestamp) {
+				item[key] = item[key].toDate();
+			}
+		}
+		return item;
 	}
 
 	private async internalStream(
