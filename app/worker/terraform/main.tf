@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "ap-southeast-2"
-}
-
 provider "heroku" {
   version = "~> 2.0"
   api_key = data.secrethub_secret.heroku_token.value

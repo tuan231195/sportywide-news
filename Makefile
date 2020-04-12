@@ -9,6 +9,11 @@ buildPacker:
 	export DIGITALOCEAN_TOKEN=$(shell secrethub read vdtn359/start/vdtn359-news/digitalocean-token); \
 	cd infra/packer && packer build vdtn359.json
 
+provisionDigitalOcean:
+	cd infra/terraform/digitalocean; \
+	terraform init; \
+	terraform apply -auto-approve
+
 pushCI: buildCI
 	docker push vdtn359/news-ci
 
