@@ -39,7 +39,7 @@ resource "digitalocean_firewall" "default" {
   }
   inbound_rule {
     protocol = "tcp"
-    port_range = "9200"
+    port_range = "9999"
     source_addresses = [
       "0.0.0.0/0",
       "::/0"

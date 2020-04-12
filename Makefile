@@ -1,9 +1,16 @@
+ansible_tags =
+
+ifeq ($(ansible_tags),)
+	ansible_opts=
+else
+	ansible_opts=--tags $(ansible_tags)
+endif
+
 buildCI:
 	docker build -t vdtn359/news-ci .
 
 buildWorker:
-	docker build --cache-from registry.heroku.com/vdtn359-news-worker/worker:build -t registry.heroku.com/vdtn359-news-worker/worker:build -f app/worker/Dockerfile --target build .
-	docker build --cache-from registry.heroku.com/vdtn359-news-worker/worker:build --cache-from registry.heroku.com/vdtn359-news-worker/worker -t registry.heroku.com/vdtn359-news-worker/worker -f app/worker/Dockerfile --target prod .
+	docker build -t registry.heroku.com/vdtn359-news-worker/worker -f app/worker/Dockerfile --target prod .
 
 buildPacker:
 	export DIGITALOCEAN_TOKEN=$(shell secrethub read vdtn359/start/vdtn359-news/digitalocean-token); \
@@ -14,11 +21,18 @@ provisionDigitalOcean:
 	terraform init; \
 	terraform apply -auto-approve
 
+provisionWorker:
+	cd app/worker/terraform; \
+	terraform init; \
+	terraform apply -auto-approve
+
+playbook:
+	cd infra/ansible && ansible-playbook -v main.yml $(ansible_opts)
+
 pushCI: buildCI
 	docker push vdtn359/news-ci
 
 pushWorker: buildWorker
-	docker push registry.heroku.com/vdtn359-news-worker/worker:build
 	docker push registry.heroku.com/vdtn359-news-worker/worker
 
 releaseWorker:

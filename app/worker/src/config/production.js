@@ -14,8 +14,7 @@ module.exports = {
 		password: process.env.REDIS_PASSWORD,
 	},
 	es: {
-		host:
-			'https://vdtn359-news-7276870009.ap-southeast-2.bonsaisearch.net:443',
+		host: 'http://do.vdtn359.com:9999',
 	},
 	logging: {
 		level: 'debug',
