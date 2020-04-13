@@ -27,4 +27,5 @@ async function saveRedis(dtos: NewsDto[]) {
 
 export async function cleanup(): Promise<void> {
 	await redis.disconnect();
+	await db.terminate();
 }

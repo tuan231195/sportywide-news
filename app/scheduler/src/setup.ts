@@ -1,12 +1,10 @@
-import { connectRedisUsingConfig } from '@vdtn359/news-schema/dist';
-
 require('dotenv').config();
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.NODE_CONFIG_ENV =
 	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
-
 import config from 'config';
+import { connectRedisUsingConfig } from '@vdtn359/news-schema';
 import { connectDBUsingConfig, DB, NewsDao } from '@vdtn359/news-schema';
 import { logging } from '@vdtn359/news-core';
 import { Logger } from 'winston';

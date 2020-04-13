@@ -15,8 +15,6 @@ module.exports = {
 	},
 	es: {
 		host: 'http://do.vdtn359.com:9999',
-		username: process.env.ES_USERNAME || '',
-		password: process.env.ES_PASSWORD || '',
 	},
 	logging: {
 		level: 'debug',
