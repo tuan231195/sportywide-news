@@ -34,7 +34,7 @@ export class DBWrapper {
 	async findByIds(collection: string, ids: string[]): Promise<any[]> {
 		const snapshots = await this.firestore
 			.collection(collection)
-			.where('id', 'in', ids)
+			.where(firebase.firestore.FieldPath.documentId(), 'in', ids)
 			.get();
 		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
 	}

@@ -75,8 +75,7 @@ export const SearchResults: React.FC<Props> = ({ query, items, onClick }) => {
                             <a className={'vn-raw-link'}>
                                 <Image
                                     src={
-                                        item.image ||
-                                        '/static/images/placeholder.png'
+                                        item.image || '/images/placeholder.png'
                                     }
                                 />
                                 <List.Content>

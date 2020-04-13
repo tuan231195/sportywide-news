@@ -1,5 +1,5 @@
 import { fetchNews } from 'src/crawler';
-import { cleanup, saveNews } from 'src/persister';
+import { saveNews } from 'src/persister';
 import { mergeMap } from 'rxjs/operators';
 import { Sentry, logger } from 'src/setup';
 import { env, func } from '@vdtn359/news-utils';
@@ -14,7 +14,6 @@ export function handler(event, context, callback) {
 		.pipe(mergeMap((newsDtos) => saveNews(newsDtos)))
 		.subscribe({
 			complete: async () => {
-				await cleanup();
 				logger.info('Completed');
 				callback(null);
 			},

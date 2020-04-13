@@ -1,7 +1,0 @@
-vdtn359NewsWebApplication:
-    component: serverless-next.js
-    inputs:
-        bucketName: vdtn359-news-webapp-bucket
-        name:
-            defaultLambda: vdtn359NewsNextDefaultLambda
-            apiLambda: vdtn359NewsAPIDefaultlambda

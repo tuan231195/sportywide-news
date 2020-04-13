@@ -13,7 +13,7 @@ const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.NODE_CONFIG_ENV =
 	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
-export const supportedLocales = ['en'];
+const supportedLocales = ['en'];
 const nextConfig = withPlugins(
 	[
 		[
@@ -39,7 +39,7 @@ const nextConfig = withPlugins(
 
 						if (options.isServer) {
 							config.module.rules.push({
-								test: /^(idb)$/,
+								test: /^(idb|worker_threads)$/,
 								use: 'null-loader',
 							});
 						}
@@ -95,9 +95,12 @@ const nextConfig = withPlugins(
 								'NODE_ENV',
 								'NODE_CONFIG_ENV',
 								'LOGZ_TOKEN',
+								'ES_PASSWORD',
+								'ES_USERNAME',
+								'REDIS_PASSWORD',
 								'SENDGRID_API_KEY',
 								'SENTRY_RELEASE',
-								'SENTRY_DSN',
+								'SENTRY_REPORTING_DSN',
 							])
 						);
 

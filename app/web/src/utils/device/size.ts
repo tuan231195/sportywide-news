@@ -31,7 +31,7 @@ export function getDeviceWidth(userAgent?: string) {
 		} else {
 			return size.laptop;
 		}
-	} else {
+	} else if (typeof window !== 'undefined') {
 		return window.innerWidth > 0 ? window.innerWidth : screen.width;
 	}
 }

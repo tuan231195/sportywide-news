@@ -84,8 +84,7 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
                             <NewsCard>
                                 <Image
                                     src={
-                                        news.image ||
-                                        '/static/images/placeholder.png'
+                                        news.image || '/images/placeholder.png'
                                     }
                                 />
                                 <Card.Header>

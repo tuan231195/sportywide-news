@@ -24,8 +24,3 @@ async function saveRedis(dtos: NewsDto[]) {
 	}
 	await pipeline.exec();
 }
-
-export async function cleanup(): Promise<void> {
-	await redis.disconnect();
-	await db.terminate();
-}

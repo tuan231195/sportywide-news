@@ -48,10 +48,14 @@ export class ApiService {
 					throw error;
 				} else {
 					import('src/setup').then(({ logger }) => {
-						logger.error(
-							`Request with url ${error.request.path} failed with error ${error.response.status}`,
-							error.response.data
-						);
+						if (error.response) {
+							logger.error(
+								`Request with url ${error.request.path} failed with error ${error.response.status}`,
+								error.response?.data
+							);
+						} else {
+							logger.error(error);
+						}
 					});
 					throw new Error('API error');
 				}

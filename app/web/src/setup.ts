@@ -16,6 +16,7 @@ const configMap = {
 		redis: {
 			host: 'localhost',
 			password: '',
+			port: 6379,
 		},
 		sentry: {
 			dsn: process.env.SENTRY_REPORTING_DSN,
@@ -28,6 +29,16 @@ const configMap = {
 			apiKey: process.env.SENDGRID_API_KEY,
 			supportEmail: 'help@vdtn359.com',
 			adminEmail: 'admin@vdtn359.com',
+		},
+	},
+	production: {
+		redis: {
+			host: 'redis-16850.c89.us-east-1-3.ec2.cloud.redislabs.com',
+			port: 16850,
+			password: process.env.REDIS_PASSWORD,
+		},
+		es: {
+			host: 'http://do.vdtn359.com:9999',
 		},
 	},
 };

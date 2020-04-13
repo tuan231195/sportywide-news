@@ -11,9 +11,7 @@ export function init(ctx) {
 	if (ctx.req) {
 		container.set(
 			'baseUrl',
-			`${env.isDevelopment() ? ctx.req.protocol || 'http' : 'https'}://${
-				ctx.req.headers.host
-			}`
+			`${ctx.req.protocol || 'http'}://${ctx.req.headers.host}`
 		);
 		container.set('db', Promise.resolve({}));
 	} else {

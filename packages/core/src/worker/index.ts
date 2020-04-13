@@ -1,11 +1,5 @@
-import {
-	isMainThread,
-	parentPort,
-	Worker,
-	WorkerOptions,
-} from 'worker_threads';
-
-export const spawn = (file: string, wkOpts: WorkerOptions) => {
+export const spawn = (file: string, wkOpts) => {
+	const { Worker } = require('worker_threads');
 	wkOpts.eval = true;
 	if (!wkOpts.workerData) {
 		wkOpts.workerData = {};
@@ -44,9 +38,10 @@ export function info(logger, ...args) {
 }
 
 export function logging(logger, type, ...args) {
+	const { isMainThread } = require('worker_threads');
 	if (isMainThread) {
 		logger[type](...args);
-	} else if (parentPort) {
+	} else {
 		logger[type](`[${process.env.WORKER_ID}] - ${args[0]}`);
 	}
 }
