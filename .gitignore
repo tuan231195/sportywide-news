@@ -22,6 +22,8 @@
 # CMake
 cmake-build-*/
 
+**/produles
+
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 

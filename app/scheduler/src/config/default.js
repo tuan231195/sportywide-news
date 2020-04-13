@@ -11,6 +11,7 @@ module.exports = {
 	redis: {
 		host: 'localhost',
 		password: '',
+		port: 6379,
 	},
 	logging: {
 		level: 'debug',

@@ -6,7 +6,7 @@ module.exports = {
 		privateKey: process.env.FIREBASE_PRIVATE_KEY,
 	},
 	sentry: {
-		dsn: process.env.SENTRY_REPORTING_DSN,
+		dsn: process.env.SENTRY_REPORTING_DSN || '',
 	},
 	redis: {
 		host: 'localhost',

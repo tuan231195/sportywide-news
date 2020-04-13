@@ -29,6 +29,8 @@ Sentry.init({
 	},
 });
 
+export { Sentry };
+
 export const db: DB = connectDBUsingConfig(config);
 export const redis = connectRedisUsingConfig(config);
 export const logger: Logger = logging.createLogger(

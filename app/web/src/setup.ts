@@ -18,7 +18,7 @@ const configMap = {
 			password: '',
 		},
 		sentry: {
-			dsn: process.env.SENTRY_DSN,
+			dsn: process.env.SENTRY_REPORTING_DSN,
 		},
 		logging: {
 			level: 'debug',

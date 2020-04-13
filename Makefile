@@ -26,6 +26,11 @@ provisionWorker:
 	terraform init; \
 	terraform apply -auto-approve
 
+provisionCrawler:
+	cd app/crawler/terraform; \
+	terraform init; \
+	terraform apply -auto-approve
+
 playbook:
 	cd infra/ansible && ansible-playbook -v main.yml $(ansible_opts)
 

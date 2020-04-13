@@ -4,8 +4,12 @@
     "private": true,
     "description": "news crawler",
     "scripts": {
-        "build": "ttsc",
-        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts"
+        "build": "ttsc -p tsconfig.build.json && cp package.json dist/",
+        "build:dependencies": "cd ../.. && pnpm run cli -- buildPackages",
+        "prepackage": "npm run build:dependencies && npm run build",
+        "package": "rm -rf produles && mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml -- --prod && npm run zip",
+        "start": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/index.ts",
+        "zip": "cd produles && mkdir nodejs && mv node_modules nodejs/node_modules && zip -9 -r --symlinks --quiet nodejs.zip nodejs"
     },
     "dependencies": {
         "@sentry/node": "5.15.4",

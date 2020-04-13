@@ -13,7 +13,7 @@ const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.NODE_CONFIG_ENV =
 	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
-
+export const supportedLocales = ['en'];
 const nextConfig = withPlugins(
 	[
 		[
@@ -61,6 +61,17 @@ const nextConfig = withPlugins(
 							}
 							return entries;
 						};
+
+						config.plugins.push(
+							new webpack.ContextReplacementPlugin(
+								/date-fns[\/\\]/,
+								new RegExp(
+									`[/\\\\\](${supportedLocales.join(
+										'|'
+									)})[/\\\\\]`
+								)
+							)
+						);
 
 						config.resolve.alias = {
 							...config.resolve.alias,

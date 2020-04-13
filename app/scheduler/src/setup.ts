@@ -1,3 +1,5 @@
+import { connectRedisUsingConfig } from '@vdtn359/news-schema/dist';
+
 require('dotenv').config();
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -11,6 +13,7 @@ import { Logger } from 'winston';
 import { connectToEsUsingConfig, Elasticsearch } from '@vdtn359/news-search';
 
 export const db: DB = connectDBUsingConfig(config);
+export const redis = connectRedisUsingConfig(config);
 export const newsDao = new NewsDao(db);
 export const es: Elasticsearch = connectToEsUsingConfig(config);
 export const logger: Logger = logging.createLogger(
