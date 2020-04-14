@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import Link from 'next/link';
+import Head from 'next/head';
 import {
     ErrorContainer,
     ErrorHeader,
@@ -10,6 +11,9 @@ import {
 export default function NotFoundPage() {
     return (
         <ErrorContainer>
+            <Head>
+                <title>Not Found</title>
+            </Head>
             <div className={'vn-absolute-center'}>
                 <ErrorStatusText>404</ErrorStatusText>
                 <ErrorHeader>Page Not Found</ErrorHeader>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import Link from 'next/link';
+import Head from 'next/head';
 import {
     ErrorContainer,
     ErrorHeader,
@@ -10,11 +11,14 @@ import {
 export default class ErrorPage extends React.Component<any, any> {
     static getInitialProps({ res, err }) {
         const statusCode = res ? res.statusCode : err ? err.statusCode : 500;
-        return { statusCode };
+        return { statusCode: statusCode || 500 };
     }
     render() {
         return (
             <ErrorContainer>
+                <Head>
+                    <title>Error</title>
+                </Head>
                 <div className={'vn-absolute-center'}>
                     <ErrorStatusText color={'red'}>
                         {this.props.statusCode}
