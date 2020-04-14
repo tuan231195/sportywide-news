@@ -19,7 +19,6 @@ export class NewsPersister {
 
 	async cleanup() {
 		await this.redis.disconnect();
-		await this.db.terminate();
 	}
 
 	private async saveDb(dtos: NewsDto[]) {

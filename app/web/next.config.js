@@ -24,6 +24,10 @@ const nextConfig = withPlugins([
 					// number of pages that should be kept simultaneously without being disposed
 					pagesBufferLength: 10,
 				},
+				typescript: {
+					ignoreDevErrors: true,
+					ignoreBuildErrors: true,
+				},
 				webpack: (config, options) => {
 					config.resolve.symlinks = true;
 					if (typeof nextConfig.webpack === 'function') {

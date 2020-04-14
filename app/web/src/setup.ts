@@ -73,8 +73,14 @@ export { Sentry };
 
 export const es = search.connectToEs({
 	node: config.es?.host,
+	auth: {
+		username: config.es?.username,
+		password: config.es?.password,
+	},
 });
 
 export const redis = new IORedis({
 	host: config.redis.host,
+	port: config.redis.port,
+	password: config.redis.password,
 });

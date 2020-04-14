@@ -34,6 +34,11 @@ provisionCrawler:
 	terraform init; \
 	terraform apply -auto-approve
 
+provisionScheduler:
+	cd app/scheduler/terraform; \
+	terraform init; \
+	terraform apply -auto-approve
+
 playbook:
 	cd infra/ansible && ansible-playbook -v main.yml $(ansible_opts)
 

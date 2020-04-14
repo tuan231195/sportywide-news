@@ -17,7 +17,6 @@ async function deleteFromRedis() {
 async function deleteFromDb() {
 	const deletedNews = await newsDao.removeOldNews();
 	logger.info(`Deleted ${deletedNews} news from db`);
-	await db.terminate();
 }
 async function deleteFromEs() {
 	const [deletedNews, deletedNewsStat] = await Promise.all([

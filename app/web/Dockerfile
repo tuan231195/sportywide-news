@@ -5,10 +5,12 @@ COPY taskfile.js /opt/
 COPY ./package.json /opt/
 COPY *.yaml /opt/
 COPY ./packages/core/package.json /opt/packages/core/package.json
+COPY ./packages/styles/package.json /opt/packages/styles/package.json
 COPY ./packages/search/package.json /opt/packages/search/package.json
+COPY ./packages/sources/package.json /opt/packages/sources/package.json
+COPY ./packages/schema/package.json /opt/packages/schema/package.json
 COPY ./packages/utils/package.json /opt/packages/utils/package.json
 COPY ./packages/models/package.json /opt/packages/models/package.json
-COPY ./packages/sources/package.json /opt/packages/sources/package.json
 COPY ./app/web/package.json /opt/app/web/package.json
 
 WORKDIR /opt
@@ -22,7 +24,7 @@ RUN cd /opt && pnpm run cli -- buildPackages
 RUN mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml -- --unsafe-perm --prod
 
 COPY ./app/web /opt/app/web
-RUN cd npm run build
+RUN npm run build
 
 FROM node:12-alpine AS prod
 
@@ -33,3 +35,4 @@ COPY --from=build /opt/app/web/.next /opt/app/.next
 COPY --from=build /opt/app/web/package.json /opt/app/package.json
 ENV NODE_ENV production
 CMD ["npm", "start"]
+

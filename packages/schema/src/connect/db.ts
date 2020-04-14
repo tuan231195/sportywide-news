@@ -13,14 +13,19 @@ export function connectDB({
 	privateKey,
 	projectId,
 }: ConnectDBOptions): DB {
-	const app = firebase.initializeApp({
-		projectId,
-		credential: firebase.credential.cert({
-			clientEmail,
+	let app: firebase.app.App;
+	if (firebase.apps.length) {
+		app = firebase.apps[0];
+	} else {
+		app = firebase.initializeApp({
 			projectId,
-			privateKey: Buffer.from(privateKey, 'base64').toString('utf-8'),
-		}),
-	});
+			credential: firebase.credential.cert({
+				clientEmail,
+				projectId,
+				privateKey: Buffer.from(privateKey, 'base64').toString('utf-8'),
+			}),
+		});
+	}
 	const firestore = app.firestore();
 	const db = new DBWrapper(firestore);
 	return proxy.wrap(db, firestore);

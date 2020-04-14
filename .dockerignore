@@ -5,6 +5,7 @@
 **/dist
 **/logs
 **/.idea
+**/Dockerfile
 **/.terraform
 **/Dockerfile
 **/.next

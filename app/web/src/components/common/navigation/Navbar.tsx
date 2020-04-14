@@ -105,13 +105,14 @@ export const NavBar: React.FC<Props> = function ({
                 </MenuItem>
             </VnBigScreen>
 
-            <SearchInputMenuItem>
+            <SearchInputMenuItem
+                onFocus={() => setFocus(true)}
+                onBlur={() => setFocus(false)}
+            >
                 <SearchInputContainer>
                     <SearchInput
                         loading={loading}
                         value={searchQuery}
-                        onFocus={() => setFocus(true)}
-                        onBlur={() => setFocus(false)}
                         onChange={(e) => {
                             setSearchQuery(e.target.value);
                         }}

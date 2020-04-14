@@ -5,7 +5,8 @@
     "description": "news web",
     "scripts": {
         "build": "rm -rf .next && next build",
-        "dev": "LOCAL=1 next dev"
+        "dev": "LOCAL=1 next dev",
+        "start": "next start -p $PORT"
     },
     "dependencies": {
         "@sendgrid/mail": "7.0.0",
