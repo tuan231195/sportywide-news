@@ -1,4 +1,4 @@
-import { CATEGORY } from '@vdtn359/news-models/dist';
+import { CATEGORY } from '@vdtn359/news-models';
 import { filterCategories } from 'src/utils/categories';
 
 export function getFilterFromUrl(filter): SearchFilter {

@@ -3,8 +3,8 @@ provider "heroku" {
   api_key = data.secrethub_secret.heroku_token.value
 }
 
-resource "heroku_app" "worker_app" {
-  name   = "vdtn359-news-worker"
+resource "heroku_app" "web_app" {
+  name   = "vdtn359-news"
   region = "us"
   stack = "container"
   config_vars = {

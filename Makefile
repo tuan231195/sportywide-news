@@ -10,7 +10,10 @@ buildCI:
 	docker build -t vdtn359/news-ci .
 
 buildWorker:
-	docker build -t registry.heroku.com/vdtn359-news-worker/worker -f app/worker/Dockerfile --target prod .
+	docker build -t registry.heroku.com/vdtn359-news/worker -f app/worker/Dockerfile --target prod .
+
+buildWeb:
+	docker build -t registry.heroku.com/vdtn359-news/web -f app/web/Dockerfile --target prod .
 
 buildPacker:
 	export DIGITALOCEAN_TOKEN=$(shell secrethub read vdtn359/start/vdtn359-news/digitalocean-token); \
@@ -21,8 +24,8 @@ provisionDigitalOcean:
 	terraform init; \
 	terraform apply -auto-approve
 
-provisionWorker:
-	cd app/worker/terraform; \
+provisionHeroku:
+	cd infra/terraform/heroku; \
 	terraform init; \
 	terraform apply -auto-approve
 
@@ -38,7 +41,13 @@ pushCI: buildCI
 	docker push vdtn359/news-ci
 
 pushWorker: buildWorker
-	docker push registry.heroku.com/vdtn359-news-worker/worker
+	docker push registry.heroku.com/vdtn359-news/worker
+
+pushWeb: buildWeb
+	docker push registry.heroku.com/vdtn359-news/web
 
 releaseWorker:
-	heroku container:release worker
+	heroku container:release -a vdtn359-news worker
+
+releaseWeb:
+	heroku container:release -a vdtn359-news web

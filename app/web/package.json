@@ -8,7 +8,6 @@
         "dev": "LOCAL=1 next dev"
     },
     "dependencies": {
-        "@ampproject/toolbox-optimizer": "2.2.0",
         "@sendgrid/mail": "7.0.0",
         "@sentry/browser": "5.15.4",
         "@sentry/node": "5.15.4",
