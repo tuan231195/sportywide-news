@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Icon, Image, Input, Menu } from 'semantic-ui-react';
 import styled from 'styled-components';
 import {
@@ -11,12 +11,13 @@ import Router from 'next/router';
 import { toQueryString } from 'src/utils/filter';
 import { useSearch } from 'src/utils/hooks/search';
 import { SearchResults } from 'src/components/search/SearchResults';
-import { useContainer } from 'src/utils/container/context';
+import { useApp, useContainer } from 'src/utils/container/context';
 import { NewsService } from 'src/services/news.service';
 import {
     TrackingService,
     TrackingType,
 } from 'src/utils/tracking/tracking.service';
+import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
 
 const AppLogo = styled(Image)`
     &&&& {
@@ -69,7 +70,22 @@ export const NavBar: React.FC<Props> = function ({
     children,
 }) {
     const [searchQuery, setSearchQuery] = useState('');
-    const [isFocus, setFocus] = useState(false);
+    const [isFocus, setFocus] = useStateRef(false);
+    const app = useApp();
+    const navBarRef = useRef();
+    useEffectOnce(() => {
+        return app.onWindowClick((eventType, e: MouseEvent) => {
+            const navBar: HTMLElement = navBarRef.current;
+            const targetNode = e.target as HTMLElement;
+            if (navBar.contains(targetNode)) {
+                if (!isFocus()) {
+                    setFocus(true);
+                }
+            } else if (isFocus()) {
+                setFocus(false);
+            }
+        });
+    });
     const container = useContainer();
     const newsService = container.get(NewsService);
     const [{ results, loading }, setSearch] = useSearch(async (search) => {
@@ -105,11 +121,8 @@ export const NavBar: React.FC<Props> = function ({
                 </MenuItem>
             </VnBigScreen>
 
-            <SearchInputMenuItem
-                onFocus={() => setFocus(true)}
-                onBlur={() => setFocus(false)}
-            >
-                <SearchInputContainer>
+            <SearchInputMenuItem>
+                <SearchInputContainer ref={navBarRef}>
                     <SearchInput
                         loading={loading}
                         value={searchQuery}
@@ -128,7 +141,7 @@ export const NavBar: React.FC<Props> = function ({
                         }
                         placeholder="Search..."
                     />
-                    {!loading && isFocus && (
+                    {!loading && isFocus() && (
                         <SearchResults
                             query={searchQuery}
                             items={results}

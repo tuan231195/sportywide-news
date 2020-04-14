@@ -249,10 +249,4 @@ override.tf.json
 
 # End of https://www.gitignore.io/api/node,macos,intellij,terraform,visualstudiocode
 
-# Local Netlify folder
-.netlify
-/app/web/functions/
-/app/web/public/_next/
-/app/web/public/_redirects
-
 .now

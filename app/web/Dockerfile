@@ -32,6 +32,7 @@ WORKDIR /opt/app
 RUN mkdir -p /opt/app
 COPY --from=build /opt/app/web/produles/node_modules /opt/app/node_modules
 COPY --from=build /opt/app/web/.next /opt/app/.next
+COPY --from=build /opt/app/web/public /opt/app/public
 COPY --from=build /opt/app/web/package.json /opt/app/package.json
 ENV NODE_ENV production
 CMD ["npm", "start"]
