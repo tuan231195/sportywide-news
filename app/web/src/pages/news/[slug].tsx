@@ -6,6 +6,7 @@ import { redirect } from 'src/utils/navigation/redirect';
 import { NewsDetails } from 'src/components/news/NewsDetails';
 import Head from 'next/head';
 import { TrackingService } from 'src/utils/tracking/tracking.service';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     news: NewsDto;
@@ -46,6 +47,14 @@ export default class NewsPage extends React.Component<Props> {
                 <Head>
                     <title>{this.props.news.title}</title>
                 </Head>
+                <NextSeo
+                    title={this.props.news.title}
+                    description={this.props.news.description}
+                    openGraph={{
+                        title: this.props.news.title,
+                        description: this.props.news.description,
+                    }}
+                />
                 <NewsDetails
                     news={this.props.news}
                     similarNewsList={this.props.similarNewsList}

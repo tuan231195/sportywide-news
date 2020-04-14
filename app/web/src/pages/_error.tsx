@@ -7,6 +7,7 @@ import {
     ErrorHeader,
     ErrorStatusText,
 } from 'src/components/common/navigation/ErrorPage.styled';
+import { NextSeo } from 'next-seo';
 
 export default class ErrorPage extends React.Component<any, any> {
     static getInitialProps({ res, err }) {
@@ -19,6 +20,7 @@ export default class ErrorPage extends React.Component<any, any> {
                 <Head>
                     <title>Error</title>
                 </Head>
+                <NextSeo noindex={true} />
                 <div className={'vn-absolute-center'}>
                     <ErrorStatusText color={'red'}>
                         {this.props.statusCode}

@@ -6,6 +6,7 @@ import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
 import { str } from '@vdtn359/news-utils';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     news: NewsSearchDto[];
@@ -31,11 +32,16 @@ export default class CategoryPage extends React.Component<Props> {
         };
     }
     render() {
+        const displayedTitle = str.ucfirst(this.props.category);
         return (
             <>
                 <Head>
-                    <title>{str.ucfirst(this.props.category)}</title>
+                    <title>{displayedTitle}</title>
                 </Head>
+                <NextSeo
+                    title={displayedTitle}
+                    description={`News in ${displayedTitle}`}
+                />
                 <NewsStream
                     initialNewsList={this.props.news}
                     loadFunc={(newsList) => {

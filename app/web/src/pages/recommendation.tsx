@@ -4,6 +4,7 @@ import { ContainerInstance } from 'typedi';
 import { CardGroup } from 'semantic-ui-react';
 import Head from 'next/head';
 import { NewsCard } from 'src/components/news/NewsCard';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     news: NewsSearchDto[];
@@ -29,6 +30,7 @@ export default class RecommendationPage extends React.Component<Props> {
                 <Head>
                     <title>You may like</title>
                 </Head>
+                <NextSeo noindex={true} />
                 <CardGroup>
                     {this.props.news.map((news) => (
                         <NewsCard news={news} key={news.id} />

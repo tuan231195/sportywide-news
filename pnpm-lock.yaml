@@ -146,6 +146,7 @@ importers:
       morgan: 1.10.0
       next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
       next-pwa: 2.3.3_next@9.3.2
+      next-seo: 4.4.0_react-dom@16.13.1+react@16.13.1
       nprogress: 0.2.0
       path-to-regexp: 6.1.0
       react: 16.13.1
@@ -170,6 +171,7 @@ importers:
       '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/morgan': 1.9.0
+      '@types/next-seo': 1.10.0
       '@types/styled-components': 5.0.1
       '@types/yup': 0.26.35
       babel-plugin-add-react-displayname: 0.0.5
@@ -188,6 +190,7 @@ importers:
       '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/morgan': 1.9.0
+      '@types/next-seo': 1.10.0
       '@types/styled-components': 5.0.1
       '@types/yup': 0.26.35
       '@vdtn359/news-core': 'workspace:*'
@@ -219,6 +222,7 @@ importers:
       morgan: 1.10.0
       next: 9.3.2
       next-pwa: 2.3.3
+      next-seo: 4.4.0
       next-transpile-modules: 3.1.0
       nprogress: 0.2.0
       null-loader: 3.0.0
@@ -3162,6 +3166,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-warrzirh5dlTMaETytBTKR886pRXwr+SMZD87ZE13gLMR8Pzz69SiYFkvoDaii78qGP1iyBIUYz5GiXyryO//A==
+  /@types/next-seo/1.10.0:
+    dependencies:
+      '@types/react': 16.9.25
+    dev: true
+    resolution:
+      integrity: sha512-G/Q2EDAyXwo/+c6EbUxmKBawLTFL1g3Y96lZRlKujhy+rX7uWPQFNRmwCOxhK7jitzqlteLEU5Nd3xbW13kVPQ==
   /@types/node/10.17.18:
     dev: false
     optional: true
@@ -9885,6 +9895,17 @@ packages:
       webpack: '>=4.0.0'
     resolution:
       integrity: sha512-mIKRp0C1ta33Mbq8hmr5tzwa1xouYHH5JEEcpFzUkD5FbKGx6QKs1WIcG1uyzmOcvj9qd51Stw1kp4WuPR31Bg==
+  /next-seo/4.4.0_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: ^16.0.0
+      react-dom: ^16.0.0
+    resolution:
+      integrity: sha512-8ySgeXpntn4mdcyuDQo9A2ESes8hLZ/G+YwzIg5fLrK8CxqrAVCUoCxAO/BJZf1QgMddSDUDlKtlLJspJ89Jtg==
   /next-tick/1.0.0:
     dev: false
     resolution:

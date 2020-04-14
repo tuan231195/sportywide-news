@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { withRouter } from 'src/utils/hoc/with-router';
 import { str } from '@vdtn359/news-utils';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     news: NewsSearchDto[];
@@ -70,11 +71,16 @@ class SearchPage extends React.Component<Props, State> {
     }
 
     render() {
+        const displayedTags = str.ucfirst(this.props.tag);
         return (
             <Root>
                 <Head>
-                    <title>Tag {str.ucfirst(this.props.tag)}</title>
+                    <title>Tag {displayedTags}</title>
                 </Head>
+                <NextSeo
+                    title={displayedTags}
+                    description={`News with tags ${this.props.tag}`}
+                />
                 <Header as={'h3'}>
                     {this.props.total} document(s) matching tag &quot;
                     {str.ucfirst(this.props.tag)}&quot;

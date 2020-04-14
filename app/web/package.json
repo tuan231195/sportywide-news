@@ -37,6 +37,7 @@
         "morgan": "1.10.0",
         "next": "9.3.2",
         "next-pwa": "2.3.3",
+        "next-seo": "4.4.0",
         "nprogress": "0.2.0",
         "path-to-regexp": "6.1.0",
         "react": "16.13.1",

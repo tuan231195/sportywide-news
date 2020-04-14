@@ -18,6 +18,7 @@ import {
     TrackingService,
     TrackingType,
 } from 'src/utils/tracking/tracking.service';
+import { NextSeo } from 'next-seo';
 
 interface Props {
     news: NewsSearchDto[];
@@ -165,6 +166,7 @@ class SearchPage extends React.Component<Props, State> {
                             : 'Search'}
                     </title>
                 </Head>
+                <NextSeo noindex={true} />
                 <Header as={'h3'}>
                     {this.state.total} news(s)
                     {!!this.state.filter.search && (

@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import App from 'next/app';
+import { DefaultSeo } from 'next-seo';
 import { promises } from '@vdtn359/news-utils';
 import styled, { ThemeProvider } from 'styled-components';
 import { NewsCategories } from 'src/components/common/navigation/NewsCategories';
@@ -30,6 +31,7 @@ import { ScrollTopButton } from 'src/components/common/navigation/ScrollTopButto
 import { TagList } from 'src/components/tags/TagList';
 import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
+import { seoConfig } from 'src/utils/seo/config';
 
 const theme = {
     colors: {
@@ -165,6 +167,7 @@ class NewsApp extends App<any, any, any> {
                             <SideBarPushable categories={this.props.categories}>
                                 <NewsRoot>
                                     <NewsContainer>
+                                        <DefaultSeo {...seoConfig} />
                                         <NewsGrid centered={true}>
                                             <VnBigScreen>
                                                 <Grid.Column

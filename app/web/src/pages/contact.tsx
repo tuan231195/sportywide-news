@@ -6,6 +6,8 @@ import { contactSchema } from 'src/utils/validation/schema';
 import { EmailService } from 'src/services/email.service';
 import { ConfirmationMessage } from 'src/components/form/ConfirmationMessage';
 import { Trigger } from 'src/utils/events/trigger';
+import { NextSeo } from 'next-seo';
+import Head from 'next/head';
 
 export default class ContactPage extends React.Component<any> {
     static getInitialProps() {
@@ -21,6 +23,13 @@ export default class ContactPage extends React.Component<any> {
         return (
             <Segment>
                 <Header as={'h3'}>Contact us</Header>
+                <Head>
+                    <title>Contact us</title>
+                </Head>
+                <NextSeo
+                    title={'Contact us'}
+                    description={'Sending us questions'}
+                />
                 <Formik
                     initialValues={{
                         name: '',

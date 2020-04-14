@@ -7,6 +7,7 @@ import {
     ErrorHeader,
     ErrorStatusText,
 } from 'src/components/common/navigation/ErrorPage.styled';
+import { NextSeo } from 'next-seo';
 
 export default function NotFoundPage() {
     return (
@@ -14,6 +15,7 @@ export default function NotFoundPage() {
             <Head>
                 <title>Not Found</title>
             </Head>
+            <NextSeo noindex={true} />
             <div className={'vn-absolute-center'}>
                 <ErrorStatusText>404</ErrorStatusText>
                 <ErrorHeader>Page Not Found</ErrorHeader>
