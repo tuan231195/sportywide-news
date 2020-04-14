@@ -8,13 +8,9 @@ import { env } from '@vdtn359/news-utils';
 import config from 'config';
 import * as Sentry from '@sentry/node';
 import findup from 'find-up';
-import {
-	connectDBUsingConfig,
-	connectRedisUsingConfig,
-	DB,
-} from '@vdtn359/news-schema';
 import { logging } from '@vdtn359/news-core';
 import { Logger } from 'winston';
+
 const packageJson = require(findup.sync('package.json'));
 
 Sentry.init({
@@ -31,8 +27,6 @@ Sentry.init({
 
 export { Sentry };
 
-export const db: DB = connectDBUsingConfig(config);
-export const redis = connectRedisUsingConfig(config);
 export const logger: Logger = logging.createLogger(
 	'crawler',
 	config.get('logging.level'),

@@ -1,26 +1,36 @@
 import { NewsDto } from '@vdtn359/news-models';
-import { NEWS_STREAM, NewsDao } from '@vdtn359/news-schema';
+import { DB, NEWS_STREAM, NewsDao, Redis } from '@vdtn359/news-schema';
 import { process } from '@vdtn359/news-utils';
-import { db, redis } from 'src/setup';
 
-const newsDao = new NewsDao(db);
+export class NewsPersister {
+	private readonly newsDao: NewsDao;
 
-export async function saveNews(newsDtos: NewsDto[]) {
-	const batcher = process.batch(newsDtos, 10);
-	await batcher(async (dtos) => {
-		await saveDb(dtos);
-		await saveRedis(dtos);
-	});
-}
-
-async function saveDb(dtos: NewsDto[]) {
-	await newsDao.save(dtos);
-}
-
-async function saveRedis(dtos: NewsDto[]) {
-	const pipeline = redis.pipeline();
-	for (const newsDto of dtos) {
-		pipeline.xadd(NEWS_STREAM, '*', 'id', newsDto.id);
+	constructor(private readonly db: DB, private readonly redis: Redis) {
+		this.newsDao = new NewsDao(db);
 	}
-	await pipeline.exec();
+
+	async saveNews(newsDtos: NewsDto[]) {
+		const batcher = process.batch(newsDtos, 10);
+		await batcher(async (dtos) => {
+			await this.saveDb(dtos);
+			await this.saveRedis(dtos);
+		});
+	}
+
+	async cleanup() {
+		await this.redis.disconnect();
+		await this.db.terminate();
+	}
+
+	private async saveDb(dtos: NewsDto[]) {
+		await this.newsDao.save(dtos);
+	}
+
+	private async saveRedis(dtos: NewsDto[]) {
+		const pipeline = this.redis.pipeline();
+		for (const newsDto of dtos) {
+			pipeline.xadd(NEWS_STREAM, '*', 'id', newsDto.id);
+		}
+		await pipeline.exec();
+	}
 }

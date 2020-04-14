@@ -50,11 +50,6 @@ function build() {
 	buildApp();
 }
 
-function deploy() {
-	buildPackages();
-	deployApp();
-}
-
 function postInstall() {
 	sh(
 		'link-parent-bin > /dev/null && link-parent-bin --child-directory-root app > /dev/null'
@@ -70,6 +65,5 @@ cli({
 	watchPackages,
 	dev,
 	build,
-	deploy,
 	postInstall,
 });
