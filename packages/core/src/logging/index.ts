@@ -1,5 +1,6 @@
 import winston from 'winston';
 import LogzioWinstonTransport from 'winston-logzio';
+import { proxy } from '@vdtn359/news-utils';
 
 const { timestamp, errors, label, printf, splat, metadata } = winston.format;
 
@@ -64,6 +65,35 @@ export function createLogger(
 			})
 		);
 	}
+	const logWrapper = new LogWrapper(logger);
+	return proxy.wrap(logWrapper, logger);
+}
 
-	return logger;
+class LogWrapper {
+	constructor(private readonly logger: winston.Logger) {}
+
+	log(level: string, message: string, meta: any, ...args) {
+		if (typeof meta === 'string' || Array.isArray(meta)) {
+			meta = {
+				meta,
+			};
+		}
+		this.logger.log(level, message, meta, ...args);
+	}
+
+	trace(message: string, meta: any, ...args) {
+		this.log('trace', message, meta, ...args);
+	}
+
+	debug(message: string, meta: any, ...args) {
+		this.log('debug', message, meta, ...args);
+	}
+
+	info(message: string, meta: any, ...args) {
+		this.log('info', message, meta, ...args);
+	}
+
+	warn(message: string, meta: any, ...args) {
+		this.log('warn', message, meta, ...args);
+	}
 }
