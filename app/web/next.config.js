@@ -7,6 +7,7 @@ const withTM = require('next-transpile-modules')([
 	'@vdtn359/news-search',
 	'@vdtn359/news-core',
 ]);
+const withPWA = require('next-pwa');
 const packageJson = require('./package.json');
 process.env.SENTRY_RELEASE = packageJson.version;
 const withPlugins = require('next-compose-plugins');
@@ -118,6 +119,16 @@ const nextConfig = withPlugins([
 		},
 	],
 	[withTM],
+	[
+		withPWA,
+		{
+			pwa: {
+				dest: 'public',
+				sw: 'service-worker.js',
+				disable: process.env.NODE_ENV === 'development',
+			},
+		},
+	],
 ]);
 
 module.exports = nextConfig;

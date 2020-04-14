@@ -250,3 +250,7 @@ override.tf.json
 # End of https://www.gitignore.io/api/node,macos,intellij,terraform,visualstudiocode
 
 .now
+/app/web/public/service-worker.js
+/app/web/public/service-worker.js.map
+/app/web/public/workbox-*.js
+/app/web/public/workbox-*.js.map
