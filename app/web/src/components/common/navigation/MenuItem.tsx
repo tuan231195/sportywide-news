@@ -64,6 +64,9 @@ const MenuItemComponent: React.FC<Props> = function ({
             return false;
         }
         const currentPath = router.asPath;
+        if (!currentPath) {
+            currentPath = '/';
+        }
         return !!pathMatch(routeOptions.as || routeOptions.route)(currentPath);
     }
 };

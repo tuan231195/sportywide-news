@@ -83,6 +83,10 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 		},
 	});
 
+	if (!hits.length) {
+		return getHotNews(req, res);
+	}
+
 	const newsDtos = parseFields(hits);
 	return res.json(newsDtos);
 }

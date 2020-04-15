@@ -34,7 +34,7 @@ const NavbarMenu = styled(Menu)`
         position: fixed;
         width: 100%;
         display: flex;
-        z-index: 10;
+        z-index: 1000;
         height: ${(props) => props.theme.dimen.navBar};
 
         .active.item {
