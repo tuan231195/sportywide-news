@@ -56,7 +56,7 @@ jobs:
                   name: Build scheduler
                   command: cd app/scheduler && npm run package
             - run:
-                  name: Deploy crawler
+                  name: Deploy scheduler
                   command: make provisionScheduler
 workflows:
     version: 2

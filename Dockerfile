@@ -12,3 +12,6 @@ RUN npm install -g pnpm@4.12.1 @vdtn359/mono-install
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 RUN apk add --repository https://alpine.secrethub.io/alpine/edge/main --allow-untrusted secrethub-cli
 RUN mkdir -p ~/.terraform.d/plugins && curl -SfL https://github.com/secrethub/terraform-provider-secrethub/releases/latest/download/terraform-provider-secrethub-linux-amd64.tar.gz | tar zxf - -C ~/.terraform.d/plugins
+
+RUN apk add python3
+RUN ln -s /usr/bin/python3 /usr/bin/python
