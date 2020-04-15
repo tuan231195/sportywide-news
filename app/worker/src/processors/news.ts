@@ -35,7 +35,8 @@ async function getFullNews(itemIds: string[]) {
 		return [];
 	}
 	const newsModels = await newsDao.findByIds(itemIds);
-	return Promise.all(
+	const newsToSave = [];
+	const allNews = await Promise.all(
 		newsModels.map(async (news) => {
 			const body = await extractUrl(news.url);
 			if (!body) {
@@ -44,7 +45,7 @@ async function getFullNews(itemIds: string[]) {
 			if (!news.image && body) {
 				w.info(logger, `adding image for news ${news.url}`);
 				news.image = getThumbnailUrl(body);
-				await newsDao.saveOne(news);
+				newsToSave.push(news);
 			}
 			return {
 				...(body ? { body } : undefined),
@@ -52,6 +53,10 @@ async function getFullNews(itemIds: string[]) {
 			};
 		})
 	);
+	if (newsToSave.length) {
+		await newsDao.save(newsToSave);
+	}
+	return allNews;
 }
 
 async function esSync(newsList: any[] = []) {

@@ -5,6 +5,7 @@ import { Card, Header, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { size } from 'src/utils/device/size';
+import LazyLoad from 'react-lazyload';
 
 interface Props {
     newsList: NewsDto[];
@@ -96,11 +97,14 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
                     <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
                         <a className={'vn-raw-link'}>
                             <NewsCard>
-                                <Image
-                                    src={
-                                        news.image || '/images/placeholder.png'
-                                    }
-                                />
+                                <LazyLoad height={160} once>
+                                    <Image
+                                        src={
+                                            news.image ||
+                                            '/images/placeholder.png'
+                                        }
+                                    />
+                                </LazyLoad>
                                 <Card.Header>
                                     <Header as={'h5'}>{news.title}</Header>
                                 </Card.Header>

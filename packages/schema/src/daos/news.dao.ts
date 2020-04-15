@@ -25,7 +25,7 @@ export class NewsDao implements Dao<NewsDto> {
 			.where('pubDate', '<', subDays(new Date(), 7))
 			.get();
 
-		const chunks = chunk(Array.from(snapshots.docs), 100);
+		const chunks: any[] = chunk(Array.from(snapshots.docs), 100);
 		for (const chunk of chunks) {
 			const batch = this.db.batch();
 			for (const doc of chunk) {

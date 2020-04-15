@@ -151,6 +151,7 @@ importers:
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
       react-infinite-scroller: 1.2.4_react@16.13.1
+      react-lazyload: 2.6.7_react-dom@16.13.1+react@16.13.1
       react-responsive: 8.0.3_react@16.13.1
       react-slick: 0.25.2_react-dom@16.13.1+react@16.13.1
       react-star-rating-component: 1.4.1_react@16.13.1
@@ -227,6 +228,7 @@ importers:
       react: 16.13.1
       react-dom: 16.13.1
       react-infinite-scroller: 1.2.4
+      react-lazyload: 2.6.7
       react-responsive: 8.0.3
       react-slick: 0.25.2
       react-star-rating-component: 1.4.1
@@ -11629,6 +11631,16 @@ packages:
   /react-is/16.8.6:
     resolution:
       integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+  /react-lazyload/2.6.7_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-IauJMTOuO73egkBQ/brm0uVMMyxo/2LWCnnzjh7FlvxRMy4P1D5ZjZX9UBMCKRJUqJD441uT+n0hEXlfcjcm8g==
   /react-popper/1.3.7_react@16.13.1:
     dependencies:
       '@babel/runtime': 7.9.2

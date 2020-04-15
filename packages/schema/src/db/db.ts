@@ -71,7 +71,7 @@ export class DBWrapper {
 			for (const doc of snapshot.docs) {
 				subject.next(doc.data());
 			}
-			const lastDocument = last(snapshot.docs);
+			const lastDocument: any = last(snapshot.docs);
 
 			current = this.firestore
 				.collection(collection)

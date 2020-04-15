@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useURL } from 'src/utils/hooks/basic';
 import { NewsEditRating } from 'src/components/news/NewsRating';
 import { RatingTag } from 'src/components/tags/RatingTag';
+import LazyLoad from 'react-lazyload';
 
 interface Props {
     news: NewsDto;
@@ -31,11 +32,13 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
     return (
         <Card raised={true} fluid={true} centered={true}>
             <Card.Content>
-                <NewsImage
-                    size={'huge'}
-                    src={news.image || '/images/placeholder.png'}
-                    className={'vn-mb3'}
-                />
+                <LazyLoad height={400} once>
+                    <NewsImage
+                        size={'huge'}
+                        src={news.image || '/images/placeholder.png'}
+                        className={'vn-mb3'}
+                    />
+                </LazyLoad>
                 <Card.Header className={'vn-mb1'}>
                     <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
                         <a>{news.title}</a>

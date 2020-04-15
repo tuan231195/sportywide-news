@@ -8,9 +8,9 @@ async function run() {
 	const stream = await db.stream(NEWS_COLLECTION);
 	return stream
 		.pipe(
-			map((row) => row.id),
+			map((row: any) => row.id),
 			bufferTime(100, null, 20),
-			concatMap(async (ids) => {
+			concatMap(async (ids: string[]) => {
 				const pipeline = redis.pipeline();
 				for (const id of ids) {
 					pipeline.xadd(NEWS_STREAM, '*', 'id', id);
