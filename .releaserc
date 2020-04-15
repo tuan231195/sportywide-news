@@ -19,7 +19,7 @@
     }
     ],
     ["@semantic-release/exec", {
-      "publishCmd": "test `cat package.json | jq '.private == true'` != 'true' && pnpm publish"
+      "publishCmd": "test `cat package.json | jq '.private == true'` != 'true' && pnpm publish || true"
     }]
   ]
 }
