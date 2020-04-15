@@ -30,14 +30,10 @@ provisionHeroku:
 	terraform apply -auto-approve
 
 provisionCrawler:
-	cd app/crawler/terraform; \
-	terraform init; \
-	terraform apply -auto-approve
+	cd app/crawler && ./deploy.sh
 
 provisionScheduler:
-	cd app/scheduler/terraform; \
-	terraform init; \
-	terraform apply -auto-approve
+	cd app/scheduler && ./deploy.sh
 
 playbook:
 	cd infra/ansible && ansible-playbook -v main.yml $(ansible_opts)

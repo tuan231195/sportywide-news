@@ -25,6 +25,9 @@ module "lambda" {
     memory_size = 1024
     layers = [aws_lambda_layer_version.lambda_layer.arn]
     source_path = "${path.module}/../dist"
+    tags = {
+        version = jsondecode(file("${path.module}/../package.json")).version
+    }
     environment = {
         variables = {
             NODE_ENV = "production"
