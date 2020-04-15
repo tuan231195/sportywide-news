@@ -207,11 +207,11 @@ importers:
       '@types/morgan': 1.9.0
       '@types/styled-components': 5.0.1
       '@types/yup': 0.26.35
-      '@vdtn359/news-core': 0.0.0
-      '@vdtn359/news-models': 0.0.0
-      '@vdtn359/news-search': 0.0.0
-      '@vdtn359/news-styles': 0.0.0
-      '@vdtn359/news-utils': 0.0.0
+      '@vdtn359/news-core': 'workspace:*'
+      '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-search': 'workspace:*'
+      '@vdtn359/news-styles': 'workspace:*'
+      '@vdtn359/news-utils': 'workspace:*'
       '@vdtn359/next-connect': 1.0.0
       axios: 0.19.2
       babel-plugin-add-react-displayname: 0.0.5

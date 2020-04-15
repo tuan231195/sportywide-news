@@ -1,7 +1,7 @@
 {
     "name": "@vdtn359/news-utils",
     "version": "1.0.0",
-    "description": "news util",
+    "description": "news utils",
     "type": "dist/index.d.ts",
     "main": "dist/index.js",
     "files": [

@@ -7,6 +7,7 @@
     "author": "Tuan Nguyen <vdtn359@gmail.com>",
     "scripts": {
         "cli": "node ./taskfile.js",
+        "prepare": "pnpm run cli -- buildPackages",
         "postinstall": "pnpm run cli -- postInstall"
     },
     "husky": {
