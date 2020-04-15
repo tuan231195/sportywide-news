@@ -3,7 +3,6 @@ locals {
 }
 
 provider "secrethub" {
-  credential = file("~/.secrethub/credential")
 }
 
 data "secrethub_secret" "sentry_dsn" {
