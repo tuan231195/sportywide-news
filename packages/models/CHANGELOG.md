@@ -1,3 +1,10 @@
+# [@vdtn359/news-models-v1.0.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-models-v1.0.0...@vdtn359/news-models-v1.0.1) (2020-04-15)
+
+
+### Bug Fixes
+
+* **ci:** fixed packages missing dist folder ([1f5f0a7](https://github.com/vdtn359/vdtn359-news/commit/1f5f0a7521298540e02db0e41c860c4be028a5f3))
+
 # @vdtn359/news-models-v1.0.0 (2020-04-15)
 
 
