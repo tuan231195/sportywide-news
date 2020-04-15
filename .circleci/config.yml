@@ -58,6 +58,25 @@ jobs:
             - run:
                   name: Deploy scheduler
                   command: make provisionScheduler
+    deploy_worker:
+        working_directory: ~/app
+        machine: true
+        steps:
+            - checkout
+            - run:
+                  name: Deploy worker
+                  command: |
+                      make pushWorker releaseWorker
+    deploy_web:
+        working_directory: ~/app
+        machine: true
+        steps:
+            - checkout
+            - run:
+                  name: Deploy web
+                  command: |
+                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
+                      make pushWeb releaseWeb
 workflows:
     version: 2
     build_and_test:
@@ -70,3 +89,17 @@ workflows:
             - deploy_aws:
                   requires:
                       - hold_aws
+            - hold_worker:
+                  type: approval
+                  requires:
+                      - build_and_test
+            - deploy_worker:
+                  requires:
+                      - hold_worker
+            - hold_web:
+                  type: approval
+                  requires:
+                      - build_and_test
+            - deploy_web:
+                  requires:
+                      - hold_web
