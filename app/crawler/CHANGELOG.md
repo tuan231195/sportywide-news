@@ -1,3 +1,10 @@
+# [@vdtn359/news-crawler-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.0.1...@vdtn359/news-crawler-v1.1.0) (2020-04-15)
+
+
+### Features
+
+* **ci:** refactor lambda deployment ([252cd8b](https://github.com/vdtn359/vdtn359-news/commit/252cd8bcea2458ddfc82c230098dbf1d68254dd6))
+
 # [@vdtn359/news-crawler-v1.0.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.0.0...@vdtn359/news-crawler-v1.0.1) (2020-04-15)
 
 
