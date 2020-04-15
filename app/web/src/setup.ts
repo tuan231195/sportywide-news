@@ -83,4 +83,5 @@ export const redis = new IORedis({
 	host: config.redis.host,
 	port: config.redis.port,
 	password: config.redis.password,
+	lazyConnect: true,
 });

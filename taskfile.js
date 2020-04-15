@@ -15,6 +15,12 @@ function watchPackages() {
 	);
 }
 
+function postInstall() {
+	sh(
+		'link-parent-bin > /dev/null && link-parent-bin --child-directory-root app > /dev/null'
+	);
+}
+
 function buildPackages() {
 	return sh('pnpm recursive --sort --filter ./packages run build', {
 		async: true,
@@ -50,4 +56,5 @@ cli({
 	watchPackages,
 	dev,
 	build,
+	postInstall,
 });
