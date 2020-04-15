@@ -4,7 +4,7 @@
     "private": true,
     "description": "news web",
     "scripts": {
-        "build": "rm -rf .next && next build",
+        "build": "next build",
         "dev": "LOCAL=1 next dev",
         "start": "next start -p $PORT"
     },
