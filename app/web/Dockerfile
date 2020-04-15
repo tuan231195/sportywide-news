@@ -7,19 +7,23 @@ COPY *.yaml /opt/
 COPY ./packages/core/package.json /opt/packages/core/package.json
 COPY ./packages/styles/package.json /opt/packages/styles/package.json
 COPY ./packages/search/package.json /opt/packages/search/package.json
-COPY ./packages/sources/package.json /opt/packages/sources/package.json
-COPY ./packages/schema/package.json /opt/packages/schema/package.json
 COPY ./packages/utils/package.json /opt/packages/utils/package.json
 COPY ./packages/models/package.json /opt/packages/models/package.json
 COPY ./app/web/package.json /opt/app/web/package.json
 
 WORKDIR /opt
-RUN pnpm recursive install
-COPY *.json /opt/
-COPY ./packages /opt/packages
+RUN npm set verify-store-integrity false
+RUN pnpm recursive install --no-optional
 
 WORKDIR /opt/app/web
-RUN rm -rf ~/.pnpm-store
+RUN pnpm store prune
+COPY *.json /opt/
+COPY ./packages/*.json /opt/packages/
+COPY ./packages/core /opt/packages/core
+COPY ./packages/styles /opt/packages/styles
+COPY ./packages/search /opt/packages/search
+COPY ./packages/utils /opt/packages/utils
+COPY ./packages/models /opt/packages/models
 RUN cd /opt && pnpm run cli -- buildPackages
 RUN mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml -- --unsafe-perm --prod
 

@@ -16,7 +16,7 @@ function watchPackages() {
 }
 
 function buildPackages() {
-	return sh('ttsc -b packages', {
+	return sh('pnpm recursive --sort --filter ./packages run build', {
 		async: true,
 	});
 }
@@ -35,12 +35,6 @@ function buildApp() {
 	});
 }
 
-function deployApp() {
-	return sh('pnpm recursive run deploy', {
-		nopipe: true,
-	});
-}
-
 function dev() {
 	return Promise.all([watchPackages(), startAppDevs()]);
 }
@@ -50,20 +44,10 @@ function build() {
 	buildApp();
 }
 
-function postInstall() {
-	sh(
-		'link-parent-bin > /dev/null && link-parent-bin --child-directory-root app > /dev/null'
-	);
-	sh('pnpm recursive exec -- npx --no-install sort-package-json', {
-		async: true,
-	});
-}
-
 cli({
 	buildPackagesDev,
 	buildPackages,
 	watchPackages,
 	dev,
 	build,
-	postInstall,
 });

@@ -13,12 +13,13 @@ COPY ./packages/sources/package.json /opt/packages/sources/package.json
 COPY ./app/worker/package.json /opt/app/worker/package.json
 
 WORKDIR /opt
-RUN pnpm recursive install
+RUN npm set verify-store-integrity false
+RUN pnpm recursive install --no-optional
 COPY *.json /opt/
 COPY ./packages /opt/packages
 
 WORKDIR /opt/app/worker
-RUN rm -rf ~/.pnpm-store
+RUN pnpm store prune
 RUN cd /opt && pnpm run cli -- buildPackages
 RUN mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml -- --unsafe-perm --prod
 

@@ -7,6 +7,9 @@
     "files": [
         "dist"
     ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
     "dependencies": {
         "@elastic/elasticsearch": "7.6.1",
         "@vdtn359/news-models": "workspace:*",

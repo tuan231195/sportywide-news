@@ -7,6 +7,9 @@
     "files": [
         "dist"
     ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*"
     }

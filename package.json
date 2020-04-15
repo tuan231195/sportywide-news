@@ -6,8 +6,7 @@
     "license": "ISC",
     "author": "Tuan Nguyen <vdtn359@gmail.com>",
     "scripts": {
-        "cli": "node ./taskfile.js",
-        "postinstall": "pnpm run cli -- postInstall"
+        "cli": "node ./taskfile.js"
     },
     "husky": {
         "hooks": {
@@ -30,16 +29,25 @@
         }
     },
     "devDependencies": {
-        "@commitlint/cli": "8.3.5",
-        "@commitlint/config-conventional": "8.3.4",
         "@types/cheerio": "^0.22.17",
         "@types/jest": "25.1.4",
         "@types/lodash": "^4.14.149",
         "@types/node": "^13.9.2",
         "@types/react": "^16.9.25",
+        "@zerollup/ts-transform-paths": "1.7.12",
+        "next-compose-plugins": "^2.2.0",
+        "tasksfile": "~5.1.0",
+        "ts-jest": "25.2.1",
+        "ts-transpile": "~1.2.4",
+        "tsconfig-paths": "3.9.0",
+        "ttypescript": "1.5.10",
+        "typescript": "3.8.3"
+    },
+    "optionalDependencies": {
+        "@commitlint/cli": "8.3.5",
+        "@commitlint/config-conventional": "8.3.4",
         "@typescript-eslint/eslint-plugin": "2.24.0",
         "@typescript-eslint/parser": "2.24.0",
-        "@zerollup/ts-transform-paths": "1.7.12",
         "chokidar-cli": "^2.1.0",
         "commitizen": "4.0.3",
         "cz-conventional-changelog": "3.1.0",
@@ -49,16 +57,7 @@
         "eslint-plugin-react": "7.19.0",
         "husky": "4.2.3",
         "jest": "25.1.0",
-        "link-parent-bin": "1.0.2",
         "lint-staged": "10.0.8",
-        "next-compose-plugins": "^2.2.0",
-        "prettier": "2.0.2",
-        "sort-package-json": "1.41.0",
-        "tasksfile": "~5.1.0",
-        "ts-jest": "25.2.1",
-        "ts-transpile": "~1.2.4",
-        "tsconfig-paths": "3.9.0",
-        "ttypescript": "1.5.10",
-        "typescript": "3.8.3"
+        "prettier": "2.0.2"
     }
 }
