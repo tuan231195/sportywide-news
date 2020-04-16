@@ -12,6 +12,7 @@ importers:
       '@types/lodash': 4.14.149
       '@types/node': 13.11.1
       '@types/react': 16.9.34
+      '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0_semantic-release@17.0.4
       '@zerollup/ts-transform-paths': 1.7.12_typescript@3.8.3
       next-compose-plugins: 2.2.0
@@ -55,6 +56,7 @@ importers:
       '@types/react': ^16.9.25
       '@typescript-eslint/eslint-plugin': 2.24.0
       '@typescript-eslint/parser': 2.24.0
+      '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0
       '@zerollup/ts-transform-paths': 1.7.12
       chokidar-cli: ^2.1.0
@@ -193,7 +195,6 @@ importers:
       babel-plugin-styled-components: 1.10.7_styled-components@5.0.1
       babel-plugin-transform-typescript-metadata: 0.3.0
       dotenv: 8.2.0
-      next-transpile-modules: 3.1.0
       null-loader: 3.0.0
       sass: 1.26.3
     specifiers:
@@ -237,7 +238,6 @@ importers:
       next: 9.3.2
       next-pwa: 2.3.3
       next-seo: 4.4.0
-      next-transpile-modules: 3.1.0
       nprogress: 0.2.0
       null-loader: 3.0.0
       path-to-regexp: 6.1.0
@@ -10751,13 +10751,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /next-transpile-modules/3.1.0:
-    dependencies:
-      micromatch: 4.0.2
-      slash: 3.0.0
-    dev: true
-    resolution:
-      integrity: sha512-3XKIeAyvVcrVHYmXpPcTIFgO7kVagbcMr+BFYe08CwlRgDS3VsPcfyq5shDv6L+72yoE+2Cbcxg4QT1jtE0P1A==
   /next/9.3.2_15ab9b97b1acc8923e06e722bb218d5c:
     dependencies:
       '@ampproject/toolbox-optimizer': 2.0.1_lru-cache@5.1.1

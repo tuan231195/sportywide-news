@@ -1,7 +1,7 @@
 import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY } from '@vdtn359/news-models';
 import Cheerio from 'cheerio';
-import { getCleanedHTML } from 'src/news/utils';
+import { getCleanedHTML, resolveLazyLoadedImage } from 'src/news/utils';
 import { axios } from './utils';
 
 export class CnetNews extends DefaultNews {
@@ -18,7 +18,7 @@ export class CnetNews extends DefaultNews {
 	static async extractUrl(url: string) {
 		const newsPage = await axios(url).then(({ data }) => data);
 		const $ = Cheerio.load(newsPage);
-		const storyBody = $('#article-body');
+		let storyBody = $('#article-body');
 		storyBody.find('figure > a > svg').parent().remove();
 		const toRemove = [
 			'[data-video-playlist]',
@@ -30,6 +30,7 @@ export class CnetNews extends DefaultNews {
 		toRemove.forEach((section) => {
 			storyBody.find(section).remove();
 		});
+		storyBody = resolveLazyLoadedImage($, storyBody);
 		const storyContent = Cheerio.html(storyBody);
 		return getCleanedHTML(storyContent);
 	}

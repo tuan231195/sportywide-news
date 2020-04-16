@@ -2,6 +2,7 @@ import { Inject, Service } from 'typedi';
 import axios, { AxiosInstance } from 'axios';
 import querystring from 'querystring';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { captureException } from 'src/utils/exception/capture';
 
 @Service()
 export class ApiService {
@@ -44,21 +45,10 @@ export class ApiService {
 				this.apiCallSubscription.next(
 					this.apiCallSubscription.getValue() - 1
 				);
-				if (typeof window !== 'undefined') {
-					throw error;
-				} else {
-					import('src/setup').then(({ logger }) => {
-						if (error.response) {
-							logger.error(
-								`Request with url ${error.request.path} failed with error ${error.response.status}`,
-								error.response?.data
-							);
-						} else {
-							logger.error(error);
-						}
-					});
-					throw new Error('API error');
-				}
+				captureException({
+					error,
+				});
+				throw error;
 			}
 		);
 	}

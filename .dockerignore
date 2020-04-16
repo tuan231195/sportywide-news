@@ -2,10 +2,8 @@
 **/.DS_Store
 **/node_modules
 **/coverage
-**/dist
 **/logs
 **/.idea
 **/Dockerfile
 **/.terraform
 **/Dockerfile
-**/.next

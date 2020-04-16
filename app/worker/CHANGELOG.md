@@ -1,3 +1,39 @@
+# [@vdtn359/news-worker-v1.0.6](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.5...@vdtn359/news-worker-v1.0.6) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** install optional dependencies ([4fb28ba](https://github.com/vdtn359/vdtn359-news/commit/4fb28baee7bb4b4fdf3a877ad025f6e36e6c7ac4))
+
+# [@vdtn359/news-worker-v1.0.5](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.4...@vdtn359/news-worker-v1.0.5) (2020-04-16)
+
+
+### Bug Fixes
+
+* **config:** ensure repo is up to date ([58f08e8](https://github.com/vdtn359/vdtn359-news/commit/58f08e8059accb008ed61b17533ff6b8baa70bb2))
+
+# [@vdtn359/news-worker-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.3...@vdtn359/news-worker-v1.0.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **docker:** fixed docker build for worker ([7a28434](https://github.com/vdtn359/vdtn359-news/commit/7a28434634ae20dd83c3450db7860ecd323ca583))
+
+# [@vdtn359/news-worker-v1.0.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.2...@vdtn359/news-worker-v1.0.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** consolidate build process ([3e12898](https://github.com/vdtn359/vdtn359-news/commit/3e128986aec63d4e1d5153e18a8e2e1ba1105e76))
+
+# [@vdtn359/news-worker-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.1...@vdtn359/news-worker-v1.0.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** improve ci build ([3a48aa2](https://github.com/vdtn359/vdtn359-news/commit/3a48aa27e7cbab824ca424120093ceaed7efe898))
+* **news:** fixed lazy loaded images ([9e80882](https://github.com/vdtn359/vdtn359-news/commit/9e80882eb8652aea457fc55404abe83bfa74f772))
+
 # [@vdtn359/news-worker-v1.0.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.0...@vdtn359/news-worker-v1.0.1) (2020-04-15)
 
 

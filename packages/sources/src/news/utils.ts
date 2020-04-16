@@ -28,6 +28,17 @@ export function getParsedXml(axios: AxiosInstance, url) {
 	});
 }
 
+export function resolveLazyLoadedImage($: CheerioStatic, source: Cheerio) {
+	source.find('img').each((index, element) => {
+		const dataSource = $(element).data('src');
+		const currentSource = $(element).attr('src');
+		if (dataSource && !currentSource) {
+			$(element).attr('src', $(element).data('src'));
+		}
+	});
+	return source;
+}
+
 export function getCleanedHTML(source) {
 	return DOMPurify.sanitize(source, {
 		ALLOW_DATA_ATTR: false,

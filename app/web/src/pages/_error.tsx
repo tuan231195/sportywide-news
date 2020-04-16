@@ -8,9 +8,11 @@ import {
     ErrorStatusText,
 } from 'src/components/common/navigation/ErrorPage.styled';
 import { NextSeo } from 'next-seo';
+import { captureException } from 'src/utils/exception/capture';
 
 export default class ErrorPage extends React.Component<any, any> {
     static getInitialProps({ res, err }) {
+        captureException({ error: err });
         const statusCode = res ? res.statusCode : err ? err.statusCode : 500;
         return { statusCode: statusCode || 500 };
     }

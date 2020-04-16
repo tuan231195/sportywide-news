@@ -6,7 +6,7 @@ import { Spinner } from 'src/components/common/loading/Spinner';
 import styled from 'styled-components';
 import { NewsSearchDto } from 'src/services/news.service';
 
-const CardGroup = styled(Card.Group)`
+const CardGroup = styled((props) => <Card.Group {...props} />)`
     &&&& {
         margin: 0;
     }

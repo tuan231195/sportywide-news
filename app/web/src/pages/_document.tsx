@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import { captureException } from 'src/utils/exception/capture';
 
 interface Props {
     styleTags: string;
@@ -18,12 +19,7 @@ export default class NewsDocument extends Document<Props> {
                 sheet.collectStyles(<App {...props} />)
             );
         } catch (e) {
-            if (typeof window === 'undefined') {
-                import('src/setup').then(({ logger, Sentry }) => {
-                    logger.error(`Page ${ctx.pathname} rendering error: `, e);
-                    Sentry.captureException(e);
-                });
-            }
+            captureException({ error: e });
             throw e;
         }
 
@@ -82,12 +78,8 @@ export default class NewsDocument extends Document<Props> {
                     <link rel="manifest" href="/manifest.json" />
                     {this.props.styleTags}
                     <link
-                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
-                        rel="stylesheet"
-                    />
-                    <link
                         href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap"
-                        rel="stylesheet"
+                        rel="preconnect"
                     />
                 </Head>
                 <body>

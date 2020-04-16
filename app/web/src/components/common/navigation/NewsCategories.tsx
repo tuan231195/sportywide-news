@@ -36,7 +36,7 @@ const CategoryItem = styled(MenuItem)`
     &&&&&& {
         padding-top: 10px;
         padding-bottom: 10px;
-        margin-bottom: -1px;
+        margin-bottom: -2px;
         min-height: 50px;
         display: flex;
         align-items: center;

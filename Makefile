@@ -9,12 +9,6 @@ endif
 buildCI:
 	docker build -t vdtn359/news-ci .
 
-buildWorker:
-	docker build -t registry.heroku.com/vdtn359-news/worker -f app/worker/Dockerfile --target prod .
-
-buildWeb:
-	docker build -t registry.heroku.com/vdtn359-news/web -f app/web/Dockerfile --target prod .
-
 buildPacker:
 	export DIGITALOCEAN_TOKEN=$(shell secrethub read vdtn359/start/vdtn359-news/digitalocean-token); \
 	cd infra/packer && packer build vdtn359.json
@@ -41,11 +35,11 @@ playbook:
 pushCI: buildCI
 	docker push vdtn359/news-ci
 
-pushWorker: buildWorker
-	docker push registry.heroku.com/vdtn359-news/worker
+buildWorker:
+	cd app/worker && ./deploy.sh
 
-pushWeb: buildWeb
-	docker push registry.heroku.com/vdtn359-news/web
+buildWeb:
+	cd app/web && ./deploy.sh
 
 releaseWorker:
 	heroku container:release -a vdtn359-news worker

@@ -1,3 +1,11 @@
+# [@vdtn359/news-crawler-v1.1.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.0...@vdtn359/news-crawler-v1.1.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** improve ci build ([3a48aa2](https://github.com/vdtn359/vdtn359-news/commit/3a48aa27e7cbab824ca424120093ceaed7efe898))
+* **news:** fixed lazy loaded images ([9e80882](https://github.com/vdtn359/vdtn359-news/commit/9e80882eb8652aea457fc55404abe83bfa74f772))
+
 # [@vdtn359/news-crawler-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.0.1...@vdtn359/news-crawler-v1.1.0) (2020-04-15)
 
 

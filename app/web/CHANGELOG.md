@@ -1,3 +1,38 @@
+# [@vdtn359/news-web-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.4...@vdtn359/news-web-v1.1.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** improve error logging ([1e2ce6d](https://github.com/vdtn359/vdtn359-news/commit/1e2ce6de683f354949dd9c455c5a8234be28f453))
+
+
+### Features
+
+* **web:** gzipped compression. load script asynchronously ([92cdf0c](https://github.com/vdtn359/vdtn359-news/commit/92cdf0ce7131c16c5b3483b0e05e3477e6fffcb7))
+
+# [@vdtn359/news-web-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.3...@vdtn359/news-web-v1.0.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** install optional dependencies ([4fb28ba](https://github.com/vdtn359/vdtn359-news/commit/4fb28baee7bb4b4fdf3a877ad025f6e36e6c7ac4))
+* **search:** increase search debounce time ([43cfca8](https://github.com/vdtn359/vdtn359-news/commit/43cfca874418620ecceeb64320c8584044cf8cfc))
+
+# [@vdtn359/news-web-v1.0.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.2...@vdtn359/news-web-v1.0.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** consolidate build process ([3e12898](https://github.com/vdtn359/vdtn359-news/commit/3e128986aec63d4e1d5153e18a8e2e1ba1105e76))
+
+# [@vdtn359/news-web-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.1...@vdtn359/news-web-v1.0.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** improve ci build ([3a48aa2](https://github.com/vdtn359/vdtn359-news/commit/3a48aa27e7cbab824ca424120093ceaed7efe898))
+* **web:** optimize web build ([90944d5](https://github.com/vdtn359/vdtn359-news/commit/90944d50d79f00daad8c92716258ef888eebec59))
+
 # [@vdtn359/news-web-v1.0.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.0...@vdtn359/news-web-v1.0.1) (2020-04-15)
 
 

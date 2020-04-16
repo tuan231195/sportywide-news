@@ -1,10 +1,11 @@
 {
     "name": "@vdtn359/news-worker",
-    "version": "1.0.1",
+    "version": "1.0.6",
     "private": true,
-    "description": "news worker",
+    "description": "News worker",
     "scripts": {
-        "build": "ttsc -P tsconfig.build.json",
+        "build:dependencies": "cd ../.. && npm run cli -- buildPackages",
+        "build": "npm run build:dependencies && ttsc -P tsconfig.build.json",
         "dev": "run-p dev:*",
         "dev:news": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-worker.ts",
         "dev:stats": "ts-node -C ttypescript -T -P tsconfig.dev.json --require tsconfig-paths/register src/news-stats-worker.ts",

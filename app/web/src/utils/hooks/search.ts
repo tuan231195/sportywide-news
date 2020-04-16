@@ -11,7 +11,7 @@ export function useSearch(processor: (str: string) => any): any {
 		subject.current
 			.pipe(
 				distinctUntilChanged(),
-				debounceTime(150),
+				debounceTime(700),
 				switchMap(async (search) => {
 					if (search.length < 3) {
 						return null;

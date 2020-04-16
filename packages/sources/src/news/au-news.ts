@@ -1,6 +1,6 @@
 import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY } from '@vdtn359/news-models';
-import { axios } from './utils';
+import { axios, resolveLazyLoadedImage } from './utils';
 import Cheerio from 'cheerio';
 import { getCleanedHTML } from 'src/news/utils';
 import { arr } from '@vdtn359/news-utils';
@@ -16,11 +16,12 @@ export class AuNews extends DefaultNews {
 		const newsPage = await axios(url).then(({ data }) => data);
 		const $ = Cheerio.load(newsPage);
 		const contentSelectors = ['.story-content', '.story-body'];
-		const article = arr.findMap(
+		let article = arr.findMap(
 			contentSelectors,
 			(selector) => $(selector),
 			(element) => !!element?.length
 		);
+		article = resolveLazyLoadedImage($, article);
 		const storyContent = Cheerio.html(article);
 		return getCleanedHTML(storyContent);
 	}
