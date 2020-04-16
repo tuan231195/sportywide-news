@@ -32,6 +32,7 @@ import { TagList } from 'src/components/tags/TagList';
 import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
 import { seoConfig } from 'src/utils/seo/config';
+import { loadStyle } from 'src/utils/scripts/load';
 
 const theme = {
     colors: {
@@ -102,6 +103,9 @@ class NewsApp extends App<any, any, any> {
         this.setState({
             deviceWidth: 0,
         });
+        loadStyle(
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'
+        );
         Router.events.on('routeChangeComplete', () => {
             window.scrollTo(0, 0);
         });

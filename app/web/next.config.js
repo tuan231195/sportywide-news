@@ -20,6 +20,7 @@ const nextConfig = withPlugins([
 					// number of pages that should be kept simultaneously without being disposed
 					pagesBufferLength: 10,
 				},
+				compress: true,
 				typescript: {
 					ignoreDevErrors: true,
 					ignoreBuildErrors: true,
