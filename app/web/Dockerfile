@@ -3,7 +3,7 @@ FROM vdtn359/news-ci AS build
 WORKDIR /opt/app
 ADD . /opt/app
 RUN npm set verify-store-integrity false
-RUN cd /opt/app/produles && pnpm recursive install --no-optional --prod --frozen-lockfile=false
+RUN cd /opt/app/produles && pnpm recursive install --prod --frozen-lockfile=false
 
 FROM node:12-alpine AS prod
 
