@@ -1,3 +1,10 @@
+# [@vdtn359/news-crawler-v1.1.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.1...@vdtn359/news-crawler-v1.1.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **crawler:** improve cron exprsesion ([ad8f750](https://github.com/vdtn359/vdtn359-news/commit/ad8f7503ce17a77a8b5586f187b3184c954be02c))
+
 # [@vdtn359/news-crawler-v1.1.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.0...@vdtn359/news-crawler-v1.1.1) (2020-04-16)
 
 
