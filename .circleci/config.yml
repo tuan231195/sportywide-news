@@ -60,10 +60,17 @@ jobs:
                   key: next-cache
             - run:
                   name: Build web
-                  command: cd app/web && npm run build
+                  command: |
+                      cd app/web
+                      npm run build
+                      npx mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml --resolve --dry-run
+
             - run:
                   name: Build worker
-                  command: cd app/worker && npm run build
+                  command: |
+                      cd app/worker
+                      npm run build
+                      npx mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml --resolve --dry-run
             - persist_to_workspace:
                   root: ~/app
                   paths:
