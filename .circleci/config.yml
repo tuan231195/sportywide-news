@@ -79,6 +79,7 @@ jobs:
                   paths:
                       - app/web/produles
                       - app/web/.next
+                      - app/web/public
                       - app/worker/produles
                       - app/worker/dist
     deploy_containers:

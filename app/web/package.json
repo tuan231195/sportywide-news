@@ -2,7 +2,7 @@
     "name": "@vdtn359/news-web",
     "version": "1.3.1",
     "private": true,
-    "description": "news web",
+    "description": "news web application",
     "scripts": {
         "build:dependencies": "cd ../.. && npm run cli -- buildPackages",
         "build": "npm run build:dependencies && next build",
