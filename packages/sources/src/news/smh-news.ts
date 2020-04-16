@@ -1,6 +1,6 @@
 import { DefaultNews } from 'src/news/default-news';
 import { CATEGORY } from '@vdtn359/news-models';
-import { axios, getCleanedHTML } from 'src/news/utils';
+import { axios, getCleanedHTML, resolveLazyLoadedImage } from 'src/news/utils';
 import Cheerio from 'cheerio';
 import { arr } from '@vdtn359/news-utils';
 
@@ -19,7 +19,7 @@ export class SmhNews extends DefaultNews {
 			'#content > div > article > section > div',
 			'#content > div > article',
 		];
-		const articleBody = arr.findMap(
+		let articleBody = arr.findMap(
 			contentSelectors,
 			(selector) => $(selector),
 			(element) => !!element?.length
@@ -31,6 +31,7 @@ export class SmhNews extends DefaultNews {
 		toRemove.forEach((section) => {
 			articleBody.find(section).remove();
 		});
+		articleBody = resolveLazyLoadedImage($, articleBody);
 		const storyContent = Cheerio.html(articleBody);
 		return getCleanedHTML(storyContent);
 	}
