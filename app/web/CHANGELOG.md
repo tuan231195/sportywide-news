@@ -1,3 +1,15 @@
+# [@vdtn359/news-web-v1.3.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.2.0...@vdtn359/news-web-v1.3.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** fixed npe ([dc71e84](https://github.com/vdtn359/vdtn359-news/commit/dc71e84f5392fa6e03f89b2e71a53acc99a460ec))
+
+
+### Features
+
+* **seo:** add robots.txt ([94e485d](https://github.com/vdtn359/vdtn359-news/commit/94e485dec0d5e49f4de05217a0f63ec7efde8278))
+
 # [@vdtn359/news-web-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.1.0...@vdtn359/news-web-v1.2.0) (2020-04-16)
 
 
