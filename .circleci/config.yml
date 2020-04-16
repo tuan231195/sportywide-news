@@ -49,46 +49,34 @@ jobs:
             - run:
                   name: Release
                   command: pnpm recursive exec --sort --workspace-concurrency=1 --filter ./app --filter ./packages -- npx semantic-release
-    deploy_aws:
-        working_directory: ~/app
-        docker:
-            - image: vdtn359/news-ci
-        steps:
-            - checkout
-            - restore_cache:
-                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
-            - run:
-                  name: Install node_modules
-                  command: |
-                      npm set verify-store-integrity false
-                      pnpm recursive install --unsafe-perm
-            - save_cache:
-                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
-                  paths:
-                      - ~/.pnpm-store
             - run:
                   name: Deploy crawler
                   command: make provisionCrawler
             - run:
                   name: Deploy scheduler
                   command: make provisionScheduler
+            - restore_cache:
+                  key: next-cache
+            - run:
+                  name: Build web
+                  command: cd app/web && npm run build
+            - run:
+                  name: Build worker
+                  command: cd app/worker && npm run build
+            - save_cache:
+                  key: build-cache
+                  paths:
+                      - app/web/produles
+                      - app/web/.next
+                      - app/worker/produles
+                      - app/worker/dist
     deploy_containers:
         working_directory: ~/app
         machine: true
         steps:
             - checkout
             - restore_cache:
-                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
-            - run:
-                  name: Install node_modules
-                  command: |
-                      npm i -g pnpm
-                      npm set verify-store-integrity false
-                      pnpm recursive install --unsafe-perm
-            - save_cache:
-                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
-                  paths:
-                      - ~/.pnpm-store
+                  key: build-cache
             - run:
                   name: Prepare credentails
                   command: |
@@ -99,8 +87,6 @@ jobs:
             - run:
                   name: Deploy worker
                   command: make buildWorker releaseWorker
-            - restore_cache:
-                  key: next-cache
             - run:
                   name: Deploy web
                   command: make buildWeb releaseWeb
@@ -112,13 +98,6 @@ workflows:
             - release:
                   requires:
                       - build_and_test
-                  filters:
-                      branches:
-                          only:
-                              - master
-            - deploy_aws:
-                  requires:
-                      - release
                   filters:
                       branches:
                           only:
