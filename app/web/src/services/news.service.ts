@@ -23,7 +23,7 @@ export class NewsService {
 			.get(`/news/${slug}`)
 			.then(({ data }) => data)
 			.catch((e) => {
-				if (e.response.status === 404) {
+				if (e.response?.status === 404) {
 					return null;
 				}
 				throw e;
