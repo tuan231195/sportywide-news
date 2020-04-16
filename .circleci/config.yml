@@ -45,7 +45,7 @@ jobs:
                   command: |
                       npm set verify-store-integrity false
                       npm config set access public
-                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
+                      echo "$WEB_SECRET" | base64 -d > app/web/.env
                       pnpm recursive install --unsafe-perm
             - run:
                   name: Release
