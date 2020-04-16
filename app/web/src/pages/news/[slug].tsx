@@ -7,6 +7,7 @@ import { NewsDetails } from 'src/components/news/NewsDetails';
 import Head from 'next/head';
 import { TrackingService } from 'src/utils/tracking/tracking.service';
 import { NextSeo } from 'next-seo';
+import { logEvent } from 'src/utils/tracking/analytics';
 
 interface Props {
     news: NewsDto;
@@ -38,6 +39,11 @@ export default class NewsPage extends React.Component<Props> {
         const trackingService = container.get(TrackingService);
         trackingService.track({
             id: this.props.news.id,
+        });
+        logEvent({
+            category: 'news',
+            action: 'view',
+            label: this.props.news.id,
         });
     }
 

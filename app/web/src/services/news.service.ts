@@ -5,6 +5,7 @@ import {
 	TrackingService,
 	TrackingType,
 } from 'src/utils/tracking/tracking.service';
+import { logEvent } from 'src/utils/tracking/analytics';
 
 export type NewsSearchDto = NewsDto & { score: number; sort: any[] };
 
@@ -124,6 +125,12 @@ export class NewsService {
 				type: TrackingType.UNLIKEID,
 			});
 		}
+		logEvent({
+			value: rating,
+			category: 'news',
+			action: 'rating',
+			label: id,
+		});
 		return this.apiService
 			.api()
 			.post('/rating', {
