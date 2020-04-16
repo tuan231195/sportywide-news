@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.3.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.1...@vdtn359/news-web-v1.3.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **news:** fixed missing service worker ([86b30e6](https://github.com/vdtn359/vdtn359-news/commit/86b30e66b7950c633e9d1438b51c9925c8b7bde0))
+
 # [@vdtn359/news-web-v1.3.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.0...@vdtn359/news-web-v1.3.1) (2020-04-16)
 
 
