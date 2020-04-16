@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.4.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.2...@vdtn359/news-web-v1.4.0) (2020-04-16)
+
+
+### Features
+
+* **news:** tracking inline search ([16a813e](https://github.com/vdtn359/vdtn359-news/commit/16a813eb6ed1262538d2b3b4dad8923a744e2290))
+
 # [@vdtn359/news-web-v1.3.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.1...@vdtn359/news-web-v1.3.2) (2020-04-16)
 
 
