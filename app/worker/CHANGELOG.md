@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.0.5](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.4...@vdtn359/news-worker-v1.0.5) (2020-04-16)
+
+
+### Bug Fixes
+
+* **config:** ensure repo is up to date ([58f08e8](https://github.com/vdtn359/vdtn359-news/commit/58f08e8059accb008ed61b17533ff6b8baa70bb2))
+
 # [@vdtn359/news-worker-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.3...@vdtn359/news-worker-v1.0.4) (2020-04-16)
 
 
