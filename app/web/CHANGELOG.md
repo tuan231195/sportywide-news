@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.3.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.0...@vdtn359/news-web-v1.3.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** fix sentry reporting. improve styled components load ([095d393](https://github.com/vdtn359/vdtn359-news/commit/095d3939dc6b5bcc7dc8f1498cc92013d01d2f41))
+
 # [@vdtn359/news-web-v1.3.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.2.0...@vdtn359/news-web-v1.3.0) (2020-04-16)
 
 
