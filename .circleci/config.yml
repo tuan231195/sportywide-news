@@ -83,6 +83,9 @@ jobs:
         machine: true
         steps:
             - checkout
+            - run:
+                  name: Git pull
+                  command: git pull origin master
             - attach_workspace:
                   at: ~/app
             - run:

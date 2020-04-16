@@ -2,7 +2,7 @@
     "name": "@vdtn359/news-worker",
     "version": "1.0.4",
     "private": true,
-    "description": "news worker",
+    "description": "News worker",
     "scripts": {
         "build:dependencies": "cd ../.. && npm run cli -- buildPackages",
         "build": "npm run build:dependencies && ttsc -P tsconfig.build.json",
