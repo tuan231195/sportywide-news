@@ -45,6 +45,7 @@ jobs:
                   command: |
                       npm set verify-store-integrity false
                       npm config set access public
+                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
                       pnpm recursive install --unsafe-perm
             - run:
                   name: Release
@@ -63,8 +64,8 @@ jobs:
             - run:
                   name: Build worker
                   command: cd app/worker && npm run build
-            - save_cache:
-                  key: build-cache
+            - persist_to_workspace:
+                  root: ~/app
                   paths:
                       - app/web/produles
                       - app/web/.next
@@ -75,14 +76,13 @@ jobs:
         machine: true
         steps:
             - checkout
-            - restore_cache:
-                  key: build-cache
+            - attach_to_workspace:
+                  at: ~/app
             - run:
                   name: Prepare credentails
                   command: |
                       echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
                       curl https://cli-assets.heroku.com/install.sh | sh
-                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
                       heroku container:login
             - run:
                   name: Deploy worker
