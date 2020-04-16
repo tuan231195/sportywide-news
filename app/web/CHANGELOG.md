@@ -1,3 +1,11 @@
+# [@vdtn359/news-web-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.3...@vdtn359/news-web-v1.0.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** install optional dependencies ([4fb28ba](https://github.com/vdtn359/vdtn359-news/commit/4fb28baee7bb4b4fdf3a877ad025f6e36e6c7ac4))
+* **search:** increase search debounce time ([43cfca8](https://github.com/vdtn359/vdtn359-news/commit/43cfca874418620ecceeb64320c8584044cf8cfc))
+
 # [@vdtn359/news-web-v1.0.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.2...@vdtn359/news-web-v1.0.3) (2020-04-16)
 
 
