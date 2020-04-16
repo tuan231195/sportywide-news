@@ -76,7 +76,7 @@ jobs:
         machine: true
         steps:
             - checkout
-            - attach_to_workspace:
+            - attach_workspace:
                   at: ~/app
             - run:
                   name: Prepare credentails

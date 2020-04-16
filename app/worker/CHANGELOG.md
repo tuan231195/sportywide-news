@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.0.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.2...@vdtn359/news-worker-v1.0.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** consolidate build process ([3e12898](https://github.com/vdtn359/vdtn359-news/commit/3e128986aec63d4e1d5153e18a8e2e1ba1105e76))
+
 # [@vdtn359/news-worker-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.1...@vdtn359/news-worker-v1.0.2) (2020-04-16)
 
 
