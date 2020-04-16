@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.4.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.4.0...@vdtn359/news-web-v1.4.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** improve document rendering ([f5bd04f](https://github.com/vdtn359/vdtn359-news/commit/f5bd04f1c39c2be756df68e6ddfc415601eeaa95))
+
 # [@vdtn359/news-web-v1.4.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.2...@vdtn359/news-web-v1.4.0) (2020-04-16)
 
 
