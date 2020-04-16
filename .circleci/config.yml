@@ -12,6 +12,7 @@ jobs:
                   name: Install node_modules
                   command: |
                       npm set verify-store-integrity false
+                      echo "$WEB_SECRET" | base64 -d > app/web/.env
                       pnpm recursive install --unsafe-perm
             - save_cache:
                   key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
@@ -64,7 +65,7 @@ jobs:
                   name: Build web
                   command: |
                       cd app/web
-                      npm run build
+                      SOURCEMAP=1 npm run build
                       npx mono-install --engine pnpm --install-dir produles --package-json ./package.json --package-lock ../../pnpm-lock.yaml --resolve --dry-run
 
             - run:

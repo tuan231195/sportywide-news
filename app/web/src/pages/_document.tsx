@@ -25,11 +25,20 @@ export default class NewsDocument extends Document<Props> {
 
         // Step 3: Extract the styles as <style> tags
         const styleTags = sheet.getStyleElement();
-
+        sheet.seal();
         const initialProps = await Document.getInitialProps(ctx);
 
         // Step 4: Pass styleTags as a prop
-        return { ...initialProps, ...page, styleTags };
+        return {
+            ...initialProps,
+            ...page,
+            styles: (
+                <>
+                    {initialProps.styles}
+                    {styleTags}
+                </>
+            ),
+        };
     }
 
     render() {
@@ -76,11 +85,11 @@ export default class NewsDocument extends Document<Props> {
                         href="/favicon-16x16.png"
                     />
                     <link rel="manifest" href="/manifest.json" />
-                    {this.props.styleTags}
                     <link
                         href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap"
                         rel="preconnect"
                     />
+                    {this.props.styles}
                 </Head>
                 <body>
                     <Main />
