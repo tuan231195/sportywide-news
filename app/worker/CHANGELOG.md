@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.0.6](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.5...@vdtn359/news-worker-v1.0.6) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** install optional dependencies ([4fb28ba](https://github.com/vdtn359/vdtn359-news/commit/4fb28baee7bb4b4fdf3a877ad025f6e36e6c7ac4))
+
 # [@vdtn359/news-worker-v1.0.5](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.4...@vdtn359/news-worker-v1.0.5) (2020-04-16)
 
 
