@@ -53,6 +53,7 @@
         "reflect-metadata": "0.1.13",
         "rxjs": "6.5.5",
         "semantic-ui-react": "0.88.2",
+        "sitemap": "6.1.1",
         "slick-carousel": "1.8.1",
         "styled-components": "5.0.1",
         "typedi": "0.8.0",
