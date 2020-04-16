@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.1.0...@vdtn359/news-web-v1.2.0) (2020-04-16)
+
+
+### Features
+
+* **tracking:** add google analytics ([4b2c087](https://github.com/vdtn359/vdtn359-news/commit/4b2c087a6dbb48c9dd38894209d1ee7d464c3bf9))
+
 # [@vdtn359/news-web-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.4...@vdtn359/news-web-v1.1.0) (2020-04-16)
 
 
