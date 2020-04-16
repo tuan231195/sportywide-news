@@ -1,12 +1,6 @@
 require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
-const withTM = require('next-transpile-modules')([
-	'@vdtn359/news-utils',
-	'@vdtn359/news-models',
-	'@vdtn359/news-search',
-	'@vdtn359/news-core',
-]);
 const withPWA = require('next-pwa');
 const packageJson = require('./package.json');
 process.env.SENTRY_RELEASE = packageJson.version;
@@ -15,6 +9,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.NODE_CONFIG_ENV =
 	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
 const supportedLocales = ['en'];
+const isDevelopment = process.env.NODE_ENV === 'development';
 const nextConfig = withPlugins([
 	[
 		(nextConfig) => {
@@ -30,6 +25,7 @@ const nextConfig = withPlugins([
 					ignoreBuildErrors: true,
 				},
 				webpack: (config, options) => {
+					const { dir } = options;
 					config.resolve.symlinks = true;
 					if (typeof nextConfig.webpack === 'function') {
 						return nextConfig.webpack(config, options);
@@ -85,19 +81,38 @@ const nextConfig = withPlugins([
 					config.resolve.alias = {
 						...config.resolve.alias,
 						src: path.resolve(__dirname, 'src'),
-						'@vdtn359/news-utils': require.resolve(
-							'@vdtn359/news-utils'
-						),
-						'@vdtn359/news-search': require.resolve(
-							'@vdtn359/news-search'
-						),
-						'@vdtn359/news-core': require.resolve(
-							'@vdtn359/news-core'
-						),
-						'@vdtn359/news-models': require.resolve(
-							'@vdtn359/news-models'
-						),
 					};
+
+					if (isDevelopment) {
+						const packagePath = path.resolve(
+							'..',
+							'..',
+							'packages'
+						);
+						config.resolve.alias = {
+							...config.resolve.alias,
+							'@vdtn359/news-utils': path.resolve(
+								packagePath,
+								'utils',
+								'dist'
+							),
+							'@vdtn359/news-search': path.resolve(
+								packagePath,
+								'search',
+								'dist'
+							),
+							'@vdtn359/news-core': path.resolve(
+								packagePath,
+								'core',
+								'dist'
+							),
+							'@vdtn359/news-models': path.resolve(
+								packagePath,
+								'models',
+								'dist'
+							),
+						};
+					}
 
 					config.plugins.push(
 						new webpack.EnvironmentPlugin([
@@ -118,7 +133,6 @@ const nextConfig = withPlugins([
 			});
 		},
 	],
-	[withTM],
 	[
 		withPWA,
 		{

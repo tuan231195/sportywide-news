@@ -193,7 +193,6 @@ importers:
       babel-plugin-styled-components: 1.10.7_styled-components@5.0.1
       babel-plugin-transform-typescript-metadata: 0.3.0
       dotenv: 8.2.0
-      next-transpile-modules: 3.1.0
       null-loader: 3.0.0
       sass: 1.26.3
     specifiers:
@@ -237,7 +236,6 @@ importers:
       next: 9.3.2
       next-pwa: 2.3.3
       next-seo: 4.4.0
-      next-transpile-modules: 3.1.0
       nprogress: 0.2.0
       null-loader: 3.0.0
       path-to-regexp: 6.1.0
@@ -10751,13 +10749,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /next-transpile-modules/3.1.0:
-    dependencies:
-      micromatch: 4.0.2
-      slash: 3.0.0
-    dev: true
-    resolution:
-      integrity: sha512-3XKIeAyvVcrVHYmXpPcTIFgO7kVagbcMr+BFYe08CwlRgDS3VsPcfyq5shDv6L+72yoE+2Cbcxg4QT1jtE0P1A==
   /next/9.3.2_15ab9b97b1acc8923e06e722bb218d5c:
     dependencies:
       '@ampproject/toolbox-optimizer': 2.0.1_lru-cache@5.1.1
