@@ -1,3 +1,15 @@
+# [@vdtn359/news-web-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.4...@vdtn359/news-web-v1.1.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** improve error logging ([1e2ce6d](https://github.com/vdtn359/vdtn359-news/commit/1e2ce6de683f354949dd9c455c5a8234be28f453))
+
+
+### Features
+
+* **web:** gzipped compression. load script asynchronously ([92cdf0c](https://github.com/vdtn359/vdtn359-news/commit/92cdf0ce7131c16c5b3483b0e05e3477e6fffcb7))
+
 # [@vdtn359/news-web-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.3...@vdtn359/news-web-v1.0.4) (2020-04-16)
 
 
