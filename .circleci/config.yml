@@ -72,31 +72,38 @@ jobs:
             - run:
                   name: Deploy scheduler
                   command: make provisionScheduler
-#    deploy_worker:
-#        working_directory: ~/app
-#        machine: true
-#        steps:
-#            - checkout
-#            - run:
-#                  name: Deploy worker
-#                  command: |
-#                      echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-#                      curl https://cli-assets.heroku.com/install.sh | sh
-#                      heroku container:login
-#                      make pushWorker releaseWorker
-#    deploy_web:
-#        working_directory: ~/app
-#        machine: true
-#        steps:
-#            - checkout
-#            - run:
-#                  name: Deploy web
-#                  command: |
-#                      echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-#                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
-#                      curl https://cli-assets.heroku.com/install.sh | sh
-#                      heroku container:login
-#                      make pushWeb releaseWeb
+    deploy_containers:
+        working_directory: ~/app
+        machine: true
+        steps:
+            - checkout
+            - restore_cache:
+                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
+            - run:
+                  name: Install node_modules
+                  command: |
+                      npm i -g pnpm
+                      npm set verify-store-integrity false
+                      pnpm recursive install --unsafe-perm
+            - save_cache:
+                  key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
+                  paths:
+                      - ~/.pnpm-store
+            - run:
+                  name: Prepare credentails
+                  command: |
+                      echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+                      curl https://cli-assets.heroku.com/install.sh | sh
+                      echo "$WEB_SECRET" | base64 --decode > app/web/.env
+                      heroku container:login
+            - run:
+                  name: Deploy worker
+                  command: make buildWorker releaseWorker
+            - restore_cache:
+                  key: next-cache
+            - run:
+                  name: Deploy web
+                  command: make buildWeb releaseWeb
 workflows:
     version: 2
     build_and_test:
@@ -116,17 +123,10 @@ workflows:
                       branches:
                           only:
                               - master
-#            - hold_worker:
-#                  type: approval
-#                  requires:
-#                      - build_and_test
-#            - deploy_worker:
-#                  requires:
-#                      - hold_worker
-#            - hold_web:
-#                  type: approval
-#                  requires:
-#                      - build_and_test
-#            - deploy_web:
-#                  requires:
-#                      - hold_web
+            - deploy_containers:
+                  requires:
+                      - release
+                  filters:
+                      branches:
+                          only:
+                              - master
