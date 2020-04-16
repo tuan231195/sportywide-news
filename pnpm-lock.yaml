@@ -145,6 +145,7 @@ importers:
       '@vdtn359/news-utils': 'link:../../packages/utils'
       '@vdtn359/next-connect': 1.0.0
       axios: 0.19.2
+      axios-retry: 3.1.2
       cors: 2.8.5
       date-fns: 2.12.0
       fomantic-ui-css: 2.8.4
@@ -217,6 +218,7 @@ importers:
       '@vdtn359/news-utils': 'workspace:*'
       '@vdtn359/next-connect': 1.0.0
       axios: 0.19.2
+      axios-retry: 3.1.2
       babel-plugin-add-react-displayname: 0.0.5
       babel-plugin-styled-components: 1.10.7
       babel-plugin-transform-typescript-metadata: 0.3.0
@@ -4417,6 +4419,12 @@ packages:
   /aws4/1.9.1:
     resolution:
       integrity: sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
+  /axios-retry/3.1.2:
+    dependencies:
+      is-retry-allowed: 1.2.0
+    dev: false
+    resolution:
+      integrity: sha512-+X0mtJ3S0mmia1kTVi1eA3DAC+oWnT2A29g3CpkzcBPMT6vJm+hn/WiV9wPt/KXLHVmg5zev9mWqkPx7bHMovg==
   /axios/0.19.2:
     dependencies:
       follow-redirects: 1.5.10
@@ -8923,6 +8931,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-/S2INUXEa6xaYz57mgnof6LLUGk=
+  /is-retry-allowed/1.2.0:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha512-RUbUeKwvm3XG2VYamhJL1xFktgjvPzL0Hq8C+6yrWIswDy3BIXGqCxhxkc30N9jqK311gVU137K8Ei55/zVJRg==
   /is-set/2.0.1:
     dev: false
     optional: true

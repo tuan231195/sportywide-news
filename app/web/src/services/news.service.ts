@@ -17,10 +17,12 @@ export class NewsService {
 		private readonly trackingService: TrackingService
 	) {}
 
-	get(slug: string) {
+	get(slug: string, params) {
 		return this.apiService
 			.api()
-			.get(`/news/${slug}`)
+			.get(`/news/${slug}`, {
+				params,
+			})
 			.then(({ data }) => data)
 			.catch((e) => {
 				if (e.response?.status === 404) {

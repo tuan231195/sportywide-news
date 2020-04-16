@@ -100,14 +100,16 @@ export const NavBar: React.FC<Props> = function ({
     });
     const container = useContainer();
     const newsService = container.get(NewsService);
-    const [{ results, loading }, setSearch] = useSearch(async (search) => {
-        const { items } = await newsService.searchNews({
-            search,
-            size: 5,
-            inline: true,
-        });
-        return items;
-    });
+    const [{ results, loading, typing }, setSearch] = useSearch(
+        async (search) => {
+            const { items } = await newsService.searchNews({
+                search,
+                size: 5,
+                inline: true,
+            });
+            return items;
+        }
+    );
     useEffect(() => setSearch(searchQuery), [searchQuery]);
     return (
         <NavbarMenu inverted>
@@ -153,7 +155,7 @@ export const NavBar: React.FC<Props> = function ({
                         }
                         placeholder="Search..."
                     />
-                    {!loading && isFocus() && (
+                    {!loading && !typing && isFocus() && (
                         <SearchResults
                             query={searchQuery}
                             items={results}

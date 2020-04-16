@@ -2,6 +2,7 @@ import { Inject, Service } from 'typedi';
 import axios, { AxiosInstance } from 'axios';
 import querystring from 'querystring';
 import { BehaviorSubject, Subject } from 'rxjs';
+import axiosRetry from 'axios-retry';
 import { captureException } from 'src/utils/exception/capture';
 
 @Service()
@@ -22,7 +23,7 @@ export class ApiService {
 					? { cookie: ctx.req.headers.cookie }
 					: undefined,
 		});
-
+		axiosRetry(this.axios, { retries: 3 });
 		this.setupInterceptors();
 	}
 

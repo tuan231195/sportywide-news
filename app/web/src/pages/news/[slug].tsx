@@ -19,8 +19,10 @@ export default class NewsPage extends React.Component<Props> {
     static async getInitialProps(ctx) {
         const newsService = ctx.container.get(NewsService);
         const slug = ctx.query.slug || '';
-
-        const news = await newsService.get(slug);
+        const referrer = ctx.query.referrer;
+        const news = await newsService.get(slug, {
+            referrer,
+        });
 
         if (!news) {
             return redirect(ctx, '/404');

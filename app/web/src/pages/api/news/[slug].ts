@@ -5,6 +5,7 @@ import { NEWS_INDEX } from '@vdtn359/news-search';
 import createError from 'http-errors';
 import { ACTION_TYPE, NewsStatDto } from '@vdtn359/news-models';
 import { getHandler } from 'src/api/handler';
+import { stringQuery } from 'src/api/parse';
 
 const handler = getHandler();
 handler.get(request);
@@ -32,11 +33,31 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	if (!document) {
 		throw new createError.NotFound();
 	}
+
+	captureView(document.id);
+	const referrer = stringQuery(req.query.referrer);
+	if (referrer) {
+		captureSearch(document.id, referrer);
+	}
+
+	return res.json(document);
+}
+
+function captureView(id) {
 	const indexDoc: NewsStatDto = {
-		docIds: [document.id],
+		docIds: [id],
 		time: new Date(),
 		type: ACTION_TYPE.VIEW,
 	};
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
-	return res.json(document);
+}
+
+function captureSearch(id: string, search: string) {
+	const indexDoc: NewsStatDto = {
+		docIds: [id],
+		time: new Date(),
+		term: search,
+		type: ACTION_TYPE.SEARCH,
+	};
+	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
 }

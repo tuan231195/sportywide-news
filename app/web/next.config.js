@@ -21,10 +21,6 @@ const nextConfig = withPlugins([
 					pagesBufferLength: 10,
 				},
 				compress: true,
-				typescript: {
-					ignoreDevErrors: true,
-					ignoreBuildErrors: true,
-				},
 				webpack: (config, options) => {
 					config.resolve.symlinks = true;
 					if (typeof nextConfig.webpack === 'function') {
