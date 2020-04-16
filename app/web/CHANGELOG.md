@@ -1,3 +1,11 @@
+# [@vdtn359/news-web-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.1...@vdtn359/news-web-v1.0.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ci:** improve ci build ([3a48aa2](https://github.com/vdtn359/vdtn359-news/commit/3a48aa27e7cbab824ca424120093ceaed7efe898))
+* **web:** optimize web build ([90944d5](https://github.com/vdtn359/vdtn359-news/commit/90944d50d79f00daad8c92716258ef888eebec59))
+
 # [@vdtn359/news-web-v1.0.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.0...@vdtn359/news-web-v1.0.1) (2020-04-15)
 
 
