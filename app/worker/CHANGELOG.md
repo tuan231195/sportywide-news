@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.3...@vdtn359/news-worker-v1.0.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **docker:** fixed docker build for worker ([7a28434](https://github.com/vdtn359/vdtn359-news/commit/7a28434634ae20dd83c3450db7860ecd323ca583))
+
 # [@vdtn359/news-worker-v1.0.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.2...@vdtn359/news-worker-v1.0.3) (2020-04-16)
 
 
