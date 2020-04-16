@@ -33,6 +33,7 @@ import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
 import { seoConfig } from 'src/utils/seo/config';
 import { loadStyle } from 'src/utils/scripts/load';
+import { isBrowser } from 'src/utils/env';
 
 const theme = {
     colors: {
@@ -239,14 +240,14 @@ class NewsApp extends App<any, any, any> {
     }
 }
 
-if (typeof window === 'undefined') {
+if (typeof window !== 'undefined') {
+    import('src/browser');
+} else {
     import('src/setup').then(({ logger, Sentry }) => {
         process.once('unhandledRejection', (e) => {
             logger.error('Unhandled rejections: ', e);
             Sentry.captureException(e);
         });
     });
-} else {
-    import('src/browser');
 }
 export default withContainer(init)(NewsApp);

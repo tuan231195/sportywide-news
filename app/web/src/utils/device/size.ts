@@ -1,4 +1,5 @@
 import MobileDetect from 'mobile-detect';
+import { isBrowser } from 'src/utils/env';
 
 export const size = {
 	mobileS: 320,
@@ -31,7 +32,7 @@ export function getDeviceWidth(userAgent?: string) {
 		} else {
 			return size.laptop;
 		}
-	} else if (typeof window !== 'undefined') {
+	} else if (isBrowser()) {
 		return window.innerWidth > 0 ? window.innerWidth : screen.width;
 	}
 }
