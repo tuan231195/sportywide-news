@@ -1,11 +1,14 @@
 import { logger } from 'src/setup';
 import * as Sentry from '@sentry/node';
 import VError from 'verror';
+import { isDevelopment } from 'src/utils/env';
 
-process.once('unhandledRejection', (e) => {
-	logger.error('Unhandled rejections: ', e);
-	Sentry.captureException(e);
-});
+if (!isDevelopment()) {
+	process.once('unhandledRejection', (e) => {
+		logger.error('Unhandled rejections: ', e);
+		Sentry.captureException(e);
+	});
+}
 
 export function errorLogger(err, req, res) {
 	err = formatError(err);

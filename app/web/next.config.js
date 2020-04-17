@@ -3,6 +3,9 @@ const path = require('path');
 const webpack = require('webpack');
 const withPWA = require('next-pwa');
 const packageJson = require('./package.json');
+const {
+	ClearPackageCachePlugin,
+} = require('./webpack/plugins/clear-package-cache');
 process.env.SENTRY_RELEASE = packageJson.version;
 const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -11,6 +14,7 @@ process.env.NODE_CONFIG_ENV =
 const supportedLocales = ['en'];
 const isDevelopment = process.env.NODE_ENV === 'development';
 const runtimeCaching = require('./cache');
+const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 const nextConfig = withPlugins([
 	[
 		(nextConfig) => {
@@ -112,29 +116,23 @@ const nextConfig = withPlugins([
 							'..',
 							'packages'
 						);
-						config.resolve.alias = {
-							...config.resolve.alias,
-							'@vdtn359/news-utils': path.resolve(
-								packagePath,
-								'utils',
-								'dist'
-							),
-							'@vdtn359/news-search': path.resolve(
-								packagePath,
-								'search',
-								'dist'
-							),
-							'@vdtn359/news-core': path.resolve(
-								packagePath,
-								'core',
-								'dist'
-							),
-							'@vdtn359/news-models': path.resolve(
-								packagePath,
-								'models',
-								'dist'
-							),
-						};
+						const dependencies = [
+							'utils',
+							'core',
+							'models',
+							'search',
+						].map((dependency) =>
+							path.resolve(packagePath, dependency, 'dist')
+						);
+
+						config.plugins.push(
+							new ExtraWatchWebpackPlugin({
+								dirs: dependencies,
+							})
+						);
+						config.plugins.push(
+							new ClearPackageCachePlugin(packagePath)
+						);
 					}
 
 					config.plugins.push(

@@ -2,17 +2,14 @@ import winston from 'winston';
 import LogzioWinstonTransport from 'winston-logzio';
 import { proxy } from '@vdtn359/news-utils';
 
-const { timestamp, errors, label, printf, splat, metadata } = winston.format;
+const { timestamp, errors, label, printf, splat } = winston.format;
 
 const print = printf((info) => {
 	return normalLog(info);
 });
 
 function normalLog(info) {
-	const log = `[${info.label}] ${info.timestamp} (${info.level}): ${info.message}`;
-	const metadata = formatMetadata(info.metadata);
-
-	return metadata ? `${log}\n${metadata}` : log;
+	return `[${info.label}] ${info.timestamp} (${info.level}): ${info.message}`;
 }
 
 function formatMetadata(metadata) {
@@ -46,9 +43,6 @@ export function createLogger(
 			errors({ stack: true }),
 			label({ label: category }),
 			splat(),
-			metadata({
-				fillExcept: ['message', 'level', 'timestamp', 'label'],
-			}),
 			timestamp(),
 			print
 		),
@@ -73,16 +67,19 @@ class LogWrapper {
 	constructor(private readonly logger: winston.Logger) {}
 
 	log(level: string, message: string, meta: any, ...args) {
-		if (typeof meta === 'string' || Array.isArray(meta)) {
-			meta = {
-				meta,
-			};
+		if (meta) {
+			meta = formatMetadata(meta);
+			message = `${message} \n ${meta}`;
 		}
 		this.logger.log(level, message, meta, ...args);
 	}
 
 	trace(message: string, meta: any, ...args) {
 		this.log('trace', message, meta, ...args);
+	}
+
+	error(message: string, meta: any, ...args) {
+		this.log('error', message, meta, ...args);
 	}
 
 	debug(message: string, meta: any, ...args) {

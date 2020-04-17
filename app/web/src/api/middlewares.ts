@@ -2,7 +2,6 @@ import { logger } from 'src/setup';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
-import { env } from '@vdtn359/news-utils';
 
 const logStream = {
 	write: function (message) {
