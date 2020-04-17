@@ -10,6 +10,7 @@ process.env.NODE_CONFIG_ENV =
 	process.env.NODE_CONFIG_ENV || process.env.NODE_ENV;
 const supportedLocales = ['en'];
 const isDevelopment = process.env.NODE_ENV === 'development';
+const runtimeCaching = require('./cache');
 const nextConfig = withPlugins([
 	[
 		(nextConfig) => {
@@ -162,6 +163,7 @@ const nextConfig = withPlugins([
 				dest: 'public',
 				sw: 'service-worker.js',
 				disable: process.env.NODE_ENV === 'development',
+				runtimeCaching,
 			},
 		},
 	],
