@@ -1,3 +1,10 @@
+# [@vdtn359/news-crawler-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.2...@vdtn359/news-crawler-v1.2.0) (2020-04-17)
+
+
+### Features
+
+* **crawler:** add more news ([2c20973](https://github.com/vdtn359/vdtn359-news/commit/2c209739f076d87b874fbfcfdbd9ba1ac7c064ad))
+
 # [@vdtn359/news-crawler-v1.1.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.1...@vdtn359/news-crawler-v1.1.2) (2020-04-16)
 
 
