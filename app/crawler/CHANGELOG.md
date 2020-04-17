@@ -1,3 +1,10 @@
+# [@vdtn359/news-crawler-v1.2.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.2.0...@vdtn359/news-crawler-v1.2.1) (2020-04-17)
+
+
+### Bug Fixes
+
+* **utils:** fixed string is undefined ([8b8452c](https://github.com/vdtn359/vdtn359-news/commit/8b8452cb1f34934e12bb606125643bc416355041))
+
 # [@vdtn359/news-crawler-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.1.2...@vdtn359/news-crawler-v1.2.0) (2020-04-17)
 
 
