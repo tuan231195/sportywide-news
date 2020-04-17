@@ -42,6 +42,22 @@ const newsSources = [
 		'https://www.news.com.au/content-feeds/latest-news-sport'
 	),
 	new SmhNews(CATEGORY.NATIONAL, 'https://www.smh.com.au/rss/national.xml'),
+	new SmhNews(CATEGORY.SPORT, 'https://www.smh.com.au/rss/sport.xml'),
+	new SmhNews(CATEGORY.LIFESTYLE, 'https://www.smh.com.au/rss/culture.xml'),
+	new SmhNews(
+		CATEGORY.LIFESTYLE,
+		'https://www.smh.com.au/rss/environment.xml'
+	),
+	new SmhNews(CATEGORY.BUSINESS, 'https://www.smh.com.au/rss/business.xml'),
+	new SmhNews(CATEGORY.WORLD, 'https://www.smh.com.au/rss/world.xml'),
+	new SmhNews(
+		CATEGORY.NATIONAL,
+		'https://www.smh.com.au/rss/politics/federal.xml'
+	),
+	new SmhNews(
+		CATEGORY.NATIONAL,
+		'https://www.smh.com.au/rss/national/nsw.xml'
+	),
 	new TechRepublicNews(
 		CATEGORY.TECHNOLOGY,
 		'https://www.techrepublic.com/rssfeeds/articles/'
