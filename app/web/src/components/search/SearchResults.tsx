@@ -63,6 +63,9 @@ export const SearchResults: React.FC<Props> = ({ query, items, onClick }) => {
     if (!query) {
         return null;
     }
+    if (query.length < 3) {
+        return <SearchSegment>Please type more to search</SearchSegment>;
+    }
     if (!items?.length) {
         return <SearchSegment>No results found</SearchSegment>;
     }
@@ -71,7 +74,10 @@ export const SearchResults: React.FC<Props> = ({ query, items, onClick }) => {
             <List divided>
                 {items.map((item) => (
                     <SearchResultItem key={item.id} onClick={onClick}>
-                        <Link href={`/news/[slug]`} as={`/news/${item.slug}`}>
+                        <Link
+                            href={`/news/[slug]?referrer=${query}`}
+                            as={`/news/${item.slug}`}
+                        >
                             <a className={'vn-raw-link'}>
                                 <Image
                                     src={

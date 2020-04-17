@@ -7,6 +7,7 @@ import { NewsDetails } from 'src/components/news/NewsDetails';
 import Head from 'next/head';
 import { TrackingService } from 'src/utils/tracking/tracking.service';
 import { NextSeo } from 'next-seo';
+import { logEvent } from 'src/utils/tracking/analytics';
 
 interface Props {
     news: NewsDto;
@@ -18,8 +19,10 @@ export default class NewsPage extends React.Component<Props> {
     static async getInitialProps(ctx) {
         const newsService = ctx.container.get(NewsService);
         const slug = ctx.query.slug || '';
-
-        const news = await newsService.get(slug);
+        const referrer = ctx.query.referrer;
+        const news = await newsService.get(slug, {
+            referrer,
+        });
 
         if (!news) {
             return redirect(ctx, '/404');
@@ -38,6 +41,11 @@ export default class NewsPage extends React.Component<Props> {
         const trackingService = container.get(TrackingService);
         trackingService.track({
             id: this.props.news.id,
+        });
+        logEvent({
+            category: 'news',
+            action: 'view',
+            label: this.props.news.id,
         });
     }
 

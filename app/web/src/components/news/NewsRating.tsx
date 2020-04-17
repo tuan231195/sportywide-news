@@ -9,12 +9,15 @@ export function NewsEditRating({ id }) {
     const [rating, setRating] = useState(0);
     const container = useContainer();
     const newsService = container.get(NewsService);
-    const ratingDocument = useQuery((db) => {
-        return db.get('ratings', id);
-    });
+    const ratingDocument = useQuery(
+        (db) => {
+            return db.get('ratings', id);
+        },
+        [id]
+    );
     useEffect(() => {
         setRating(ratingDocument?.rating || 0);
-    }, [ratingDocument]);
+    }, [ratingDocument, id]);
     return (
         <RatingStars
             maxStars={5}

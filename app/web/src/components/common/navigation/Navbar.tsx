@@ -18,6 +18,7 @@ import {
     TrackingType,
 } from 'src/utils/tracking/tracking.service';
 import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
+import { initGA, logPageView } from 'src/utils/tracking/analytics';
 
 const AppLogo = styled(Image)`
     &&&& {
@@ -65,6 +66,12 @@ interface Props {
     onSidebarClicked: Function;
 }
 
+declare global {
+    interface Window {
+        GA_INITIALIZED: boolean;
+    }
+}
+
 export const NavBar: React.FC<Props> = function ({
     onSidebarClicked,
     children,
@@ -74,6 +81,11 @@ export const NavBar: React.FC<Props> = function ({
     const app = useApp();
     const navBarRef = useRef();
     useEffectOnce(() => {
+        if (!window.GA_INITIALIZED) {
+            initGA();
+            window.GA_INITIALIZED = true;
+        }
+        logPageView();
         return app.onWindowClick((eventType, e: MouseEvent) => {
             const navBar: HTMLElement = navBarRef.current;
             const targetNode = e.target as HTMLElement;
@@ -88,14 +100,16 @@ export const NavBar: React.FC<Props> = function ({
     });
     const container = useContainer();
     const newsService = container.get(NewsService);
-    const [{ results, loading }, setSearch] = useSearch(async (search) => {
-        const { items } = await newsService.searchNews({
-            search,
-            size: 5,
-            inline: true,
-        });
-        return items;
-    });
+    const [{ results, loading, typing }, setSearch] = useSearch(
+        async (search) => {
+            const { items } = await newsService.searchNews({
+                search,
+                size: 5,
+                inline: true,
+            });
+            return items;
+        }
+    );
     useEffect(() => setSearch(searchQuery), [searchQuery]);
     return (
         <NavbarMenu inverted>
@@ -141,7 +155,7 @@ export const NavBar: React.FC<Props> = function ({
                         }
                         placeholder="Search..."
                     />
-                    {!loading && isFocus() && (
+                    {!loading && !typing && isFocus() && (
                         <SearchResults
                             query={searchQuery}
                             items={results}

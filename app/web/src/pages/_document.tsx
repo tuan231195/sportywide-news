@@ -9,27 +9,36 @@ interface Props {
 
 export default class NewsDocument extends Document<Props> {
     static async getInitialProps(ctx) {
-        // Step 1: Create an instance of ServerStyleSheet
         const sheet = new ServerStyleSheet();
+        const originalRenderPage = ctx.renderPage;
 
-        let page = {};
+        const page = {};
         try {
-            // Step 2: Retrieve styles from components in the page
-            page = ctx.renderPage((App) => (props) =>
-                sheet.collectStyles(<App {...props} />)
-            );
+            ctx.renderPage = () =>
+                originalRenderPage({
+                    enhanceApp: (App) => (props) =>
+                        sheet.collectStyles(<App {...props} />),
+                });
+            const initialProps = await Document.getInitialProps(ctx);
+
+            const styleTags = sheet.getStyleElement();
+
+            return {
+                ...initialProps,
+                ...page,
+                styles: (
+                    <>
+                        {initialProps.styles}
+                        {styleTags}
+                    </>
+                ),
+            };
         } catch (e) {
             captureException({ error: e });
             throw e;
+        } finally {
+            sheet.seal();
         }
-
-        // Step 3: Extract the styles as <style> tags
-        const styleTags = sheet.getStyleElement();
-
-        const initialProps = await Document.getInitialProps(ctx);
-
-        // Step 4: Pass styleTags as a prop
-        return { ...initialProps, ...page, styleTags };
     }
 
     render() {
@@ -76,11 +85,11 @@ export default class NewsDocument extends Document<Props> {
                         href="/favicon-16x16.png"
                     />
                     <link rel="manifest" href="/manifest.json" />
-                    {this.props.styleTags}
                     <link
                         href="https://fonts.googleapis.com/css2?family=Vollkorn&display=swap"
                         rel="preconnect"
                     />
+                    {this.props.styles}
                 </Head>
                 <body>
                     <Main />

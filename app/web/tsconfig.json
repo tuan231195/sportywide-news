@@ -13,6 +13,7 @@
         },
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
+        "sourceMap": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,

@@ -5,7 +5,7 @@ module "cloudwatch" {
     source = "../../../infra/terraform/shared/cloudwatch"
     rule_name = "vdtn359-news-crawler-trigger"
     lambda_function_arn = module.lambda.function_arn
-    schedule_expression = "rate(10 minutes)"
+    schedule_expression = "cron(0/20 20-15 ? * * *)"
 }
 
 resource "aws_lambda_layer_version" "lambda_layer" {

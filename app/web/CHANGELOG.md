@@ -1,3 +1,62 @@
+# [@vdtn359/news-web-v1.4.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.4.0...@vdtn359/news-web-v1.4.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** improve document rendering ([f5bd04f](https://github.com/vdtn359/vdtn359-news/commit/f5bd04f1c39c2be756df68e6ddfc415601eeaa95))
+
+# [@vdtn359/news-web-v1.4.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.2...@vdtn359/news-web-v1.4.0) (2020-04-16)
+
+
+### Features
+
+* **news:** tracking inline search ([16a813e](https://github.com/vdtn359/vdtn359-news/commit/16a813eb6ed1262538d2b3b4dad8923a744e2290))
+
+# [@vdtn359/news-web-v1.3.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.1...@vdtn359/news-web-v1.3.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* **news:** fixed missing service worker ([86b30e6](https://github.com/vdtn359/vdtn359-news/commit/86b30e66b7950c633e9d1438b51c9925c8b7bde0))
+
+# [@vdtn359/news-web-v1.3.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.3.0...@vdtn359/news-web-v1.3.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** fix sentry reporting. improve styled components load ([095d393](https://github.com/vdtn359/vdtn359-news/commit/095d3939dc6b5bcc7dc8f1498cc92013d01d2f41))
+
+# [@vdtn359/news-web-v1.3.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.2.0...@vdtn359/news-web-v1.3.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** fixed npe ([dc71e84](https://github.com/vdtn359/vdtn359-news/commit/dc71e84f5392fa6e03f89b2e71a53acc99a460ec))
+
+
+### Features
+
+* **seo:** add robots.txt ([94e485d](https://github.com/vdtn359/vdtn359-news/commit/94e485dec0d5e49f4de05217a0f63ec7efde8278))
+
+# [@vdtn359/news-web-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.1.0...@vdtn359/news-web-v1.2.0) (2020-04-16)
+
+
+### Features
+
+* **tracking:** add google analytics ([4b2c087](https://github.com/vdtn359/vdtn359-news/commit/4b2c087a6dbb48c9dd38894209d1ee7d464c3bf9))
+
+# [@vdtn359/news-web-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.4...@vdtn359/news-web-v1.1.0) (2020-04-16)
+
+
+### Bug Fixes
+
+* **web:** improve error logging ([1e2ce6d](https://github.com/vdtn359/vdtn359-news/commit/1e2ce6de683f354949dd9c455c5a8234be28f453))
+
+
+### Features
+
+* **web:** gzipped compression. load script asynchronously ([92cdf0c](https://github.com/vdtn359/vdtn359-news/commit/92cdf0ce7131c16c5b3483b0e05e3477e6fffcb7))
+
 # [@vdtn359/news-web-v1.0.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.0.3...@vdtn359/news-web-v1.0.4) (2020-04-16)
 
 

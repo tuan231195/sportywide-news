@@ -21,12 +21,7 @@ const nextConfig = withPlugins([
 					pagesBufferLength: 10,
 				},
 				compress: true,
-				typescript: {
-					ignoreDevErrors: true,
-					ignoreBuildErrors: true,
-				},
 				webpack: (config, options) => {
-					const { dir } = options;
 					config.resolve.symlinks = true;
 					if (typeof nextConfig.webpack === 'function') {
 						return nextConfig.webpack(config, options);
@@ -78,6 +73,32 @@ const nextConfig = withPlugins([
 							)
 						)
 					);
+
+					if (!isDevelopment && process.env.SOURCEMAP) {
+						config.devtool = 'source-map';
+
+						for (const plugin of config.plugins) {
+							if (plugin.constructor.name === 'UglifyJsPlugin') {
+								plugin.options.sourceMap = true;
+								break;
+							}
+						}
+
+						if (
+							config.optimization &&
+							config.optimization.minimizer
+						) {
+							for (const plugin of config.optimization
+								.minimizer) {
+								if (
+									plugin.constructor.name === 'TerserPlugin'
+								) {
+									plugin.options.sourceMap = true;
+									break;
+								}
+							}
+						}
+					}
 
 					config.resolve.alias = {
 						...config.resolve.alias,

@@ -1,4 +1,5 @@
 import { AxiosError } from 'axios';
+import { logException } from 'src/utils/tracking/analytics';
 
 export function captureException({
 	message = '',
@@ -26,6 +27,7 @@ export function captureException({
 		import('src/browser').then(({ Sentry, LogRocket }) => {
 			Sentry.captureException(error);
 			LogRocket.captureException(error);
+			logException(error.message, true);
 		});
 	} else {
 		import('src/setup').then(({ Sentry, logger }) => {

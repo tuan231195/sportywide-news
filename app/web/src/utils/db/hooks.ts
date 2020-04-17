@@ -1,7 +1,6 @@
 import { useContainer } from 'src/utils/container/context';
 import { IDBPDatabase } from 'idb';
-import { useState } from 'react';
-import { useEffectOnce } from 'src/utils/hooks/basic';
+import { useState, useEffect } from 'react';
 import { NewsDB } from 'src/utils/db/store';
 
 export function useDb<T = NewsDB>(): Promise<IDBPDatabase<T>> {
@@ -9,14 +8,17 @@ export function useDb<T = NewsDB>(): Promise<IDBPDatabase<T>> {
 	return container.has('db') ? container.get('db') : null;
 }
 
-export function useQuery<T = NewsDB>(queryFn: (db: IDBPDatabase<T>) => any) {
+export function useQuery<T = NewsDB>(
+	queryFn: (db: IDBPDatabase<T>) => any,
+	dependencies = []
+) {
 	const [result, setResult] = useState(null);
 	const dbPromise = useDb<T>();
-	useEffectOnce(() => {
+	useEffect(() => {
 		(async () => {
 			const db = await dbPromise;
 			setResult(await queryFn(db));
 		})();
-	});
+	}, [dependencies]);
 	return result;
 }

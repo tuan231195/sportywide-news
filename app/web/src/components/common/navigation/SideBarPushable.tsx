@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
 import { useApp } from 'src/utils/container/context';
 import {
@@ -14,6 +14,7 @@ import { CATEGORY } from '@vdtn359/news-models';
 import { categoryMap } from 'src/utils/categories';
 import { VnMobile } from 'src/components/common/responsive/Responsive';
 import styled from 'styled-components';
+import { sumBy } from 'lodash';
 
 interface Props {
     categories: {
@@ -28,6 +29,7 @@ const CategoryBadge: any = styled(Label)`
 `;
 
 export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
+    const total = useMemo(() => sumBy(categories, 'count'), [categories]);
     const [getSideBarVisible, setSidebarVisible] = useStateRef(false);
     const sideBarRef = useRef<any>();
     const app = useApp();
@@ -125,6 +127,20 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 <MenuItem>
                     Categories
                     <Menu.Menu>
+                        <MenuItem showLink={true} routeOptions={{ route: '/' }}>
+                            <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                                <MenuIcon
+                                    className={'vn-ml1'}
+                                    name={'newspaper'}
+                                />
+                                <span className={'vn-flex-grow vn-ml1'}>
+                                    All
+                                </span>
+                                <CategoryBadge size={'tiny'} color={'teal'}>
+                                    {total}
+                                </CategoryBadge>
+                            </a>
+                        </MenuItem>
                         {categories.map((category) => {
                             return (
                                 <MenuItem
