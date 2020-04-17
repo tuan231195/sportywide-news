@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.0.7](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.6...@vdtn359/news-worker-v1.0.7) (2020-04-17)
+
+
+### Bug Fixes
+
+* **utils:** fixed string is undefined ([8b8452c](https://github.com/vdtn359/vdtn359-news/commit/8b8452cb1f34934e12bb606125643bc416355041))
+
 # [@vdtn359/news-worker-v1.0.6](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.0.5...@vdtn359/news-worker-v1.0.6) (2020-04-16)
 
 
