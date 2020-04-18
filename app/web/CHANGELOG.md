@@ -1,3 +1,17 @@
+# [@vdtn359/news-web-v1.5.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.4.2...@vdtn359/news-web-v1.5.0) (2020-04-18)
+
+
+### Bug Fixes
+
+* **web:** improve logging ([431204c](https://github.com/vdtn359/vdtn359-news/commit/431204c5746263fbe8f420afa5598ba0ff87ba3c))
+* **web:** update service worker caching strategy ([1353e88](https://github.com/vdtn359/vdtn359-news/commit/1353e8823649cfe8d5957bd1e3103fbc2e9db42d))
+
+
+### Features
+
+* **news:** build rss page ([f3edab7](https://github.com/vdtn359/vdtn359-news/commit/f3edab7e4d1ffef9e3ce4b5d9d67c7c0f687f6e7))
+* **web:** add rss feed ([65eaf49](https://github.com/vdtn359/vdtn359-news/commit/65eaf4900fe2acacd011b985ada350a20b14f7a4))
+
 # [@vdtn359/news-web-v1.4.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.4.1...@vdtn359/news-web-v1.4.2) (2020-04-17)
 
 
