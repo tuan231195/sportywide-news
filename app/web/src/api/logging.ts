@@ -15,7 +15,7 @@ export function errorLogger(err, req, res) {
 	const status = err.status || 500;
 	if (status >= 500) {
 		Sentry.captureException(err);
-		logger.error(err);
+		logger.error('API error', err);
 	}
 
 	res.status(status).json({

@@ -40,6 +40,37 @@ export function buildEsQuery(queryStr: any = {}) {
 	};
 }
 
+export function buildMatchAll(category?: string) {
+	let query: any;
+	if (category) {
+		query = {
+			term: {
+				category: category.toUpperCase(),
+			},
+		};
+	} else {
+		query = {
+			match_all: {},
+		};
+	}
+
+	return {
+		query,
+		sort: [
+			{
+				pubDate: {
+					order: 'desc',
+				},
+			},
+			{
+				id: {
+					order: 'desc',
+				},
+			},
+		],
+	};
+}
+
 export function buildSuggester(queryStr) {
 	if (!queryStr.search) {
 		return undefined;

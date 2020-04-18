@@ -49,7 +49,7 @@ export default class NewsDocument extends Document<Props> {
                         httpEquiv="Content-Type"
                         content="text/html; charset=UTF-8"
                     />
-                    <meta name="application-name" content="PWA App" />
+                    <meta name="application-name" content="News App" />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
                     <meta
                         name="apple-mobile-web-app-status-bar-style"

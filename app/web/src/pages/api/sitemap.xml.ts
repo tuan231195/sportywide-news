@@ -8,6 +8,7 @@ import { parseFields } from 'src/utils/search/fields';
 import { categoryMap } from 'src/utils/categories';
 import { subDays, startOfDay } from 'date-fns';
 import { isDevelopment } from 'src/utils/env';
+import { buildMatchAll } from 'src/utils/search/query';
 const handler = getHandler();
 handler.get(request);
 
@@ -57,22 +58,8 @@ async function fetchContentFromAPI() {
 		index: NEWS_INDEX,
 		size: 30,
 		body: {
-			query: {
-				match_all: {},
-			},
 			_source: ['slug', 'id', 'pubDate'],
-			sort: [
-				{
-					pubDate: {
-						order: 'desc',
-					},
-				},
-				{
-					id: {
-						order: 'desc',
-					},
-				},
-			],
+			...buildMatchAll(),
 		},
 	});
 	return parseFields(hits);

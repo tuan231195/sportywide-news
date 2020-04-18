@@ -29,3 +29,7 @@ export function filterCategories(categories) {
 		.map((category) => category.toUpperCase())
 		.filter((category) => categoryMap.has(category));
 }
+
+export function isValidCategory(category) {
+	return categoryMap.has(category.toUpperCase());
+}

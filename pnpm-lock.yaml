@@ -178,6 +178,7 @@ importers:
       react-star-rating-component: 1.4.1_react@16.13.1
       react-toastify: 5.5.0_react-dom@16.13.1+react@16.13.1
       reflect-metadata: 0.1.13
+      rss: 1.2.2
       rxjs: 6.5.5
       semantic-ui-react: 0.88.2_react-dom@16.13.1+react@16.13.1
       sitemap: 6.1.1
@@ -257,6 +258,7 @@ importers:
       react-star-rating-component: 1.4.1
       react-toastify: 5.5.0
       reflect-metadata: 0.1.13
+      rss: 1.2.2
       rxjs: 6.5.5
       sass: 1.26.3
       semantic-ui-react: 0.88.2
@@ -10530,11 +10532,25 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-115fLhvZVqWwHPbClyntxEVfVDfl9DLLTuJvq3g2O/Oxi8AiNouAHvDSzHS0viUJc+V5vm3eq91Xwqn9dp4jRA==
+  /mime-db/1.25.0:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-wY29fHOl2/b0SgJNwNFloeexw5I=
   /mime-db/1.43.0:
     engines:
       node: '>= 0.6'
     resolution:
       integrity: sha512-+5dsGEEovYbT8UY9yD7eE4XTc4UwJ1jBYlgaQQF38ENsKR3wj/8q8RFZrF9WIZpB2V1ArTVFUva8sAul1NzRzQ==
+  /mime-types/2.1.13:
+    dependencies:
+      mime-db: 1.25.0
+    dev: false
+    engines:
+      node: '>= 0.6'
+    resolution:
+      integrity: sha1-4HqqnGxrmnyjASxpADrSWjnpKog=
   /mime-types/2.1.26:
     dependencies:
       mime-db: 1.43.0
@@ -13205,6 +13221,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-/2HA0Ec70TvQnXdzynFffkjA6XN+1e2pEv/uKS5Ulca40g2L7KuOE3riasHoNVHOsFD5KKZgDsMk1CP3Tw9s+A==
+  /rss/1.2.2:
+    dependencies:
+      mime-types: 2.1.13
+      xml: 1.0.1
+    dev: false
+    resolution:
+      integrity: sha1-UKFpiHYTgTOnT5oF0r3I240nqSE=
   /rsvp/4.8.5:
     dev: true
     engines:
@@ -15638,6 +15661,10 @@ packages:
   /xml-name-validator/3.0.0:
     resolution:
       integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
+  /xml/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
   /xmlchars/2.2.0:
     resolution:
       integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
