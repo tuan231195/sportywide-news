@@ -6,15 +6,22 @@ import {
     MenuSegment,
     Pushable,
 } from 'src/components/common/navigation/Sidebar.styled';
-import { Label, Menu, Sidebar } from 'semantic-ui-react';
+import { Label, Menu, Sidebar, Image } from 'semantic-ui-react';
 import { NavBar } from './Navbar';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
 import { categoryMap } from 'src/utils/categories';
-import { VnMobile } from 'src/components/common/responsive/Responsive';
+import {
+    VnBigScreen,
+    VnMobile,
+} from 'src/components/common/responsive/Responsive';
 import styled from 'styled-components';
 import { sumBy } from 'lodash';
+import { useUser } from 'src/auth/context';
+import { MenuLink } from 'src/components/common/navigation/MenuLink';
+import { Avatar } from 'src/components/common/navigation/Avatar';
+import { standardiseName } from 'src/utils/profile';
 
 interface Props {
     categories: {
@@ -23,16 +30,12 @@ interface Props {
     }[];
 }
 
-const CategoryBadge: any = styled(Label)`
-    min-width: 38px;
-    text-align: center;
-`;
-
 export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
     const total = useMemo(() => sumBy(categories, 'count'), [categories]);
     const [getSideBarVisible, setSidebarVisible] = useStateRef(false);
     const sideBarRef = useRef<any>();
     const app = useApp();
+    const user = useUser();
     useEffectOnce(() => {
         const clickDisposal = app.onWindowClick((eventType, e: MouseEvent) => {
             if (!getSideBarVisible()) {
@@ -77,16 +80,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                             showLink={true}
                             routeOptions={{ route: '/hot-news' }}
                         >
-                            <a
-                                className={
-                                    'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                                }
-                            >
-                                <MenuIcon name={'favorite'} />
-                                <span className={'vn-flex-grow vn-ml1'}>
-                                    Hot news
-                                </span>
-                            </a>
+                            <MenuLink icon={'favorite'} text={'Hot news'} />
                         </MenuItem>
                         <MenuItem
                             key={'recommendation'}
@@ -94,16 +88,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                             showLink={true}
                             routeOptions={{ route: '/recommendation' }}
                         >
-                            <a
-                                className={
-                                    'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                                }
-                            >
-                                <MenuIcon name={'like'} />
-                                <span className={'vn-flex-grow vn-ml1'}>
-                                    Recommendation
-                                </span>
-                            </a>
+                            <MenuLink icon={'like'} text={'Recommendation'} />
                         </MenuItem>
                     </Menu.Menu>
                 </MenuItem>
@@ -111,18 +96,11 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                     Categories
                     <Menu.Menu>
                         <MenuItem showLink={true} routeOptions={{ route: '/' }}>
-                            <a className={'vn-raw-link vn-flex vn-flex-center'}>
-                                <MenuIcon
-                                    className={'vn-ml1'}
-                                    name={'newspaper'}
-                                />
-                                <span className={'vn-flex-grow vn-ml1'}>
-                                    All
-                                </span>
-                                <CategoryBadge size={'tiny'} color={'teal'}>
-                                    {total}
-                                </CategoryBadge>
-                            </a>
+                            <MenuLink
+                                icon={'newspaper'}
+                                text={'All'}
+                                badge={total}
+                            />
                         </MenuItem>
                         {categories.map((category) => {
                             return (
@@ -135,29 +113,14 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                                     }}
                                     key={category.category}
                                 >
-                                    <a
-                                        className={
-                                            'vn-raw-link vn-flex vn-flex-center'
+                                    <MenuLink
+                                        icon={
+                                            categoryMap.get(category.category)
+                                                .icon
                                         }
-                                    >
-                                        <MenuIcon
-                                            className={'vn-ml1'}
-                                            name={
-                                                categoryMap.get(
-                                                    category.category
-                                                ).icon
-                                            }
-                                        />
-                                        <span className={'vn-flex-grow vn-ml1'}>
-                                            {str.ucfirst(category.category)}
-                                        </span>
-                                        <CategoryBadge
-                                            size={'tiny'}
-                                            color={'teal'}
-                                        >
-                                            {category.count}
-                                        </CategoryBadge>
-                                    </a>
+                                        text={str.ucfirst(category.category)}
+                                        badge={category.count}
+                                    />
                                 </MenuItem>
                             );
                         })}
@@ -165,7 +128,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 </MenuItem>
                 <MenuItem>
                     Links
-                    <Menu.Menu>{navLinks}</Menu.Menu>
+                    <Menu.Menu>{navLinks(user)}</Menu.Menu>
                 </MenuItem>
             </Sidebar>
             <Sidebar.Pusher>
@@ -175,7 +138,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                         setSidebarVisible(!getSideBarVisible())
                     }
                 >
-                    {navLinks}
+                    {navLinks(user)}
                 </NavBar>
                 {children}
             </Sidebar.Pusher>
@@ -183,7 +146,7 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
     );
 };
 
-const navLinks = (
+const navLinks = (user) => (
     <>
         <MenuItem
             showLink={true}
@@ -191,21 +154,37 @@ const navLinks = (
                 route: '/contact',
             }}
         >
-            <a className={'vn-raw-link vn-flex vn-flex-center'}>
-                <MenuIcon name={'mail outline'} />
-                <span className={'vn-flex-grow vn-ml1'}>Contact Us</span>
-            </a>
+            <MenuLink icon={'mail outline'} text={'Contact Us'} />
         </MenuItem>
-        <MenuItem
-            showLink={true}
-            routeOptions={{
-                route: '/subscribe',
-            }}
-        >
-            <a className={'vn-raw-link vn-flex vn-flex-center'}>
-                <MenuIcon name={'like'} />
-                <span className={'vn-flex-grow vn-ml1'}>Subscribe</span>
-            </a>
-        </MenuItem>
+        <VnBigScreen>
+            {!!user && (
+                <MenuItem showLink={false}>
+                    <Avatar user={user} />
+                    <span className={'vn-ml1'}>
+                        {standardiseName(user.name)}
+                    </span>
+                </MenuItem>
+            )}
+        </VnBigScreen>
+        <VnMobile>
+            {!!user && (
+                <MenuItem showLink={false}>
+                    <MenuLink
+                        icon={'log out'}
+                        text={'Log out'}
+                        href={'/api/auth/logout'}
+                    />
+                </MenuItem>
+            )}
+        </VnMobile>
+        {!user && (
+            <MenuItem showLink={false}>
+                <MenuLink
+                    icon={'sign in'}
+                    text={'Log in'}
+                    href={'/api/auth/login'}
+                />
+            </MenuItem>
+        )}
     </>
 );

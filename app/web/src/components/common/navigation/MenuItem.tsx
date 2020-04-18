@@ -53,7 +53,12 @@ const MenuItemComponent: React.FC<Props> = function ({
             active={showActive && isActive(routeOptions)}
             onClick={onClick}
         >
-            <Content as={routeOptions?.as} href={routeOptions?.route}>
+            <Content
+                passHref
+                prefetch={routeOptions?.prefetch}
+                as={routeOptions?.as}
+                href={routeOptions?.route}
+            >
                 {children}
             </Content>
         </Item>

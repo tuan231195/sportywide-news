@@ -32,7 +32,7 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
     return (
         <Card raised={true} fluid={true} centered={true}>
             <Card.Content>
-                <LazyLoad height={400} once>
+                <LazyLoad height={400} once offset={100}>
                     <NewsImage
                         size={'huge'}
                         src={news.image || '/images/placeholder.png'}

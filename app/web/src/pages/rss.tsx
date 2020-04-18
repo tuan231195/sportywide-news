@@ -48,9 +48,7 @@ export default class RssPage extends React.Component<any, any> {
                                 <a
                                     target={'_blank'}
                                     rel={'noreferrer noopener'}
-                                    className={
-                                        'vn-raw-link vn-flex vn-flex-center'
-                                    }
+                                    className={'vn-raw-link-center'}
                                     href={`/api/rss/${category.toLowerCase()}`}
                                 >
                                     <RssIcon

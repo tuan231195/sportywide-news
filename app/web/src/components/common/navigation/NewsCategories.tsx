@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { MenuIcon } from 'src/components/common/navigation/Sidebar.styled';
 import { categoryMap } from 'src/utils/categories';
+import { MenuLink } from 'src/components/common/navigation/MenuLink';
 
 interface Props {
     categories: {
@@ -53,14 +54,7 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/hot-news' }}
                     showLink={true}
                 >
-                    <a
-                        className={
-                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                        }
-                    >
-                        <MenuIcon name={'favorite'} />
-                        <span className={'vn-flex-grow vn-ml1'}>Hot news</span>
-                    </a>
+                    <MenuLink icon={'favorite'} text={'Hot news'} />
                 </CategoryItem>
                 <CategoryItem
                     key={'recommendation'}
@@ -68,16 +62,7 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/recommendation' }}
                     showLink={true}
                 >
-                    <a
-                        className={
-                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                        }
-                    >
-                        <MenuIcon name={'like'} />
-                        <span className={'vn-flex-grow vn-ml1'}>
-                            You may like
-                        </span>
-                    </a>
+                    <MenuLink icon={'like'} text={'You may like'} />
                 </CategoryItem>
             </Menu>
             <Menu vertical>
@@ -87,15 +72,7 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                     routeOptions={{ route: '/' }}
                     showLink={true}
                 >
-                    <a
-                        className={
-                            'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                        }
-                    >
-                        <MenuIcon name={'newspaper'} />
-                        <span className={'vn-flex-grow vn-ml1'}>All</span>
-                        <CategoryBadge color={'teal'}>{total}</CategoryBadge>
-                    </a>
+                    <MenuLink icon={'newspaper'} text={'All'} badge={total} />
                 </CategoryItem>
                 {categories.map((category) => (
                     <CategoryItem
@@ -107,21 +84,11 @@ export const NewsCategories: React.FC<Props> = ({ categories }) => {
                             route: '/categories/[category]',
                         }}
                     >
-                        <a
-                            className={
-                                'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                            }
-                        >
-                            <MenuIcon
-                                name={categoryMap.get(category.category).icon}
-                            />
-                            <span className={'vn-flex-grow vn-ml1'}>
-                                {str.ucfirst(category.category)}
-                            </span>
-                            <CategoryBadge color={'teal'}>
-                                {category.count}
-                            </CategoryBadge>
-                        </a>
+                        <MenuLink
+                            icon={categoryMap.get(category.category).icon}
+                            text={str.ucfirst(category.category)}
+                            badge={category.count}
+                        />
                     </CategoryItem>
                 ))}
             </Menu>

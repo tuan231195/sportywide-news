@@ -19,6 +19,7 @@ import {
 } from 'src/utils/tracking/tracking.service';
 import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
 import { initGA, logPageView } from 'src/utils/tracking/analytics';
+import { AuthService } from 'src/services/auth.service';
 
 const AppLogo = styled(Image)`
     &&&& {
@@ -80,6 +81,8 @@ export const NavBar: React.FC<Props> = function ({
     const [isFocus, setFocus] = useStateRef(false);
     const app = useApp();
     const navBarRef = useRef();
+    const container = useContainer();
+    const newsService = container.get(NewsService);
     useEffectOnce(() => {
         if (!window.GA_INITIALIZED) {
             initGA();
@@ -98,8 +101,6 @@ export const NavBar: React.FC<Props> = function ({
             }
         });
     });
-    const container = useContainer();
-    const newsService = container.get(NewsService);
     const [{ results, loading, typing }, setSearch] = useSearch(
         async (search) => {
             const { items } = await newsService.searchNews({
@@ -128,7 +129,7 @@ export const NavBar: React.FC<Props> = function ({
                     showActive={false}
                     showLink={true}
                 >
-                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <a className={'vn-raw-link-center'}>
                         <Icon name={'rss'} />
                     </a>
                 </MenuItem>
@@ -137,7 +138,7 @@ export const NavBar: React.FC<Props> = function ({
                     showActive={false}
                     showLink={true}
                 >
-                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                    <a className={'vn-raw-link-center'}>
                         <AppLogo src={'/favicon.ico'} />
                         Tuan&apos;s news
                     </a>

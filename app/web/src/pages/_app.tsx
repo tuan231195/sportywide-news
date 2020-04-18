@@ -37,6 +37,8 @@ import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
 import { seoConfig } from 'src/utils/seo/config';
 import { isDevelopment } from 'src/utils/env';
+import { AuthService } from 'src/services/auth.service';
+import { UserContext } from 'src/auth/context';
 
 const theme = {
     colors: {
@@ -86,9 +88,12 @@ class NewsApp extends App<any, any, any> {
             allPromises.pageProps = Promise.resolve({});
         }
         const newsService = container.get(NewsService);
+        const authService = container.get(AuthService);
         allPromises.categories = newsService.fetchCategories();
         allPromises.hotTerms = newsService.fetchHotTerms();
+        allPromises.user = authService.getUser();
         const result: any = await promises.all(allPromises);
+        container.set('user', result.user);
         return {
             ...result,
             query: ctx.query,
@@ -157,85 +162,95 @@ class NewsApp extends App<any, any, any> {
     }
 
     render() {
-        const { Component, pageProps, query } = this.props;
+        const { Component, pageProps, query, user } = this.props;
         return (
-            <ResponsiveContext.Provider
-                value={
-                    this.state.deviceWidth
-                        ? { width: this.state.deviceWidth }
-                        : undefined
-                }
-            >
-                <ContainerContext.Provider value={this.props.container}>
-                    <ThemeProvider theme={theme}>
-                        <Root>
-                            <SideBarPushable categories={this.props.categories}>
-                                <NewsRoot>
-                                    <NewsContainer>
-                                        <DefaultSeo {...seoConfig} />
-                                        <NewsGrid centered={true}>
-                                            <VnBigScreen>
+            <UserContext.Provider value={user}>
+                <ResponsiveContext.Provider
+                    value={
+                        this.state.deviceWidth
+                            ? { width: this.state.deviceWidth }
+                            : undefined
+                    }
+                >
+                    <ContainerContext.Provider value={this.props.container}>
+                        <ThemeProvider theme={theme}>
+                            <Root>
+                                <SideBarPushable
+                                    categories={this.props.categories}
+                                >
+                                    <NewsRoot>
+                                        <NewsContainer>
+                                            <DefaultSeo {...seoConfig} />
+                                            <NewsGrid centered={true}>
+                                                <VnBigScreen>
+                                                    <Grid.Column
+                                                        mobile={16}
+                                                        tablet={4}
+                                                        computer={4}
+                                                    >
+                                                        <NewsCategories
+                                                            categories={
+                                                                this.props
+                                                                    .categories
+                                                            }
+                                                        />
+                                                    </Grid.Column>
+                                                </VnBigScreen>
                                                 <Grid.Column
                                                     mobile={16}
-                                                    tablet={4}
-                                                    computer={4}
+                                                    tablet={12}
+                                                    computer={12}
+                                                    className={
+                                                        'vn-flex vn-flex-justify-center'
+                                                    }
                                                 >
-                                                    <NewsCategories
-                                                        categories={
-                                                            this.props
-                                                                .categories
-                                                        }
-                                                    />
-                                                </Grid.Column>
-                                            </VnBigScreen>
-                                            <Grid.Column
-                                                mobile={16}
-                                                tablet={12}
-                                                computer={12}
-                                                className={
-                                                    'vn-flex vn-flex-justify-center'
-                                                }
-                                            >
-                                                <Content>
-                                                    {!!this.props.hotTerms
-                                                        .length && (
-                                                        <div
-                                                            className={'vn-mb2'}
-                                                        >
-                                                            <Header as={'h4'}>
-                                                                Hot keywords
-                                                            </Header>
-                                                            <TagList
-                                                                tags={
-                                                                    this.props
-                                                                        .hotTerms
+                                                    <Content>
+                                                        {!!this.props.hotTerms
+                                                            .length && (
+                                                            <div
+                                                                className={
+                                                                    'vn-mb2'
                                                                 }
-                                                            />
-                                                        </div>
-                                                    )}
-                                                    <Component
-                                                        {...pageProps}
-                                                        query={query}
-                                                        container={
-                                                            this.props.container
-                                                        }
-                                                    />
-                                                </Content>
-                                            </Grid.Column>
-                                        </NewsGrid>
-                                    </NewsContainer>
-                                    {pageProps?.showScrollTop && (
-                                        <ScrollTopButton />
-                                    )}
+                                                            >
+                                                                <Header
+                                                                    as={'h4'}
+                                                                >
+                                                                    Hot keywords
+                                                                </Header>
+                                                                <TagList
+                                                                    tags={
+                                                                        this
+                                                                            .props
+                                                                            .hotTerms
+                                                                    }
+                                                                />
+                                                            </div>
+                                                        )}
+                                                        <Component
+                                                            {...pageProps}
+                                                            query={query}
+                                                            container={
+                                                                this.props
+                                                                    .container
+                                                            }
+                                                        />
+                                                    </Content>
+                                                </Grid.Column>
+                                            </NewsGrid>
+                                        </NewsContainer>
+                                        {pageProps?.showScrollTop && (
+                                            <ScrollTopButton />
+                                        )}
 
-                                    {pageProps?.showFooter && <Footer />}
-                                </NewsRoot>
-                            </SideBarPushable>
-                            <ToastContainer />
-                        </Root>
-                    </ThemeProvider>
-                </ContainerContext.Provider>
-            </ResponsiveContext.Provider>
+                                        {pageProps?.showFooter && <Footer />}
+                                    </NewsRoot>
+                                </SideBarPushable>
+                                <ToastContainer />
+                            </Root>
+                        </ThemeProvider>
+                    </ContainerContext.Provider>
+                </ResponsiveContext.Provider>
+            </UserContext.Provider>
         );
     }
 }

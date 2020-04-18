@@ -97,7 +97,7 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
                     <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
                         <a className={'vn-raw-link'}>
                             <NewsCard>
-                                <LazyLoad height={160} once>
+                                <LazyLoad height={160} once offset={100}>
                                     <Image
                                         src={
                                             news.image ||

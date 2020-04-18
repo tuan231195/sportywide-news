@@ -13,6 +13,7 @@ const configMap = {
 			username: process.env.ES_USERNAME || '',
 			password: process.env.ES_PASSWORD || '',
 		},
+		url: 'http://localhost:3000',
 		redis: {
 			host: 'localhost',
 			password: '',
@@ -30,8 +31,15 @@ const configMap = {
 			supportEmail: 'help@vdtn359.com',
 			adminEmail: 'admin@vdtn359.com',
 		},
+		auth: {
+			clientId: 'FMJ8feFNpDs6gK4GpKWeol0EUNQpNlWh',
+			domain: 'vdtn359-news.au.auth0.com',
+			clientSecret: process.env.AUTH0_SECRET,
+			cookieSecret: process.env.COOKIE_SECRET,
+		},
 	},
 	production: {
+		url: 'https://www.vdtn359.com',
 		redis: {
 			host: 'redis-16850.c89.us-east-1-3.ec2.cloud.redislabs.com',
 			port: 16850,

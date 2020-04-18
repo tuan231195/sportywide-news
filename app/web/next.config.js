@@ -143,6 +143,8 @@ const nextConfig = withPlugins([
 							'REDIS_PASSWORD',
 							'SENDGRID_API_KEY',
 							'SENTRY_RELEASE',
+							'COOKIE_SECRET',
+							'AUTH0_SECRET',
 							'SENTRY_REPORTING_DSN',
 						])
 					);

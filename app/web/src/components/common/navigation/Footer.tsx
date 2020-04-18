@@ -46,12 +46,12 @@ export const Footer = () => {
                         Links
                     </Header>
                     <Link href={'/contact'}>
-                        <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <a className={'vn-raw-link-center'}>
                             <span>Contact Us</span>
                         </a>
                     </Link>
                     <Link href={'/subscribe'}>
-                        <a className={'vn-raw-link vn-flex vn-flex-center '}>
+                        <a className={'vn-raw-link-center '}>
                             <span>Subscribe</span>
                         </a>
                     </Link>
