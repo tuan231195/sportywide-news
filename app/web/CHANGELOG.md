@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.5.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.5.0...@vdtn359/news-web-v1.5.1) (2020-04-18)
+
+
+### Bug Fixes
+
+* **web:** optimize fontawesome ([3a50b19](https://github.com/vdtn359/vdtn359-news/commit/3a50b19c60d1ce669952cad4f213311d13870c1a))
+
 # [@vdtn359/news-web-v1.5.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.4.2...@vdtn359/news-web-v1.5.0) (2020-04-18)
 
 
