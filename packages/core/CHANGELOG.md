@@ -1,3 +1,15 @@
+# [@vdtn359/news-core-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-core-v1.0.2...@vdtn359/news-core-v1.1.0) (2020-04-18)
+
+
+### Bug Fixes
+
+* **web:** improve logging ([431204c](https://github.com/vdtn359/vdtn359-news/commit/431204c5746263fbe8f420afa5598ba0ff87ba3c))
+
+
+### Features
+
+* **web:** add rss feed ([65eaf49](https://github.com/vdtn359/vdtn359-news/commit/65eaf4900fe2acacd011b985ada350a20b14f7a4))
+
 # [@vdtn359/news-core-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-core-v1.0.1...@vdtn359/news-core-v1.0.2) (2020-04-17)
 
 
