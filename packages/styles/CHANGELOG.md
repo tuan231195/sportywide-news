@@ -1,3 +1,10 @@
+# [@vdtn359/news-styles-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-styles-v1.0.0...@vdtn359/news-styles-v1.1.0) (2020-04-18)
+
+
+### Features
+
+* **news:** build rss page ([f3edab7](https://github.com/vdtn359/vdtn359-news/commit/f3edab7e4d1ffef9e3ce4b5d9d67c7c0f687f6e7))
+
 # @vdtn359/news-styles-v1.0.0 (2020-04-15)
 
 
