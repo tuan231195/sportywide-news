@@ -4,6 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'src/styles.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import '@fortawesome/fontawesome-free-webfonts/css/fontawesome.css';
+import '@fortawesome/fontawesome-free-webfonts/css/fa-regular.css';
+import '@fortawesome/fontawesome-free-webfonts/css/fa-solid.css';
+import '@fortawesome/fontawesome-free-webfonts/css/fa-brands.css';
 import App from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import { promises } from '@vdtn359/news-utils';
@@ -32,8 +36,7 @@ import { TagList } from 'src/components/tags/TagList';
 import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
 import { seoConfig } from 'src/utils/seo/config';
-import { loadStyle } from 'src/utils/scripts/load';
-import { isBrowser, isDevelopment } from 'src/utils/env';
+import { isDevelopment } from 'src/utils/env';
 
 const theme = {
     colors: {
@@ -104,9 +107,6 @@ class NewsApp extends App<any, any, any> {
         this.setState({
             deviceWidth: 0,
         });
-        loadStyle(
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'
-        );
         Router.events.on('routeChangeComplete', () => {
             window.scrollTo(0, 0);
         });

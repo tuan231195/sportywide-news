@@ -56,9 +56,9 @@ export const Star = styled.div<{
         half &&
         !readonly &&
         `
-			&:after {
+			&:hover:after {
 				font-weight: 400;
-				color: #fde16d;
+		        color: #d9d9d9;
 			}
 		`}
 	

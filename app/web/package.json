@@ -10,6 +10,7 @@
         "start": "next start -p $PORT"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free-webfonts": "1.0.9",
         "@sendgrid/mail": "7.0.0",
         "@sentry/browser": "5.15.4",
         "@sentry/node": "5.15.4",
@@ -25,6 +26,7 @@
         "date-fns": "2.12.0",
         "extra-watch-webpack-plugin": "1.0.3",
         "fomantic-ui-css": "2.8.4",
+        "font-awesome-minify-plugin": "1.1.0",
         "formik": "2.1.4",
         "framer-motion": "1.10.3",
         "helmet": "3.22.0",

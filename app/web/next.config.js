@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const withPWA = require('next-pwa');
 const packageJson = require('./package.json');
+const FontAwesomeMinifyPlugin = require('font-awesome-minify-plugin');
 const {
 	ClearPackageCachePlugin,
 } = require('./webpack/plugins/clear-package-cache');
@@ -28,9 +29,6 @@ const nextConfig = withPlugins([
 				compress: true,
 				webpack: (config, options) => {
 					config.resolve.symlinks = true;
-					if (typeof nextConfig.webpack === 'function') {
-						return nextConfig.webpack(config, options);
-					}
 					if (!process.env.LOCAL) {
 						config.externals = config.externals || [];
 						config.externals.push({
@@ -148,6 +146,18 @@ const nextConfig = withPlugins([
 							'SENTRY_REPORTING_DSN',
 						])
 					);
+
+					if (!options.isServer) {
+						config.plugins.push(
+							new FontAwesomeMinifyPlugin({
+								srcDir: path.resolve('src'),
+							})
+						);
+					}
+
+					if (typeof nextConfig.webpack === 'function') {
+						return nextConfig.webpack(config, options);
+					}
 
 					return config;
 				},

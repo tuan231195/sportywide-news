@@ -72,23 +72,6 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                     Popular
                     <Menu.Menu>
                         <MenuItem
-                            key={'home'}
-                            name="home"
-                            showLink={true}
-                            routeOptions={{ route: '/' }}
-                        >
-                            <a
-                                className={
-                                    'vn-raw-link vn-flex vn-flex-center vn-full-width'
-                                }
-                            >
-                                <MenuIcon name={'home'} />
-                                <span className={'vn-flex-grow vn-ml1'}>
-                                    Home
-                                </span>
-                            </a>
-                        </MenuItem>
-                        <MenuItem
                             key={'hot'}
                             name="hot"
                             showLink={true}
