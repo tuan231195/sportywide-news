@@ -193,7 +193,7 @@ class NewsApp extends App<any, any, any> {
                                                 tablet={12}
                                                 computer={12}
                                                 className={
-                                                    'vn-flex-important vn-flex-justify-center'
+                                                    'vn-flex vn-flex-justify-center'
                                                 }
                                             >
                                                 <Content>

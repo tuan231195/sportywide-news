@@ -124,6 +124,15 @@ export const NavBar: React.FC<Props> = function ({
 
             <VnBigScreen>
                 <MenuItem
+                    routeOptions={{ route: '/rss' }}
+                    showActive={false}
+                    showLink={true}
+                >
+                    <a className={'vn-raw-link vn-flex vn-flex-center'}>
+                        <Icon name={'rss'} />
+                    </a>
+                </MenuItem>
+                <MenuItem
                     routeOptions={{ route: '/' }}
                     showActive={false}
                     showLink={true}
