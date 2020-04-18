@@ -1,6 +1,7 @@
 import { Observable, Subject } from 'rxjs';
 import firebase from 'firebase-admin';
 import { last, omitBy, isNil } from 'lodash';
+import { str } from '@vdtn359/news-utils';
 
 export type DB = DBWrapper & firebase.firestore.Firestore;
 
@@ -14,18 +15,22 @@ export class DBWrapper {
 		return subject;
 	}
 
-	async saveOne(collection: string, item: any): Promise<void> {
+	async saveOne(collection: string, item: any): Promise<any> {
+		const id = DBWrapper.id(item.id);
 		await this.firestore
 			.collection(collection)
-			.doc(item.id)
+			.doc(id)
 			.set(DBWrapper.cleanItem(item));
+		return this.get(collection, id);
 	}
 
 	async save(collection: string, items: any[]): Promise<void> {
 		const batch = this.firestore.batch();
 
 		for (const item of items) {
-			const ref = this.firestore.collection(collection).doc(item.id);
+			const ref = this.firestore
+				.collection(collection)
+				.doc(DBWrapper.id(item.id));
 			batch.set(ref, DBWrapper.cleanItem(item));
 		}
 		await batch.commit();
@@ -39,8 +44,38 @@ export class DBWrapper {
 		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
 	}
 
+	async get(collection: string, id: string): Promise<any> {
+		const snapshot = await this.firestore
+			.collection(collection)
+			.doc(id)
+			.get();
+		return DBWrapper.getObject(snapshot.data());
+	}
+
+	async query(
+		collection: string,
+		where: Record<string, any>
+	): Promise<any[]> {
+		const collectionRef = this.firestore.collection(collection);
+		for (const [key, value] of Object.entries(where)) {
+			let op;
+			if (Array.isArray(value)) {
+				op = 'in';
+			} else {
+				op = '=';
+			}
+			collectionRef.where(key, op, value);
+		}
+		const snapshots = await collectionRef.get();
+		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
+	}
+
 	private static cleanItem(item) {
 		return omitBy(item, isNil);
+	}
+
+	private static id(newId) {
+		return newId || str.uuid();
 	}
 
 	private static getObject(item) {

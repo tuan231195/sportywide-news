@@ -142,6 +142,7 @@ importers:
       '@sentry/node': 5.15.4
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
+      '@vdtn359/news-schema': 'link:../../packages/schema'
       '@vdtn359/news-search': 'link:../../packages/search'
       '@vdtn359/news-styles': 'link:../../packages/styles'
       '@vdtn359/news-utils': 'link:../../packages/utils'
@@ -161,6 +162,7 @@ importers:
       idb: 5.0.2
       ioredis: 4.16.1
       js-cookie: 2.2.1
+      jwt-decode: 2.2.0
       lodash: 4.17.15
       logrocket: 1.0.7
       logrocket-react: 4.0.1_react-dom@16.13.1+react@16.13.1
@@ -220,6 +222,7 @@ importers:
       '@types/yup': 0.26.35
       '@vdtn359/news-core': 'workspace:*'
       '@vdtn359/news-models': 'workspace:*'
+      '@vdtn359/news-schema': 'workspace:*'
       '@vdtn359/news-search': 'workspace:*'
       '@vdtn359/news-styles': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
@@ -243,6 +246,7 @@ importers:
       idb: 5.0.2
       ioredis: 4.16.1
       js-cookie: 2.2.1
+      jwt-decode: 2.2.0
       lodash: 4.17.15
       logrocket: 1.0.7
       logrocket-react: 4.0.1
@@ -404,10 +408,12 @@ importers:
     dependencies:
       date-fns: 2.12.0
       lodash: 4.17.15
+      uuid: 7.0.3
       uuid-by-string: 3.0.2
     specifiers:
       date-fns: 2.12.0
       lodash: 4.17.15
+      uuid: 7.0.3
       uuid-by-string: 3.0.2
 lockfileVersion: 5.1
 packages:
@@ -10066,6 +10072,10 @@ packages:
     optional: true
     resolution:
       integrity: sha512-KDncfTmOZoOMTFG4mBlG0qUIOlc03fmzH+ru6RgYVZhPkyiy/92Owlt/8UEN+a4TXR1FQetfIpJE8ApdvdVxTg==
+  /jwt-decode/2.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
   /keyboard-key/1.1.0:
     dev: false
     resolution:
@@ -15512,7 +15522,6 @@ packages:
   /uuid/7.0.3:
     dev: false
     hasBin: true
-    optional: true
     resolution:
       integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
   /v8-compile-cache/2.1.0:

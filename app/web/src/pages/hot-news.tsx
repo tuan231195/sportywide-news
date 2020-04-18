@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsSearchDto, NewsService } from 'src/services/news.service';
+import { NewsSearchDto, NewsService } from 'src/services/news/news.service';
 import { ContainerInstance } from 'typedi';
 import { CardGroup } from 'semantic-ui-react';
 import Head from 'next/head';

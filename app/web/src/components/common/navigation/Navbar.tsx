@@ -12,14 +12,13 @@ import { toQueryString } from 'src/utils/filter';
 import { useSearch } from 'src/utils/hooks/search';
 import { SearchResults } from 'src/components/search/SearchResults';
 import { useApp, useContainer } from 'src/utils/container/context';
-import { NewsService } from 'src/services/news.service';
+import { NewsService } from 'src/services/news/news.service';
 import {
     TrackingService,
     TrackingType,
 } from 'src/utils/tracking/tracking.service';
 import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
 import { initGA, logPageView } from 'src/utils/tracking/analytics';
-import { AuthService } from 'src/services/auth.service';
 
 const AppLogo = styled(Image)`
     &&&& {

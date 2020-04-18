@@ -142,4 +142,25 @@ export class NewsService {
 			})
 			.then(({ data }) => data);
 	}
+
+	async addComment({ newsId, content }: { newsId: string; content: string }) {
+		return this.apiService
+			.api()
+			.post('/comments', {
+				newsId,
+				content,
+			})
+			.then(({ data }) => data);
+	}
+
+	async getComments(newsId: string) {
+		return this.apiService
+			.api()
+			.get('/comments', {
+				params: {
+					newsId,
+				},
+			})
+			.then(({ data }) => data);
+	}
 }

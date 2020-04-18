@@ -9,3 +9,7 @@ export const contactSchema = Yup.object({
 	subject: Yup.string().required('Subject is required').trim(),
 	enquiry: Yup.string().required('Enquiry is required').trim(),
 });
+
+export const commentSchema = Yup.object({
+	content: Yup.string().required('Content is required').trim(),
+});

@@ -2,7 +2,7 @@ import { Inject, Service } from 'typedi';
 import { ApiService } from 'src/services/api.service';
 
 @Service()
-export class AuthService {
+export class UserService {
 	private user;
 	constructor(
 		@Inject(() => ApiService) private readonly apiService: ApiService,

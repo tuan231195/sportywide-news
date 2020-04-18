@@ -118,6 +118,7 @@ const nextConfig = withPlugins([
 							'utils',
 							'core',
 							'models',
+							'schema',
 							'search',
 						].map((dependency) =>
 							path.resolve(packagePath, dependency, 'dist')
@@ -142,6 +143,7 @@ const nextConfig = withPlugins([
 							'ES_USERNAME',
 							'REDIS_PASSWORD',
 							'SENDGRID_API_KEY',
+							'FIREBASE_PRIVATE_KEY',
 							'SENTRY_RELEASE',
 							'COOKIE_SECRET',
 							'AUTH0_SECRET',

@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import { NewsCard } from 'src/components/news/NewsCard';
 import { Spinner } from 'src/components/common/loading/Spinner';
 import styled from 'styled-components';
-import { NewsSearchDto } from 'src/services/news.service';
+import { NewsSearchDto } from 'src/services/news/news.service';
 
 const CardGroup = styled((props) => <Card.Group {...props} />)`
     &&&& {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDb, useQuery } from 'src/utils/db/hooks';
 import { RatingStars } from 'src/components/common/misc/Star';
 import { useContainer } from 'src/utils/container/context';
-import { NewsService } from 'src/services/news.service';
+import { NewsService } from 'src/services/news/news.service';
 
 export function NewsEditRating({ id }) {
     const dbPromise = useDb();

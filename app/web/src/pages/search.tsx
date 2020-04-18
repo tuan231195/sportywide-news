@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsSearchDto, NewsService } from 'src/services/news.service';
+import { NewsSearchDto, NewsService } from 'src/services/news/news.service';
 import { Header, Label } from 'semantic-ui-react';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { ContainerInstance } from 'typedi';

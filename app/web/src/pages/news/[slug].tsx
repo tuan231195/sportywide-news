@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsService } from 'src/services/news.service';
+import { NewsService } from 'src/services/news/news.service';
 import { NewsDto } from '@vdtn359/news-models';
 import { ContainerInstance } from 'typedi';
 import { redirect } from 'src/utils/navigation/redirect';
@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { TrackingService } from 'src/utils/tracking/tracking.service';
 import { NextSeo } from 'next-seo';
 import { logEvent } from 'src/utils/tracking/analytics';
+import { NewsComments } from 'src/components/news/NewsComment';
 
 interface Props {
     news: NewsDto;
@@ -67,6 +68,7 @@ export default class NewsPage extends React.Component<Props> {
                     news={this.props.news}
                     similarNewsList={this.props.similarNewsList}
                 />
+                <NewsComments newsId={this.props.news.id} />
             </>
         );
     }

@@ -18,7 +18,7 @@ import {
     NewsContainer,
     NewsRoot,
 } from 'src/components/common/container/Container.styled';
-import { NewsService } from 'src/services/news.service';
+import { NewsService } from 'src/services/news/news.service';
 import { Context as ResponsiveContext } from 'react-responsive';
 import { device, getDeviceWidth } from 'src/utils/device/size';
 import { VnBigScreen } from 'src/components/common/responsive/Responsive';
@@ -37,7 +37,7 @@ import { ToastContainer } from 'src/components/common/container/ToastContainer';
 import { ApiService } from 'src/services/api.service';
 import { seoConfig } from 'src/utils/seo/config';
 import { isDevelopment } from 'src/utils/env';
-import { AuthService } from 'src/services/auth.service';
+import { UserService } from 'src/services/auth/user.service';
 import { UserContext } from 'src/auth/context';
 
 const theme = {
@@ -88,10 +88,10 @@ class NewsApp extends App<any, any, any> {
             allPromises.pageProps = Promise.resolve({});
         }
         const newsService = container.get(NewsService);
-        const authService = container.get(AuthService);
+        const userService = container.get(UserService);
         allPromises.categories = newsService.fetchCategories();
         allPromises.hotTerms = newsService.fetchHotTerms();
-        allPromises.user = authService.getUser();
+        allPromises.user = userService.getUser();
         const result: any = await promises.all(allPromises);
         container.set('user', result.user);
         return {

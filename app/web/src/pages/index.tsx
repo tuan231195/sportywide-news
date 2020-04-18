@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsSearchDto, NewsService } from 'src/services/news.service';
+import { NewsSearchDto, NewsService } from 'src/services/news/news.service';
 import { NewsStream } from 'src/components/news/NewsStream';
 import { NewsSlide } from 'src/components/news/NewsSlide';
 import { ContainerInstance } from 'typedi';

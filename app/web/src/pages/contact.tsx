@@ -3,7 +3,7 @@ import { Button, Form, Header, Segment } from 'semantic-ui-react';
 import { Formik } from 'formik';
 import { SemanticField } from 'src/components/form/SemanticField';
 import { contactSchema } from 'src/utils/validation/schema';
-import { EmailService } from 'src/services/email.service';
+import { EmailService } from 'src/services/email/email.service';
 import { ConfirmationMessage } from 'src/components/form/ConfirmationMessage';
 import { Trigger } from 'src/utils/events/trigger';
 import { NextSeo } from 'next-seo';

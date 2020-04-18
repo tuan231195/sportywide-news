@@ -1,4 +1,4 @@
-import { NewsSearchDto } from 'src/services/news.service';
+import { NewsSearchDto } from 'src/services/news/news.service';
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
