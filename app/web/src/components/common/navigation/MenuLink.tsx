@@ -14,11 +14,13 @@ export const MenuLink = React.forwardRef(
             icon,
             image,
             text,
+            className = '',
             badge,
             href,
         }: {
             icon?: SemanticICONS;
             image?: string;
+            className?: string;
             text?: string;
             badge?: string | number;
             href?: string;
@@ -27,7 +29,7 @@ export const MenuLink = React.forwardRef(
     ) => {
         return (
             <a
-                className={'vn-raw-link-center vn-full-width'}
+                className={`vn-raw-link-center vn-full-width ${className}`}
                 href={href || null}
                 // @ts-ignore
                 ref={ref}

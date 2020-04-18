@@ -7,6 +7,10 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const Item = styled(Menu.Item)`
+    &&&& {
+        display: flex;
+        align-items: center;
+    }
     &&&&.active {
         color: white;
         background-color: ${(props) => props.theme.colors.accent} !important;

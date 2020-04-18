@@ -5,7 +5,6 @@ import { Label, Menu } from 'semantic-ui-react';
 import { str } from '@vdtn359/news-utils';
 import styled from 'styled-components';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
-import { MenuIcon } from 'src/components/common/navigation/Sidebar.styled';
 import { categoryMap } from 'src/utils/categories';
 import { MenuLink } from 'src/components/common/navigation/MenuLink';
 
@@ -26,11 +25,6 @@ const MenuContainer = styled.div`
             width: 100%;
         }
     }
-`;
-
-const CategoryBadge = styled(Label)`
-    min-width: 40px;
-    text-align: center;
 `;
 
 const CategoryItem = styled(MenuItem)`

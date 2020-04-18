@@ -2,12 +2,12 @@ import React, { useMemo, useRef } from 'react';
 import { useEffectOnce, useStateRef } from 'src/utils/hooks/basic';
 import { useApp } from 'src/utils/container/context';
 import {
-    MenuIcon,
     MenuSegment,
     Pushable,
 } from 'src/components/common/navigation/Sidebar.styled';
-import { Label, Menu, Sidebar, Image } from 'semantic-ui-react';
+import { Item, Menu, Sidebar } from 'semantic-ui-react';
 import { NavBar } from './Navbar';
+import styled from 'styled-components';
 import { MenuItem } from 'src/components/common/navigation/MenuItem';
 import { str } from '@vdtn359/news-utils';
 import { CATEGORY } from '@vdtn359/news-models';
@@ -16,12 +16,49 @@ import {
     VnBigScreen,
     VnMobile,
 } from 'src/components/common/responsive/Responsive';
-import styled from 'styled-components';
 import { sumBy } from 'lodash';
 import { useUser } from 'src/auth/context';
 import { MenuLink } from 'src/components/common/navigation/MenuLink';
 import { Avatar } from 'src/components/common/navigation/Avatar';
 import { standardiseName } from 'src/utils/profile';
+
+const UserMenuItem = styled(Menu.Item)`
+    &&&&& {
+        display: flex;
+        padding: 0;
+        position: relative;
+
+        &:hover {
+            > div:nth-child(2) {
+                display: block;
+            }
+        }
+    }
+`;
+const UserDropdown = styled(Item.Group)`
+    &&&&&& {
+        margin: 0;
+        border-radius: 0.28571429rem;
+        box-shadow: 0 2px 4px 0 rgba(34, 36, 38, 0.12),
+            0 2px 10px 0 rgba(34, 36, 38, 0.15);
+        display: none;
+        > .item {
+            a {
+                color: rgba(0, 0, 0, 0.87);
+            }
+        }
+        padding: var(--space-2);
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+`;
+
+const UserAvatarContainer = styled.div`
+    padding: 10px 30px;
+`;
 
 interface Props {
     categories: {
@@ -158,12 +195,24 @@ const navLinks = (user) => (
         </MenuItem>
         <VnBigScreen>
             {!!user && (
-                <MenuItem showLink={false}>
-                    <Avatar user={user} />
-                    <span className={'vn-ml1'}>
-                        {standardiseName(user.name)}
-                    </span>
-                </MenuItem>
+                <UserMenuItem>
+                    <UserAvatarContainer>
+                        <Avatar user={user} />
+                        <span className={'vn-ml1'}>
+                            {standardiseName(user.name)}
+                        </span>
+                    </UserAvatarContainer>
+                    <UserDropdown>
+                        <MenuItem>
+                            <MenuLink
+                                className={'vn-text--black'}
+                                icon={'log out'}
+                                text={'Log out'}
+                                href={'/api/auth/logout'}
+                            />
+                        </MenuItem>
+                    </UserDropdown>
+                </UserMenuItem>
             )}
         </VnBigScreen>
         <VnMobile>
