@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.6.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.2...@vdtn359/news-web-v1.6.3) (2020-04-19)
+
+
+### Bug Fixes
+
+* **web:** fixed service worker cache manifest ([fde3e9c](https://github.com/vdtn359/vdtn359-news/commit/fde3e9cabd2d9c18b66327de88fece1fadafbacf))
+
 # [@vdtn359/news-web-v1.6.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.1...@vdtn359/news-web-v1.6.2) (2020-04-19)
 
 
