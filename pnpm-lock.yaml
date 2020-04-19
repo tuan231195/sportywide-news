@@ -206,6 +206,7 @@ importers:
       babel-plugin-styled-components: 1.10.7_styled-components@5.0.1
       babel-plugin-transform-typescript-metadata: 0.3.0
       dotenv: 8.2.0
+      fast-glob: 3.2.2
       null-loader: 3.0.0
       sass: 1.26.3
     specifiers:
@@ -238,6 +239,7 @@ importers:
       date-fns: 2.12.0
       dotenv: 8.2.0
       extra-watch-webpack-plugin: 1.0.3
+      fast-glob: 3.2.2
       fomantic-ui-css: 2.8.4
       font-awesome-minify-plugin: 1.1.0
       formik: 2.1.4

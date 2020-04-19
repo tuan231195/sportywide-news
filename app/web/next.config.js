@@ -2,11 +2,14 @@ require('dotenv').config();
 const path = require('path');
 const webpack = require('webpack');
 const withPWA = require('next-pwa');
+const crypto = require('crypto');
 const packageJson = require('./package.json');
 const FontAwesomeMinifyPlugin = require('font-awesome-minify-plugin');
 const {
 	ClearPackageCachePlugin,
 } = require('./webpack/plugins/clear-package-cache');
+const fg = require('fast-glob');
+const fs = require('fs');
 process.env.SENTRY_RELEASE = packageJson.version;
 const withPlugins = require('next-compose-plugins');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -192,6 +195,24 @@ const nextConfig = withPlugins([
 				sw: 'service-worker.js',
 				disable: process.env.NODE_ENV === 'development',
 				runtimeCaching,
+				additionalManifestEntries: this.disable
+					? []
+					: fg
+							.sync(
+								[
+									'**/*',
+									'!service-worker.js',
+									'!workbox-*.js',
+									'!workbox-*.js.map',
+									'!worker-*.js',
+									'!worker-*.js.map',
+								],
+								{ dot: true, cwd: 'public' }
+							)
+							.map((file) => ({
+								url: `/${file}`,
+								revision: getRevision(`public/${file}`),
+							})),
 			},
 		},
 	],
@@ -219,4 +240,8 @@ function injectPolyfill(entry, polyfillFile) {
 		}, {});
 	}
 	return entry;
+}
+
+function getRevision(file) {
+	return crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex');
 }
