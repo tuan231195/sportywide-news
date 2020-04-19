@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.6.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.1...@vdtn359/news-web-v1.6.2) (2020-04-19)
+
+
+### Bug Fixes
+
+* **web:** revert fixed lazy load in ssr ([f8d3f18](https://github.com/vdtn359/vdtn359-news/commit/f8d3f1819853901f825e864f603b0aafb397e878))
+
 # [@vdtn359/news-web-v1.6.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.0...@vdtn359/news-web-v1.6.1) (2020-04-19)
 
 
