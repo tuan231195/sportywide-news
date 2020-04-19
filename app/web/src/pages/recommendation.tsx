@@ -5,7 +5,6 @@ import { CardGroup } from 'semantic-ui-react';
 import Head from 'next/head';
 import { NewsCard } from 'src/components/news/NewsCard';
 import { NextSeo } from 'next-seo';
-import { isServer } from 'src/utils/env';
 
 interface Props {
     news: NewsSearchDto[];
@@ -33,12 +32,8 @@ export default class RecommendationPage extends React.Component<Props> {
                 </Head>
                 <NextSeo noindex={true} />
                 <CardGroup>
-                    {this.props.news.map((news, index) => (
-                        <NewsCard
-                            news={news}
-                            key={news.id}
-                            noLazyLoad={isServer() && !index}
-                        />
+                    {this.props.news.map((news) => (
+                        <NewsCard news={news} key={news.id} />
                     ))}
                 </CardGroup>
             </>

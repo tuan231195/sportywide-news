@@ -5,7 +5,6 @@ import { CardGroup } from 'semantic-ui-react';
 import Head from 'next/head';
 import { NewsCard } from 'src/components/news/NewsCard';
 import { NextSeo } from 'next-seo';
-import { isBrowser, isServer } from 'src/utils/env';
 
 interface Props {
     news: NewsSearchDto[];
@@ -31,12 +30,8 @@ export default class HotNewsPage extends React.Component<Props> {
                 </Head>
                 <NextSeo title={'Hot news'} description={'Popular news'} />
                 <CardGroup>
-                    {this.props.news.map((news, index) => (
-                        <NewsCard
-                            news={news}
-                            key={news.id}
-                            noLazyLoad={isServer() && !index}
-                        />
+                    {this.props.news.map((news) => (
+                        <NewsCard news={news} key={news.id} />
                     ))}
                 </CardGroup>
             </>

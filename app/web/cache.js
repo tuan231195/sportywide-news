@@ -88,7 +88,7 @@ module.exports = [
 		},
 	},
 	{
-		urlPattern: /https:\/\/www.vdtn359.com(\/)?.*/i,
+		urlPattern: /https:\/\/www.vdtn359.com/i,
 		handler: 'NetworkFirst',
 		options: {
 			cacheName: 'pages',

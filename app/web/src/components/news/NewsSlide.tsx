@@ -5,8 +5,7 @@ import { Card, Header, Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { size } from 'src/utils/device/size';
-import { LazyLoad } from 'src/components/common/misc/LazyLoad';
-import { isServer } from 'src/utils/env';
+import LazyLoad from 'react-lazyload';
 
 interface Props {
     newsList: NewsDto[];
@@ -98,14 +97,7 @@ export const NewsSlide: React.FC<Props> = ({ newsList = [] }) => {
                     <Link href={`/news/[slug]`} as={`/news/${news.slug}`}>
                         <a className={'vn-raw-link'}>
                             <NewsCard>
-                                <LazyLoad
-                                    config={{
-                                        height: 160,
-                                        once: true,
-                                        offset: 100,
-                                    }}
-                                    noLazyLoad={isServer()}
-                                >
+                                <LazyLoad height={160} once offset={100}>
                                     <Image
                                         src={
                                             news.image ||

@@ -37,7 +37,7 @@ export class ApiService {
 		this.axios.interceptors.response.use(
 			(response) => {
 				const cookies = response.headers['set-cookie'];
-				if (this.ctx.res && cookies) {
+				if (this.ctx.res && !this.ctx.res.headersSent && cookies) {
 					this.ctx.res.setHeader('set-cookie', cookies);
 				}
 				this.apiCallSubscription.next(
