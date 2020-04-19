@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.6.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.3...@vdtn359/news-web-v1.6.4) (2020-04-19)
+
+
+### Bug Fixes
+
+* **web:** increase offset ([f5036b8](https://github.com/vdtn359/vdtn359-news/commit/f5036b80e39e5c51ea696eba0ba0853f872644bf))
+
 # [@vdtn359/news-web-v1.6.3](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.2...@vdtn359/news-web-v1.6.3) (2020-04-19)
 
 
