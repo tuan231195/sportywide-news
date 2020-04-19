@@ -7,10 +7,11 @@ import Link from 'next/link';
 import { useURL } from 'src/utils/hooks/basic';
 import { NewsEditRating } from 'src/components/news/NewsRating';
 import { RatingTag } from 'src/components/tags/RatingTag';
-import LazyLoad from 'react-lazyload';
+import { LazyLoad } from 'src/components/common/misc/LazyLoad';
 
 interface Props {
     news: NewsDto;
+    noLazyLoad?: boolean;
 }
 
 const ButtonGroup = styled.div`
@@ -27,12 +28,19 @@ const NewsImage = styled(Image)`
         height: 400px;
     }
 `;
-export const NewsCard: React.FC<Props> = ({ news }) => {
+export const NewsCard: React.FC<Props> = ({ news, noLazyLoad }) => {
     const { root: rootUrl, hostname } = useURL(news.url);
     return (
         <Card raised={true} fluid={true} centered={true}>
             <Card.Content>
-                <LazyLoad height={400} once offset={100}>
+                <LazyLoad
+                    config={{
+                        height: 400,
+                        once: true,
+                        offset: 100,
+                    }}
+                    noLazyLoad={noLazyLoad}
+                >
                     <NewsImage
                         size={'huge'}
                         src={news.image || '/images/placeholder.png'}

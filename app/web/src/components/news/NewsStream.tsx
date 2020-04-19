@@ -5,6 +5,7 @@ import { NewsCard } from 'src/components/news/NewsCard';
 import { Spinner } from 'src/components/common/loading/Spinner';
 import styled from 'styled-components';
 import { NewsSearchDto } from 'src/services/news/news.service';
+import { isServer } from 'src/utils/env';
 
 const CardGroup = styled((props) => <Card.Group {...props} />)`
     &&&& {
@@ -48,8 +49,12 @@ export const NewsStream: React.FC<Props> = ({
                 loader={<Spinner key={-1} />}
                 useWindow={true}
             >
-                {newsList.map((news) => (
-                    <NewsCard news={news} key={news.id} />
+                {newsList.map((news, index) => (
+                    <NewsCard
+                        news={news}
+                        key={news.id}
+                        noLazyLoad={isServer() && !index}
+                    />
                 ))}
             </InfiniteScroll>
         </CardGroup>
