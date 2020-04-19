@@ -1,3 +1,10 @@
+# [@vdtn359/news-styles-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-styles-v1.1.0...@vdtn359/news-styles-v1.2.0) (2020-04-19)
+
+
+### Features
+
+* **web:** added login ([462190d](https://github.com/vdtn359/vdtn359-news/commit/462190daa2f94a34fdfde332a9e77b63c2d0bd47))
+
 # [@vdtn359/news-styles-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-styles-v1.0.0...@vdtn359/news-styles-v1.1.0) (2020-04-18)
 
 
