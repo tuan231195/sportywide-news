@@ -1,3 +1,10 @@
+# [@vdtn359/news-utils-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-utils-v1.0.2...@vdtn359/news-utils-v1.1.0) (2020-04-19)
+
+
+### Features
+
+* **web:** add comment ([7da642e](https://github.com/vdtn359/vdtn359-news/commit/7da642e215ed301584874fb9faec16d68e514554))
+
 # [@vdtn359/news-utils-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-utils-v1.0.1...@vdtn359/news-utils-v1.0.2) (2020-04-17)
 
 
