@@ -36,12 +36,9 @@ async function getRequest(req: ApiRequest, res: NextApiResponse) {
 					return;
 				}
 				return {
-					id: comment.id,
-					content: comment.content,
 					avatar: user.picture,
 					author: user.name,
-					newsId: comment.newsId,
-					time: comment.time,
+					...comment,
 				};
 			})
 			.filter((comment) => comment)
@@ -59,12 +56,9 @@ async function postRequest(req: ApiRequest, res: NextApiResponse) {
 		time: new Date(),
 	});
 	const commentDto: CommentDto = {
-		id: newComment.id,
-		content: newComment.content,
 		avatar: req.user.picture,
 		author: req.user.name,
-		newsId: newComment.newsId,
-		time: newComment.time,
+		...newComment,
 	};
 	res.json(commentDto);
 }

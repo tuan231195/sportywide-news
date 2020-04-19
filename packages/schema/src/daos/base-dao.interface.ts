@@ -26,4 +26,8 @@ export class BaseDao<T> implements Dao<T> {
 	query(where: any): Promise<T[]> {
 		return this.db.query(this.collection, where);
 	}
+
+	delete(id: string): Promise<void> {
+		return this.db.delete(this.collection, id);
+	}
 }

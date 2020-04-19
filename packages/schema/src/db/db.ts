@@ -70,6 +70,10 @@ export class DBWrapper {
 		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
 	}
 
+	async delete(collection: string, id: string): Promise<void> {
+		await this.firestore.collection(collection).doc(id).delete();
+	}
+
 	private static cleanItem(item) {
 		return omitBy(item, isNil);
 	}

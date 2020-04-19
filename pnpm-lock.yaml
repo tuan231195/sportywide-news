@@ -135,7 +135,6 @@ importers:
       winston: 3.2.1
   app/web:
     dependencies:
-      '@auth0/nextjs-auth0': 0.11.0_next@9.3.2
       '@fortawesome/fontawesome-free-webfonts': 1.0.9
       '@sendgrid/mail': 7.0.0
       '@sentry/browser': 5.15.4
@@ -147,6 +146,7 @@ importers:
       '@vdtn359/news-styles': 'link:../../packages/styles'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       '@vdtn359/next-connect': 1.0.0
+      '@vdtn359/nextjs-auth0': 0.11.0_next@9.3.2
       axios: 0.19.2
       axios-retry: 3.1.2
       cors: 2.8.5
@@ -208,7 +208,6 @@ importers:
       null-loader: 3.0.0
       sass: 1.26.3
     specifiers:
-      '@auth0/nextjs-auth0': 0.11.0
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
       '@fortawesome/fontawesome-free-webfonts': 1.0.9
@@ -227,6 +226,7 @@ importers:
       '@vdtn359/news-styles': 'workspace:*'
       '@vdtn359/news-utils': 'workspace:*'
       '@vdtn359/next-connect': 1.0.0
+      '@vdtn359/nextjs-auth0': 0.11.0
       axios: 0.19.2
       axios-retry: 3.1.2
       babel-plugin-add-react-displayname: 0.0.5
@@ -466,20 +466,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-R5VkDmhmNatq9SuuHaeA2Uno4O5K4YSh11o6A/5jJZ2EjilAcpuAKvZlRp9tjucPWHi+/z/n5PCJ8YUxzCzWaQ==
-  /@auth0/nextjs-auth0/0.11.0_next@9.3.2:
-    dependencies:
-      '@hapi/iron': 5.1.4
-      base64url: 3.0.1
-      cookie: 0.4.0
-      next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
-      openid-client: 3.14.2
-    dev: false
-    engines:
-      node: ^10.13.0 || >=12.0.0
-    peerDependencies:
-      next: ^9.0.5
-    resolution:
-      integrity: sha512-neYuKca+kRnKjNZeMZDaK/mwQnFTO8Omd5ztQYYYacfjb+mAVDk2UscTrNc9KlZCIhFKuLigrsnisJd+zs88zg==
   /@babel/code-frame/7.8.3:
     dependencies:
       '@babel/highlight': 7.9.0
@@ -3749,6 +3735,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-DmMV/tnN0zEd82zdGZA287ooVR/GrifUnEPgZD49NA77nUcBrnLvVNBg6gvPAkmkt6gvjiq7QQ1lptMru0Uhdw==
+  /@vdtn359/nextjs-auth0/0.11.0_next@9.3.2:
+    dependencies:
+      '@hapi/iron': 5.1.4
+      base64url: 3.0.1
+      cookie: 0.4.0
+      next: 9.3.2_15ab9b97b1acc8923e06e722bb218d5c
+      openid-client: 3.14.2
+    dev: false
+    engines:
+      node: ^10.13.0 || >=12.0.0
+    peerDependencies:
+      next: ^9.0.5
+    resolution:
+      integrity: sha512-9MEPqCtoKV7eq1rsSz/n2hqCYsUWLk+rp2mDTzeQnly69uICclAh5933zP82XrnngyuITBFN14cwVlUZA9ohYQ==
   /@vdtn359/semantic-release-monorepo/1.0.0_semantic-release@17.0.4:
     dependencies:
       '@vdtn359/mono-install': 1.1.1

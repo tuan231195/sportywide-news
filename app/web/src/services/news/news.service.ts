@@ -163,4 +163,11 @@ export class NewsService {
 			})
 			.then(({ data }) => data);
 	}
+
+	deleteComment(newsId: string) {
+		return this.apiService
+			.api()
+			.delete(`/comments/${newsId}`)
+			.then(({ data }) => data);
+	}
 }

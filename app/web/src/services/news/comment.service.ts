@@ -22,4 +22,8 @@ export class CommentService {
 			newsId,
 		});
 	}
+
+	deleteComment(id: string) {
+		return this.commentDao.delete(id);
+	}
 }

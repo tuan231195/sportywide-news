@@ -6,6 +6,7 @@ export interface FormFieldProps<P> {
     componentProps?: P;
     name: string;
     value?: any;
+    showError?: boolean;
     children?: any;
     validate?: (value: any) => string | Promise<void> | undefined;
     onChange?: (
@@ -18,6 +19,7 @@ export interface FormFieldProps<P> {
 export const SemanticField = <T extends object>({
     component,
     componentProps,
+    showError = true,
     ...fieldProps
 }: FormFieldProps<T>) => (
     <Field name={fieldProps.name} validate={fieldProps.validate}>
@@ -47,7 +49,8 @@ export const SemanticField = <T extends object>({
                 ...props,
                 ...valueProps,
                 ...((submitCount > 1 || touched[field.name]) &&
-                errors[field.name]
+                errors[field.name] &&
+                showError
                     ? {
                           error: {
                               content: errors[field.name],

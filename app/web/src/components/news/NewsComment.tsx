@@ -23,14 +23,14 @@ export const NewsComments: React.FC<Props> = ({ newsId }) => {
     const container = useContainer();
     const newsService = container.get(NewsService);
     const [comments, setComments] = useState<CommentDto[]>([]);
-    if (!user) {
-        return null;
-    }
     useEffect(() => {
         (async () => {
             setComments(await newsService.getComments(newsId));
         })();
     }, [newsId]);
+    if (!(user || comments.length)) {
+        return null;
+    }
     return (
         <NewsCommentSegment>
             <Header as="h3">Comments</Header>
@@ -53,6 +53,26 @@ export const NewsComments: React.FC<Props> = ({ newsId }) => {
                                     </div>
                                 </Comment.Metadata>
                                 <Comment.Text>{comment.content}</Comment.Text>
+                                <Comment.Actions>
+                                    {user && comment.userId === user.sub && (
+                                        <Comment.Action
+                                            onClick={async () => {
+                                                await newsService.deleteComment(
+                                                    comment.id
+                                                );
+                                                setComments(
+                                                    comments.filter(
+                                                        (currentComment) =>
+                                                            currentComment !==
+                                                            comment
+                                                    )
+                                                );
+                                            }}
+                                        >
+                                            Delete
+                                        </Comment.Action>
+                                    )}
+                                </Comment.Actions>
                             </Comment.Content>
                         </Comment>
                     ))}

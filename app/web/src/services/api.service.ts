@@ -20,7 +20,7 @@ export class ApiService {
 			paramsSerializer: (params) => querystring.stringify(params),
 			headers:
 				ctx.req && ctx.req.headers?.cookie
-					? { cookie: ctx.req.headers.cookie }
+					? { cookie: ctx.req.headers.cookie, 'x-is-ssr': true }
 					: undefined,
 		});
 		axiosRetry(this.axios, { retries: 3 });
@@ -36,6 +36,10 @@ export class ApiService {
 		});
 		this.axios.interceptors.response.use(
 			(response) => {
+				const cookies = response.headers['set-cookie'];
+				if (this.ctx.res && cookies) {
+					this.ctx.res.setHeader('set-cookie', cookies);
+				}
 				this.apiCallSubscription.next(
 					this.apiCallSubscription.getValue() - 1
 				);
