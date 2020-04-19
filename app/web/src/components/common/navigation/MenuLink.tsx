@@ -15,6 +15,7 @@ export const MenuLink = React.forwardRef(
             image,
             text,
             className = '',
+            onClick,
             badge,
             href,
         }: {
@@ -22,6 +23,7 @@ export const MenuLink = React.forwardRef(
             image?: string;
             className?: string;
             text?: string;
+            onClick?: any;
             badge?: string | number;
             href?: string;
         },
@@ -31,6 +33,7 @@ export const MenuLink = React.forwardRef(
             <a
                 className={`vn-raw-link-center vn-full-width ${className}`}
                 href={href || null}
+                onClick={onClick}
                 // @ts-ignore
                 ref={ref}
             >
