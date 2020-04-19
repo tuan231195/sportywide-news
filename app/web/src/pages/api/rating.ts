@@ -30,8 +30,10 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 	const indexDoc: NewsStatDto = {
 		docIds: [documentId],
 		time: new Date(),
-		rating,
-		oldRating: oldRating || 0,
+		meta: {
+			oldRating: oldRating || 0,
+			rating,
+		},
 		type: ACTION_TYPE.RATE,
 	};
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));

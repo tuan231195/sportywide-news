@@ -38,14 +38,20 @@ export const mappings = {
 		numViews: {
 			type: 'integer',
 		},
+		numComments: {
+			type: 'integer',
+			null_value: 0,
+		},
 		numSearches: {
 			type: 'integer',
+			null_value: 0,
 		},
 		ratings: {
 			type: 'float',
 		},
 		numRatings: {
 			type: 'integer',
+			null_value: 0,
 		},
 		feed: {
 			type: 'keyword',

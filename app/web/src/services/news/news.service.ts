@@ -164,10 +164,10 @@ export class NewsService {
 			.then(({ data }) => data);
 	}
 
-	deleteComment(newsId: string) {
+	deleteComment(commentId: string) {
 		return this.apiService
 			.api()
-			.delete(`/comments/${newsId}`)
+			.delete(`/comments/${commentId}`)
 			.then(({ data }) => data);
 	}
 }

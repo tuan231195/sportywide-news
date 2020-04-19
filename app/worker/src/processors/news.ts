@@ -76,6 +76,7 @@ async function esSync(newsList: any[] = []) {
 						ratings: 0,
 						numRatings: 0,
 						numSearches: 0,
+						numComments: 0,
 						indexType: 'index',
 					};
 				}

@@ -80,7 +80,9 @@ async function search(query) {
 			const indexDoc: NewsStatDto = {
 				docIds: topSearch.map((search) => search.id),
 				time: new Date(),
-				term: searchQuery,
+				meta: {
+					term: searchQuery,
+				},
 				type: ACTION_TYPE.SEARCH,
 			};
 			redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));

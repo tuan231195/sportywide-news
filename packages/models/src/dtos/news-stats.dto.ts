@@ -2,13 +2,17 @@ export enum ACTION_TYPE {
 	SEARCH = 'search',
 	RATE = 'rate',
 	VIEW = 'view',
+	COMMENT = 'comment',
+	DELETE_COMMENT = 'delete_comment',
 }
 
 export class NewsStatDto {
 	type: ACTION_TYPE;
 	docIds: string[];
-	term?: string;
 	time: Date;
-	rating?: number;
-	oldRating?: number;
+	meta?: {
+		term?: string;
+		rating?: number;
+		oldRating?: number;
+	} = {};
 }

@@ -23,6 +23,10 @@ export class CommentService {
 		});
 	}
 
+	get(commentId: string) {
+		return this.commentDao.get(commentId);
+	}
+
 	deleteComment(id: string) {
 		return this.commentDao.delete(id);
 	}

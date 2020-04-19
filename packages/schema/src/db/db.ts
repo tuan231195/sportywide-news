@@ -1,6 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 import firebase from 'firebase-admin';
-import { last, omitBy, isNil } from 'lodash';
+import { isNil, last, omitBy } from 'lodash';
 import { str } from '@vdtn359/news-utils';
 
 export type DB = DBWrapper & firebase.firestore.Firestore;
@@ -41,7 +41,7 @@ export class DBWrapper {
 			.collection(collection)
 			.where(firebase.firestore.FieldPath.documentId(), 'in', ids)
 			.get();
-		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
+		return snapshots.docs.map((doc) => DBWrapper.getObject(doc));
 	}
 
 	async get(collection: string, id: string): Promise<any> {
@@ -49,25 +49,25 @@ export class DBWrapper {
 			.collection(collection)
 			.doc(id)
 			.get();
-		return DBWrapper.getObject(snapshot.data());
+		return DBWrapper.getObject(snapshot);
 	}
 
 	async query(
 		collection: string,
 		where: Record<string, any>
 	): Promise<any[]> {
-		const collectionRef = this.firestore.collection(collection);
+		let ref: any = this.firestore.collection(collection);
 		for (const [key, value] of Object.entries(where)) {
 			let op;
 			if (Array.isArray(value)) {
 				op = 'in';
 			} else {
-				op = '=';
+				op = '==';
 			}
-			collectionRef.where(key, op, value);
+			ref = ref.where(key, op, value);
 		}
-		const snapshots = await collectionRef.get();
-		return snapshots.docs.map((doc) => DBWrapper.getObject(doc.data()));
+		const snapshots = await ref.get();
+		return snapshots.docs.map((doc) => DBWrapper.getObject(doc));
 	}
 
 	async delete(collection: string, id: string): Promise<void> {
@@ -82,13 +82,17 @@ export class DBWrapper {
 		return newId || str.uuid();
 	}
 
-	private static getObject(item) {
+	private static getObject(snapshot: firebase.firestore.DocumentSnapshot) {
+		const item = snapshot.data();
 		for (const key of Object.keys(item)) {
 			if (item[key] instanceof firebase.firestore.Timestamp) {
 				item[key] = item[key].toDate();
 			}
 		}
-		return item;
+		return {
+			id: snapshot.id,
+			...item,
+		};
 	}
 
 	private async internalStream(

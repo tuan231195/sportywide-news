@@ -56,7 +56,9 @@ function captureSearch(id: string, search: string) {
 	const indexDoc: NewsStatDto = {
 		docIds: [id],
 		time: new Date(),
-		term: search,
+		meta: {
+			term: search,
+		},
 		type: ACTION_TYPE.SEARCH,
 	};
 	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));

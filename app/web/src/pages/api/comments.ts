@@ -8,8 +8,9 @@ import { Auth0Service } from 'src/services/auth/auth0.service';
 import { CommentService } from 'src/services/news/comment.service';
 import { authenticated } from 'src/api/authenticated';
 import util from 'util';
-import { CommentDto } from '@vdtn359/news-models';
+import { ACTION_TYPE, CommentDto, NewsStatDto } from '@vdtn359/news-models';
 import { stringQuery } from 'src/api/parse';
+import { redis } from 'src/setup';
 
 const handler = getHandler();
 handler.post(postRequest);
@@ -47,7 +48,7 @@ async function getRequest(req: ApiRequest, res: NextApiResponse) {
 
 async function postRequest(req: ApiRequest, res: NextApiResponse) {
 	await util.promisify(authenticated)(req, res);
-	const body = await validateInput(req.body);
+	const body = await validateComment(req.body);
 	const commentService = Container.get(CommentService);
 	const newComment = await commentService.addComment({
 		content: body.content,
@@ -60,10 +61,16 @@ async function postRequest(req: ApiRequest, res: NextApiResponse) {
 		author: req.user.name,
 		...newComment,
 	};
+	const indexDoc: NewsStatDto = {
+		docIds: [body.newsId],
+		time: new Date(),
+		type: ACTION_TYPE.COMMENT,
+	};
+	redis.xadd('news-stats', '*', 'payload', JSON.stringify(indexDoc));
 	res.json(commentDto);
 }
 
-async function validateInput(body) {
+async function validateComment(body) {
 	if (!body.newsId) {
 		throw new createError.BadRequest('News id is required');
 	}

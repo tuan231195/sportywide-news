@@ -39,6 +39,16 @@ async function esSync(newsStats = []) {
 				bulk.push(...arr);
 				break;
 			}
+			case ACTION_TYPE.COMMENT: {
+				const arr = indexComment(newsStat);
+				bulk.push(...arr);
+				break;
+			}
+			case ACTION_TYPE.DELETE_COMMENT: {
+				const arr = indexDeleteComment(newsStat);
+				bulk.push(...arr);
+				break;
+			}
 		}
 	}
 	logger.debug('Messages: ', { messages: newsStats });
@@ -80,6 +90,63 @@ function indexView(newsStat: NewsStatDto) {
 	return returnArr;
 }
 
+function indexComment(newsStat: NewsStatDto) {
+	const returnArr = [];
+
+	returnArr.push({
+		create: {
+			_index: NEWS_STAT_INDEX,
+		},
+	});
+	returnArr.push({
+		id: newsStat.docIds[0],
+		time: newsStat.time,
+		type: newsStat.type,
+	});
+	returnArr.push({
+		update: {
+			_index: NEWS_INDEX,
+			_id: newsStat.docIds[0],
+		},
+	});
+	returnArr.push({
+		script: {
+			inline: `
+	if (ctx._source.numComments == null) {
+		ctx._source.numComments = 0;
+	}
+	ctx._source.numComments++;			
+`,
+			lang: 'painless',
+		},
+	});
+
+	return returnArr;
+}
+
+function indexDeleteComment(newsStat: NewsStatDto) {
+	const returnArr = [];
+
+	returnArr.push({
+		update: {
+			_index: NEWS_INDEX,
+			_id: newsStat.docIds[0],
+		},
+	});
+	returnArr.push({
+		script: {
+			inline: `
+	if (ctx._source.numComments > 0) {
+		ctx._source.numComments--;
+	}			
+`,
+			lang: 'painless',
+		},
+	});
+
+	return returnArr;
+}
+
 function indexSearch(newsStat: NewsStatDto) {
 	const returnArr = [];
 
@@ -92,7 +159,7 @@ function indexSearch(newsStat: NewsStatDto) {
 		returnArr.push({
 			id: docId,
 			time: newsStat.time,
-			term: newsStat.term,
+			term: newsStat.meta?.term,
 			type: newsStat.type,
 		});
 
@@ -124,7 +191,7 @@ function indexRating(newsStat: NewsStatDto) {
 	returnArr.push({
 		id: newsStat.docIds[0],
 		time: newsStat.time,
-		term: newsStat.term,
+		term: newsStat.meta?.term,
 		type: newsStat.type,
 	});
 
@@ -143,8 +210,8 @@ function indexRating(newsStat: NewsStatDto) {
 			`,
 			lang: 'painless',
 			params: {
-				rating: newsStat.rating || 1,
-				oldRating: newsStat.oldRating || 0,
+				rating: newsStat.meta?.rating || 1,
+				oldRating: newsStat.meta?.oldRating || 0,
 			},
 		},
 	});

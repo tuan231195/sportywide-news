@@ -199,6 +199,7 @@ export function getModifierFunctions() {
 				field: 'numViews',
 				factor: 1.2,
 				modifier: 'ln1p',
+				missing: 0,
 			},
 		},
 		{
@@ -206,6 +207,15 @@ export function getModifierFunctions() {
 				field: 'numSearches',
 				modifier: 'ln1p',
 				factor: 1,
+				missing: 0,
+			},
+		},
+		{
+			field_value_factor: {
+				field: 'numComments',
+				modifier: 'ln1p',
+				factor: 1,
+				missing: 0,
 			},
 		},
 		{
