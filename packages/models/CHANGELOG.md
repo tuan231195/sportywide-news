@@ -1,3 +1,17 @@
+# [@vdtn359/news-models-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-models-v1.0.2...@vdtn359/news-models-v1.1.0) (2020-04-19)
+
+
+### Bug Fixes
+
+* **news:** fixed bugs in dao class ([9516a01](https://github.com/vdtn359/vdtn359-news/commit/9516a01f08bbb10903b06ea205e4aa07f7f03373))
+
+
+### Features
+
+* **news:** add number of comments ([206403d](https://github.com/vdtn359/vdtn359-news/commit/206403d55fceff5be766e357b74bb9f01de7ce5e))
+* **web:** add comment ([7da642e](https://github.com/vdtn359/vdtn359-news/commit/7da642e215ed301584874fb9faec16d68e514554))
+* **web:** delete comment ([01322af](https://github.com/vdtn359/vdtn359-news/commit/01322af085f30d64f77304f105e72c90dec35a54))
+
 # [@vdtn359/news-models-v1.0.2](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-models-v1.0.1...@vdtn359/news-models-v1.0.2) (2020-04-17)
 
 
