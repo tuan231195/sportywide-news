@@ -57,7 +57,7 @@ const UserDropdown = styled(Item.Group)`
 `;
 
 const UserAvatarContainer = styled.div`
-    padding: 10px 30px;
+    padding: 10px 15px;
 `;
 
 interface Props {
