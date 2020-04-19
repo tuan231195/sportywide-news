@@ -1,3 +1,20 @@
+# [@vdtn359/news-web-v1.6.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.5.1...@vdtn359/news-web-v1.6.0) (2020-04-19)
+
+
+### Bug Fixes
+
+* **news:** fixed bugs in dao class ([9516a01](https://github.com/vdtn359/vdtn359-news/commit/9516a01f08bbb10903b06ea205e4aa07f7f03373))
+* **web:** fix onclick handler ([f729881](https://github.com/vdtn359/vdtn359-news/commit/f72988160082bd2d8165a7a75a0814c724993fba))
+
+
+### Features
+
+* **news:** add log out button ([c3db947](https://github.com/vdtn359/vdtn359-news/commit/c3db9475f7031d396ece540e3abf8a1b071aef4b))
+* **news:** add number of comments ([206403d](https://github.com/vdtn359/vdtn359-news/commit/206403d55fceff5be766e357b74bb9f01de7ce5e))
+* **web:** add comment ([7da642e](https://github.com/vdtn359/vdtn359-news/commit/7da642e215ed301584874fb9faec16d68e514554))
+* **web:** added login ([462190d](https://github.com/vdtn359/vdtn359-news/commit/462190daa2f94a34fdfde332a9e77b63c2d0bd47))
+* **web:** delete comment ([01322af](https://github.com/vdtn359/vdtn359-news/commit/01322af085f30d64f77304f105e72c90dec35a54))
+
 # [@vdtn359/news-web-v1.5.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.5.0...@vdtn359/news-web-v1.5.1) (2020-04-18)
 
 
