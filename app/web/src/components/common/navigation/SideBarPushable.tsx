@@ -108,6 +108,16 @@ export const SideBarPushable: React.FC<Props> = ({ children, categories }) => {
                 vertical
                 visible={getSideBarVisible()}
             >
+                {!!user && (
+                    <MenuItem>
+                        <div className={'vn-flex vn-flex-center'}>
+                            <Avatar user={user} />
+                            <span className={'vn-ml1'}>
+                                {standardiseName(user.name)}
+                            </span>
+                        </div>
+                    </MenuItem>
+                )}
                 <MenuItem>
                     Popular
                     <Menu.Menu>
