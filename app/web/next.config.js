@@ -16,6 +16,7 @@ const supportedLocales = ['en'];
 const isDevelopment = process.env.NODE_ENV === 'development';
 const runtimeCaching = require('./cache');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const nextConfig = withPlugins([
 	[
 		(nextConfig) => {
@@ -78,7 +79,12 @@ const nextConfig = withPlugins([
 					);
 
 					if (!isDevelopment && process.env.SOURCEMAP) {
-						config.devtool = 'hidden-source-map';
+						config.devtool = 'source-map';
+						const {
+							SENTRY_DSN,
+							SENTRY_ORG,
+							SENTRY_PROJECT,
+						} = process.env;
 
 						for (const plugin of config.plugins) {
 							if (plugin.constructor.name === 'UglifyJsPlugin') {
@@ -100,6 +106,16 @@ const nextConfig = withPlugins([
 									break;
 								}
 							}
+						}
+
+						if (SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT) {
+							config.plugins.push(
+								new SentryWebpackPlugin({
+									include: '.next',
+									ignore: ['node_modules'],
+									urlPrefix: '~/_next',
+								})
+							);
 						}
 					}
 
@@ -147,7 +163,7 @@ const nextConfig = withPlugins([
 							'SENTRY_RELEASE',
 							'COOKIE_SECRET',
 							'AUTH0_SECRET',
-							'SENTRY_REPORTING_DSN',
+							'SENTRY_DSN',
 						])
 					);
 

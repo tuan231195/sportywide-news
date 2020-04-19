@@ -26,7 +26,7 @@ const configMap = {
 			port: 6379,
 		},
 		sentry: {
-			dsn: process.env.SENTRY_REPORTING_DSN,
+			dsn: process.env.SENTRY_DSN,
 		},
 		logging: {
 			level: 'debug',

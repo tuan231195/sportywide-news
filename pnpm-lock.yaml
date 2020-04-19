@@ -139,6 +139,7 @@ importers:
       '@sendgrid/mail': 7.0.0
       '@sentry/browser': 5.15.4
       '@sentry/node': 5.15.4
+      '@sentry/webpack-plugin': 1.10.0
       '@vdtn359/news-core': 'link:../../packages/core'
       '@vdtn359/news-models': 'link:../../packages/models'
       '@vdtn359/news-schema': 'link:../../packages/schema'
@@ -214,6 +215,7 @@ importers:
       '@sendgrid/mail': 7.0.0
       '@sentry/browser': 5.15.4
       '@sentry/node': 5.15.4
+      '@sentry/webpack-plugin': 1.10.0
       '@types/http-errors': 1.6.3
       '@types/ioredis': 4.14.9
       '@types/morgan': 1.9.0
@@ -3190,6 +3192,21 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-l/auT1HtZM3KxjCGQHYO/K51ygnlcuOrM+7Ga8gUUbU9ZXDYw6jRi0+Af9aqXKmdDw1naNxr7OCSy6NBrLWVZw==
+  /@sentry/cli/1.52.1:
+    dependencies:
+      fs-copy-file-sync: 1.1.1
+      https-proxy-agent: 4.0.0
+      mkdirp: 0.5.5
+      node-fetch: 2.6.0
+      progress: 2.0.0
+      proxy-from-env: 1.1.0
+    dev: false
+    engines:
+      node: '>= 8'
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-XocAy3opa7bxWEbYQ9R/whbIb4BAX2YHXvfMoCwZRzLRy9cf85FYGQCMi8JA7wQd5PBmcxUh31AxcX7jAfMPCQ==
   /@sentry/core/5.15.4:
     dependencies:
       '@sentry/hub': 5.15.4
@@ -3253,6 +3270,14 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-lO8SLBjrUDGADl0LOkd55R5oL510d/1SaI08/IBHZCxCUwI4TiYo5EPECq8mrj3XGfgCyq9osw33bymRlIDuSQ==
+  /@sentry/webpack-plugin/1.10.0:
+    dependencies:
+      '@sentry/cli': 1.52.1
+    dev: false
+    engines:
+      node: '>= 6.0.0'
+    resolution:
+      integrity: sha512-keT6cH8732bFjdH/v+C/UwbJu6byZ5L8t7QRLjgj+fqDyc/RlVEw9VzIQSJGUtd2XgImpdduWzgxythLkwKJjg==
   /@sindresorhus/is/0.14.0:
     dev: false
     engines:
@@ -7749,6 +7774,12 @@ packages:
       readable-stream: 2.3.7
     resolution:
       integrity: sha1-i/tVAr3kpNNs/e6gB/zKIdfjgq8=
+  /fs-copy-file-sync/1.1.1:
+    dev: false
+    engines:
+      node: '>=0.8'
+    resolution:
+      integrity: sha512-2QY5eeqVv4m2PfyMiEuy9adxNP+ajf+8AR05cEi+OAzPcOj90hvFImeZhTmKLBgSd9EvG33jsD7ZRxsx9dThkQ==
   /fs-extra/7.0.1:
     dependencies:
       graceful-fs: 4.2.3
@@ -12704,6 +12735,12 @@ packages:
       node: '>= 0.6.0'
     resolution:
       integrity: sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
+  /progress/2.0.0:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-ihvjZr+Pwj2yvSPxDG/pILQ4nR8=
   /progress/2.0.3:
     dev: false
     engines:
@@ -12769,6 +12806,10 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-j2JlRdUeL/f4Z6x4aU4gj9I2LECglC+5qR2TrWb193Tla1qfdaNQTZ8I27Pt7K0Ajmvjjpft7O3KWTGciz4gpw==
+  /proxy-from-env/1.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
   /prr/1.0.1:
     resolution:
       integrity: sha1-0/wRS6BplaRexok/SEzrHXj19HY=

@@ -4,7 +4,7 @@ import * as Sentry from '@sentry/browser';
 import { isDevelopment } from 'src/utils/env';
 
 Sentry.init({
-	dsn: process.env.SENTRY_REPORTING_DSN,
+	dsn: process.env.SENTRY_DSN,
 	environment: process.env.NODE_CONFIG_ENV,
 	release: process.env.SENTRY_RELEASE,
 	beforeSend(event) {
