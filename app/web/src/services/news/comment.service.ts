@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { sortBy } from 'lodash';
 import { Inject, Service } from 'typedi';
 import { CommentDao } from '@vdtn359/news-schema';
 import { DbService } from 'src/services/db.service';
@@ -17,10 +18,11 @@ export class CommentService {
 		return this.commentDao.saveOne(commentDto);
 	}
 
-	getComments(newsId: string) {
-		return this.commentDao.query({
+	async getComments(newsId: string) {
+		const comments = await this.commentDao.query({
 			newsId,
 		});
+		return sortBy(comments, 'time');
 	}
 
 	get(commentId: string) {

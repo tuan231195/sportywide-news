@@ -7,6 +7,7 @@ import { useUser } from 'src/auth/context';
 import { NewsCommentReply } from 'src/components/news/NewsCommentReply';
 import { useContainer } from 'src/utils/container/context';
 import { NewsService } from 'src/services/news/news.service';
+import { standardiseName } from 'src/utils/profile';
 
 const NewsCommentSegment = styled(Segment)`
     &&& {
@@ -42,7 +43,7 @@ export const NewsComments: React.FC<Props> = ({ newsId }) => {
                             <Comment.Avatar src={comment.avatar} />
                             <Comment.Content>
                                 <Comment.Author as="a">
-                                    {comment.author}
+                                    {standardiseName(comment.author)}
                                 </Comment.Author>
                                 <Comment.Metadata>
                                     <div>

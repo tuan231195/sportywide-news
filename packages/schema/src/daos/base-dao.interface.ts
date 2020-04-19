@@ -23,8 +23,11 @@ export class BaseDao<T> implements Dao<T> {
 		return this.db.findByIds(this.collection, itemIds);
 	}
 
-	query(where: any): Promise<T[]> {
-		return this.db.query(this.collection, where);
+	query(
+		where: any,
+		orderBy?: { path: string; direction: 'desc' | 'asc' }
+	): Promise<T[]> {
+		return this.db.query(this.collection, where, orderBy);
 	}
 
 	delete(id: string): Promise<void> {

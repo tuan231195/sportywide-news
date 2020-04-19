@@ -54,7 +54,8 @@ export class DBWrapper {
 
 	async query(
 		collection: string,
-		where: Record<string, any>
+		where: Record<string, any>,
+		orderBy?: { path: string; direction: 'desc' | 'asc' }
 	): Promise<any[]> {
 		let ref: any = this.firestore.collection(collection);
 		for (const [key, value] of Object.entries(where)) {
@@ -65,6 +66,9 @@ export class DBWrapper {
 				op = '==';
 			}
 			ref = ref.where(key, op, value);
+		}
+		if (orderBy) {
+			ref = ref.orderBy(orderBy.path, orderBy.direction);
 		}
 		const snapshots = await ref.get();
 		return snapshots.docs.map((doc) => DBWrapper.getObject(doc));

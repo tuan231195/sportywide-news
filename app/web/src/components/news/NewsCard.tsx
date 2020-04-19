@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, Card, Image } from 'semantic-ui-react';
+import { Button, Card, Image, Icon } from 'semantic-ui-react';
 import { NewsDto } from '@vdtn359/news-models';
 import { date, str } from '@vdtn359/news-utils';
 import Link from 'next/link';
@@ -97,11 +97,19 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
                             View External
                         </Button>
                     </ButtonGroup>
-                    {news.ratings > 0 && (
-                        <div>
-                            <RatingTag rating={news.ratings} />
-                        </div>
-                    )}
+                    <div className={'vn-flex vn-flex-center'}>
+                        {news.numComments > 0 && (
+                            <span className={'vn-mr2'}>
+                                <Icon name={'comments'} />
+                                {news.numComments}
+                            </span>
+                        )}
+                        {news.ratings > 0 && (
+                            <div>
+                                <RatingTag rating={news.ratings} />
+                            </div>
+                        )}
+                    </div>
                 </div>
             </Card.Content>
         </Card>

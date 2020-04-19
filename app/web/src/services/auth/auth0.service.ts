@@ -46,7 +46,9 @@ export class Auth0Service {
 			.get('/v2/users', {
 				params: {
 					fields: 'user_id,name,picture,email',
-					q: userIds.map((userId) => `user_id: ${userId}`).join('OR'),
+					q: userIds
+						.map((userId) => `user_id: ${userId}`)
+						.join(' OR '),
 				},
 			})
 			.then(({ data }) => data);

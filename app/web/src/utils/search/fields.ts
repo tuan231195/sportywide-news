@@ -11,6 +11,7 @@ export const FIELDS = [
 	'slug',
 	'ratings',
 	'numViews',
+	'numComments',
 ];
 
 export function parseFields(hits) {

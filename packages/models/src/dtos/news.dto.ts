@@ -12,6 +12,7 @@ export class NewsDto {
 	id: string;
 	category: CATEGORY;
 	numViews?: number;
+	numComments?: number;
 	ratings?: number;
 	url: string;
 	slug: string;
