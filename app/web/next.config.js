@@ -78,7 +78,7 @@ const nextConfig = withPlugins([
 					);
 
 					if (!isDevelopment && process.env.SOURCEMAP) {
-						config.devtool = 'source-map';
+						config.devtool = 'hidden-source-map';
 
 						for (const plugin of config.plugins) {
 							if (plugin.constructor.name === 'UglifyJsPlugin') {
