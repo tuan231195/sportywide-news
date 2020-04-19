@@ -1,3 +1,14 @@
+# [@vdtn359/news-web-v1.6.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.0...@vdtn359/news-web-v1.6.1) (2020-04-19)
+
+
+### Bug Fixes
+
+* **web:** add avatar to sidebar ([66f8a19](https://github.com/vdtn359/vdtn359-news/commit/66f8a190aa9efea7e1d4872a0ff054ef6c5ec5c3))
+* **web:** add sentry webpack plugin ([d2595aa](https://github.com/vdtn359/vdtn359-news/commit/d2595aac83f01afc20b442cbc60f678572d6a815))
+* **web:** fixed lazy load in ssr ([b9de404](https://github.com/vdtn359/vdtn359-news/commit/b9de404d256868346226740b5a8c719180963eb9))
+* **web:** fixed service worker caching for home page ([99eb241](https://github.com/vdtn359/vdtn359-news/commit/99eb24173ab7d3fd1f576647f5b49ed618fd5c76))
+* **web:** use hidden source map ([3fe6c10](https://github.com/vdtn359/vdtn359-news/commit/3fe6c10ef3ecc56a5b4ffdaede5cfa2f43a1ad49))
+
 # [@vdtn359/news-web-v1.6.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.5.1...@vdtn359/news-web-v1.6.0) (2020-04-19)
 
 
