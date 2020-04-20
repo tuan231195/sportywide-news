@@ -11,9 +11,14 @@ jobs:
             - run:
                   name: Install node_modules
                   command: |
+                      BRANCH_REGEX="^(develop|master)$"
+                      if [[ $CIRCLE_BRANCH =~ $BRANCH_REGEX ]]; then
+                          FLAGS='--frozen-lockfile'
+                      else
+                          FLAGS='--frozen-lockfile=false'
+                      fi
                       npm set verify-store-integrity false
-                      echo "$WEB_SECRET" | base64 -d > app/web/.env
-                      pnpm recursive install --unsafe-perm
+                      pnpm recursive install --unsafe-perm "$FLAGS"
             - save_cache:
                   key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
                   paths:
