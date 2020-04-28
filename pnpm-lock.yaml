@@ -7,17 +7,17 @@ importers:
       '@semantic-release/git': 9.0.0_semantic-release@17.0.4
       '@semantic-release/npm': 7.0.5_semantic-release@17.0.4
       '@semantic-release/release-notes-generator': 9.0.1_semantic-release@17.0.4
-      '@types/cheerio': 0.22.17
+      '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
-      '@types/lodash': 4.14.149
-      '@types/node': 13.11.1
+      '@types/lodash': 4.14.150
+      '@types/node': 13.13.4
       '@types/react': 16.9.34
       '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0_semantic-release@17.0.4
       '@zerollup/ts-transform-paths': 1.7.12_typescript@3.8.3
       next-compose-plugins: 2.2.0
       semantic-release: 17.0.4_semantic-release@17.0.4
-      tasksfile: 5.1.0
+      tasksfile: 5.1.1
       ts-jest: 25.2.1_jest@25.1.0
       ts-transpile: 1.2.4_typescript@3.8.3
       tsconfig-paths: 3.9.0
@@ -49,11 +49,11 @@ importers:
       '@semantic-release/git': 9.0.0
       '@semantic-release/npm': 7.0.5
       '@semantic-release/release-notes-generator': 9.0.1
-      '@types/cheerio': ^0.22.17
+      '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
-      '@types/lodash': ^4.14.149
-      '@types/node': ^13.9.2
-      '@types/react': ^16.9.25
+      '@types/lodash': 4.14.150
+      '@types/node': 13.13.4
+      '@types/react': 16.9.34
       '@typescript-eslint/eslint-plugin': 2.24.0
       '@typescript-eslint/parser': 2.24.0
       '@vdtn359/mono-install': 1.1.1
@@ -70,12 +70,12 @@ importers:
       jest: 25.1.0
       link-parent-bin: 1.0.2
       lint-staged: 10.0.8
-      next-compose-plugins: ^2.2.0
+      next-compose-plugins: 2.2.0
       prettier: 2.0.2
       semantic-release: 17.0.4
-      tasksfile: ~5.1.0
+      tasksfile: 5.1.1
       ts-jest: 25.2.1
-      ts-transpile: ~1.2.4
+      ts-transpile: 1.2.4
       tsconfig-paths: 3.9.0
       ttypescript: 1.5.10
       typescript: 3.8.3
@@ -427,7 +427,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-g0NnZZqPJttIcdplIpiMDmOLewwvCWPSnFKvNdyYXN7vknRvR4krpV2qveuVgjnA+dSlDmtzuFapFCaWh4V7FQ==
-  /@ampproject/toolbox-optimizer/2.0.1_lru-cache@5.1.1:
+  /@ampproject/toolbox-optimizer/2.0.1:
     dependencies:
       '@ampproject/toolbox-core': 2.2.0
       '@ampproject/toolbox-runtime-version': 2.2.0
@@ -437,14 +437,9 @@ packages:
       domhandler: 3.0.0
       domutils: 2.0.0
       htmlparser2: 4.1.0
-      lru-cache: 5.1.1
       normalize-html-whitespace: 1.0.0
       terser: 4.6.7
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -2858,17 +2853,17 @@ packages:
       node: '>=6.16.0'
     resolution:
       integrity: sha512-snkj9nX11F/2+7t/aQUbGC4iYMMZ2BQMoSsJ0IUUimzkOM9jb12QFAGubsOo9TibmfTN/g0DJ+ciOgXB/YEClQ==
-  /@pawelgalazka/cli/2.0.2:
+  /@pawelgalazka/cli/2.0.3:
     dependencies:
       '@pawelgalazka/cli-args': 1.1.3
       '@pawelgalazka/middleware': 1.0.0
       chalk: 2.4.2
-      lodash: 4.17.11
+      lodash: 4.17.15
     dev: true
     engines:
       node: '>=8.6.0'
     resolution:
-      integrity: sha512-xhnmZLsPp8MG1Eqijlpp1JtzxuTBp4dxYWpXpU6cLeaw5zk8d/5ssqgomavKUTs3ff6jSBshYbLNU4Ncma1meA==
+      integrity: sha512-PjR8WGDfd8KLFdRS0ceZC/V99xCMN+z6MVThoaqODEOrgwSyP1qA1nVc8JXOI5cxGQ5OBvSDikrvulXYnzgIjg==
   /@pawelgalazka/middleware/1.0.0:
     dev: true
     resolution:
@@ -3381,12 +3376,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-W98JrE0j2K78swW4ukqMleo8R7h/pFETjM2DQ90MF6XK2i4LO4W3gQ71Lt4w3bfm2EvVSyWHplECvB5sK22yFQ==
-  /@types/cheerio/0.22.17:
+  /@types/cheerio/0.22.18:
     dependencies:
-      '@types/node': 13.11.1
+      '@types/node': 13.13.4
     dev: true
     resolution:
-      integrity: sha512-izlm+hbqWN9csuB9GSMfCnAyd3/57XZi3rfz1B0C4QBGVMp+9xQ7+9KYnep+ySfUrCWql4lGzkLf0XmprXcz9g==
+      integrity: sha512-Fq7R3fINAPSdUEhOyjG4iVxgHrOnqDJbY0/BUuiN0pvD/rfmZWekVZnv+vcs8TtpA2XF50uv50LaE4EnpEL/Hw==
   /@types/color-name/1.1.1:
     dev: true
     resolution:
@@ -3505,10 +3500,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
-  /@types/lodash/4.14.149:
+  /@types/lodash/4.14.150:
     dev: true
     resolution:
-      integrity: sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
+      integrity: sha512-kMNLM5JBcasgYscD9x/Gvr6lTAv2NVgsKtet/hm93qMyf/D1pt+7jeEZklKJKxMVmXjxbRVQQGfqDSfipYCO6w==
   /@types/long/4.0.1:
     dev: false
     optional: true
@@ -3535,6 +3530,10 @@ packages:
   /@types/node/13.11.1:
     resolution:
       integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
+  /@types/node/13.13.4:
+    dev: true
+    resolution:
+      integrity: sha512-x26ur3dSXgv5AwKS0lNfbjpCakGIduWU1DU91Zz58ONRWrIKGunmZBNv4P7N+e27sJkiGDsw/3fT4AtsqQBrBA==
   /@types/node/8.10.60:
     dev: false
     resolution:
@@ -3672,7 +3671,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3708,7 +3706,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3730,7 +3727,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -10477,10 +10473,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-2ZwHpmnp5tJOE2Lf4mbGdhavEwI=
-  /lodash/4.17.11:
-    dev: true
-    resolution:
-      integrity: sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
   /lodash/4.17.15:
     resolution:
       integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -11121,7 +11113,7 @@ packages:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
   /next/9.3.2_15ab9b97b1acc8923e06e722bb218d5c:
     dependencies:
-      '@ampproject/toolbox-optimizer': 2.0.1_lru-cache@5.1.1
+      '@ampproject/toolbox-optimizer': 2.0.1
       '@babel/core': 7.7.2
       '@babel/plugin-proposal-class-properties': 7.7.0_@babel+core@7.7.2
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.7.4_@babel+core@7.7.2
@@ -14813,9 +14805,9 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
-  /tasksfile/5.1.0:
+  /tasksfile/5.1.1:
     dependencies:
-      '@pawelgalazka/cli': 2.0.2
+      '@pawelgalazka/cli': 2.0.3
       '@pawelgalazka/shell': 2.0.0
       chalk: 2.3.0
     dev: true
@@ -14823,7 +14815,7 @@ packages:
       node: '>=6.11.1'
     hasBin: true
     resolution:
-      integrity: sha512-BdQcgGFUFLVBDjG85TBC7txXabI7TSRy7r4sBcZvI2csmxpicr4TBuMPNTRQqHL8N5IfQuSP4aALdfdb8NZJPg==
+      integrity: sha512-G5d3pT8qHgRy3L2zUj+SJMr1C44k2tr+68e1gRxPs6bFHDq/qr3l6BmT2O7OcaGryOHrHIMhwnU3ZTjXGvsXxQ==
   /teeny-request/6.0.3:
     dependencies:
       http-proxy-agent: 4.0.1
@@ -15198,8 +15190,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
