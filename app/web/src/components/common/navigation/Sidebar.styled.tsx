@@ -35,6 +35,8 @@ export const Pushable = styled(Sidebar.Pushable)`
         .sidebar {
             margin-top: 38px !important;
             padding-top: 20px;
+            max-height: calc(100% - 38px) !important;
+            overflow-x: hidden;
         }
     }
 `;
