@@ -14,7 +14,7 @@ importers:
       '@types/react': 16.9.34
       '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0_semantic-release@17.0.4
-      '@zerollup/ts-transform-paths': 1.7.12_typescript@3.8.3
+      '@zerollup/ts-transform-paths': 1.7.17_typescript@3.8.3
       next-compose-plugins: 2.2.0
       semantic-release: 17.0.4_semantic-release@17.0.4
       tasksfile: 5.1.1
@@ -58,7 +58,7 @@ importers:
       '@typescript-eslint/parser': 2.24.0
       '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0
-      '@zerollup/ts-transform-paths': 1.7.12
+      '@zerollup/ts-transform-paths': 1.7.17
       chokidar-cli: ^2.1.0
       commitizen: 4.0.3
       cz-conventional-changelog: 3.1.0
@@ -441,10 +441,6 @@ packages:
       postcss-safe-parser: 4.0.2
       terser: 4.6.8
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -3751,7 +3747,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3787,7 +3782,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3809,7 +3803,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3988,14 +3981,14 @@ packages:
       integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
   /@zerollup/ts-helpers/1.7.16_typescript@3.8.3:
     dependencies:
-      resolve: 1.15.1
+      resolve: 1.17.0
       typescript: 3.8.3
     dev: true
     peerDependencies:
       typescript: '>=3.7.2'
     resolution:
       integrity: sha512-vQ9n0XEcgcwuooyQRufow7DqC7d6ihWgpAeeEMADactHBfzL7Xj7iCRd18kVsRerwEy8rRaiJNN7GKADAVQ8Xw==
-  /@zerollup/ts-transform-paths/1.7.12_typescript@3.8.3:
+  /@zerollup/ts-transform-paths/1.7.17_typescript@3.8.3:
     dependencies:
       '@zerollup/ts-helpers': 1.7.16_typescript@3.8.3
       typescript: 3.8.3
@@ -4003,7 +3996,7 @@ packages:
     peerDependencies:
       typescript: '>=3.7.2'
     resolution:
-      integrity: sha512-7VEVrMEQavwTGap4x/EgtX2A/mFtbkdA/J8WW+d/bfmZEo61ci9JmiXAL2KwyLcD8kmY7NenEFxhX1sLtfWpCg==
+      integrity: sha512-sdf8v1s6/QllFjsidj1qcbHWjWexrQHMcX3fPByKlUAz4IPYK+tb/lag7peplDvyTi1GlwjKXWOQfBDZNhiyRg==
   /JSONStream/1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -12977,6 +12970,12 @@ packages:
       path-parse: 1.0.6
     resolution:
       integrity: sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
+  /resolve/1.17.0:
+    dependencies:
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==
   /responselike/1.0.2:
     dependencies:
       lowercase-keys: 1.0.1
@@ -14634,8 +14633,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
