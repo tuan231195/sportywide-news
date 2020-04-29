@@ -29,7 +29,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 2.24.0_2aaafe2ee3cd4bf67c98ce9cdfd45777
       '@typescript-eslint/parser': 2.24.0_eslint@6.8.0+typescript@3.8.3
       chokidar-cli: 2.1.0
-      commitizen: 4.0.3
+      commitizen: 4.0.4
       cz-conventional-changelog: 3.1.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0_eslint@6.8.0
@@ -60,7 +60,7 @@ importers:
       '@vdtn359/semantic-release-monorepo': 1.0.0
       '@zerollup/ts-transform-paths': 1.7.12
       chokidar-cli: ^2.1.0
-      commitizen: 4.0.3
+      commitizen: 4.0.4
       cz-conventional-changelog: 3.1.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0
@@ -441,10 +441,6 @@ packages:
       postcss-safe-parser: 4.0.2
       terser: 4.6.8
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -3751,7 +3747,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3787,7 +3782,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3809,7 +3803,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -5335,6 +5328,30 @@ packages:
     optional: true
     resolution:
       integrity: sha512-lxu0F/Iq4dudoFeIl5pY3h3CQJzkmQuh3ygnaOvqhAD8Wu2pYBI17ofqSuPHNsBTEOh1r1AVa9kR4Hp0FAHKcQ==
+  /commitizen/4.0.4:
+    dependencies:
+      cachedir: 2.2.0
+      cz-conventional-changelog: 3.0.1
+      dedent: 0.7.0
+      detect-indent: 6.0.0
+      find-node-modules: 2.0.0
+      find-root: 1.1.0
+      fs-extra: 8.1.0
+      glob: 7.1.4
+      inquirer: 6.5.0
+      is-utf8: 0.2.1
+      lodash: 4.17.15
+      minimist: 1.2.3
+      shelljs: 0.7.6
+      strip-bom: 4.0.0
+      strip-json-comments: 3.0.1
+    dev: false
+    engines:
+      node: '>= 10'
+    hasBin: true
+    optional: true
+    resolution:
+      integrity: sha512-gfEt1rDE9VqKif+LE3cAThpqiW/1K3c2Nx83jSU6ohZjQd2CAmz1rMIlgmbPrPagOkKZw7USzSVubS758ZTWdA==
   /common-tags/1.8.0:
     dev: false
     engines:
@@ -10563,6 +10580,11 @@ packages:
     optional: true
     resolution:
       integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+  /minimist/1.2.3:
+    dev: false
+    optional: true
+    resolution:
+      integrity: sha512-+bMdgqjMN/Z77a6NlY/I3U5LlRDbnmaAk6lDveAPKwSpcPM4tKAuYsvYF8xjhOPXhOYGe/73vVLVez5PW+jqhw==
   /minimist/1.2.5:
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -14634,8 +14656,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
