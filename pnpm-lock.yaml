@@ -33,7 +33,7 @@ importers:
       cz-conventional-changelog: 3.1.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0_eslint@6.8.0
-      eslint-plugin-prettier: 3.1.2_eslint@6.8.0+prettier@2.0.2
+      eslint-plugin-prettier: 3.1.3_eslint@6.8.0+prettier@2.0.2
       eslint-plugin-react: 7.19.0_eslint@6.8.0
       husky: 4.2.3
       jest: 25.1.0
@@ -64,7 +64,7 @@ importers:
       cz-conventional-changelog: 3.1.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0
-      eslint-plugin-prettier: 3.1.2
+      eslint-plugin-prettier: 3.1.3
       eslint-plugin-react: 7.19.0
       husky: 4.2.3
       jest: 25.1.0
@@ -441,10 +441,6 @@ packages:
       postcss-safe-parser: 4.0.2
       terser: 4.6.8
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -3751,7 +3747,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3787,7 +3782,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3809,7 +3803,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -6738,7 +6731,7 @@ packages:
       eslint: '>=3.14.1'
     resolution:
       integrity: sha512-AtndijGte1rPILInUdHjvKEGbIV06NuvPrqlIEaEaWtbtvJh464mDeyGMdZEQMsGvC0ZVkiex1fSNcC4HAbRGg==
-  /eslint-plugin-prettier/3.1.2_eslint@6.8.0+prettier@2.0.2:
+  /eslint-plugin-prettier/3.1.3_eslint@6.8.0+prettier@2.0.2:
     dependencies:
       eslint: 6.8.0
       prettier: 2.0.2
@@ -6751,7 +6744,7 @@ packages:
       eslint: '>= 5.0.0'
       prettier: '>= 1.13.0'
     resolution:
-      integrity: sha512-GlolCC9y3XZfv3RQfwGew7NnuFDKsfI4lbvRK+PIIo23SFH+LemGs4cKwzAaRa+Mdb+lQO/STaIayno8T5sJJA==
+      integrity: sha512-+HG5jmu/dN3ZV3T6eCD7a4BlAySdN7mLIbJYo0z1cFQuI+r2DiTJEFeF68ots93PsnrMxbzIZ2S/ieX+mkrBeQ==
   /eslint-plugin-react/7.19.0_eslint@6.8.0:
     dependencies:
       array-includes: 3.1.1
@@ -14634,8 +14627,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
