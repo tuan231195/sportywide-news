@@ -1,3 +1,13 @@
+# [@vdtn359/news-web-v1.6.5](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.4...@vdtn359/news-web-v1.6.5) (2020-04-29)
+
+
+### Bug Fixes
+
+* **web:** fixed sidebar overflow ([2f7c61f](https://github.com/vdtn359/vdtn359-news/commit/2f7c61f0cc53f5c3733d12acb7036d7daf6e1a81))
+* upgrade @sentry/browser from 5.15.4 to 5.15.5 ([7eadd5c](https://github.com/vdtn359/vdtn359-news/commit/7eadd5ce5fd8ae9d2812e36d9851687a520dfe56))
+* upgrade axios-retry from 3.1.2 to 3.1.4 ([2cbb66d](https://github.com/vdtn359/vdtn359-news/commit/2cbb66d0b78153de3e3355bce6d74d587539e7cb))
+* upgrade next from 9.3.2 to 9.3.5 ([f8f6c22](https://github.com/vdtn359/vdtn359-news/commit/f8f6c2225449bd689fdeeafe0672b22729a5665e))
+
 # [@vdtn359/news-web-v1.6.4](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.3...@vdtn359/news-web-v1.6.4) (2020-04-19)
 
 
