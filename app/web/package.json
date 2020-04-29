@@ -14,7 +14,7 @@
         "@sendgrid/mail": "7.0.0",
         "@sentry/browser": "5.15.5",
         "@sentry/node": "5.15.4",
-        "@sentry/webpack-plugin": "1.10.0",
+        "@sentry/webpack-plugin": "1.11.1",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-search": "workspace:*",
