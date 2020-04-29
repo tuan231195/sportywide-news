@@ -1,3 +1,10 @@
+# [@vdtn359/news-worker-v1.2.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.2.0...@vdtn359/news-worker-v1.2.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* upgrade ioredis from 4.16.0 to 4.16.3 ([2a779f3](https://github.com/vdtn359/vdtn359-news/commit/2a779f38b78e400b724fefd9e961e0fd2e555efc))
+
 # [@vdtn359/news-worker-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-worker-v1.1.0...@vdtn359/news-worker-v1.2.0) (2020-04-19)
 
 
