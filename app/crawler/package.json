@@ -11,7 +11,7 @@
         "zip": "cd produles && mkdir nodejs && mv node_modules nodejs/node_modules && zip -9 -r --symlinks --quiet nodejs.zip nodejs"
     },
     "dependencies": {
-        "@sentry/node": "5.15.4",
+        "@sentry/node": "5.15.5",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-schema": "workspace:*",
