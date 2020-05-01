@@ -83,7 +83,7 @@
         "babel-plugin-transform-typescript-metadata": "0.3.0",
         "dotenv": "8.2.0",
         "fast-glob": "3.2.2",
-        "null-loader": "3.0.0",
+        "null-loader": "4.0.0",
         "sass": "1.26.3"
     }
 }
