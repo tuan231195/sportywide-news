@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/news-core",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "news core",
     "type": "dist/index.d.ts",
     "main": "dist/index.js",

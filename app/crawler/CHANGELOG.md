@@ -1,3 +1,14 @@
+# [@vdtn359/news-crawler-v1.4.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.4.0...@vdtn359/news-crawler-v1.4.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* **core:** fixed compilation error ([0999489](https://github.com/vdtn359/vdtn359-news/commit/099948971255c58f8cb80ea0a990564af243775e))
+* **deps:** update dependency ioredis to v4.16.3 ([62e0bab](https://github.com/vdtn359/vdtn359-news/commit/62e0babd13f8dfa499e3b79df2631e48dc90bbdf))
+* **deps:** update dependency jsdom to v16.2.2 ([bf705df](https://github.com/vdtn359/vdtn359-news/commit/bf705df451cde24edd673bac94e7d8ba3584e595))
+* **deps:** update dependency rxjs to v6.5.5 ([a952817](https://github.com/vdtn359/vdtn359-news/commit/a9528170913cc3008a6054456c4e4e5aef2fa0fe))
+* **deps:** update dependency winston-logzio to v5.0.4 ([ab7b2de](https://github.com/vdtn359/vdtn359-news/commit/ab7b2de57538442e8c814d53325ee527d8a881c4))
+
 # [@vdtn359/news-crawler-v1.4.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-crawler-v1.3.0...@vdtn359/news-crawler-v1.4.0) (2020-04-19)
 
 

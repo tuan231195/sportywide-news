@@ -1,3 +1,12 @@
+# [@vdtn359/news-core-v1.2.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-core-v1.2.0...@vdtn359/news-core-v1.2.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* **core:** fixed compilation error ([0999489](https://github.com/vdtn359/vdtn359-news/commit/099948971255c58f8cb80ea0a990564af243775e))
+* **deps:** update dependency rxjs to v6.5.5 ([a952817](https://github.com/vdtn359/vdtn359-news/commit/a9528170913cc3008a6054456c4e4e5aef2fa0fe))
+* **deps:** update dependency winston-logzio to v5.0.4 ([ab7b2de](https://github.com/vdtn359/vdtn359-news/commit/ab7b2de57538442e8c814d53325ee527d8a881c4))
+
 # [@vdtn359/news-core-v1.2.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-core-v1.1.0...@vdtn359/news-core-v1.2.0) (2020-04-19)
 
 
