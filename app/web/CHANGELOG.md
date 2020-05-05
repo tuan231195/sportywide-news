@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.6.7](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.6...@vdtn359/news-web-v1.6.7) (2020-05-05)
+
+
+### Bug Fixes
+
+* **web:** revert next to 9.3.5 ([9968b22](https://github.com/vdtn359/vdtn359-news/commit/9968b22227e96ac5defa1df200603f68a7d40005))
+
 # [@vdtn359/news-web-v1.6.6](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.5...@vdtn359/news-web-v1.6.6) (2020-05-05)
 
 
