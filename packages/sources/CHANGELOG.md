@@ -1,3 +1,10 @@
+# [@vdtn359/news-sources-v1.1.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-sources-v1.1.0...@vdtn359/news-sources-v1.1.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jsdom to v16.2.2 ([bf705df](https://github.com/vdtn359/vdtn359-news/commit/bf705df451cde24edd673bac94e7d8ba3584e595))
+
 # [@vdtn359/news-sources-v1.1.0](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-sources-v1.0.3...@vdtn359/news-sources-v1.1.0) (2020-04-19)
 
 
