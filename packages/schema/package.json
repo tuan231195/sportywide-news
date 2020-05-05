@@ -16,13 +16,13 @@
         "@vdtn359/news-utils": "workspace:*",
         "date-fns": "2.12.0",
         "firebase-admin": "8.10.0",
-        "ioredis": "4.16.0",
+        "ioredis": "4.16.3",
         "lodash": "4.17.15",
         "reflect-metadata": "0.1.13",
         "rxjs": "6.5.5"
     },
     "devDependencies": {
         "@types/bluebird": "3.5.30",
-        "@types/ioredis": "4.14.9"
+        "@types/ioredis": "4.16.0"
     }
 }
