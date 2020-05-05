@@ -12,9 +12,9 @@
     },
     "dependencies": {
         "@vdtn359/news-utils": "workspace:*",
-        "rxjs": "6.5.4",
+        "rxjs": "6.5.5",
         "winston": "3.2.1",
-        "winston-logzio": "5.0.3"
+        "winston-logzio": "5.0.4"
     },
     "devDependencies": {
         "ts-node": "8.8.1"
