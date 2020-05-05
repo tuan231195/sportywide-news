@@ -56,7 +56,7 @@ export function createLogger(
 				level,
 				host: 'listener.logz.io',
 				name: 'winston_logzio',
-			})
+			}) as any
 		);
 	}
 	const logWrapper = new LogWrapper(logger);
