@@ -147,7 +147,7 @@ importers:
       '@vdtn359/news-styles': 'link:../../packages/styles'
       '@vdtn359/news-utils': 'link:../../packages/utils'
       '@vdtn359/next-connect': 1.0.0
-      '@vdtn359/nextjs-auth0': 0.11.0_next@9.3.6
+      '@vdtn359/nextjs-auth0': 0.11.0_next@9.3.5
       axios: 0.19.2
       axios-retry: 3.1.4
       cors: 2.8.5
@@ -169,8 +169,8 @@ importers:
       logrocket-react: 4.0.1_react-dom@16.13.1+react@16.13.1
       mobile-detect: 1.4.4
       morgan: 1.10.0
-      next: 9.3.6_15ab9b97b1acc8923e06e722bb218d5c
-      next-pwa: 2.3.3_next@9.3.6
+      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
+      next-pwa: 2.3.3_next@9.3.5
       next-seo: 4.4.0_react-dom@16.13.1+react@16.13.1
       nprogress: 0.2.0
       path-to-regexp: 6.1.0
@@ -256,7 +256,7 @@ importers:
       logrocket-react: 4.0.1
       mobile-detect: 1.4.4
       morgan: 1.10.0
-      next: 9.3.6
+      next: 9.3.5
       next-pwa: 2.3.3
       next-seo: 4.4.0
       nprogress: 0.2.0
@@ -2108,6 +2108,14 @@ packages:
       lodash: 4.17.15
     resolution:
       integrity: sha512-c4gH3jsvSuGUezlP6rzSJ6jf8fYjLj3hsMZRx/nX0h+fmHN0w+ekubRrHPqnMec0meycA2nwCsJ7dC8IPem2FQ==
+  /@babel/types/7.7.4:
+    dependencies:
+      esutils: 2.0.3
+      lodash: 4.17.15
+      to-fast-properties: 2.0.0
+    dev: false
+    resolution:
+      integrity: sha512-cz5Ji23KCi4T+YIE/BolWosrJuSmoZeN1EFnRtBwF+KKLi8GG/Z2c2hOJJeCXPk4mwk4QFvTmwIodJowXgttRA==
   /@babel/types/7.8.3:
     dependencies:
       esutils: 2.0.3
@@ -2738,16 +2746,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==
-  /@next/react-refresh-utils/9.3.6_0a9318825b917b9c4e235ad4a5b131ac:
-    dependencies:
-      react-refresh: 0.8.1
-      webpack: 4.43.0_webpack@4.43.0
-    dev: false
-    peerDependencies:
-      react-refresh: 0.8.1
-      webpack: ^4
-    resolution:
-      integrity: sha512-XgxPc3WAkNpzD9xYtN4bd3wpV39WhnHYSwXGovVVcImXY6yn1as6hDgwkbuLADY/SHLIu2AI6CTVq0JDoTC/+g==
   /@nodelib/fs.scandir/2.1.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.3
@@ -3842,12 +3840,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-DmMV/tnN0zEd82zdGZA287ooVR/GrifUnEPgZD49NA77nUcBrnLvVNBg6gvPAkmkt6gvjiq7QQ1lptMru0Uhdw==
-  /@vdtn359/nextjs-auth0/0.11.0_next@9.3.6:
+  /@vdtn359/nextjs-auth0/0.11.0_next@9.3.5:
     dependencies:
       '@hapi/iron': 5.1.4
       base64url: 3.0.1
       cookie: 0.4.0
-      next: 9.3.6_15ab9b97b1acc8923e06e722bb218d5c
+      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
       openid-client: 3.14.2
     dev: false
     engines:
@@ -5071,6 +5069,7 @@ packages:
       path-is-absolute: 1.0.1
       readdirp: 2.2.1
       upath: 1.2.0
+    deprecated: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
     optionalDependencies:
       fsevents: 1.2.12
     resolution:
@@ -5781,7 +5780,7 @@ packages:
       node: '>4'
     resolution:
       integrity: sha512-BcxQSKTSEEQUftYpBVnsH4SF05NTuBokb19/sBt6asXGKZ/6VP7PLG1CBCkFDYOnhXhPh0jMhO6xZ71oYHXHBA==
-  /css-loader/3.5.3_webpack@4.43.0:
+  /css-loader/3.3.0_webpack@4.42.1:
     dependencies:
       camelcase: 5.3.1
       cssesc: 3.0.0
@@ -5795,15 +5794,14 @@ packages:
       postcss-modules-values: 3.0.0
       postcss-value-parser: 4.0.3
       schema-utils: 2.6.6
-      semver: 6.3.0
-      webpack: 4.43.0_webpack@4.43.0
+      webpack: 4.42.1_webpack@4.42.1
     dev: false
     engines:
       node: '>= 8.9.0'
     peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
+      webpack: ^4.0.0
     resolution:
-      integrity: sha512-UEr9NH5Lmi7+dguAm+/JSPovNjYbm2k3TK58EiwQHzOHH5Jfq1Y+XoP2bQO6TMn7PptMd0opxxedAWcaSTRKHw==
+      integrity: sha512-x9Y1vvHe5RR+4tzwFdWExPueK00uqFTCw7mZy+9aE/X1SKWOArm5luaOrtJ4d05IpOwJ6S86b/tVcIdhw1Bu4A==
   /css-mediaquery/0.1.2:
     dev: false
     resolution:
@@ -7600,6 +7598,7 @@ packages:
     dependencies:
       bindings: 1.5.0
       nan: 2.14.0
+    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
     engines:
       node: '>= 4.0'
     optional: true
@@ -10474,12 +10473,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==
-  /mini-css-extract-plugin/0.8.0_webpack@4.43.0:
+  /mini-css-extract-plugin/0.8.0_webpack@4.42.1:
     dependencies:
       loader-utils: 1.4.0
       normalize-url: 1.9.1
       schema-utils: 1.0.0
-      webpack: 4.43.0_webpack@4.43.0
+      webpack: 4.42.1_webpack@4.42.1
       webpack-sources: 1.4.3
     dev: false
     engines:
@@ -10673,11 +10672,11 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ChUlpT9tWfJ7YxqGw/WQ2T1gf8EeX93n1XqeQw0lkvGa7seszahvF4eOZUJoq7Hetsbzg4UHVnPoCXfXTyQR3g==
-  /next-pwa/2.3.3_next@9.3.6:
+  /next-pwa/2.3.3_next@9.3.5:
     dependencies:
       clean-webpack-plugin: 3.0.0
       globby: 11.0.0
-      next: 9.3.6_15ab9b97b1acc8923e06e722bb218d5c
+      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
       workbox-webpack-plugin: 5.1.2
       workbox-window: 5.1.2
     dev: false
@@ -10701,7 +10700,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /next/9.3.6_15ab9b97b1acc8923e06e722bb218d5c:
+  /next/9.3.5_15ab9b97b1acc8923e06e722bb218d5c:
     dependencies:
       '@ampproject/toolbox-optimizer': 2.2.0
       '@babel/core': 7.7.2
@@ -10719,17 +10718,17 @@ packages:
       '@babel/preset-react': 7.7.0_@babel+core@7.7.2
       '@babel/preset-typescript': 7.7.2_@babel+core@7.7.2
       '@babel/runtime': 7.7.2
-      '@next/react-refresh-utils': 9.3.6_0a9318825b917b9c4e235ad4a5b131ac
+      '@babel/types': 7.7.4
       babel-plugin-syntax-jsx: 6.18.0
       babel-plugin-transform-define: 2.0.0
       babel-plugin-transform-react-remove-prop-types: 0.4.24
       browserslist: 4.8.3
-      css-loader: 3.5.3_webpack@4.43.0
+      css-loader: 3.3.0_webpack@4.42.1
       find-cache-dir: 3.3.1
       fork-ts-checker-webpack-plugin: 3.1.1
       jest-worker: 24.9.0
       loader-utils: 2.0.0
-      mini-css-extract-plugin: 0.8.0_webpack@4.43.0
+      mini-css-extract-plugin: 0.8.0_webpack@4.42.1
       mkdirp: 0.5.3
       native-url: 0.3.1
       pnp-webpack-plugin: 1.5.0
@@ -10739,14 +10738,13 @@ packages:
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
       react-is: 16.8.6
-      react-refresh: 0.8.1
       resolve-url-loader: 3.1.1
-      sass-loader: 8.0.2_sass@1.26.3+webpack@4.43.0
-      style-loader: 1.2.0_webpack@4.43.0
+      sass-loader: 8.0.2_sass@1.26.3+webpack@4.42.1
+      style-loader: 1.0.0_webpack@4.42.1
       styled-jsx: 3.2.5_react@16.13.1
       use-subscription: 1.1.1_react@16.13.1
       watchpack: 2.0.0-beta.13
-      webpack: 4.43.0_webpack@4.43.0
+      webpack: 4.42.1_webpack@4.42.1
       webpack-sources: 1.4.3
     dev: false
     engines:
@@ -10757,7 +10755,7 @@ packages:
       react-dom: ^16.6.0
       sass: '*'
     resolution:
-      integrity: sha512-b46i+qw2SYMVTOObc7GqUizt1zH1fB3T5qcOiCpl9utD7/LcWZkSxSPe7ZJtpAdFnl8V/7A58ADSvU1oxDDWug==
+      integrity: sha512-vJKGUK2nMsveYZTZH5Oz9L+cDYcCsuWLUXfWJejvhdQ3jLgVhZVa+7TQ45Kt0PA1ea7jqlDUN22DtzmPFi981w==
   /nice-try/1.0.5:
     resolution:
       integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
@@ -12246,7 +12244,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 16.8.6
+      react-is: 16.13.1
     resolution:
       integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
   /property-expr/2.0.2:
@@ -12435,6 +12433,7 @@ packages:
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
   /react-is/16.8.6:
+    dev: false
     resolution:
       integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
   /react-lazyload/2.6.7_react-dom@16.13.1+react@16.13.1:
@@ -12462,12 +12461,6 @@ packages:
       react: 0.14.x || ^15.0.0 || ^16.0.0
     resolution:
       integrity: sha512-nmqYTx7QVjCm3WUZLeuOomna138R1luC4EqkW3hxJUrAe+3eNz3oFCLYdnPwILfn0mX1Ew2c3wctrjlUMYYUww==
-  /react-refresh/0.8.1:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-xZIKi49RtLUUSAZ4a4ut2xr+zr4+glOD5v0L413B55MPvlg4EQ6Ctx8PD4CmjlPGoAWmSCTmmkY59TErizNsow==
   /react-responsive/8.0.3_react@16.13.1:
     dependencies:
       hyphenate-style-name: 1.0.3
@@ -13172,7 +13165,7 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-hhbzAgTIX8O7SHfp2c8/kREfEn4qO/9q8C9beyY6+tvZ87EpoZ3i1RIEvp27YBswnNbY9mWd6paKVmKbAgLfZA==
-  /sass-loader/8.0.2_sass@1.26.3+webpack@4.43.0:
+  /sass-loader/8.0.2_sass@1.26.3+webpack@4.42.1:
     dependencies:
       clone-deep: 4.0.1
       loader-utils: 1.4.0
@@ -13180,7 +13173,7 @@ packages:
       sass: 1.26.3
       schema-utils: 2.6.6
       semver: 6.3.0
-      webpack: 4.43.0_webpack@4.43.0
+      webpack: 4.42.1_webpack@4.42.1
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -14055,18 +14048,18 @@ packages:
     optional: true
     resolution:
       integrity: sha1-6NK6H6nJBXAwPAMLaQD31fiavls=
-  /style-loader/1.2.0_webpack@4.43.0:
+  /style-loader/1.0.0_webpack@4.42.1:
     dependencies:
-      loader-utils: 2.0.0
+      loader-utils: 1.4.0
       schema-utils: 2.6.6
-      webpack: 4.43.0_webpack@4.43.0
+      webpack: 4.42.1_webpack@4.42.1
     dev: false
     engines:
       node: '>= 8.9.0'
     peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
+      webpack: ^4.0.0
     resolution:
-      integrity: sha512-HC8WcGnjwNrKji7HSBqFOhGNUSt7UDU/jHxT6bA83Gk+JWJBmgitWlGihc0V1w6ZvwlzcX5LJOsofZzSP7b1tQ==
+      integrity: sha512-B0dOCFwv7/eY31a5PCieNwMgMhVGFe9w+rh7s/Bx8kfFkrth9zfTZquoYvdw8URgiqxObQKcpW51Ugz1HjfdZw==
   /style-value-types/3.1.7:
     dependencies:
       hey-listen: 1.0.8
@@ -14340,26 +14333,6 @@ packages:
       webpack: 4.42.1_webpack@4.42.1
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
-    dev: true
-    engines:
-      node: '>= 6.9.0'
-    peerDependencies:
-      webpack: ^4.0.0
-    resolution:
-      integrity: sha512-QMxecFz/gHQwteWwSo5nTc6UaICqN1bMedC5sMtUc7y3Ha3Q8y6ZO0iCR8pq4RJC8Hjf0FEPEHZqcMB/+DFCrA==
-  /terser-webpack-plugin/1.4.3_webpack@4.43.0:
-    dependencies:
-      cacache: 12.0.4
-      find-cache-dir: 2.1.0
-      is-wsl: 1.1.0
-      schema-utils: 1.0.0
-      serialize-javascript: 2.1.2
-      source-map: 0.6.1
-      terser: 4.6.11
-      webpack: 4.43.0_webpack@4.43.0
-      webpack-sources: 1.4.3
-      worker-farm: 1.7.0
-    dev: false
     engines:
       node: '>= 6.9.0'
     peerDependencies:
@@ -15158,7 +15131,6 @@ packages:
       terser-webpack-plugin: 1.4.3_webpack@4.42.1
       watchpack: 1.6.1
       webpack-sources: 1.4.3
-    dev: true
     engines:
       node: '>=6.11.5'
     hasBin: true
@@ -15166,39 +15138,6 @@ packages:
       webpack: '*'
     resolution:
       integrity: sha512-SGfYMigqEfdGchGhFFJ9KyRpQKnipvEvjc1TwrXEPCM6H5Wywu10ka8o3KGrMzSMxMQKt8aCHUFh5DaQ9UmyRg==
-  /webpack/4.43.0_webpack@4.43.0:
-    dependencies:
-      '@webassemblyjs/ast': 1.9.0
-      '@webassemblyjs/helper-module-context': 1.9.0
-      '@webassemblyjs/wasm-edit': 1.9.0
-      '@webassemblyjs/wasm-parser': 1.9.0
-      acorn: 6.4.1
-      ajv: 6.12.0
-      ajv-keywords: 3.4.1_ajv@6.12.0
-      chrome-trace-event: 1.0.2
-      enhanced-resolve: 4.1.1
-      eslint-scope: 4.0.3
-      json-parse-better-errors: 1.0.2
-      loader-runner: 2.4.0
-      loader-utils: 1.4.0
-      memory-fs: 0.4.1
-      micromatch: 3.1.10
-      mkdirp: 0.5.5
-      neo-async: 2.6.1
-      node-libs-browser: 2.2.1
-      schema-utils: 1.0.0
-      tapable: 1.1.3
-      terser-webpack-plugin: 1.4.3_webpack@4.43.0
-      watchpack: 1.6.1
-      webpack-sources: 1.4.3
-    dev: false
-    engines:
-      node: '>=6.11.5'
-    hasBin: true
-    peerDependencies:
-      webpack: '*'
-    resolution:
-      integrity: sha512-GW1LjnPipFW2Y78OOab8NJlCflB7EFskMih2AHdvjbpKMeDJqEgSx24cXXXiPS65+WSwVyxtDsJH6jGX2czy+g==
   /websocket-driver/0.7.3:
     dependencies:
       http-parser-js: 0.4.10
