@@ -10,7 +10,7 @@ importers:
       '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
       '@types/lodash': 4.14.150
-      '@types/node': 13.13.4
+      '@types/node': 13.13.5
       '@types/react': 16.9.34
       '@vdtn359/mono-install': 1.1.1
       '@vdtn359/semantic-release-monorepo': 1.0.0_semantic-release@17.0.4
@@ -52,7 +52,7 @@ importers:
       '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
       '@types/lodash': 4.14.150
-      '@types/node': 13.13.4
+      '@types/node': 13.13.5
       '@types/react': 16.9.34
       '@typescript-eslint/eslint-plugin': 2.24.0
       '@typescript-eslint/parser': 2.24.0
@@ -441,10 +441,6 @@ packages:
       postcss-safe-parser: 4.0.2
       terser: 4.6.8
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -3609,6 +3605,10 @@ packages:
   /@types/node/13.13.4:
     resolution:
       integrity: sha512-x26ur3dSXgv5AwKS0lNfbjpCakGIduWU1DU91Zz58ONRWrIKGunmZBNv4P7N+e27sJkiGDsw/3fT4AtsqQBrBA==
+  /@types/node/13.13.5:
+    dev: true
+    resolution:
+      integrity: sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
   /@types/node/8.10.60:
     dev: false
     resolution:
@@ -3750,7 +3750,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3786,7 +3785,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3808,7 +3806,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -14602,8 +14599,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
