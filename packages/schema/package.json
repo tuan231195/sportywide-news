@@ -23,6 +23,6 @@
     },
     "devDependencies": {
         "@types/bluebird": "3.5.30",
-        "@types/ioredis": "4.16.0"
+        "@types/ioredis": "4.16.1"
     }
 }
