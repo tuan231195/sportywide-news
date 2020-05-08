@@ -30,7 +30,7 @@ importers:
       '@typescript-eslint/parser': 2.24.0_eslint@6.8.0+typescript@3.8.3
       chokidar-cli: 2.1.0
       commitizen: 4.0.3
-      cz-conventional-changelog: 3.1.0
+      cz-conventional-changelog: 3.2.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0_eslint@6.8.0
       eslint-plugin-prettier: 3.1.2_eslint@6.8.0+prettier@2.0.2
@@ -61,7 +61,7 @@ importers:
       '@zerollup/ts-transform-paths': 1.7.12
       chokidar-cli: ^2.1.0
       commitizen: 4.0.3
-      cz-conventional-changelog: 3.1.0
+      cz-conventional-changelog: 3.2.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0
       eslint-plugin-prettier: 3.1.2
@@ -441,10 +441,6 @@ packages:
       postcss-safe-parser: 4.0.2
       terser: 4.6.8
     dev: false
-    peerDependencies:
-      jimp: '*'
-      lru-cache: '*'
-      probe-image-size: '*'
     peerDependenciesMeta:
       jimp:
         optional: true
@@ -3750,7 +3746,6 @@ packages:
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3786,7 +3781,6 @@ packages:
       '@typescript-eslint/typescript-estree': 2.24.0_typescript@3.8.3
       eslint: 6.8.0
       eslint-visitor-keys: 1.1.0
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -3808,7 +3802,6 @@ packages:
       lodash: 4.17.15
       semver: 6.3.0
       tsutils: 3.17.1_typescript@3.8.3
-      typescript: 3.8.3
     dev: false
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -6008,14 +6001,13 @@ packages:
       '@commitlint/load': 8.3.5
     resolution:
       integrity: sha512-7KASIwB8/ClEyCRvQrCPbN7WkQnUSjSSVNyPM+gDJ0jskLi8h8N2hrdpyeCk7fIqKMRzziqVSOBTB8yyLTMHGQ==
-  /cz-conventional-changelog/3.1.0:
+  /cz-conventional-changelog/3.2.0:
     dependencies:
       chalk: 2.4.2
       commitizen: 4.0.3
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
-      right-pad: 1.0.1
       word-wrap: 1.2.3
     dev: false
     engines:
@@ -6024,7 +6016,7 @@ packages:
     optionalDependencies:
       '@commitlint/load': 8.3.5
     resolution:
-      integrity: sha512-SCwPPOF+7qMh1DZkJhrwaxCvZzPaz2E9BwQzcZwBuHlpcJj9zzz7K5vADQRhHuxStaHZFSLbDlZEdcls4bKu7Q==
+      integrity: sha512-yAYxeGpVi27hqIilG1nh4A9Bnx4J3Ov+eXy4koL3drrR+IO9GaWPsKjik20ht608Asqi8TQPf0mczhEeyAtMzg==
   /d/1.0.1:
     dependencies:
       es5-ext: 0.10.53
@@ -14602,8 +14594,6 @@ packages:
     dev: false
     engines:
       node: '>=6'
-    peerDependencies:
-      typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
