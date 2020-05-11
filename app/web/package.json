@@ -68,7 +68,7 @@
         "typedi": "0.8.0",
         "verror": "1.10.0",
         "winston": "3.2.1",
-        "yup": "0.28.3"
+        "yup": "0.28.5"
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "7.8.3",
@@ -77,7 +77,7 @@
         "@types/ioredis": "4.16.0",
         "@types/morgan": "1.9.0",
         "@types/styled-components": "5.1.0",
-        "@types/yup": "0.26.35",
+        "@types/yup": "0.28.3",
         "babel-plugin-add-react-displayname": "0.0.5",
         "babel-plugin-styled-components": "1.10.7",
         "babel-plugin-transform-typescript-metadata": "0.3.0",
