@@ -33,7 +33,7 @@
     "devDependencies": {
         "@types/config": "0.0.36",
         "@types/ioredis": "4.16.1",
-        "ts-node": "8.8.1",
+        "ts-node": "8.10.1",
         "ttypescript": "1.5.10",
         "webpack": "4.42.1"
     }
