@@ -11,7 +11,7 @@
         "build": "ttsc -b tsconfig.build.json"
     },
     "dependencies": {
-        "@elastic/elasticsearch": "7.6.1",
+        "@elastic/elasticsearch": "7.8.0",
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-utils": "workspace:*",
         "date-fns": "2.13.0",
