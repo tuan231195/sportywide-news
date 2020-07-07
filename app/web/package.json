@@ -12,8 +12,8 @@
     "dependencies": {
         "@fortawesome/fontawesome-free-webfonts": "1.0.9",
         "@sendgrid/mail": "7.0.0",
-        "@sentry/browser": "5.15.5",
-        "@sentry/node": "5.15.4",
+        "@sentry/browser": "5.19.1",
+        "@sentry/node": "5.19.1",
         "@sentry/webpack-plugin": "1.10.0",
         "@vdtn359/news-core": "workspace:*",
         "@vdtn359/news-models": "workspace:*",
