@@ -11,11 +11,11 @@ handler.get(request);
 export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
-	const commonNews = await search();
+	const commonNews = await search(req.query.size);
 	res.json(commonNews);
 }
 
-async function search() {
+async function search(size = 20) {
 	const results = await es.search({
 		index: NEWS_INDEX,
 		body: {
