@@ -1,3 +1,17 @@
+# [@vdtn359/news-web-v1.7.0](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.6.7...@vdtn359/news-web-v1.7.0) (2020-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.13.0 ([530f316](https://github.com/tuan231195/vdtn359-news/commit/530f3169d494406a1778df9c83cfdf50d3a65455))
+* **deps:** update dependency next-pwa to v2.4.0 ([c0d7d08](https://github.com/tuan231195/vdtn359-news/commit/c0d7d08a57276e15a0c74720d0d87d0201143855))
+* **deps:** update dependency yup to v0.28.5 ([03e3ad3](https://github.com/tuan231195/vdtn359-news/commit/03e3ad3baded31dcdf18e98dc5a0775a9ab86a5e))
+
+
+### Features
+
+* **web:** only show 5 news for recommendation ([064d744](https://github.com/tuan231195/vdtn359-news/commit/064d7442aedcf0805bfcb9c0db684f8b936f99ff))
+
 # [@vdtn359/news-web-v1.6.7](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-web-v1.6.6...@vdtn359/news-web-v1.6.7) (2020-05-05)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/news-web",
-    "version": "1.6.7",
+    "version": "1.7.0",
     "private": true,
     "description": "news web application",
     "scripts": {
