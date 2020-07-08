@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.7.2](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.1...@vdtn359/news-web-v1.7.2) (2020-07-08)
+
+
+### Bug Fixes
+
+* **web:** handle promise rejection in build process ([d43f974](https://github.com/tuan231195/vdtn359-news/commit/d43f974f76ab212738d2ba4bd579608cd92a7f43))
+
 # [@vdtn359/news-web-v1.7.1](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.0...@vdtn359/news-web-v1.7.1) (2020-07-08)
 
 
