@@ -15,7 +15,7 @@ export default handler;
 
 async function request(req: NextApiRequest, res: NextApiResponse) {
 	const size = intQuery(req.query.size, 5);
-	req.query.size = size;
+	req.query.size = size.toString();
 	const likes = parseJsonQuery(req.cookies, 'likes') || [];
 	if (!likes.length) {
 		return getHotNews(req, res);

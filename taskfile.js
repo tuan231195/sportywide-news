@@ -58,3 +58,9 @@ cli({
 	build,
 	postInstall,
 });
+
+process.on('unhandledRejection', (err) => {
+	// eslint-disable-next-line no-console
+	console.error('Unhandle rejections', err);
+	process.exit(1);
+});
