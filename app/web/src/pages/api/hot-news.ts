@@ -22,7 +22,7 @@ async function search(size = 20) {
 		index: NEWS_INDEX,
 		body: {
 			track_scores: true,
-			size: 20,
+			size,
 			sort: [
 				{
 					_score: {
