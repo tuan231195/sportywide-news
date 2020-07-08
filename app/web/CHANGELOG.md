@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.7.1](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.0...@vdtn359/news-web-v1.7.1) (2020-07-08)
+
+
+### Bug Fixes
+
+* **web:** fixed int query ([fc99df4](https://github.com/tuan231195/vdtn359-news/commit/fc99df45c688af4e65eb891f6837b6b933749e5b))
+
 # [@vdtn359/news-web-v1.7.0](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.6.7...@vdtn359/news-web-v1.7.0) (2020-07-08)
 
 
