@@ -1,3 +1,10 @@
+# [@vdtn359/news-schema-v1.2.2](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-schema-v1.2.1...@vdtn359/news-schema-v1.2.2) (2020-07-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency date-fns to v2.13.0 ([530f316](https://github.com/tuan231195/vdtn359-news/commit/530f3169d494406a1778df9c83cfdf50d3a65455))
+
 # [@vdtn359/news-schema-v1.2.1](https://github.com/vdtn359/vdtn359-news/compare/@vdtn359/news-schema-v1.2.0...@vdtn359/news-schema-v1.2.1) (2020-05-05)
 
 
