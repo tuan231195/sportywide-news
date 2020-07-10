@@ -31,7 +31,7 @@
         "font-awesome-minify-plugin": "1.1.0",
         "formik": "2.1.4",
         "framer-motion": "1.10.3",
-        "helmet": "3.22.0",
+        "helmet": "3.23.3",
         "hoist-non-react-statics": "3.3.2",
         "http-errors": "1.7.3",
         "idb": "5.0.2",
