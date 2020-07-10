@@ -9,7 +9,7 @@ importers:
       '@semantic-release/release-notes-generator': 9.0.1_semantic-release@17.0.4
       '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
-      '@types/lodash': 4.14.150
+      '@types/lodash': 4.14.157
       '@types/node': 13.13.5
       '@types/react': 16.9.34
       '@vdtn359/mono-install': 1.1.1
@@ -51,7 +51,7 @@ importers:
       '@semantic-release/release-notes-generator': 9.0.1
       '@types/cheerio': 0.22.18
       '@types/jest': 25.1.4
-      '@types/lodash': 4.14.150
+      '@types/lodash': 4.14.157
       '@types/node': 13.13.5
       '@types/react': 16.9.34
       '@typescript-eslint/eslint-plugin': 2.32.0
@@ -3639,10 +3639,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
-  /@types/lodash/4.14.150:
+  /@types/lodash/4.14.157:
     dev: true
     resolution:
-      integrity: sha512-kMNLM5JBcasgYscD9x/Gvr6lTAv2NVgsKtet/hm93qMyf/D1pt+7jeEZklKJKxMVmXjxbRVQQGfqDSfipYCO6w==
+      integrity: sha512-Ft5BNFmv2pHDgxV5JDsndOWTRJ+56zte0ZpYLowp03tW+K+t8u8YMOzAnpuqPgzX6WO1XpDIUm7u04M8vdDiVQ==
   /@types/long/4.0.1:
     dev: false
     optional: true
