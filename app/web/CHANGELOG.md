@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.7.3](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.2...@vdtn359/news-web-v1.7.3) (2020-07-08)
+
+
+### Bug Fixes
+
+* **web:** minor fix for recommendation ([e03d600](https://github.com/tuan231195/vdtn359-news/commit/e03d600c50a5b54649298d64df8472bdfa652392))
+
 # [@vdtn359/news-web-v1.7.2](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.1...@vdtn359/news-web-v1.7.2) (2020-07-08)
 
 
