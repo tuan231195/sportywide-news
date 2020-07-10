@@ -1,12 +1,10 @@
 import { CnetNews, getRawText } from 'src/news';
 
-describe('#extractNews', () => {
+describe.skip('#extractNews', () => {
 	it('should strip style and css and data attributes', async () => {
 		expect(
-			getRawText(
-				await CnetNews.extractUrl(
-					'https://www.cnet.com/news/every-livestream-concerts-coronavirus-shutdown'
-				)
+			await CnetNews.extractUrl(
+				'https://www.cnet.com/news/every-livestream-concerts-coronavirus-shutdown'
 			)
 		).toMatchSnapshot();
 	});

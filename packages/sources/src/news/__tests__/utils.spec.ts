@@ -19,15 +19,11 @@ describe('#getCleanedHtml', () => {
 
 describe('#getThumbnailUrl', () => {
 	it('should return the first image', async () => {
-		let source = await AuNews.extractUrl(
-			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03'
-		);
-		expect(getThumbnailUrl(source)).toMatchSnapshot();
-
-		source = await TechRepublicNews.extractUrl(
-			'https://www.techrepublic.com/article/how-to-get-a-developer-job-the-best-programming-languages-to-learn'
-		);
-		expect(getThumbnailUrl(source)).toMatchSnapshot();
+		expect(
+			getThumbnailUrl(
+				`<p><img src="http://image1"/><p/><img src="http://image2"/></p>`
+			)
+		).toEqual('http://image1');
 	});
 });
 
@@ -37,7 +33,7 @@ describe('#getRawText', () => {
 		expect(getRawText(source)).toEqual('Text\n' + 'Hello');
 	});
 
-	it('should process long text', async () => {
+	it.skip('should process long text', async () => {
 		const source = await AuNews.extractUrl(
 			'https://www.news.com.au/travel/travel-advice/coronavirus-in-australia-mandatory-quarantine-in-hotels-for-anyone-returning-from-overseas/news-story/353e68837a888122a223d53bb2e4cf03'
 		);

@@ -85,7 +85,3 @@ It’s critical to “stop the capacity” for any returning travellers to sprea
 
 “ This is a really important thing. But we are also worried about community transmission. That is the single most important concern for the health experts.”"
 `;
-
-exports[`#getThumbnailUrl should return the first image 1`] = `"https://cdn.newsapi.com.au/image/v1/52041e416be2bf85e346cbc211245722?width=650"`;
-
-exports[`#getThumbnailUrl should return the first image 2`] = `"https://tr2.cbsistatic.com/hub/i/r/2019/08/06/53468105-5f4b-45dc-b51d-9c901a348849/resize/770x/9b3589392a6254346c344fc41eb24da8/istock-1036557452.jpg"`;
