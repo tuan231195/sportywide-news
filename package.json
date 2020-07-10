@@ -69,7 +69,7 @@
         "husky": "4.2.3",
         "jest": "26.1.0",
         "link-parent-bin": "1.0.2",
-        "lint-staged": "10.2.2",
+        "lint-staged": "10.2.11",
         "prettier": "2.0.2"
     }
 }
