@@ -52,7 +52,7 @@
         "ts-transpile": "1.2.4",
         "tsconfig-paths": "3.9.0",
         "ttypescript": "1.5.10",
-        "typescript": "3.8.3"
+        "typescript": "3.9.6"
     },
     "optionalDependencies": {
         "@commitlint/cli": "8.3.5",
