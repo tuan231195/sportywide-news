@@ -15,6 +15,6 @@
         "@vdtn359/news-models": "workspace:*",
         "@vdtn359/news-utils": "workspace:*",
         "date-fns": "2.13.0",
-        "lodash": "4.17.15"
+        "lodash": "4.17.19"
     }
 }
