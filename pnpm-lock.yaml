@@ -12,7 +12,7 @@ importers:
       '@types/lodash': 4.14.150
       '@types/node': 13.13.5
       '@types/react': 16.9.34
-      '@vdtn359/mono-install': 1.1.1
+      '@vdtn359/mono-install': 1.1.2
       '@vdtn359/semantic-release-monorepo': 1.0.5_semantic-release@17.0.4
       '@zerollup/ts-transform-paths': 1.7.12_typescript@3.8.3
       next-compose-plugins: 2.2.0
@@ -56,7 +56,7 @@ importers:
       '@types/react': 16.9.34
       '@typescript-eslint/eslint-plugin': 2.32.0
       '@typescript-eslint/parser': 2.32.0
-      '@vdtn359/mono-install': 1.1.1
+      '@vdtn359/mono-install': 1.1.2
       '@vdtn359/semantic-release-monorepo': 1.0.5
       '@zerollup/ts-transform-paths': 1.7.12
       chokidar-cli: ^2.1.0
@@ -3576,7 +3576,7 @@ packages:
     dependencies:
       '@types/events': 3.0.0
       '@types/minimatch': 3.0.3
-      '@types/node': 13.11.1
+      '@types/node': 13.13.5
     resolution:
       integrity: sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
   /@types/got/9.6.10:
@@ -3880,20 +3880,17 @@ packages:
         optional: true
     resolution:
       integrity: sha512-hQpbWM/Y2iq6jB9FHYJBqa3h1R9IEGodOtajhb261cVHt9cz30AKjXM6WP7LxJdEPPlyJ9rPTZVgBUgZgiyPgw==
-  /@vdtn359/mono-install/1.1.1:
+  /@vdtn359/mono-install/1.1.2:
     dependencies:
+      '@vdtn359/package-manager-utils': 1.0.2
       cpy: 8.0.0
-      dependency-graph: 0.9.0
-      fast-glob: 3.2.2
       find-up: 4.1.0
       fs-extra: 8.1.0
-      is-installed: 2.0.1
-      yaml: 1.8.3
       yargs: 15.3.1
     dev: true
     hasBin: true
     resolution:
-      integrity: sha512-G20S9pIs+PDO6GVuYLEaw/M4olml+6MQBi6yW4QqB05FjJOmjb5fgYwNCRF4O0qIyLhTfKBzBhzqeLBvp0qixA==
+      integrity: sha512-ziom3CeYDtLkq/CprXB2BplBCwKzwOf8dsJyyCBCZ00yLSpWwtkWhv703r7SXgda5bEvP9VV6BwpEt+z6PZMWQ==
   /@vdtn359/next-connect/1.0.0:
     dependencies:
       trouter: 3.1.0
@@ -3914,6 +3911,16 @@ packages:
       next: ^9.0.5
     resolution:
       integrity: sha512-9MEPqCtoKV7eq1rsSz/n2hqCYsUWLk+rp2mDTzeQnly69uICclAh5933zP82XrnngyuITBFN14cwVlUZA9ohYQ==
+  /@vdtn359/package-manager-utils/1.0.2:
+    dependencies:
+      dependency-graph: 0.9.0
+      fast-glob: 3.2.2
+      fs-extra: 9.0.0
+      is-installed: 2.0.1
+      yaml: 1.9.2
+    dev: true
+    resolution:
+      integrity: sha512-JYpL5PaxvaAXzH4xxbZ6PcxGyiz92v2jgDaxunR+tE8qKwqjMxuOcbgMt9Egcah8z++F8NCKRImu/rIElra/dw==
   /@vdtn359/package-manager-utils/1.0.4:
     dependencies:
       dependency-graph: 0.9.0
@@ -5680,8 +5687,8 @@ packages:
       integrity: sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==
   /cp-file/7.0.0:
     dependencies:
-      graceful-fs: 4.2.3
-      make-dir: 3.0.2
+      graceful-fs: 4.2.4
+      make-dir: 3.1.0
       nested-error-stacks: 2.1.0
       p-event: 4.1.0
     dev: true
@@ -10189,6 +10196,7 @@ packages:
   /make-dir/3.0.2:
     dependencies:
       semver: 6.3.0
+    dev: false
     engines:
       node: '>=8'
     resolution:
