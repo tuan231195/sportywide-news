@@ -1,7 +1,7 @@
 import { getRawText } from 'src/news/utils';
 import { extractUrl } from 'src/news/factory';
 
-describe('#extractUrl', () => {
+describe.skip('#extractUrl', () => {
 	it('parse news urls correctly', async () => {
 		const news = getRawText(
 			await extractUrl(
