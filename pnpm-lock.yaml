@@ -33,7 +33,7 @@ importers:
       cz-conventional-changelog: 3.2.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0_eslint@6.8.0
-      eslint-plugin-prettier: 3.1.2_eslint@6.8.0+prettier@2.0.2
+      eslint-plugin-prettier: 3.1.4_eslint@6.8.0+prettier@2.0.2
       eslint-plugin-react: 7.19.0_eslint@6.8.0
       husky: 4.2.3
       jest: 26.0.1
@@ -64,7 +64,7 @@ importers:
       cz-conventional-changelog: 3.2.0
       eslint: 6.8.0
       eslint-config-prettier: 6.10.0
-      eslint-plugin-prettier: 3.1.2
+      eslint-plugin-prettier: 3.1.4
       eslint-plugin-react: 7.19.0
       husky: 4.2.3
       jest: 26.0.1
@@ -6804,7 +6804,7 @@ packages:
       eslint: '>=3.14.1'
     resolution:
       integrity: sha512-AtndijGte1rPILInUdHjvKEGbIV06NuvPrqlIEaEaWtbtvJh464mDeyGMdZEQMsGvC0ZVkiex1fSNcC4HAbRGg==
-  /eslint-plugin-prettier/3.1.2_eslint@6.8.0+prettier@2.0.2:
+  /eslint-plugin-prettier/3.1.4_eslint@6.8.0+prettier@2.0.2:
     dependencies:
       eslint: 6.8.0
       prettier: 2.0.2
@@ -6814,10 +6814,10 @@ packages:
       node: '>=6.0.0'
     optional: true
     peerDependencies:
-      eslint: '>= 5.0.0'
-      prettier: '>= 1.13.0'
+      eslint: '>=5.0.0'
+      prettier: '>=1.13.0'
     resolution:
-      integrity: sha512-GlolCC9y3XZfv3RQfwGew7NnuFDKsfI4lbvRK+PIIo23SFH+LemGs4cKwzAaRa+Mdb+lQO/STaIayno8T5sJJA==
+      integrity: sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
   /eslint-plugin-react/7.19.0_eslint@6.8.0:
     dependencies:
       array-includes: 3.1.1
