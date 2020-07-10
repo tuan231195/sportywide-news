@@ -71,8 +71,8 @@
         "yup": "0.28.5"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-class-properties": "7.8.3",
-        "@babel/plugin-proposal-decorators": "7.8.3",
+        "@babel/plugin-proposal-class-properties": "7.10.4",
+        "@babel/plugin-proposal-decorators": "7.10.4",
         "@types/http-errors": "1.6.3",
         "@types/ioredis": "4.16.1",
         "@types/morgan": "1.9.0",
