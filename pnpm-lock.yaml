@@ -95,7 +95,7 @@ importers:
       winston: 3.2.1
     devDependencies:
       '@types/config': 0.0.36
-      ts-node: 8.10.1
+      ts-node: 8.10.2
     specifiers:
       '@sentry/node': 5.15.4
       '@types/config': 0.0.36
@@ -109,7 +109,7 @@ importers:
       dotenv: 8.2.0
       find-up: 4.1.0
       rxjs: 6.5.5
-      ts-node: 8.10.1
+      ts-node: 8.10.2
       winston: 3.2.1
   app/scheduler:
     dependencies:
@@ -122,7 +122,7 @@ importers:
       winston: 3.2.1
     devDependencies:
       '@types/config': 0.0.36
-      ts-node: 8.10.1
+      ts-node: 8.10.2
     specifiers:
       '@types/config': 0.0.36
       '@vdtn359/news-core': 'workspace:*'
@@ -131,7 +131,7 @@ importers:
       '@vdtn359/news-utils': 'workspace:*'
       config: 3.3.1
       dotenv: 8.2.0
-      ts-node: 8.10.1
+      ts-node: 8.10.2
       winston: 3.2.1
   app/web:
     dependencies:
@@ -169,7 +169,7 @@ importers:
       logrocket-react: 4.0.1_react-dom@16.13.1+react@16.13.1
       mobile-detect: 1.4.4
       morgan: 1.10.0
-      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
+      next: 9.3.5_01496e136432c9af3919b4448420472a
       next-pwa: 2.4.0_next@9.3.5
       next-seo: 4.4.0_react-dom@16.13.1+react@16.13.1
       nprogress: 0.2.0
@@ -208,7 +208,7 @@ importers:
       dotenv: 8.2.0
       fast-glob: 3.2.2
       null-loader: 3.0.0
-      sass: 1.26.3
+      sass: 1.26.10
     specifiers:
       '@babel/plugin-proposal-class-properties': 7.8.3
       '@babel/plugin-proposal-decorators': 7.8.3
@@ -274,7 +274,7 @@ importers:
       reflect-metadata: 0.1.13
       rss: 1.2.2
       rxjs: 6.5.5
-      sass: 1.26.3
+      sass: 1.26.10
       semantic-ui-react: 0.88.2
       sitemap: 6.1.2
       slick-carousel: 1.8.1
@@ -302,8 +302,8 @@ importers:
     devDependencies:
       '@types/config': 0.0.36
       '@types/ioredis': 4.16.1
-      ts-node: 8.10.1
-      ttypescript: 1.5.10_ts-node@8.10.1
+      ts-node: 8.10.2
+      ttypescript: 1.5.10_ts-node@8.10.2
       webpack: 4.42.1_webpack@4.42.1
     specifiers:
       '@sentry/node': 5.15.4
@@ -321,7 +321,7 @@ importers:
       ioredis: 4.16.3
       npm-run-all: 4.1.5
       rxjs: 6.5.5
-      ts-node: 8.10.1
+      ts-node: 8.10.2
       ttypescript: 1.5.10
       webpack: 4.42.1
       winston: 3.2.1
@@ -332,11 +332,11 @@ importers:
       winston: 3.2.1
       winston-logzio: 5.0.4
     devDependencies:
-      ts-node: 8.10.1
+      ts-node: 8.10.2
     specifiers:
       '@vdtn359/news-utils': 'workspace:*'
       rxjs: 6.5.5
-      ts-node: 8.10.1
+      ts-node: 8.10.2
       winston: 3.2.1
       winston-logzio: 5.0.4
   packages/models:
@@ -3896,7 +3896,7 @@ packages:
       '@hapi/iron': 5.1.4
       base64url: 3.0.1
       cookie: 0.4.0
-      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
+      next: 9.3.5_01496e136432c9af3919b4448420472a
       openid-client: 3.14.2
     dev: false
     engines:
@@ -5119,7 +5119,7 @@ packages:
     engines:
       node: '>= 8.10.0'
     optionalDependencies:
-      fsevents: 2.1.2
+      fsevents: 2.1.3
     resolution:
       integrity: sha512-4QYCEWOcK3OJrxwvyyAOxFuhpvOVCYkr33LPfFNBjAD/w3sEzWsp2BUOkI4l9bHvWioAd0rc6NlHUOEaWkTeqg==
   /chownr/1.1.4:
@@ -7592,14 +7592,6 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-Ggd/Ktt7E7I8pxZRbGIs7vwqAPscSESMrCSkx2FtWeqmheJgCo2R74fTsZFCifr0VTPwqRpPv17+6b8Zp7th0Q==
-  /fsevents/2.1.2:
-    engines:
-      node: ^8.16.0 || ^10.6.0 || >=11.0.0
-    optional: true
-    os:
-      - darwin
-    resolution:
-      integrity: sha512-R4wDiBwZ0KzpgOWetKDug1FZcYhqYnUYKtfZYt4mD5SBz76q0KR4Q9o7GIPamsVPGmW3EYPPJ0dOOjvx32ldZA==
   /fsevents/2.1.3:
     engines:
       node: ^8.16.0 || ^10.6.0 || >=11.0.0
@@ -10608,7 +10600,7 @@ packages:
     dependencies:
       clean-webpack-plugin: 3.0.0
       globby: 11.0.0
-      next: 9.3.5_15ab9b97b1acc8923e06e722bb218d5c
+      next: 9.3.5_01496e136432c9af3919b4448420472a
       workbox-webpack-plugin: 5.1.3
       workbox-window: 5.1.3
     dev: false
@@ -10632,7 +10624,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
-  /next/9.3.5_15ab9b97b1acc8923e06e722bb218d5c:
+  /next/9.3.5_01496e136432c9af3919b4448420472a:
     dependencies:
       '@ampproject/toolbox-optimizer': 2.2.0
       '@babel/core': 7.7.2
@@ -10671,7 +10663,7 @@ packages:
       react-dom: 16.13.1_react@16.13.1
       react-is: 16.8.6
       resolve-url-loader: 3.1.1
-      sass-loader: 8.0.2_sass@1.26.3+webpack@4.42.1
+      sass-loader: 8.0.2_sass@1.26.10+webpack@4.42.1
       style-loader: 1.0.0_webpack@4.42.1
       styled-jsx: 3.2.5_react@16.13.1
       use-subscription: 1.1.1_react@16.13.1
@@ -13053,12 +13045,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-hhbzAgTIX8O7SHfp2c8/kREfEn4qO/9q8C9beyY6+tvZ87EpoZ3i1RIEvp27YBswnNbY9mWd6paKVmKbAgLfZA==
-  /sass-loader/8.0.2_sass@1.26.3+webpack@4.42.1:
+  /sass-loader/8.0.2_sass@1.26.10+webpack@4.42.1:
     dependencies:
       clone-deep: 4.0.1
       loader-utils: 1.4.0
       neo-async: 2.6.1
-      sass: 1.26.3
+      sass: 1.26.10
       schema-utils: 2.6.6
       semver: 6.3.0
       webpack: 4.42.1_webpack@4.42.1
@@ -13079,14 +13071,14 @@ packages:
         optional: true
     resolution:
       integrity: sha512-7o4dbSK8/Ol2KflEmSco4jTjQoV988bM82P9CZdmo9hR3RLnvNc0ufMNdMrB0caq38JQ/FgF4/7RcbcfKzxoFQ==
-  /sass/1.26.3:
+  /sass/1.26.10:
     dependencies:
       chokidar: 3.3.1
     engines:
       node: '>=8.9.0'
     hasBin: true
     resolution:
-      integrity: sha512-5NMHI1+YFYw4sN3yfKjpLuV9B5l7MqQ6FlkTcC4FT+oHbBRUZoSjHrrt/mE0nFXJyY2kQtU9ou9HxvFVjLFuuw==
+      integrity: sha512-bzN0uvmzfsTvjz0qwccN1sPm2HxxpNI/Xa+7PlUEMS+nQvbyuEK7Y0qFqxlPHhiNHb1Ze8WQJtU31olMObkAMw==
   /sax/1.2.4:
     dev: false
     resolution:
@@ -14439,7 +14431,7 @@ packages:
       jest: '>=25 <26'
     resolution:
       integrity: sha512-TnntkEEjuXq/Gxpw7xToarmHbAafgCaAzOpnajnFC6jI7oo1trMzAHA04eWpc3MhV6+yvhE8uUBAmN+teRJh0A==
-  /ts-node/8.10.1:
+  /ts-node/8.10.2:
     dependencies:
       arg: 4.1.3
       diff: 4.0.2
@@ -14453,7 +14445,7 @@ packages:
     peerDependencies:
       typescript: '>=2.7'
     resolution:
-      integrity: sha512-bdNz1L4ekHiJul6SHtZWs1ujEKERJnHs4HxN7rjTyyVOFf3HaJ6sLqe6aPG62XTzAB/63pKRh5jTSWL0D7bsvw==
+      integrity: sha512-ISJJGgkIpDdBhWVu3jufsWpK3Rzo7bdiIXJjQc0ynKxVOVcg2oIrf2H2cejminGrptVc6q6/uynAHNCuWGbpVA==
   /ts-pnp/1.2.0:
     dev: false
     engines:
@@ -14537,10 +14529,10 @@ packages:
   /tty-browserify/0.0.0:
     resolution:
       integrity: sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
-  /ttypescript/1.5.10_ts-node@8.10.1:
+  /ttypescript/1.5.10_ts-node@8.10.2:
     dependencies:
       resolve: 1.15.1
-      ts-node: 8.10.1
+      ts-node: 8.10.2
     dev: true
     hasBin: true
     peerDependencies:
