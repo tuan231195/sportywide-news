@@ -8,7 +8,7 @@ importers:
       '@semantic-release/npm': 7.0.5_semantic-release@17.0.4
       '@semantic-release/release-notes-generator': 9.0.1_semantic-release@17.0.4
       '@types/cheerio': 0.22.18
-      '@types/jest': 25.1.4
+      '@types/jest': 25.2.3
       '@types/lodash': 4.14.150
       '@types/node': 13.13.5
       '@types/react': 16.9.34
@@ -50,7 +50,7 @@ importers:
       '@semantic-release/npm': 7.0.5
       '@semantic-release/release-notes-generator': 9.0.1
       '@types/cheerio': 0.22.18
-      '@types/jest': 25.1.4
+      '@types/jest': 25.2.3
       '@types/lodash': 4.14.150
       '@types/node': 13.13.5
       '@types/react': 16.9.34
@@ -3623,13 +3623,13 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     resolution:
       integrity: sha512-UpYjBi8xefVChsCoBpKShdxTllC9pwISirfoZsUa2AAdQg/Jd2KQGtSbw+ya7GPo7x/wAPlH6JBhKhAsXUEZNA==
-  /@types/jest/25.1.4:
+  /@types/jest/25.2.3:
     dependencies:
       jest-diff: 25.3.0
       pretty-format: 25.3.0
     dev: true
     resolution:
-      integrity: sha512-QDDY2uNAhCV7TMCITrxz+MRk1EizcsevzfeS6LykIlq2V1E5oO4wXG8V2ZEd9w7Snxeeagk46YbMgZ8ESHx3sw==
+      integrity: sha512-JXc1nK/tXHiDhV55dvfzqtmP4S3sy3T3ouV2tkViZgxY/zeUkcpQcQPGRlgF4KmWzWW5oiWYSZwtCB+2RsE4Fw==
   /@types/json-schema/7.0.4:
     dev: false
     optional: true
