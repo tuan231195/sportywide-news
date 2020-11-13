@@ -4,7 +4,7 @@
     "private": true,
     "description": "simple news",
     "license": "ISC",
-    "author": "Tuan Nguyen <vdtn359@gmail.com>",
+    "author": "SportyWide <sportywidedev@gmail.com>",
     "scripts": {
         "cli": "node ./taskfile.js",
         "prepare": "pnpm run cli -- buildPackages",

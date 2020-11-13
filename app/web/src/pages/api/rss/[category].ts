@@ -34,11 +34,11 @@ async function request(req: NextApiRequest, res: NextApiResponse) {
 		return res.send(await promise.zlib.gunzip(cachedValue));
 	}
 	const feed = new RSS({
-		title: "Tuan's news",
+		title: "SportyWide's news",
 		description: 'A news website',
-		webMaster: 'Tuan Nguyen',
+		webMaster: 'SportyWide',
 		language: 'en',
-		copywright: '2020 Tuan Nguyen',
+		copywright: '2020 SportyWide',
 		pubDate: new Date().toISOString(),
 		ttl: 300,
 		categories: category ? [str.ucfirst(category)] : [],

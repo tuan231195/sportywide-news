@@ -139,7 +139,7 @@ export const NavBar: React.FC<Props> = function ({
                 >
                     <a className={'vn-raw-link-center'}>
                         <AppLogo src={'/favicon.ico'} />
-                        Tuan&apos;s news
+                        SportyWide&apos;s news
                     </a>
                 </MenuItem>
             </VnBigScreen>

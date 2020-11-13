@@ -30,7 +30,7 @@ export default class IndexPage extends React.Component<Props> {
         return (
             <>
                 <Head>
-                    <title>Tuan&apos;s news</title>
+                    <title>SportyWide&apos;s news</title>
                 </Head>
                 <NewsSlide newsList={this.props.recommendations} />
                 <NewsStream

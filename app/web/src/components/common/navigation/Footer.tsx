@@ -32,7 +32,7 @@ export const Footer = () => {
                     </Header>
                     <div className={'vn-ml2'}>
                         <div>
-                            <Icon name={'user'} /> Tuan Nguyen
+                            <Icon name={'user'} /> SportyWide
                         </div>
                         <div>
                             <Icon name={'mail outline'} /> vdtn359@gmail.com
