@@ -1,3 +1,10 @@
+# [@vdtn359/news-web-v1.7.4](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.3...@vdtn359/news-web-v1.7.4) (2020-11-13)
+
+
+### Bug Fixes
+
+* **web:** word changes ([cbbedae](https://github.com/tuan231195/vdtn359-news/commit/cbbedae4b66af04da7d3c37407bc38b7a311eabb))
+
 # [@vdtn359/news-web-v1.7.3](https://github.com/tuan231195/vdtn359-news/compare/@vdtn359/news-web-v1.7.2...@vdtn359/news-web-v1.7.3) (2020-07-08)
 
 
