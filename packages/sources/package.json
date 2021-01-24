@@ -17,7 +17,7 @@
         "bottleneck": "2.19.5",
         "cheerio": "1.0.0-rc.3",
         "date-fns": "2.13.0",
-        "dompurify": "2.0.8",
+        "dompurify": "2.0.17",
         "html-to-text": "5.1.1",
         "jsdom": "16.2.2",
         "lodash": "4.17.15"
