@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "date-fns": "2.13.0",
-        "lodash": "4.17.15",
+        "lodash": "4.17.21",
         "uuid": "7.0.3",
         "uuid-by-string": "3.0.2"
     }
