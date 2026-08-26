@@ -36,7 +36,7 @@
         "http-errors": "1.7.3",
         "idb": "5.0.2",
         "ioredis": "4.16.3",
-        "js-cookie": "2.2.1",
+        "js-cookie": "3.0.7",
         "jwt-decode": "2.2.0",
         "lodash": "4.17.15",
         "logrocket": "1.0.7",
